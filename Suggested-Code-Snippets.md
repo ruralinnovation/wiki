@@ -3,7 +3,7 @@
 ```
 library(DBI)
 
-con = cori_db::connect_to_db("sch_layer")
+con = cori.db::connect_to_db("sch_layer")
 
 # Analysis code here
 
