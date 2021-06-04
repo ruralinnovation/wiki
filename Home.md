@@ -8,7 +8,7 @@ The coriverse is an evolving attempt to develop a standard set of best practices
 
 1. Set an environment variable called `GITHUB_PAT` using `Sys.setenv(GITHUB_PAT = 'MY_TOKEN_HERE')`. Instructions for creating an auth token are available in [Github's documentation](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token). 
 
-2. Call `devtools::install_github('ruralinnovation/coriverse')`. `install_github()` will look for the evironment variable GITHUB_PAT, which will allow you to install the dependent private repos.
+2. Call `devtools::install_github('ruralinnovation/coriverse', ref = 'main')`. `install_github()` will look for the environment variable GITHUB_PAT, which will allow you to install the dependent private repos. Currently, adding `ref = 'main'` is required, as by default `install_github()` looks for the branch `master`, which does not exist.
 
 # Philosophy
 
