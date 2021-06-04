@@ -6,9 +6,10 @@ The coriverse is an evolving attempt to develop a standard set of best practices
 
 `coriverse` is a metapackage, allowing us to conveniently install component packages that address different pieces of the MDA workflow. To install, use the following steps:
 
+0. Ensure you have `remotes` 2.4.0 installed (current version as of June 2021)
 1. Set an environment variable called `GITHUB_PAT` using `Sys.setenv(GITHUB_PAT = 'MY_TOKEN_HERE')`. Instructions for creating an auth token are available in [Github's documentation](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token). 
 
-2. Call `devtools::install_github('ruralinnovation/coriverse', ref = 'main')`. `install_github()` will look for the environment variable GITHUB_PAT, which will allow you to install the dependent private repos. Currently, adding `ref = 'main'` is required, as by default `install_github()` looks for the branch `master`, which does not exist.
+2. Call `remotes::install_github('ruralinnovation/coriverse')`. `install_github()` will look for the environment variable GITHUB_PAT, which will allow you to install the dependent private repos. 
 
 # Philosophy
 
