@@ -2,7 +2,7 @@
 
 The coriverse is an evolving attempt to develop a standard set of best practices for the MDA team, centralize important or useful functions into an easily accessible location, and manage package dependencies for our scripts.
 
-## Installation
+# Installation
 
 `coriverse` is a metapackage, allowing us to conveniently install component packages that address different pieces of the MDA workflow. To install, use the following steps:
 
