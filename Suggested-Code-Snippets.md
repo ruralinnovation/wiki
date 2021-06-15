@@ -1,4 +1,4 @@
-## Reading data
+# Reading data
 
 #### CSV
 
@@ -32,7 +32,60 @@ esri2sf(url)
 
 ```
 
-## Disconnect from a database
+# Write Data
+
+### NON-SPATIAL
+
+#### To CSV
+
+- Use `readr::write_csv()` for data sets of <100K rows, `data.table::fwrite()` for larger data sets
+
+#### To Postgres 
+
+```
+DBI::dbWriteTable(con, "name", df)
+```
+
+#### Google Sheets
+
+```
+library(googlesheets4)
+
+options(httr_oob_default = TRUE)
+gs4_auth()
+
+# make a new workbook
+gs4_create("name", sheets = list(sheet_name = df, ...))
+
+# existing workbook
+
+write_sheet(df, ss = "workbook_url", sheet = "worksheet_name_to_write_to)
+```
+
+#### To Airtable
+
+- Follow documentation in the [CIMS ReadMe](https://github.com/ruralinnovation/county-crm), or ask Matt R
+
+### SPATIAL
+
+#### To Postgres 
+
+```
+sf::st_write(df, con, "name")
+```
+
+#### To File
+
+```
+sf::st_write(df, "path/name.gpkg")
+```
+
+#### CARTO
+
+- `write_carto()` function on RStudio server (`/data/Github/base/functions/write_carto.R`)
+
+
+# Disconnect from a database
 
 ```
 library(DBI)
