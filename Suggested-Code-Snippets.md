@@ -1,9 +1,12 @@
 # TOC
 [Read Data](#read)
+[Write Data](#write)
+[Disconnect from DB](#disconnect)
+[Validate join](#validate)
 
 <a name="read"/>
 
-# Read Data
+## Read Data
 
 #### CSV
 
@@ -37,7 +40,9 @@ esri2sf(url)
 
 ```
 
-# Write Data
+<a name="write"/>
+
+## Write Data
 
 ### NON-SPATIAL
 
@@ -89,8 +94,9 @@ sf::st_write(df, "path/name.gpkg")
 
 - `write_carto()` function on RStudio server (`/data/Github/base/functions/write_carto.R`)
 
+<a name="disconnect"/>
 
-# Disconnect from a database
+## Disconnect from a database
 
 ```
 library(DBI)
@@ -101,6 +107,8 @@ con = cori.db::connect_to_db("sch_layer")
 
 DBI::dbDisconnect(con)
 ```
+
+<a name="validate"/>
 
 ## Validate a left join
 
