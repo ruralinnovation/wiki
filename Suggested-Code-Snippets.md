@@ -1,3 +1,37 @@
+## Reading data
+
+#### CSV
+
+- Use `readr::read_csv()` for files with < 100K rows. For larger files, use `data.table::fread()`
+
+#### Google Sheet
+
+```
+
+library(googlesheets4)
+
+options(httr_oob_default = TRUE)
+gs4_auth()
+
+read_sheet("URL")
+
+```
+
+#### .SHP, .GPKG, or other spatial file
+
+- `sf::st_read()`
+
+#### ESRI Server
+
+```
+remotes::install_github('yonghah/esri2sf')
+
+library(esri2sf)
+
+esri2sf(url)
+
+```
+
 ## Disconnect from a database
 
 ```
