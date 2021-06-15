@@ -1,3 +1,6 @@
+
+---------------------
+
 # TOC
 [Read Data](#read)
 
@@ -8,6 +11,8 @@
 [Validate join](#validate)
 
 <a name="read"/>
+
+---------------------
 
 ## Read Data
 
@@ -42,6 +47,8 @@ library(esri2sf)
 esri2sf(url)
 
 ```
+
+---------------------
 
 <a name="write"/>
 
@@ -79,6 +86,8 @@ write_sheet(df, ss = "workbook_url", sheet = "worksheet_name_to_write_to)
 
 - Follow documentation in the [CIMS ReadMe](https://github.com/ruralinnovation/county-crm), or ask Matt R
 
+---------------------
+
 ### SPATIAL
 
 #### To Postgres 
@@ -97,6 +106,8 @@ sf::st_write(df, "path/name.gpkg")
 
 - `write_carto()` function on RStudio server (`/data/Github/base/functions/write_carto.R`)
 
+---------------------
+
 <a name="disconnect"/>
 
 ## Disconnect from a database
@@ -110,6 +121,8 @@ con = cori.db::connect_to_db("sch_layer")
 
 DBI::dbDisconnect(con)
 ```
+
+---------------------
 
 <a name="validate"/>
 
