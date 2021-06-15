@@ -1,7 +1,10 @@
 # TOC
 [Read Data](#read)
+
 [Write Data](#write)
+
 [Disconnect from DB](#disconnect)
+
 [Validate join](#validate)
 
 <a name="read"/>
