@@ -10,6 +10,8 @@
 
 [Validate join](#validate)
 
+[Explore Data](#explore)
+
 <a name="read"/>
 
 ---------------------
@@ -136,3 +138,13 @@ new_df = left_join(old_df1, old_df2, by = 'key_var')
 stopifnot(nrow(old_df1) == nrow(new_df))
 
 ```
+
+<a name="explore"/>
+
+## Explore a dataset
+
+- Use `dplyr::glimpse()` to get an overview of large data sets (many columns)
+- `head()` will work well for data with fewer columns
+- For numeric variables of interest, `summary()` provides a good overview
+- For categorical variables, use `group_by()` and `count()` from `dplyr` to get counts by group
+- Get count of `NA` values across all columns with `lapply(df, function(c) sum(is.na(c)))`
