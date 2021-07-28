@@ -11,6 +11,7 @@ The coriverse is an evolving attempt to develop a standard set of best practices
 
 2. Call `remotes::install_github('ruralinnovation/coriverse')`. `install_github()` will look for the environment variable GITHUB_PAT, which will allow you to install the dependent private repos. 
 
+_For instructions on connecting to the database using the coriverse, see the [cori_db wiki](https://github.com/ruralinnovation/cori_db/wiki)_
 # Philosophy
 
 ### Functions are verbs
