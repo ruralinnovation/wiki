@@ -2,6 +2,8 @@
 ---------------------
 
 # TOC
+[Connect to Postgres](#connect)
+
 [Read Data](#read)
 
 [Write Data](#write)
@@ -11,6 +13,18 @@
 [Validate join](#validate)
 
 [Explore Data](#explore)
+
+<a name="connect"/>
+
+---------------------
+
+## Connect to Postgres
+
+Follow instructions on the [cori_db wiki](https://github.com/ruralinnovation/cori_db/wiki) to set up your `.Renviron` file.
+
+```
+con <- connect_to_db('sch_layer)
+```
 
 <a name="read"/>
 
