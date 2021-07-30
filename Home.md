@@ -12,9 +12,12 @@ The coriverse is an evolving attempt to develop a standard set of best practices
 2. Call `remotes::install_github('ruralinnovation/coriverse')`. `install_github()` will look for the environment variable GITHUB_PAT, which will allow you to install the dependent private repos. 
 
 _For instructions on connecting to the database using the coriverse, see the [cori_db wiki](https://github.com/ruralinnovation/cori_db/wiki)_
+
+---
+
 # Philosophy
 
-### Functions are verbs
+#### Functions are verbs
 Whenever possible use a descriptive verb or action phrase to name your function.
 
 ```
@@ -27,10 +30,31 @@ column_adder()
 url_data()
 ```
 
-### Snakes are better than camels
+#### Snakes are better than camels
 
 Prefer snake_case to camelCase and period separation in function and variable names.
 
-### library() and require() should never be used in a function
+#### library() and require() should never be used in a function
 
 If you absolutely need to check if a package is installed use `requireNamespace(quietly = TRUE)` in an if condition. Otherwise use `@import`, `@importFrom` and `::` notation to ensure that your dependencies are met.
+
+#### The Zen of Python (and R too)
+
+- Beautiful is better than ugly.
+- Explicit is better than implicit.
+- Simple is better than complex.
+- Complex is better than complicated.
+- Flat is better than nested.
+- Sparse is better than dense.
+- Readability counts.
+- Special cases aren't special enough to break the rules.
+- Although practicality beats purity.
+- Errors should never pass silently.
+- Unless explicitly silenced.
+- In the face of ambiguity, refuse the temptation to guess.
+- There should be one-- and preferably only one --obvious way to do it.
+- Although that way may not be obvious at first unless you're Dutch.
+- Now is better than never.
+- Although never is often better than *right* now.
+- If the implementation is hard to explain, it's a bad idea.
+- If the implementation is easy to explain, it may be a good idea.
