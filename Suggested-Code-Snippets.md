@@ -101,6 +101,7 @@ write_sheet(df, ss = "workbook_url", sheet = "worksheet_name_to_write_to)
 #### To Airtable
 
 - Follow documentation in the [CIMS ReadMe](https://github.com/ruralinnovation/county-crm), or ask Matt R
+- Strong recommendation to use the [Airtable Python Wrapper](https://airtable-python-wrapper.readthedocs.io/en/master/index.html), as it is many times faster and runs on any system with Python installed (compared to R process, which requires Linux OS)
 
 ---------------------
 
