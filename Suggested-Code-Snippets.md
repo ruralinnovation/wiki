@@ -23,7 +23,7 @@
 Follow instructions on the [cori_db wiki](https://github.com/ruralinnovation/cori_db/wiki) to set up your `.Renviron` file.
 
 ```
-con <- connect_to_db('sch_layer)
+con <- connect_to_db('sch_layer')
 ```
 
 <a name="read"/>
