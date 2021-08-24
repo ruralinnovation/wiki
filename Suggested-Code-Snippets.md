@@ -163,3 +163,35 @@ stopifnot(nrow(old_df1) == nrow(new_df))
 - For numeric variables of interest, `summary()` provides a good overview
 - For categorical variables, use `group_by()` and `count()` from `dplyr` to get counts by group
 - Get count of `NA` values across all columns with `lapply(df, function(c) sum(is.na(c)))`
+
+## Visualize data on a map
+- `plot()` is the simplest option. Use `plot(table$geography_field)` to just see a single map.
+- `ggplot()` and geom_sf() are useful when you want to see multiple layers overlayed.
+
+    e.g.
+    ```
+    ggplot() +
+      geom_sf(data = county_polygon) +
+      geom_sf(data = served_polygon, color = "green", fill = "green") +
+      geom_sf(data = county_roads_union) +
+      geom_sf(data = served_roads, color = "red")
+    ```
+- leaflet() is great for seeing data on top of a basemap that lets you zoom in and out, add popups, etc. The documentation is pretty good.
+
+    e.g.
+    ```
+    leaflet() %>%
+      addTiles() %>%
+      addPolygons(data = albany_boundary, color = "black") %>%
+      addPolylines(data = albany_roads, color = "yellow") %>%
+      addPolylines(data = albany_served_roads, color = "red") %>%
+      addMarkers(data = Carroll_County_Addresses_g %>% filter(Town_Name == "Albany"))
+    ```
+
+
+## Compare 2 dataframes
+(Useful when updating data and you want to see what changed)
+```
+library(arsenal)
+summary(comparedf([old_table %>% st_drop_geometry(), new_table %>% st_drop_geometry()), by = "id")
+```
