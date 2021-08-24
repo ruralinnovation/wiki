@@ -180,7 +180,7 @@ stopifnot(nrow(old_df1) == nrow(new_df))
       geom_sf(data = county_roads_union) +
       geom_sf(data = served_roads, color = "red")
     ```
-- leaflet() is great for seeing data on top of a basemap that lets you zoom in and out, add popups, etc. The documentation is pretty good.
+- leaflet() is great for seeing data on top of a basemap that lets you zoom in and out, add popups, etc. The [documentation](https://rstudio.github.io/leaflet/) is pretty good.
 
     e.g.
     ```
