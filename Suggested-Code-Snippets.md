@@ -14,6 +14,10 @@
 
 [Explore Data](#explore)
 
+[Visualize data on a map](#visualize-data-on-a-map)
+
+[Compare 2 dataframes](#compare-2-dataframes)
+
 <a name="connect"/>
 
 ---------------------
