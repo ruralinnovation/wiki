@@ -197,5 +197,6 @@ stopifnot(nrow(old_df1) == nrow(new_df))
 (Useful when updating data and you want to see what changed)
 ```
 library(arsenal)
-summary(comparedf([old_table %>% st_drop_geometry(), new_table %>% st_drop_geometry()), by = "id")
+# st_drop_geometry() only needed for spatial data frames
+summary(comparedf(old_table %>% st_drop_geometry(), new_table %>% st_drop_geometry()), by = "id")
 ```
