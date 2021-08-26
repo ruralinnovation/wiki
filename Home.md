@@ -38,7 +38,7 @@ Prefer snake_case to camelCase and period separation in function and variable na
 
 If you absolutely need to check if a package is installed use `requireNamespace(quietly = TRUE)` in an if condition. Otherwise use `@import`, `@importFrom` and `::` notation to ensure that your dependencies are met.
 
-#### The Zen of Python (and R too)
+#### The Zen of Functional Programming (The Zen of Python +)
 
 - Beautiful is better than ugly.
 - Explicit is better than implicit.
@@ -58,3 +58,7 @@ If you absolutely need to check if a package is installed use `requireNamespace(
 - Although never is often better than *right* now.
 - If the implementation is hard to explain, it's a bad idea.
 - If the implementation is easy to explain, it may be a good idea.
+- Copy and paste is the root of 42% of all evil.
+- If you would copy and paste code a third time, write a function.
+- If you would copy and paste a function for the third time, use a functional.
+- Although a loop is better than nothing.
