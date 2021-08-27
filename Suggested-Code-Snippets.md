@@ -125,7 +125,12 @@ sf::st_write(df, "path/name.gpkg")
 
 #### CARTO
 
-- `write_carto()` function on RStudio server (`/data/Github/base/functions/write_carto.R`)
+```
+library(coriverse)
+
+write_carto(sf_df, 'name_of_layer_on_carto', Rto::carto())
+
+```
 
 ---------------------
 
