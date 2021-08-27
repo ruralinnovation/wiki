@@ -22,7 +22,7 @@
 
 ---------------------
 
-## Connect to Postgres
+# Connect to Postgres
 
 Follow instructions on the [cori_db wiki](https://github.com/ruralinnovation/cori_db/wiki) to set up your `.Renviron` file.
 
@@ -34,7 +34,7 @@ con <- connect_to_db('sch_layer')
 
 ---------------------
 
-## Read Data
+# Read Data
 
 #### CSV
 
@@ -72,7 +72,7 @@ esri2sf(url)
 
 <a name="write"/>
 
-## Write Data
+# Write Data
 
 ### NON-SPATIAL
 
@@ -136,7 +136,7 @@ write_carto(sf_df, 'name_of_layer_on_carto', Rto::carto())
 
 <a name="disconnect"/>
 
-## Disconnect from a database
+# Disconnect from a database
 
 ```
 library(DBI)
@@ -165,7 +165,7 @@ stopifnot(nrow(old_df1) == nrow(new_df))
 
 <a name="explore"/>
 
-## Explore a dataset
+# Explore a dataset
 
 - Use `dplyr::glimpse()` to get an overview of large data sets (many columns)
 - `head()` will work well for data with fewer columns
@@ -197,9 +197,11 @@ stopifnot(nrow(old_df1) == nrow(new_df))
       addMarkers(data = Carroll_County_Addresses_g %>% filter(Town_Name == "Albany"))
     ```
 
+<a name="compare-2-dataframes"/>
 
-## Compare 2 dataframes
+# Compare 2 dataframes
 (Useful when updating data and you want to see what changed)
+
 ```
 library(arsenal)
 # st_drop_geometry() only needed for spatial data frames
