@@ -68,6 +68,18 @@ esri2sf(url)
 
 ```
 
+#### Airtable
+
+```
+remotes::install_github('matthewjrogers/rairtable')
+
+set_airtable_api_key('MY_KEY_HERE')
+
+atbl <- airtable('Table Name', "BASE_ID")
+
+dta <- read_airtable(atbl)
+
+```
 ---------------------
 
 <a name="write"/>
