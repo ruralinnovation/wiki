@@ -116,8 +116,23 @@ write_sheet(df, ss = "workbook_url", sheet = "worksheet_name_to_write_to)
 
 #### To Airtable
 
-- Follow documentation in the [CIMS ReadMe](https://github.com/ruralinnovation/county-crm), or ask Matt R
-- Strong recommendation to use the [Airtable Python Wrapper](https://airtable-python-wrapper.readthedocs.io/en/master/index.html), as it is many times faster and runs on any system with Python installed (compared to R process, which requires Linux OS)
+```
+
+remotes::install_github('matthewjrogers/rairtable')
+
+set_airtable_api_key('MY_KEY_HERE')
+
+# requires that table already exists with correct column names and types
+insert_records()
+
+# same requirements as insert, plus you need data with airtable record ids
+update_records()
+
+```
+
+- [Documentation for `rairtable` package](https://matthewjrogers.github.io/rairtable)
+
+- Strong recommendation to use the [Airtable Python Wrapper](https://airtable-python-wrapper.readthedocs.io/en/master/index.html), as it is many times faster and runs on any system with Python installed
 
 ---------------------
 
