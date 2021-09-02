@@ -179,7 +179,7 @@ DBI::dbDisconnect(con)
 
 <a name="validate"/>
 
-## Validate a left join
+# Validate a left join
 
 ```
 # check that the result of the join has the same number of rows as the left hand side of the join
@@ -200,7 +200,7 @@ stopifnot(nrow(old_df1) == nrow(new_df))
 - For categorical variables, use `group_by()` and `count()` from `dplyr` to get counts by group
 - Get count of `NA` values across all columns with `lapply(df, function(c) sum(is.na(c)))`
 
-## Visualize data on a map
+# Visualize data on a map
 - `plot()` is the simplest option. Use `plot(table$geography_field)` to just see a single map.
 - `ggplot()` and geom_sf() are useful when you want to see multiple layers overlayed.
 
