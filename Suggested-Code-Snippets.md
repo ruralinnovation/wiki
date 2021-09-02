@@ -132,7 +132,7 @@ update_records()
 
 - [Documentation for `rairtable` package](https://matthewjrogers.github.io/rairtable)
 
-- Strong recommendation to use the [Airtable Python Wrapper](https://airtable-python-wrapper.readthedocs.io/en/master/index.html), as it is many times faster and runs on any system with Python installed
+- Also consider [Airtable Python Wrapper](https://airtable-python-wrapper.readthedocs.io/en/master/index.html), as it is somewhat faster.
 
 ---------------------
 
