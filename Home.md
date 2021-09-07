@@ -53,7 +53,7 @@ If you absolutely need to check if a package is installed use `requireNamespace(
 - Unless explicitly silenced.
 - In the face of ambiguity, refuse the temptation to guess.
 - There should be one-- and preferably only one --obvious way to do it.
-- Although that way may not be obvious at first unless you're Dutch.
+- Whatever that way may be, document it here for the sake of your coworkers and yourself six months from now.
 - Now is better than never.
 - Although never is often better than *right* now.
 - If the implementation is hard to explain, it's a bad idea.
