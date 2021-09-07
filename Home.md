@@ -30,13 +30,19 @@ column_adder()
 url_data()
 ```
 
+--------------------
+
 #### Snakes are better than camels
 
 Prefer snake_case to camelCase and period separation in function and variable names.
 
+--------------------
+
 #### library() and require() should never be used in a function
 
 If you absolutely need to check if a package is installed use `requireNamespace(quietly = TRUE)` in an if condition. Otherwise use `@import`, `@importFrom` and `::` notation to ensure that your dependencies are met.
+
+--------------------
 
 #### The Zen of Functional Programming (The Zen of Python +)
 
