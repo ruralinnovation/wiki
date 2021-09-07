@@ -6,17 +6,17 @@
 
 - [Read Data](#read)
 
-[Write Data](#write)
+- [Write Data](#write)
 
-[Disconnect from DB](#disconnect)
+- [Disconnect from DB](#disconnect)
 
-[Validate join](#validate)
+- [Validate join](#validate)
 
-[Explore Data](#explore)
+- [Explore Data](#explore)
 
-[Visualize data on a map](#visualize-data-on-a-map)
+- [Visualize data on a map](#visualize-data-on-a-map)
 
-[Compare 2 dataframes](#compare-2-dataframes)
+- [Compare 2 dataframes](#compare-2-dataframes)
 
 <a name="connect"/>
 
