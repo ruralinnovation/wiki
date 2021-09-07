@@ -2,9 +2,9 @@
 ---------------------
 
 # TOC
-[Connect to Postgres](#connect)
+- [Connect to Postgres](#connect)
 
-[Read Data](#read)
+- [Read Data](#read)
 
 [Write Data](#write)
 
