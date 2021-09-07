@@ -59,6 +59,7 @@ If you absolutely need to check if a package is installed use `requireNamespace(
 - If the implementation is hard to explain, it's a bad idea.
 - If the implementation is easy to explain, it may be a good idea.
 - Copy and paste is the root of 42% of all evil.
-- If you would copy and paste code a third time, write a function.
-- If you would copy and paste a function for the third time, use a functional.
+- If you would copy and paste code a third time, instead write a function.
+- If you would copy and paste a function for the third time in a script, instead use a functional.
 - Although a loop is better than nothing.
+- If you would copy a function into a new script even once, document it and add it to the coriverse.
