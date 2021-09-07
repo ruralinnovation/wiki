@@ -30,6 +30,8 @@ Follow instructions on the [cori_db wiki](https://github.com/ruralinnovation/cor
 con <- connect_to_db('sch_layer')
 ```
 
+The [cori_db wiki](https://github.com/ruralinnovation/cori_db/wiki) also documents several helper functions for DB interaction in the coriverse.
+
 <a name="read"/>
 
 ---------------------
