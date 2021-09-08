@@ -30,7 +30,7 @@
 - Unless explicitly silenced.
 - In the face of ambiguity, refuse the temptation to guess.
 - There should be one-- and preferably only one --obvious way to do it.
-- Whatever that way may be, document it here for the sake of your coworkers and yourself six months from now.
+- If you find the one obvious way to do it, document it here for the sake of your coworkers and yourself in six months.
 - Now is better than never.
 - Although never is often better than *right* now.
 - If the implementation is hard to explain, it's a bad idea.
