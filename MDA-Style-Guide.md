@@ -1,5 +1,7 @@
 # This is the CORI/RISI MDA team style guide. This is an evolving document.
 
+---------------------------------------------
+
 ## Code
 
 - Always use `library()` to load packages. `require()` is used in a lot of MDA legacy code, and should be replaced with `library()` when it is encountered.
@@ -9,11 +11,15 @@
 - Always use a [project-oriented workflow](https://www.tidyverse.org/blog/2017/12/workflow-vs-script/).
 - A great deal of legacy MDA code prefixes all variables with `x.`. This practice should be avoided moving forward.
 
+---------------------------------------------
+
 ## Naming Conventions
 
 - Variable and table names, both in code and on the database, should always be in snake_case, i.e. all lower case with underscore separation of words.
 - Github repositories dedicated to a new project should begin with the prefix `proj-`. Similarly, repositories dedicated to ETL of a specific data set should begin with the prefix `data-`. All repositories should have clear, descriptive names.
 - Scripts that need to be run in a specific order should be prefixed with two digits and and an underscore, e.g. `01_`, `02_` ... `10_`. Scripts numbered with a single digit will be displayed out of order in most file explorers when there are 10 or more scripts.
+
+---------------------------------------------
 
 ## The Zen of Functional Programming (The Zen of Python +)
 
