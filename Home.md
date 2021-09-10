@@ -15,7 +15,7 @@ _For instructions on connecting to the database using the coriverse, see the [co
 
 ---
 
-# Philosophy
+# Development Philosophy
 
 #### Functions are verbs
 Whenever possible use a descriptive verb or action phrase to name your function.
