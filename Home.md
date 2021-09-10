@@ -15,31 +15,15 @@ _For instructions on connecting to the database using the coriverse, see the [co
 
 ---
 
-# Development Philosophy
+# Development Process for New coriverse Functions
 
-#### Functions are verbs
-Whenever possible use a descriptive verb or action phrase to name your function.
-
-```
-# Good
-add_column()
-download_from_url()
-
-# Bad
-column_adder()
-url_data()
-```
-
---------------------
-
-#### Snakes are better than camels
-
-Prefer snake_case to camelCase and period separation in function and variable names.
-
---------------------
-
-#### library() and require() should never be used in a function
-
-If you absolutely need to check if a package is installed use `requireNamespace(quietly = TRUE)` in an if condition. Otherwise use `@import`, `@importFrom` and `::` notation to ensure that your dependencies are met.
-
---------------------
+0. Create a branch of the appropriate coriverse package repo
+1. Write a function. All functions from external packages should reference the package with :: syntax (e.g. dplyr::filter())
+2. Save the function in the R folder of the appropriate coriverse package repo in your branch. The file name should match the function name.
+3. Insert a roxygen skeleton (CTRL + SHIFT + ALT + R in RStudio)
+4. Update the title, documentation of the parameters, and the return value. Add an `@import` tag for each package the function depends on. If the function uses only one or two functions from an external package, use an `@importFrom` tag for each function.
+5. If the packages the function depends on do not appear in the Imports field of the DESCRIPTION file, add the package name(s) there
+6. Run `devtools::document()`
+7. Run `devtools::check()`
+8. If the check passes with no errors, warnings, or notes, push to your branch. Otherwise, resolve errors, warnings, and notes.
+9. Open a pull request and tag Matt R for review.
