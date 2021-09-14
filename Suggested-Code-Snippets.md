@@ -242,7 +242,7 @@ summary(comparedf(old_table %>% st_drop_geometry(), new_table %>% st_drop_geomet
 
 # Working with SQL in R
 
-#### Read SQL files
+### Read SQL files
 
 ```
 query <- cori.db::read_sql('path/to/sql.file')
@@ -252,7 +252,7 @@ query <- cori.db::read_sql('path/to/sql.file')
 queries <- cori.db::read_sql(c('path/to/file1.sql', 'path/to/file2.sql'))
 ```
 
-#### Execute a query on Postgres (no return value)
+### Execute a query on Postgres (no return value)
 
 ```
 execute_on_postgres(query)
@@ -263,7 +263,7 @@ execute_on_postgres(queries)
 
 ```
 
-#### Read data from a query
+### Read data from a query
 
 ```
 con <- connect_to_db('schema')
