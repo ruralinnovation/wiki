@@ -2,7 +2,8 @@
 ---------------------
 
 # TOC
-- [Connect to Postgres](#connect)
+
+- [Working with SQL](#sql)
 
 - [Read Data](#read)
 
@@ -18,21 +19,51 @@
 
 - [Compare 2 dataframes](#compare-2-dataframes)
 
-- [Working with SQL](#sql)
-
-<a name="connect"/>
 
 ---------------------
 
-# Connect to Postgres
+<a name="sql"/>
+
+# Working with SQL in R
+
+### Connect to Postgres
 
 Follow instructions on the [cori_db wiki](https://github.com/ruralinnovation/cori_db/wiki) to set up your `.Renviron` file.
 
 ```
 con <- connect_to_db('sch_layer')
 ```
-
 The [cori_db wiki](https://github.com/ruralinnovation/cori_db/wiki) also documents several helper functions for DB interaction in the coriverse.
+
+### Read SQL files
+
+```
+query <- cori.db::read_sql('path/to/sql.file')
+
+# read_sql() is vectorized, so you can read multiple files into a vector of queries
+
+queries <- cori.db::read_sql(c('path/to/file1.sql', 'path/to/file2.sql'))
+```
+
+### Execute a query on Postgres (no return value)
+
+```
+execute_on_postgres(query)
+
+# execute_on_postgres() is vectorized, so you can read multiple files into a vector of queries
+
+execute_on_postgres(queries)
+
+```
+
+### Read data from a query
+
+```
+con <- connect_to_db('schema')
+dta <- DBI::dbGetQuery(con, "select * from table limit 5")
+DBI::dbDisconnect(con)
+
+```
 
 <a name="read"/>
 
@@ -237,37 +268,4 @@ stopifnot(nrow(old_df1) == nrow(new_df))
 library(arsenal)
 # st_drop_geometry() only needed for spatial data frames
 summary(comparedf(old_table %>% st_drop_geometry(), new_table %>% st_drop_geometry()), by = "id")
-```
-<a name="sql"/>
-
-# Working with SQL in R
-
-### Read SQL files
-
-```
-query <- cori.db::read_sql('path/to/sql.file')
-
-# read_sql() is vectorized, so you can read multiple files into a vector of queries
-
-queries <- cori.db::read_sql(c('path/to/file1.sql', 'path/to/file2.sql'))
-```
-
-### Execute a query on Postgres (no return value)
-
-```
-execute_on_postgres(query)
-
-# execute_on_postgres() is vectorized, so you can read multiple files into a vector of queries
-
-execute_on_postgres(queries)
-
-```
-
-### Read data from a query
-
-```
-con <- connect_to_db('schema')
-dta <- DBI::dbGetQuery(con, "select * from table limit 5")
-DBI::dbDisconnect(con)
-
 ```
