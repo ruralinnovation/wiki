@@ -240,6 +240,8 @@ summary(comparedf(old_table %>% st_drop_geometry(), new_table %>% st_drop_geomet
 ```
 <a name="sql"/>
 
+# Working with SQL in R
+
 #### Read SQL files
 
 ```
