@@ -18,6 +18,8 @@
 
 - [Compare 2 dataframes](#compare-2-dataframes)
 
+- [Working with SQL](#sql)
+
 <a name="connect"/>
 
 ---------------------
@@ -235,4 +237,35 @@ stopifnot(nrow(old_df1) == nrow(new_df))
 library(arsenal)
 # st_drop_geometry() only needed for spatial data frames
 summary(comparedf(old_table %>% st_drop_geometry(), new_table %>% st_drop_geometry()), by = "id")
+```
+<a name="sql"/>
+
+#### Read SQL files
+
+```
+query <- cori.db::read_sql('path/to/sql.file')
+
+# read_sql() is vectorized, so you can read multiple files into a vector of queries
+
+queries <- cori.db::read_sql(c('path/to/file1.sql', 'path/to/file2.sql'))
+```
+
+#### Execute a query on Postgres (no return value)
+
+```
+execute_on_postgres(query)
+
+# execute_on_postgres() is vectorized, so you can read multiple files into a vector of queries
+
+execute_on_postgres(queries)
+
+```
+
+#### Read data from a query
+
+```
+con <- connect_to_db('schema')
+dta <- DBI::dbGetQuery(con, "select * from table limit 5")
+DBI::dbDisconnect(con)
+
 ```
