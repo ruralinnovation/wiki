@@ -17,9 +17,9 @@ _For instructions on connecting to the database using the coriverse, see the [co
 
 ---
 
-# Development Process for New coriverse Functions
+# Development Process for New `coriverse` Functions
 
-0. Create a branch of the appropriate coriverse package repo
+0. Create a branch of the appropriate `coriverse` package repo
 1. Write a function. All functions from external packages should reference the package with :: syntax (e.g. dplyr::filter())
 2. Save the function in the R folder of the appropriate coriverse package repo in your branch. The file name should match the function name.
 3. Insert a roxygen skeleton (CTRL + SHIFT + ALT + R in RStudio)
