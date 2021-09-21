@@ -4,7 +4,8 @@
 
 ## Code
 
-- If using RStudio, ensure that under `Tools >> Global Options` the option 'Restore .RData into workspace at startup' is not checked and the option 'Save workspace to .RData on exit' is set to `Never`. Using .RData to save presets and variables trades a minor convenience for major code portability headaches. Start from a fresh session. ![settings](https://user-images.githubusercontent.com/33400922/134179279-dc74ec4b-5410-482c-a838-c804021da8ec.PNG)
+- If using RStudio, ensure that under `Tools >> Global Options` the option 'Restore .RData into workspace at startup' is not checked and the option 'Save workspace to .RData on exit' is set to `Never`. Using .RData to save presets and variables trades a minor convenience for major code portability headaches. Start from a fresh session. 
+   - ![settings](https://user-images.githubusercontent.com/33400922/134179279-dc74ec4b-5410-482c-a838-c804021da8ec.PNG)
 - Always use `library()` to load packages. `require()` is used in a lot of MDA legacy code, and should be replaced with `library()` when it is encountered.
 - Neither `library()` nor `require()` should _ever_ appear inside of functions. State package dependencies in your scripts explicitly at the top level using `library()`.
 - When creating functions that call tidyverse functions, use [the embracing operator](https://www.tidyverse.org/blog/2019/06/rlang-0-4-0/#a-simpler-interpolation-pattern-with), e.g. `{{ var }}`, instead of `!!as.name(var)` or similar. Variables inside the embracing operator should always be padded with a space on either side.
