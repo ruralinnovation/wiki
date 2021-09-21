@@ -7,10 +7,13 @@
 - If using RStudio, ensure that under `Tools >> Global Options` the option 'Restore .RData into workspace at startup' is not checked and the option 'Save workspace to .RData on exit' is set to `Never`. Using .RData to save presets and variables trades a minor convenience for major code portability headaches. Start from a fresh session. 
    - ![settings](https://user-images.githubusercontent.com/33400922/134179279-dc74ec4b-5410-482c-a838-c804021da8ec.PNG)
 - Always use `library()` to load packages. `require()` is used in a lot of MDA legacy code, and should be replaced with `library()` when it is encountered.
-- Neither `library()` nor `require()` should _ever_ appear inside of functions. State package dependencies in your scripts explicitly at the top level using `library()`.
-- When creating functions that call tidyverse functions, use [the embracing operator](https://www.tidyverse.org/blog/2019/06/rlang-0-4-0/#a-simpler-interpolation-pattern-with), e.g. `{{ var }}`, instead of `!!as.name(var)` or similar. Variables inside the embracing operator should always be padded with a space on either side.
+- Neither `library()` nor `require()` should _ever_ appear inside of functions. 
+   - State package dependencies in your scripts explicitly at the top level using `library()`.
+- When creating functions that call tidyverse functions, use [the embracing operator](https://www.tidyverse.org/blog/2019/06/rlang-0-4-0/#a-simpler-interpolation-pattern-with), e.g. `{{ var }}`, instead of `!!as.name(var)` or similar.  
+   - Variables inside the embracing operator should always be padded with a space on either side.
 - There is no such thing as over-commented code. To the extent possible, a script should be self-documenting. Be kind to your reviewers (and six-months-from-now you) and write the comments even when you're in a hurry.
-- Avoid `while` loops and nested loops of any kind. While both have applications, they are rare and there are almost always cleaner solutions that are easier to understand and reason about in the long run. 
+- Avoid `while` loops and nested loops of any kind.  
+   - While both have applications, they are rare and there are almost always cleaner solutions that are easier to understand and reason about in the long run. 
 - Always use a [project-oriented workflow](https://www.tidyverse.org/blog/2017/12/workflow-vs-script/).
 - A great deal of legacy MDA code prefixes all variables with `x.`. This practice should be avoided moving forward.
 
