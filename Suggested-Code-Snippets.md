@@ -50,7 +50,7 @@ queries <- cori.db::read_sql(c('path/to/file1.sql', 'path/to/file2.sql'))
 ```
 execute_on_postgres(query)
 
-# execute_on_postgres() is vectorized, so you can read multiple files into a vector of queries
+# execute_on_postgres() is vectorized, so you can execute multiple queries sequentially
 
 execute_on_postgres(queries)
 
