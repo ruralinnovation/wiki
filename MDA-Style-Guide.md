@@ -1,4 +1,6 @@
-# This is the CORI/RISI MDA team style guide. This is an evolving document.
+## This is the CORI/RISI MDA team style guide. 
+
+This is an evolving set of best practices for R programming on the MDA team.
 
 ---------------------------------------------
 
