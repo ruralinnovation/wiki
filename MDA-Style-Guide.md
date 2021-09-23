@@ -4,8 +4,6 @@
 
 ## Code
 
-- If using RStudio, ensure that under `Tools >> Global Options` the option 'Restore .RData into workspace at startup' is not checked and the option 'Save workspace to .RData on exit' is set to `Never`. Using .RData to save presets and variables trades a minor convenience for major code portability headaches. __Always__ start from a fresh session. 
-   - ![settings](https://user-images.githubusercontent.com/33400922/134179279-dc74ec4b-5410-482c-a838-c804021da8ec.PNG)
 - Always use `library()` to load packages. `require()` is used in a lot of MDA legacy code, and should be replaced with `library()` when it is encountered.
 - Neither `library()` nor `require()` should _ever_ appear inside of functions. 
    - State package dependencies in your scripts explicitly at the top level using `library()`.
@@ -16,8 +14,8 @@
    - While both have applications, they are rare and there are almost always cleaner solutions that are easier to understand and reason about in the long run. 
 - Always use a [project-oriented workflow](https://www.tidyverse.org/blog/2017/12/workflow-vs-script/).
 - A great deal of legacy MDA code prefixes all variables with `x.`. This practice should be avoided moving forward.
-- Separate tasks, such as downloading a source file and then processing that data into a useable table, should be separated into numbered scripts.
-- Whitespace makes code more readable. Pad assignment operators and equals signs with a single space on either side. Separate commands with one or more new lines.
+- Separate tasks, such as downloading a source file and then processing that data into a usable table, should be separated into numbered scripts.
+- Whitespace makes code more readable. Always pad assignment operators and equals signs with a single space on either side. Separate commands with one or more new lines.
 
 ---------------------------------------------
 
@@ -28,6 +26,10 @@
 - Functions are verbs. Whenever possible use a descriptive verb or action phrase to name your function (e.g. `add_column()`, rather than `column_adder()`).
 - Scripts that need to be run in a specific order should be prefixed with two digits and and an underscore, e.g. `01_`, `02_` ... `10_`. Scripts numbered with a single digit will be displayed out of order in most file explorers when there are 10 or more scripts.
 
+## Tools
+
+- If using RStudio, ensure that under `Tools >> Global Options` the option 'Restore .RData into workspace at startup' is not checked and the option 'Save workspace to .RData on exit' is set to `Never`. Using .RData to save presets and variables trades a minor convenience for major code portability headaches. __Always__ start from a fresh session. 
+   - ![settings](https://user-images.githubusercontent.com/33400922/134179279-dc74ec4b-5410-482c-a838-c804021da8ec.PNG)
 ---------------------------------------------
 
 ## The Zen of Functional Programming (The Zen of Python +)
