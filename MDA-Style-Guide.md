@@ -16,6 +16,8 @@
    - While both have applications, they are rare and there are almost always cleaner solutions that are easier to understand and reason about in the long run. 
 - Always use a [project-oriented workflow](https://www.tidyverse.org/blog/2017/12/workflow-vs-script/).
 - A great deal of legacy MDA code prefixes all variables with `x.`. This practice should be avoided moving forward.
+- Separate tasks, such as downloading a source file and then processing that data into a useable table, should be separated into numbered scripts.
+- Whitespace makes code more readable. Pad assignment operators and equals signs with a single space on either side. Separate commands with one or more new lines.
 
 ---------------------------------------------
 
