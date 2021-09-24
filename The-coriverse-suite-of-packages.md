@@ -1,4 +1,4 @@
-## Core proprietary packages
+# Core proprietary packages
 
 ### [cori.utils](https://github.com/ruralinnovation/cori_utils)
 
@@ -16,7 +16,9 @@
 
 - A system agnostic wrapper for the CARTO API for uploading data
 
-## Core External Packages
+------------------------------------------------------
+
+# Core External Packages
 
 ### [tidyverse](https://www.tidyverse.org/)
 
