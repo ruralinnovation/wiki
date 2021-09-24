@@ -1,3 +1,5 @@
+## Core proprietary packages
+
 ### [cori.utils](https://github.com/ruralinnovation/cori_utils)
 
 - A collection of simple helper functions and small, useful data sets intended to make life easier and solve simple problems
@@ -13,3 +15,17 @@
 ### [Rto](https://github.com/ruralinnovation/Rto)
 
 - A system agnostic wrapper for the CARTO API for uploading data
+
+## Core External Packages
+
+### [tidyverse](https://www.tidyverse.org/)
+
+- Preferred suite of packages for most data analysis tasks
+
+### sf
+
+- Core MDA spatial analysis library
+
+### [rairtable](https://matthewjrogers.github.io/rairtable/index.html)
+
+- Efficient, Tidyverse-friendly Airtable API interaction
