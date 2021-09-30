@@ -10,6 +10,7 @@ The coriverse is an evolving attempt to develop a standard set of best practices
 
 0. Ensure you have `remotes` 2.4.0 or greater installed (current version as of June 2021). Use `install.packages('remotes')` to get the latest version.
 1. Set an environment variable called `GITHUB_PAT` by running `Sys.setenv(GITHUB_PAT = 'MY_TOKEN_HERE')`, replacing MY_TOKEN_HERE with a valid GitHub personal access token. Instructions for creating a Personal Access Token are available in [GitHub's documentation](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token). Your PAT only needs `repo` permissions (the first section of options when creating a PAT).
+![scope](https://user-images.githubusercontent.com/33400922/135469840-d7076fe8-4e89-49ea-aeab-0701d3d54d12.PNG)
 
 2. Call `remotes::install_github('ruralinnovation/coriverse')`. `install_github()` will look for the environment variable GITHUB_PAT, which will allow you to install the dependent private repos. 
 
