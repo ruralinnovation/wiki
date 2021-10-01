@@ -10,7 +10,7 @@
 
 ### [cori.data](https://github.com/ruralinnovation/cori_data)
 
-- A collection of functions for interacting with data outside of Postgres
+- A collection of functions for interacting with and creating data outside of Postgres
 
 ### [Rto](https://github.com/ruralinnovation/Rto)
 
