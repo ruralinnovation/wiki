@@ -20,6 +20,8 @@
 
 # Core External Packages
 
+__These packages are standard across MDA workflows, and should be preferred unless required by a specific use case.__
+
 ### [tidyverse](https://www.tidyverse.org/)
 
 - Preferred suite of packages for most data analysis tasks
