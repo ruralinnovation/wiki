@@ -20,7 +20,7 @@
 
 # Core External Packages
 
-__These packages are standard across MDA workflows, and should be preferred unless required by a specific use case.__
+__These packages are standard across MDA workflows, and should be preferred unless a specific use case demands otherwise.__
 
 ### [tidyverse](https://www.tidyverse.org/)
 
