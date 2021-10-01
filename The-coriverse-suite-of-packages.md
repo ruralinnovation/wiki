@@ -24,7 +24,7 @@
 
 - Preferred suite of packages for most data analysis tasks
 
-### sf
+### [sf](https://r-spatial.github.io/sf/)
 
 - Core MDA spatial analysis library
 
