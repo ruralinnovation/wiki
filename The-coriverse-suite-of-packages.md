@@ -30,6 +30,10 @@ __These packages are standard across MDA workflows, and should be preferred unle
 
 - Core MDA spatial analysis library
 
+### [leaflet](https://rstudio.github.io/leaflet/)
+
+- Ad-hoc mapping of spatial data
+
 ### [rairtable](https://matthewjrogers.github.io/rairtable/index.html)
 
 - Efficient, Tidyverse-friendly Airtable API interaction
