@@ -1,5 +1,3 @@
-## Repositories can have one of 5 statuses
-
 ---------------------
 
 ### Stable
