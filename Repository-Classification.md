@@ -48,7 +48,11 @@ We may wish to preserve legacy code in some repositories. These should be marked
 
 [![Project Status: Unsupported – The project has reached a stable, usable state but the author(s) have ceased all work on it. A new maintainer may be desired.](https://www.repostatus.org/badges/latest/unsupported.svg)](https://www.repostatus.org/#unsupported)
 
-Some repositories contain code that is being used but should not receive additional development. This tag is intended to denote for ourselves and for anyone who comes after that if additional development on the tool or project associated with the repo is desired, there is a strong recommendation to rewrite the code entirely and not to treat the existing code as a useful or reliable foundation for future work. In essence, this tag denotes catastrophic technical debt. To mark  a repository as unsupported:
+Some repositories contain code that is being used but should not receive additional development. This tag is intended to denote for ourselves and for anyone who comes after that if additional development on the tool or project associated with the repo is desired, there is a strong recommendation to rewrite the code entirely and not to treat the existing code as a useful or reliable foundation for future work. 
+
+In essence, this tag indicates the presence of catastrophic technical debt. 
+
+To mark  a repository as unsupported:
 
 - Paste `[![Project Status: Unsupported – The project has reached a stable, usable state but the author(s) have ceased all work on it. A new maintainer may be desired.](https://www.repostatus.org/badges/latest/unsupported.svg)](https://www.repostatus.org/#unsupported)
 ` into the `readme` and commit changes
