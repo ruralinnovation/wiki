@@ -2,8 +2,7 @@
 
 ![lifecycle](https://img.shields.io/badge/lifecycle-stable-green.svg)
 
-![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg))
-
+`![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)`
 
 ![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)
 
