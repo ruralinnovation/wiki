@@ -54,6 +54,6 @@ In essence, this tag indicates the presence of catastrophic technical debt.
 
 To mark  a repository as unsupported:
 
-- Paste `[![Project Status: Unsupported – The project has reached a stable, usable state but the author(s) have ceased all work on it. A new maintainer may be desired.](https://www.repostatus.org/badges/latest/unsupported.svg)](https://www.repostatus.org/#unsupported)
+- Paste `[![Project Status: Unsupported – The project has reached a stable, usable state but the author(s) have ceased all work on it.](https://www.repostatus.org/badges/latest/unsupported.svg)](https://www.repostatus.org/#unsupported)
 ` into the `readme` and commit changes
 - Add 'unsupported' as a topic for the repository
