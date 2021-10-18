@@ -54,6 +54,5 @@ In essence, this tag indicates the presence of catastrophic technical debt.
 
 To mark  a repository as unsupported:
 
-- Paste `![lifecycle](https://www.repostatus.org/badges/latest/unsupported.svg)`
-` into the `readme` and commit changes
+- Paste `![lifecycle](https://www.repostatus.org/badges/latest/unsupported.svg)` into the `readme` and commit changes
 - Add 'unsupported' as a topic for the repository
