@@ -12,7 +12,7 @@ Core commands
 
 ---------------------
 
-`git add`: Add new files to git
+`git add (filename>`: Add new files to git
 
 ---------------------
 
