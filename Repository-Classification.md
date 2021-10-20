@@ -1,3 +1,5 @@
+MDA repositories run the gamut from code under active development to stale code that is no longer useful. To document the status of repositories, use one of the five following tags.
+
 ---------------------
 
 ### Stable
