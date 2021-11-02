@@ -6,7 +6,7 @@ The TIGER/Line files are the most accurate spatial representations of Census geo
 
 -------------------------------
 
-__Schema:__ `sch_census_tiger`
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__Schema:__ `sch_census_tiger`
 
 __Source Table Format:__  `source_tiger_{year}_{geography}`
 
