@@ -8,9 +8,9 @@ The TIGER/Line files are the most accurate spatial representations of Census geo
 
 __Schema:__ `sch_census_tiger`
 
-__Source Table Format:__  source_tiger_{year}_{geography}
+__Source Table Format:__  `source_tiger_{year}_{geography}`
 
-__Layer Table Format:__ tiger_{year}_{geography}
+__Layer Table Format:__ `tiger_{year}_{geography}`
 
 __Current Year:__ 2019
 
@@ -24,7 +24,7 @@ Also published by the Census, cartographic boundary files are significantly bett
 
 __Schema:__ `sch_census_tiger`
 
-__Source Table Format:__  source_cb_{year}_{geography}
+__Source Table Format:__  `source_cb_{year}_{geography}`
 
 __Current Year:__ 2019
 
