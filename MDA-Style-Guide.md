@@ -1,6 +1,6 @@
 __This is the CORI/RISI MDA team style guide.__
 
-This is an evolving set of best practices for R programming on the MDA team.
+This is an evolving set of best practices for R programming on the MDA team. A [template GitHub repo](https://github.com/ruralinnovation/boilerplate-data) is available for new projects and provides suggestions for base structure and minimal documentation.
 
 ---------------------------------------------
 
@@ -26,7 +26,7 @@ This is an evolving set of best practices for R programming on the MDA team.
 - Always use a [project-oriented workflow](https://www.tidyverse.org/blog/2017/12/workflow-vs-script/).
 - A great deal of legacy MDA code prefixes all variables with `x.`. This practice should be avoided moving forward.
 - Separate tasks, such as downloading a source file and then processing that data into a usable table, should be separated into numbered scripts.
-- Whitespace makes code more readable. Always pad assignment operators and equals signs with a single space on both sides. Separate commands with one or more new lines.
+- Whitespace makes code more readable. Always pad assignment operators and equals signs (including within function calls!) with a single space on both sides. Separate commands with one or more new lines.
 - The assignment operator (`<-`) is preferred to `=` for object creation, [consistent with the tidyverse style guide](https://style.tidyverse.org/syntax.html?q=assign#assignment-1).
 - When in doubt about good formatting, defer to the [tidyverse style guide](https://style.tidyverse.org/index.html)
 
