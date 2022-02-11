@@ -25,6 +25,12 @@ _For instructions on connecting to the database using the coriverse, see the [co
 
 ---
 
+# Database access Functions in cori.db
+
+Go here https://ruralinnovation.github.io/cori_db/
+
+---
+
 # Development Process for New `coriverse` Functions
 
 0. Create a branch of the appropriate `coriverse` package repo
