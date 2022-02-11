@@ -8,6 +8,10 @@ The MDA tracks a variety of metadata on high-traffic tables. Metadata is informa
   * Any information about how the data was created/generated/derived
   * and more...
 
+## When should Metadata be updated?
+
+If you plan to expose the data set (schema + tables within the PosgreSQL RDS instance) that you are working on to _any one_ else in the organization, you need to add Metadata.
+
 ## How to update Metadata via `coriverse`
 
 For instruction on creating and accessing MDA metadata, visit the [cori_db wiki](https://github.com/ruralinnovation/cori_db/wiki/Metadata).
