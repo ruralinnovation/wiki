@@ -2,7 +2,7 @@
 
 The coriverse is an evolving attempt to develop a standard set of best practices for the MDA team, centralize important or useful functions into an easily accessible location, and manage package dependencies for our scripts. 
 
-For general infrastructure help, see the [CORI Docs Wiki](https://github.com/ruralinnovation/docs/wiki/Infrastructure)
+_For general infrastructure help, see the [CORI Docs Wiki](https://github.com/ruralinnovation/docs/wiki/Infrastructure)_
 
 ---
 
