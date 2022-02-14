@@ -10,7 +10,7 @@ The MDA tracks a variety of metadata on high-traffic tables. Metadata is informa
 
 ## When should Metadata be updated?
 
-If you plan to expose the data set (schema + tables within the PostgreSQL RDS instance) that you are working on to _any one_ else in the organization, you need to add Metadata.
+If you plan to expose the data set (schema + tables within the PostgreSQL RDS instance) that you are working on to _anyone_ else in the organization, you need to add Metadata.
 
 ## How to update Metadata via `coriverse`
 
