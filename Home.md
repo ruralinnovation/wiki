@@ -2,8 +2,6 @@
 
 The coriverse is an R package, which is an evolving attempt to develop a standard set of best practices for the MDA team, centralize important or useful functions into an easily accessible location, and manage package dependencies for our scripts. 
 
-~~For general infrastructure help, see the [CORI Docs Wiki](https://github.com/ruralinnovation/docs/wiki/Infrastructure)~~
-
 ---
 
 # New Users - Data Access
@@ -12,7 +10,7 @@ The coriverse is an R package, which is an evolving attempt to develop a standar
 
 # Installation
 
-`coriverse` is a metapackage, allowing us to conveniently install component packages that address different pieces of the MDA workflow. To install, use the following steps:
+`coriverse` is an R metapackage, allowing us to conveniently install component R packages that address different pieces of the MDA workflow. To install, use the following steps:
 
 0. Ensure you have `remotes` 2.4.0 or greater installed (current version as of June 2021). Use `install.packages('remotes')` to get the latest version.
 1. Set an environment variable called `GITHUB_PAT` by running `Sys.setenv(GITHUB_PAT = 'MY_TOKEN_HERE')`, replacing MY_TOKEN_HERE with a valid GitHub personal access token. Instructions for creating a Personal Access Token are available in [GitHub's documentation](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token). Your PAT only needs `repo` permissions (the first section of options when creating a PAT).
