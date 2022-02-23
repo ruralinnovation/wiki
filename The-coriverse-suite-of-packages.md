@@ -8,10 +8,6 @@
 
 - A collection of functions for working the CORI/RISI Postgres database
 
-### [cori.data](https://github.com/ruralinnovation/cori_data)
-
-- A collection of functions for interacting with and creating data outside of Postgres
-
 ### [Rto](https://github.com/ruralinnovation/Rto)
 
 - A system agnostic wrapper for the CARTO API for uploading data
