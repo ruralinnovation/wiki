@@ -13,6 +13,18 @@ The coriverse is an R package, which is an evolving attempt to develop a standar
 `coriverse` is an R metapackage, allowing us to conveniently install component R packages that address different pieces of the MDA workflow. To install, use the following steps:
 
 0. Ensure you have `remotes` 2.4.0 or greater installed (current version as of June 2021). Use `install.packages('remotes')` to get the latest version.
+1. Create a GitHub token:
+```
+    ## (optional, if not previously done) set your user name and email:
+    # usethis::use_git_config(user.name = "YourName", user.email = "your@mail.com")
+    
+    ## create a personal access token for authentication:
+    usethis::create_github_token() 
+    ## in case usethis version < 2.0.0: usethis::browse_github_token() (or even better: update usethis!)
+
+    ## set personal access token:
+    credentials::set_github_pat("ghp_...")
+```
 1. Set an environment variable called `GITHUB_PAT` by running `Sys.setenv(GITHUB_PAT = 'MY_TOKEN_HERE')`, replacing MY_TOKEN_HERE with a valid GitHub personal access token. Instructions for creating a Personal Access Token are available in [GitHub's documentation](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token). Your PAT only needs `repo` permissions (the first section of options when creating a PAT).
 
 ![scope](https://user-images.githubusercontent.com/33400922/135469840-d7076fe8-4e89-49ea-aeab-0701d3d54d12.PNG)
