@@ -58,3 +58,42 @@ Go here https://ruralinnovation.github.io/cori_db/
 7. Run `devtools::check()`
 8. If the check passes with no errors, warnings, or notes, push to your branch. Otherwise, resolve errors, warnings, and notes.
 9. Open a pull request and tag Matt R for review.
+
+1-7 are parts of "the whole game", 2nd chapter of [R Packages](https://r-pkgs.org/) from Hadley Wickham and Jenny Bryan and can be visualize here:  
+
+```mermaid
+flowchart LR
+subgraph one[Initializing package]
+direction LR
+A("create_package()")-->C("use_git()")
+A-->B("use_XX_licence()")
+A--> Z("use_testthat()")
+end
+subgraph two[Developping]
+direction LR
+D[create a function]-->E("use_test()")
+D-->F("use_r()")
+D-->G("use_packge()")
+F-->H["Insert Roxygen skeleton"]
+H-->I("document()")
+end
+subgraph git
+staged --> commit
+end
+one --> two
+two -->|often| Y("check()")
+two --> X("install()")
+one --> git  
+two --> git
+git --> Github
+click A href "https://usethis.r-lib.org/reference/create_package.html"
+click C href "https://usethis.r-lib.org/reference/use_git.html"
+click B href "https://usethis.r-lib.org/reference/licenses.html"
+click Z href "https://r-pkgs.org/Whole-game.html#use_testthat"
+click E href "https://usethis.r-lib.org/reference/use_r.html"
+click F href "https://usethis.r-lib.org/reference/use_r.html"
+click G href "https://usethis.r-lib.org/reference/use_package.html"
+click I href "https://devtools.r-lib.org/reference/document.html"
+click Y href "https://r-pkgs.org/Whole-game.html#check"
+click X href "https://devtools.r-lib.org/reference/install.html"
+```
