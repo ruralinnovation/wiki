@@ -97,3 +97,22 @@ click I href "https://devtools.r-lib.org/reference/document.html"
 click Y href "https://r-pkgs.org/Whole-game.html#check"
 click X href "https://devtools.r-lib.org/reference/install.html"
 ```
+
+# storing Data in S3
+
+You will need access to the s3 storage. 
+
+1. To create a new `bucket` use the `create bucket` orange button. 
+
+**Naming convention of bucket:**
+
+- for project do:  `pro-<NAME_OF_PROJECT>`, example: `proj-rwjf`  
+- for data used in multiple project: `<NAME_OF_PROJECT>-data`, example: `puma-data` 
+
+(⚠️ no uppercase, see [here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html))
+
+We keep the default values and press `create bucket` at the bottom of the page (UX can change a bit over time).
+
+2. Inside of the bucket use the upload button top open a new web page were you can drag and drop the file you need to upload 
+
+3. Do not forget to click the upload button at the bottom of this page (it will open a new page with the status of the upload).
