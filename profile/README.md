@@ -9,11 +9,9 @@ We strive towards serving as the primary center of excellence advancing sustaina
 Learn more about the RMDA approach to Knowledge here:
 [Research, mapping, and data analytics](https://ruralinnovation.us/our-work/research_mapping/)
 
-
+<!--
 
 🏗️ This page is under construction! 🏗️
-
-<!--
 
 **Here are some ideas to get you started:**
 
