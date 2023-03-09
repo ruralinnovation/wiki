@@ -42,7 +42,7 @@ _For instructions on connecting to the database using the coriverse, see the [co
 
 # Database access Functions in cori.db
 
-Go here https://ruralinnovation.github.io/cori_db/
+Go here https://ruralinnovation.github.io/cori.db/
 
 ---
 
@@ -98,7 +98,7 @@ click Y href "https://r-pkgs.org/Whole-game.html#check"
 click X href "https://devtools.r-lib.org/reference/install.html"
 ```
 
-# storing Data in S3
+# Storing Data in S3
 
 You will need access to the s3 storage. 
 
