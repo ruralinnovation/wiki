@@ -1,3 +1,6 @@
+<a href="https://ruralinnovation.us/" target="_blank"><img src="cori-logo-light.svg" alt="The Center on Rural Innovation" width="12%" align="left" /></a><br/>
+==============================================================================================================================================================
+
 The Center on Rural Innovation ([CORI](https://ruralinnovation.us/)) is a 501(c)(3) nonprofit organization partnering with rural leaders across the country to build tech economies that support scalable entrepreneurship and lead to more tech jobs in rural America.
 
 These repositories are maintained by the *Research, Mapping and Data Anaylytics* (RMDA) team at CORI/RISI.
