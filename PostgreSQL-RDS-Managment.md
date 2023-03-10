@@ -7,8 +7,6 @@
 ## Database Migration 2023-03-10
 #  Moving our DB
 
-[toc]
-
 ## Goals: 
 
 - Reduce the size (50% ? we can always increase)
@@ -17,6 +15,7 @@
 - Defining Roles/Users
 - Split DB
 - Build an Ansible playbook so we can rebuild it? 
+- List potential Challenge
 
 ## Postgres/PostGIS version
 
@@ -96,3 +95,7 @@ Con:
     - Add user roles to that database server based on R server's current user accounts
     - Migrate data/functions/schemas/tables from `cori-risi` to `<new-db>`
 - I have limited knowledge of it
+
+## Potential challenges
+
+Our code rely on cori.db or call into db. The name of DB is hard coded in the function. We can change the function in cori.db or match the name in the next DB.  
