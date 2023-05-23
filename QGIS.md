@@ -4,6 +4,8 @@ This will include some materials for the use of QGIS
 
 Resource: https://docs.qgis.org/3.28/en/docs/user_manual/auth_system/auth_overview.html 
 
+To interact with qgis in R: https://r-spatial.github.io/qgisprocess/ 
+
 In QGIS: 
 
  1. `QGIS` -> `Preferences` -> `Authentication`
