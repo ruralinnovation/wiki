@@ -82,20 +82,52 @@ I will divide with at least:
 
 This three seems to have different lifecycle (ie when we update them/store them/delete part of them)
 
-## Build an Ansible playbook? 
 
-It seems it exists (https://docs.ansible.com/ansible/5/collections/community/aws/rds_module.html) and we are already using one role/task to add new users
+# list of schemas and tables that can be in prod env.
 
-Pro: is that it allows us to keep tract of everything and rebuild (at the infrastructure level)
+**Rules**: 
 
-Con: 
-- is ansible overkill? 
-    _No, not overkill and we do have an ansible client running on the R server that we currently only use for user onboarding, but could definitely be expanded to include a playbook to:_
-    - Stand up a new RDS server
-    - Add user roles to that database server based on R server's current user accounts
-    - Migrate data/functions/schemas/tables from `cori-risi` to `<new-db>`
-- I have limited knowledge of it
+data in prod must have metadata before pushing into prod. 
 
-## Potential challenges
+Metadata is: 
 
-Our code rely on cori.db or call into db. The name of DB is hard coded in the function. We can change the function in cori.db or match the name in the next DB.  
+* required:
+    - A readme.md in a repo with description of data (dimensions and what is a "row") and the above (should be at the schema )  
+    - "cookbook" at tables -> `metadata` 
+    - Sources (link, date, last_updated)  
+    - Licenses (PD, MIT, Apache 2 etc )
+    - "executive summary description": one liner providing a quick overview of what the data is 
+      
+    
+* optional:
+    - s3 bucket with raw
+    - Codes that produce table
+    - validation tests   
+        * summary of validation tests  
+        * testing `metadata` columns 
+
+ 
+TODO stuff: 
+
+- [ ] build metadata for broadband resiliency CH tools
+- [ ] dump and restore it 
+- [ ] Some clean up to do with bb schema 
+- [ ] Figure out what do we do when Olivier update FCC data
+- [ ] Find a workflow data-dev -> check stuff -> move prod -> archive old stuffs
+- [ ] metadata should also include being in prod or dev or something like that 
+- [ ] discussion about WIM schema (should it point to dev or prod? for the win change dbname argument so it target it)
+
+- [ ] Organize a bit what we need inside of bcat, keeping in mind that we also could want that in data prod
+- [ ] very low priority build f477 last one and having code for it
+
+1. What we want inside of data-prod 
+    - [ ] bcat
+    - [ ] sch_proj_climate
+    - [ ] metadata
+    - [ ] sch_broadband  (everything can be in dev but in prod should only be fcc NBM)
+    - [ ] rii_diagnostics
+    - [ ] higher ed (everything in dev then in prod: cip_soc_xwalk, ipeds_inst_characteristics, ipeds_completions, total_degrees_by_inst  )
+
+
+
+
