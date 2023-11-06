@@ -119,13 +119,16 @@ TODO stuff:
 
 - [ ] Organize a bit what we need inside of bcat, keeping in mind that we also could want that in data prod
 - [ ] very low priority build f477 last one and having code for it
+- [ ] drop previous data-dev
+- [ ] drop previous data when API is targeting correct DB
+
 
 1. What we want inside of data-prod 
-    - [ ] bcat
-    - [ ] sch_proj_climate
-    - [ ] metadata
-    - [ ] sch_broadband  (everything can be in dev but in prod should only be fcc NBM)
-    - [ ] rii_diagnostics
+    - [ ] ~~bcat~~
+    - [ ] sch_proj_climate (time estimation ?)
+    - [x] metadata
+    - [ ] sch_broadband  (everything can be in dev but in prod should only be fcc NBM) (time estimation ?)
+    - [x] rii_diagnostics
     - [ ] higher ed (everything in dev then in prod: cip_soc_xwalk, ipeds_inst_characteristics, ipeds_completions, total_degrees_by_inst  )
 
 
