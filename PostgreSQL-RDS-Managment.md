@@ -101,8 +101,6 @@ Metadata is:
     - validation tests   
         * summary of validation tests  
         * testing `metadata` columns 
-
- 
 TODO stuff: 
 
 - [ ] build metadata for broadband resiliency CH tools
