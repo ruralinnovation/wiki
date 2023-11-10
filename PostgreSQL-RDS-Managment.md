@@ -10,16 +10,12 @@
 ## Goals: 
 
 - Reduce the size (50% ? we can always increase)
-- Upgrade Postgres version (15, 13 ?)
+- Upgrade Postgres version (15)
 - Upgrade PostGIS version (3.X)
 - Defining Roles/Users
 - Split DB
-- Build an Ansible playbook so we can rebuild it? 
 - List potential Challenge
 
-## Postgres/PostGIS version
-
-What are pro&cons to not go for latest stable version?
 
 ## Roles and Users
 
@@ -117,14 +113,17 @@ TODO stuff:
 
 - [ ] Organize a bit what we need inside of bcat, keeping in mind that we also could want that in data prod
 - [ ] very low priority build f477 last one and having code for it
+- [ ] drop previous data-dev
+- [ ] drop previous data when API is targeting correct DB
+
 
 1. What we want inside of data-prod 
-    - [ ] bcat
-    - [ ] sch_proj_climate
-    - [ ] metadata
-    - [ ] sch_broadband  (everything can be in dev but in prod should only be fcc NBM)
-    - [ ] rii_diagnostics
-    - [ ] higher ed (everything in dev then in prod: cip_soc_xwalk, ipeds_inst_characteristics, ipeds_completions, total_degrees_by_inst  )
+    - [ ] ~~bcat~~
+    - [ ] sch_proj_climate (time to restore estimate?)
+    - [x] metadata
+    - [ ] sch_broadband  (everything can be in dev but in prod should only be fcc NBM) (time to restore estimate?)
+    - [x] rii_diagnostics
+    - [x] higher ed (everything in dev then in prod: cip_soc_xwalk, ipeds_inst_characteristics, ipeds_completions, total_degrees_by_inst  )
 
 
 
