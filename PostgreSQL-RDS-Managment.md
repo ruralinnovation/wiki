@@ -125,6 +125,15 @@ TODO stuff:
     - [x] rii_diagnostics
     - [x] higher ed (everything in dev then in prod: cip_soc_xwalk, ipeds_inst_characteristics, ipeds_completions, total_degrees_by_inst  )
 
+## TED 
+
+shinyapp: 
+- entry point app.R
+- it is unsing cori.apps for component 
+- it is using doctR and doctR needs fonts
+- renv.lock is used by shinyapps.io to download the correct packages and version
+- it needs core_data
+
 
 
 
