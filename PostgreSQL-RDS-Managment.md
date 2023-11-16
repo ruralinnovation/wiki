@@ -7,7 +7,7 @@
 
 ### First in pg_admin:
 
-1. right clic on `Server` -> Register -> Server
+1. Right clic on `Server` -> Register -> Server
 2. New windows pop up:
  * `Name`: cori-ad
  * In the Connection tab
@@ -15,7 +15,7 @@
 * `Username`: your username (your email)
 * `Password`: your password
   (Toggle `save it` if you need it)
-* What do you have in Parameters? if not add SSL mode as prefer
+* What do you have in `Parameters`'s tab? if not add SSL mode as prefer
 
 Open the "Query tools" and enter:
 `ALTER USER your_username WITH PASSWORD 'my_secret_pwd';`
@@ -25,7 +25,7 @@ Open the "Query tools" and enter:
 remotes::install_github("ruralinnovation/cori.db")
 packageVersion("cori.db")
 # [1] ‘0.2.0’
-cori.db::set_db_credentials(your_username, my_secret_pwd)
+cori.db::set_db_credentials("your_username", "my_secret_pwd")
 # Restart the R session 
 ```
 
