@@ -11,9 +11,9 @@
 2. New windows pop up:
  * `Name`: cori-ad
  * In the Connection tab
-    `Host name/address`: cori-risi-ad-postgresql.c6zaibvi9wyg.us-east-1.rds.amazonaws.com
-* Username: your username (your email)
-* Password: your password
+    `Host name/address`: `cori-risi-ad-postgresql.c6zaibvi9wyg.us-east-1.rds.amazonaws.com`
+* `Username`: your username (your email)
+* `Password`: your password
   (Toggle `save it` if you need it)
 * What do you have in Parameters? if not add SSL mode as prefer
 
@@ -24,10 +24,10 @@ Open the "Query tools" and enter:
 ```r
 remotes::install_github("ruralinnovation/cori.db")
 packageVersion("cori.db")
+# [1] ‘0.2.0’
 cori.db::set_db_credentials(your_username, my_secret_pwd)
 # Restart the R session 
 ```
-
 
 -----------------------------
 ## Database Migration 2023-03-10
