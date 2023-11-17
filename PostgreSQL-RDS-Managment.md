@@ -16,15 +16,28 @@ Software requirement: PG Admin > 7
     `Host name/address`: `cori-risi-ad-postgresql.c6zaibvi9wyg.us-east-1.rds.amazonaws.com`
 * `Username`: your username (your email)
 * `Password`: your password
-  (Toggle `save it` if you need it)
+
 * What do you have in `Parameters`'s tab? if not add SSL mode as prefer
   
 3. Open the "Query tool" and enter:
+
+The "Query tool" look like a small silo: 
+
+![]im/query_tool.png
+
+To turn the "Query Tool" from "grey" to "black" select the `postgres` DB.
+
+Then enter: 
+
 `ALTER USER "your_username" WITH PASSWORD 'my_secret_pwd';`
 
-To turn the "Query Tool" from "grey" to "black" select the `postgres` DB.  
+Your username need to be double quoted. 
 
-When it dislays "Query returned successfully" you should be able to save this password.  
+When it displays "Query returned successfully" you should be able to save this password.  
+
+Then you can disconnect from the server and when you reconnect it will ask for your password and you can save it from here: 
+
+![]img/asking_tool.png
 
 ### Second: in R
 
