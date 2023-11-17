@@ -5,7 +5,7 @@
 ------------------------------
 ## Onboarding team 
 
-### First in pg_admin:
+### First: in pg_admin:
 
 1. Right clic on `Server` -> Register -> Server
 2. New windows pop up:
@@ -20,7 +20,10 @@
 Open the "Query tools" and enter:
 `ALTER USER your_username WITH PASSWORD 'my_secret_pwd';`
 
-### Second in R
+### Second: in R
+
+Refer to the coriverse [wiki](https://github.com/ruralinnovation/wiki#installation) and cori.db [readme](https://github.com/ruralinnovation/cori.db) for more details instructions on installing this package.
+
 ```r
 remotes::install_github("ruralinnovation/cori.db")
 packageVersion("cori.db")
