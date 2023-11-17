@@ -29,6 +29,16 @@ cori.db::set_db_credentials("your_username", "my_secret_pwd")
 # Restart the R session 
 ```
 
+### Creating schema 
+
+`mda_team` users do not have permission to create `schema`. 
+
+When creating a new schema to allow everyone in a team to access it the ownership need to be changed. 
+
+```sql
+ALTER SCHEMA my_schema OWNER TO mda_team; 
+```
+
 -----------------------------
 ## Database Migration 2023-03-10
 #  Moving our DB
