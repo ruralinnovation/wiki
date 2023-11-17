@@ -5,6 +5,8 @@
 ------------------------------
 ## Onboarding team 
 
+Software requirement: PG Admin > 7
+
 ### First: in pg_admin:
 
 1. Right clic on `Server` -> Register -> Server
@@ -16,8 +18,11 @@
 * `Password`: your password
   (Toggle `save it` if you need it)
 * What do you have in `Parameters`'s tab? if not add SSL mode as prefer
-3. Open the "Query tools" and enter:
+  
+3. Open the "Query tool" and enter:
 `ALTER USER "your_username" WITH PASSWORD 'my_secret_pwd';`
+
+To turn the "Query Tool" from "grey" to "black" select the `postgres` DB.  
 
 When it dislays "Query returned successfully" you should be able to save this password.  
 
