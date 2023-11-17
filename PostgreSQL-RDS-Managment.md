@@ -23,7 +23,7 @@ Software requirement: PG Admin > 7
 
 The "Query tool" look like a small silo: 
 
-![]im/query_tool.png
+![](img/query_tool.png)
 
 To turn the "Query Tool" from "grey" to "black" select the `postgres` DB.
 
@@ -37,7 +37,7 @@ When it displays "Query returned successfully" you should be able to save this p
 
 Then you can disconnect from the server and when you reconnect it will ask for your password and you can save it from here: 
 
-![]img/asking_tool.png
+![](img/asking_pwd.png)
 
 ### Second: in R
 
