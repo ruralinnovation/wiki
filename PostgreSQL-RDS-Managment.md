@@ -18,7 +18,7 @@
 * What do you have in `Parameters`'s tab? if not add SSL mode as prefer
 
 Open the "Query tools" and enter:
-`ALTER USER your_username WITH PASSWORD 'my_secret_pwd';`
+`ALTER USER "your_username" WITH PASSWORD 'my_secret_pwd';`
 
 ### Second: in R
 
