@@ -1,10 +1,42 @@
-# Welcome to the coriverse wiki!
+![lifecycle](https://img.shields.io/badge/lifecycle-stable-green.svg)
 
-The coriverse is an R package, which is an evolving attempt to develop a standard set of best practices for the MDA team, centralize important or useful functions into an easily accessible location, and manage package dependencies for our scripts. 
+Welcome to the coriverse!
+=========================
+
+The coriverse is an R package, which is an evolving attempt to develop a standard set of best practices for the MDA team, centralize important or useful functions into an easily accessible location, and manage package dependencies for our scripts.
+
+It will import:
+
+- `cori.charts`
+- `cori.data`
+- `cori.db`
+- `cori.utils`
+
+It will only attach:
+
+- `cori.db`
+- `cori.utils`
+
+## Setup
+
+In order to install this package (using `devtools` or `remotes`), you need to first set up local environment variables, either through your shell profile (preferably) or with an `.Renviron` file.
+
+`~/.profile`:
+
+    export GITHUB_USER='<your-github-user-name>'
+    export GITHUB_PAT='<your-github-personal-authentication-token>'
+
+`~/.Renviron`:
+
+    GITHUB_USER="<your-github-user-name>"   
+    GITHUB_PAT="<your-github-personal-authentication-token>"
+
 
 ---
 
 # New Users - Data Access
+
+See the [PostgreSQL-RDS-Managment](https://github.com/ruralinnovation/wiki/blob/main/PostgreSQL-RDS-Managment.md) section in the [wiki](https://github.com/ruralinnovation/wiki).
 
 ---
 
@@ -104,15 +136,23 @@ You will need access to the s3 storage.
 
 1. To create a new `bucket` use the `create bucket` orange button. 
 
-**Naming convention of bucket:**
+  **Naming convention of bucket:**
 
-- for project do:  `pro-<NAME_OF_PROJECT>`, example: `proj-rwjf`  
-- for data used in multiple project: `<NAME_OF_PROJECT>-data`, example: `puma-data` 
+  - for project do:  `pro-<NAME_OF_PROJECT>`, example: `proj-rwjf`  
+  - for data used in multiple project: `<NAME_OF_PROJECT>-data`, example: `puma-data` 
 
-(⚠️ no uppercase, see [here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html))
+  (⚠️ no uppercase, see [here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html))
 
-We keep the default values and press `create bucket` at the bottom of the page (UX can change a bit over time).
+  _We keep the default values and press `create bucket` at the bottom of the page (UX can change a bit over time)._
 
-2. Inside of the bucket use the upload button top open a new web page were you can drag and drop the file you need to upload 
+2. Inside the bucket use the upload button top open a new web page were you can drag and drop the file you need to upload 
 
 3. Do not forget to click the upload button at the bottom of this page (it will open a new page with the status of the upload).
+
+
+## Setup for Development
+
+Once you have all the dependencies installed, to build and install this package from the local project directory, run:
+```r
+pkgbuild::clean_dll(); pkgbuild::compile_dll(); devtools::document(); devtools::check(); devtools::install();
+```
