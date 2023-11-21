@@ -71,13 +71,13 @@ https://docs.google.com/document/d/1nuYftMYqEKbH2i_wKhf63Kika7RtEoHb-A7NZYaSPwQ/
 
 Use data from the single database instance in our old RDS cluster (cori-risi) to populate the following four new databases instances in our new RDS cluster (cori-risi-ad-postgresql):
 
--   api-dev - Database used as a development environment with the main purpose of "promoting" data access to api-prod; serves as a test environment for the CORI Data API.
+  -   **api-dev** - Database used as a development environment with the main purpose of "promoting" data access to api-prod; serves as a test environment for the CORI Data API.
 
--   api-prod - Database used to serve CORI Data API with data. Highest level of security with limited access. Products will or can be public facing.
+  -   **api-prod** - Database used to serve CORI Data API with data. Highest level of security with limited access. Products will or can be public facing.
 
--   data-prod - Database used to house vetted, documented, and production level datasets. Potential for very limited data sharing (with collaborators outside of the org) with support.
+  -   **data-prod** - Database used to house vetted, documented, and production level datasets. Potential for very limited data sharing (with collaborators outside the org) with support.
 
--   data - Database used to support exploratory project work, research data, datasets under development.
+  -   **data** - Database used to support exploratory project work, research data, datasets under development.
 
 We will do this in sequential steps, populating each new database instance one-at-a-time, with the database instance called "data" being the final one (equivalent to the original "data" instance in the old cori-risi RDS cluster). Some schemas will be database-specific from now on, while others (i.e., "metadata") will be common to all instances.
 
