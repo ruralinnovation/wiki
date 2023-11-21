@@ -9,7 +9,7 @@ Our team provides data, analytics and visualizations to support rural participat
 
 We strive towards serving as the primary center of excellence advancing sustainable, economic opportunity and equity in rural America. We do this by providing expert spatial and statistical analysis, modernized visualization and tool development, credible technical subject matter expertise, and transparent documentation.
 
-Learn more about the RMDA approach to Knowledge here:
+Learn more about the MDA approach to Knowledge here:
 [Research, mapping, and data analytics](https://ruralinnovation.us/our-work/research_mapping/)
 
 <!--
@@ -18,7 +18,7 @@ Learn more about the RMDA approach to Knowledge here:
 
 **Here are some ideas to get you started:**
 
-🙋‍♀️ A short introduction - what is your organization all about?
+🙋‍ A short introduction - what is your organization all about?
 🌈 Contribution guidelines - how can the community get involved?
 👩‍💻 Useful resources - where can the community find your docs? Is there anything else the community should know?
 🍿 Fun facts - what does your team eat for breakfast?
