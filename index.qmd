@@ -1,5 +1,8 @@
 ---
-title: "."
+title: "Welcome"
+listing:
+  contents:
+    - "_.qmd"
 ---
 
 This is a Quarto website.
