@@ -1,0 +1,205 @@
+[
+  {
+    "objectID": "Cori-Infrastructure.html",
+    "href": "Cori-Infrastructure.html",
+    "title": "CORI MDA Wiki",
+    "section": "",
+    "text": "For CORI infrastructure see:\nhttps://github.com/orgs/ruralinnovation/projects/1/views/1\nhttps://github.com/ruralinnovation/cori-infrastructure"
+  },
+  {
+    "objectID": "MDA-Style-Guide.html",
+    "href": "MDA-Style-Guide.html",
+    "title": "CORI MDA Wiki",
+    "section": "",
+    "text": "This is the CORI/RISI MDA team style guide.\nThis is an evolving set of best practices for R programming on the MDA team. A template GitHub repo is available for new projects and provides suggestions for base structure and minimal documentation."
+  },
+  {
+    "objectID": "MDA-Style-Guide.html#naming-conventions",
+    "href": "MDA-Style-Guide.html#naming-conventions",
+    "title": "CORI MDA Wiki",
+    "section": "Naming Conventions",
+    "text": "Naming Conventions\n\nVariable and table names, both in code and on the database, should always be in snake_case, i.e. all lower case with underscore separation of words.\nGithub repositories dedicated to a new project should begin with the prefix proj-. Similarly, repositories dedicated to ETL of a specific data set should begin with the prefix data-. All repositories should have clear, descriptive names.\nFunctions are verbs. Whenever possible use a descriptive verb or action phrase to name your function (e.g. add_column(), rather than column_adder()).\nScripts that need to be run in a specific order should be prefixed with two digits and and an underscore, e.g. 01_, 02_ … 10_. Scripts numbered with a single digit will be displayed out of order in most file explorers when there are 10 or more scripts."
+  },
+  {
+    "objectID": "MDA-Style-Guide.html#code",
+    "href": "MDA-Style-Guide.html#code",
+    "title": "CORI MDA Wiki",
+    "section": "Code",
+    "text": "Code\n\nAlways use library() to load packages. require() is used in a lot of MDA legacy code, and should be replaced with library() when it is encountered.\nNeither library() nor require() should ever appear inside of functions.\n\nState package dependencies in your scripts explicitly at the top level using library().\n\nWhen creating functions that call tidyverse functions, use the embracing operator, e.g. {{ var }}, instead of !!as.name(var) or similar.\n\nVariables inside the embracing operator should always be padded with a space on either side.\n\nThere is no such thing as over-commented code. To the extent possible, a script should be self-documenting. Be kind to your reviewers (and six-months-from-now you) and write the comments even when you’re in a hurry.\nAvoid while loops and nested loops of any kind.\n\nWhile both have applications, they are rare and there are almost always cleaner solutions that are easier to understand and reason about in the long run.\n\nAlways use a project-oriented workflow.\nA great deal of legacy MDA code prefixes all variables with x.. This practice should be avoided moving forward.\nSeparate tasks, such as downloading a source file and then processing that data into a usable table, should be separated into numbered scripts.\nWhitespace makes code more readable. Always pad assignment operators and equals signs (including within function calls!) with a single space on both sides. Separate commands with one or more new lines.\nThe assignment operator (&lt;-) is preferred to = for object creation, consistent with the tidyverse style guide.\nWhen in doubt about good formatting, defer to the tidyverse style guide"
+  },
+  {
+    "objectID": "MDA-Style-Guide.html#tools",
+    "href": "MDA-Style-Guide.html#tools",
+    "title": "CORI MDA Wiki",
+    "section": "Tools",
+    "text": "Tools\n\nIf using RStudio, ensure that under Tools &gt;&gt; Global Options the option ‘Restore .RData into workspace at startup’ is not checked and the option ‘Save workspace to .RData on exit’ is set to Never. Using .RData to save presets and variables trades a minor convenience for major code portability headaches. Always start from a fresh session."
+  },
+  {
+    "objectID": "MDA-Style-Guide.html#the-zen-of-functional-programming-the-zen-of-python",
+    "href": "MDA-Style-Guide.html#the-zen-of-functional-programming-the-zen-of-python",
+    "title": "CORI MDA Wiki",
+    "section": "The Zen of Functional Programming (The Zen of Python +)",
+    "text": "The Zen of Functional Programming (The Zen of Python +)\n\nBeautiful is better than ugly.\nExplicit is better than implicit.\nSimple is better than complex.\nComplex is better than complicated.\nFlat is better than nested.\nSparse is better than dense.\nReadability counts.\nSpecial cases aren’t special enough to break the rules.\nAlthough practicality beats purity.\nErrors should never pass silently.\nUnless explicitly silenced.\nIn the face of ambiguity, refuse the temptation to guess.\nThere should be one– and preferably only one –obvious way to do it.\nIf you find the one obvious way to do it, document it here for the sake of your coworkers and yourself in six months.\nNow is better than never.\nAlthough never is often better than right now.\nIf the implementation is hard to explain, it’s a bad idea.\nIf the implementation is easy to explain, it may be a good idea.\nCopy and paste is the root of 42% of all evil.\nIf you would copy and paste code a third time, instead write a function.\nIf you would copy and paste a function for the third time in a script, instead use a functional.\nAlthough a loop is better than nothing.\nIf you would copy a function into a new script even once, document it and add it to the coriverse."
+  },
+  {
+    "objectID": "Git-Workflows.html",
+    "href": "Git-Workflows.html",
+    "title": "Git From the Command Line: Core commands",
+    "section": "",
+    "text": "Git From the Command Line: Core commands\n\ngit clone &lt;link&gt;: Clone a GitHub repository. The link to clone a repo is available in the green Code dropdown on the main page. Use the SSH option.\n\n\n\nclone_link\n\n\n\ngit pull: Pull changes and files from GitHub into your local repository.\n\ngit checkout -b &lt;new_branch&gt;: Allow you to create a new branch and go into it (git checkout allow you to navigate git graph)\n\ngit add (filename&gt;: Add new files to git\n\ngit commit: The expanded form is git commit -am 'commit message'. This tells Git to commit everything on the working tree (-a) and add a message (-m).\n\ngit push: Push local changes and files up to GitHub\n\n\nGitHub Workflow:\nIt is good practices to add important changes in a new branch and send it for a PR (Pull Request)\n\nCreate a PR with your commits (push it to remote repo)\nGet it reviewed by someone on the team - in GH and Airtable\n\nYou can inside of GitHub ask for a Reviewers, assign someone (Assignees) to do the merge (a Pull Request, is a merge inside of GitHub) or set up deadline (see at the right of the screan)\nOnce approved the PR you should not keep track of it inside of GitHub (the branch will still be inside of your local repo) and you should delete it. Github allow you to automatically do it: it is in the setting of the repo nearly at the bottom:\n\n\n\nScreenshot 2023-02-07 at 11 52 21 AM"
+  },
+  {
+    "objectID": "Metadata.html",
+    "href": "Metadata.html",
+    "title": "CORI MDA Wiki",
+    "section": "",
+    "text": "The MDA tracks a variety of metadata on high-traffic tables. Metadata is information about the data that we are sourcing and/or creating, which may include: * Where the data came from (source) * When the data was acquired * What the table names mean * What the field names mean * Any information about how the data was created/generated/derived * and more…"
+  },
+  {
+    "objectID": "Metadata.html#what-is-metadata",
+    "href": "Metadata.html#what-is-metadata",
+    "title": "CORI MDA Wiki",
+    "section": "",
+    "text": "The MDA tracks a variety of metadata on high-traffic tables. Metadata is information about the data that we are sourcing and/or creating, which may include: * Where the data came from (source) * When the data was acquired * What the table names mean * What the field names mean * Any information about how the data was created/generated/derived * and more…"
+  },
+  {
+    "objectID": "Metadata.html#when-should-metadata-be-updated",
+    "href": "Metadata.html#when-should-metadata-be-updated",
+    "title": "CORI MDA Wiki",
+    "section": "When should Metadata be updated?",
+    "text": "When should Metadata be updated?\nMetadata should always be created for: * All new source data sets * All product data sets (data sets exposed in a tool or MDA-derived data sets used across projects, e.g. Location Analysis)\nAdditionally, if you plan to expose the data set (schema + table within the PostgreSQL RDS instance) that you are working on to anyone else in the organization, you need to add Metadata."
+  },
+  {
+    "objectID": "Metadata.html#who-is-responsible-for-creating-and-updating-metadata",
+    "href": "Metadata.html#who-is-responsible-for-creating-and-updating-metadata",
+    "title": "CORI MDA Wiki",
+    "section": "Who is responsible for creating and updating metadata?",
+    "text": "Who is responsible for creating and updating metadata?\nData is typically either source data or generated for specific products or projects. The MDA Data Engineer has primary responsibility for ensuring the existence of source metadata. For project or product specific data, the project or product owner has ultimate responsibility for creating metadata."
+  },
+  {
+    "objectID": "Metadata.html#how-to-update-metadata-via-coriverse",
+    "href": "Metadata.html#how-to-update-metadata-via-coriverse",
+    "title": "CORI MDA Wiki",
+    "section": "How to update Metadata via coriverse",
+    "text": "How to update Metadata via coriverse\nFor instruction on creating and accessing MDA metadata, visit the cori_db wiki."
+  },
+  {
+    "objectID": "Spatial-Data-for-Mapping-and-Analysis.html",
+    "href": "Spatial-Data-for-Mapping-and-Analysis.html",
+    "title": "Spatial Data for Mapping and Analysis",
+    "section": "",
+    "text": "Spatial Data for Mapping and Analysis\nThere are two important spatial representations of Census geographies we work with at CORI/RISI.\n\nTIGER/Line\nThe TIGER/Line files are the most accurate spatial representations of Census geographies. These files should be used for any spatial data analysis. However, the polygons in these files are not suitable for mapping, as they occasionally overlap bodies of water and otherwise look strange when mapped.\n\n      Schema: sch_census_tiger\n      Source Table Format: source_tiger_{year}_{geography}\n      Layer Table Format: tiger_{year}_{geography}\n      Current Year: 2019\n\n\n\nCartographic Boundary Files\nAlso published by the Census, cartographic boundary files are significantly better for visual applications. However, cartographic boundary files are not suitable for spatial analysis and should never be used for such. These files should be applied as a final geometry before exporting to a mapping application.\n\n      Schema: sch_census_tiger\n      Source Table Format: source_cb_{year}_{geography}\n      Current Year: 2019"
+  },
+  {
+    "objectID": "QGIS.html",
+    "href": "QGIS.html",
+    "title": "CORI MDA Wiki",
+    "section": "",
+    "text": "This will include some materials for the use of QGIS"
+  },
+  {
+    "objectID": "QGIS.html#connecting-qgis-to-cori-rds-db",
+    "href": "QGIS.html#connecting-qgis-to-cori-rds-db",
+    "title": "CORI MDA Wiki",
+    "section": "Connecting QGIS to CORI RDS DB",
+    "text": "Connecting QGIS to CORI RDS DB\nResource: https://docs.qgis.org/3.28/en/docs/user_manual/auth_system/auth_overview.html\nTo interact with qgis in R: https://r-spatial.github.io/qgisprocess/\nIn QGIS:\n\nQGIS -&gt; Preferences -&gt; Authentication\nIn Authentication use the green ➕ to add a new way of doing it.\n\nIf it is the first time it will ask you to set up a master password (I think it is just for mac).\n\nUse the drop down menu to select Basic authentication\nPick a name: I am using cori\nProvide the correct Username and Password\n\nIn QGIS Browser:\n\nRight click on PostgreSQL\nNew connections\nPick a name (again I am using CORI)\nHost: our aws RDS\nPort: we are using the default one (5432)\nDatabase name: the name of the DB, we will not use SSL (but we probably could)\nIn Athentication select the previous configurations we have done\nYou can “Test Connection”\n\nIf it is good you can press ok if not review the Host name other parameters.\nYou should be able to browse schema and table from the database."
+  },
+  {
+    "objectID": "PostgreSQL-RDS-Managment.html#database-migration-update-2023-11-20",
+    "href": "PostgreSQL-RDS-Managment.html#database-migration-update-2023-11-20",
+    "title": "PostgreSQL-RDS-Managment",
+    "section": "Database Migration Update 2023-11-20",
+    "text": "Database Migration Update 2023-11-20\nhttps://docs.google.com/document/d/1nuYftMYqEKbH2i_wKhf63Kika7RtEoHb-A7NZYaSPwQ/edit\n\nGoal Overview:\nUse data from the single database instance in our old RDS cluster (cori-risi) to populate the following four new databases instances in our new RDS cluster (cori-risi-ad-postgresql):\n\napi-dev - Database used as a development environment with the main purpose of “promoting” data access to api-prod; serves as a test environment for the CORI Data API.\napi-prod - Database used to serve CORI Data API with data. Highest level of security with limited access. Products will or can be public facing.\ndata-prod - Database used to house vetted, documented, and production level datasets. Potential for very limited data sharing (with collaborators outside the org) with support.\ndata - Database used to support exploratory project work, research data, datasets under development.\n\nWe will do this in sequential steps, populating each new database instance one-at-a-time, with the database instance called “data” being the final one (equivalent to the original “data” instance in the old cori-risi RDS cluster). Some schemas will be database-specific from now on, while others (i.e., “metadata”) will be common to all instances.\n\n\nGlossary:\nDatabase: Collection of schemas (data domains), each with a specific set of data tables\nRDS: AWS service for hosting and administering networked database (DB) clusters\nRDS (cluster): Also used to reference a single cluster of databases\nRole: a generic specification that can do stuff in DB, (example: read_only) . For administration purposes some “group” roles will be a collection of multiple users (example: bb_team )\nUser: a role that can login (example: Olivier)\n\n\nBasic activities plan:\n\n“Dumping” existing schemas in old RDS (pg_dump) (Oct 25, 2023~ Nov 1, 2023)\n\n\nSchemas intended for data-prod will be manually dumped/restored (by Olivier Nov 1, 2023)\n(MDA Team:) Should we restore these schemas? If yes, into which database?\n\nHistorical_census_data\n\nUsed in RWJF story 2\nNot actively developed\nWill not restore\n\nsch_layers\n\nCarto layers…\nVersion of higher ed drive times (last run?)\nWill not restore\n\nsch_source\n\nDumping ground during ETL\nPractice question: how should we deal with storing intermediate data in db?\n\nUtilize S3; document bucket/path in code README\n\nWill not restore; absence of schema will break some scripts\n\nvt_broadband\n\nOld VT 10 year work\nWill not restore\n\n\n\n\nCreating group roles (and clean a bit manually) for administrative management in new RDS (Oct 31, 2023)\nCreating new database instances in new RDS (Active Directory secured)\n\n\nPopulate them in this order:\n\napi-dev (Nov 1, 2023)\n-&gt; api-prod (Nov 2, 2023)\n-&gt; data-prod (Nov 6, 2023~ Nov 9, 2023)\n\nThis will use schemas manually dumped/restored (by Olivier)\nWe actually used ansible for both dumping schemas and restoring them to the individual database instances.\n\n-&gt; data (Nov 13, 2023)\n\nCheck-in AK and BB team about down-time (November 9)\nCheck-in Nora and RII team about down-time (November 9)\nNotify Org about app down-time (Nov 2, 2023)\nSet time with Nahum (MF) for API re-deploy/testing (Nov 2, 2023?)\nRe-deploy Broadband Climate Risk Mitigation Tool with downtime notification\n\n\nCreating users with role assignments to access the new database instances\n\n\nMaintaining a version-controlled YAML file as the source of truth on who can connect to what (and how)\n\ndb_password should be a shell env.\nWhat happens if users already exist and have set a password? (avoid idempotency; password reset -&gt; no_password_changes: is taking that into account )\n\n\n\n(Re-)Connecting “client” apps/tools to each new database instance (Nov 6, 2023-10)\n\n\nPrerequisite: updating cori.db (remember to increment the version)\n\nSet credential function (Nov 6, 2023)\nConnect to db functions (Nov 6, 2023)\n\nSpecify search path in params\nAdding one function to connect to data-prod (November 6)\n\n\nR processes/scripts (including DoctR =&gt; TED data pipeline)\nRe-deploy some of our shiny apps (TED, WIM, CORI Explorer) to shinyapps.io (November 9)\n\nRequired: uses .Renviron for db credentials\n\nRe-deploy API (November 2)\nRe-deploy BCAT and Broadband Risk Mitigation (CH) (TBD)\n\n\nTesting functionality (November 6; ongoing)\nOnboard BB team\n\n\nBB &lt;=&gt; MDA Database onboarding (2.0) (Nov 29, 2023)\n\n\nShut down old server RDS cluster (November 20)\nSharing (developing) best practices going forward (TBD)\n\n\nWriting/Updating documentation:\n\nArchitecture overview\ncori.db docmentation (README)\nData content/variables overview -\n\nCORI EXPLORER\nhttps://rpubs.com/drewrose/data_documentation\nhttps://ruralinnovation.github.io/data_documentation/\n\nAdding users\n\nSelf-managed password (procedures when pwd is forgotten/lost)?\n\nMoving data\n\nExamples:\n\nData set handling: data that is “in-process/progress” stays in the data db instance. Metadata is essential and required for any data set that will be moved to the api-prod or data-prod db instances.\nQueries: Use less *, use alias (AS) and WHERE to help homogenize input in R or other scripting tools\n\n\n\n\nAppendix:\nSome examples of role inheritance: - Drew (User) &lt;- mda_team (“group”) &lt;- read_and_write (roles)\n\nKirstin (User) &lt;- bb_team(“group”) &lt;- read_only (roles)\nShinybot1 (User) &lt;- bot (“group”) &lt;- read_only (roles)\nCollaborator_bill (User) &lt;- group &lt;- read_only (roles)\n\n\n\nFollow-up:\n\nCreate architecture diagram\nPlan for communicating/social db best practices\nAWS costs (pull invoices):\n\nNovember 2023\nNovember 2022\nCompare change in RDS costs with Drew Rosebush"
+  },
+  {
+    "objectID": "PostgreSQL-RDS-Managment.html#database-migration-2023-03-10",
+    "href": "PostgreSQL-RDS-Managment.html#database-migration-2023-03-10",
+    "title": "PostgreSQL-RDS-Managment",
+    "section": "Database Migration 2023-03-10",
+    "text": "Database Migration 2023-03-10"
+  },
+  {
+    "objectID": "PostgreSQL-RDS-Managment.html#goals",
+    "href": "PostgreSQL-RDS-Managment.html#goals",
+    "title": "PostgreSQL-RDS-Managment",
+    "section": "Goals:",
+    "text": "Goals:\n\nReduce the size (50% ? we can always increase)\nUpgrade Postgres version (15)\nUpgrade PostGIS version (3.X)\nDefining Roles/Users\nSplit DB: yes 4 DB\nList remaining Challenges\n\nProcess to update data\nProcess to consolidate/clean/document previous data\nProcess to archive data\ndocumentations\nmerge branches / clean Ansible repo\nindividual password reset from ansible\n\nOnboard bb team -&gt; meeting 29/11\nDrop the previous instance (last dump?)\n\nThe list of Drew is a great start how can we improve it?\nI think it is outside of the scope of migrating DB but we should at least link the two and we should add a specific ticket/process on how we can build a better version of it.\nWhat is important is how long should we keep data for every source. If I am correct we are tracking the DB with a shiny app that target the metadata schema. In my opinion it is a good idea one question I am unclear is when do we update metadata: right after writing anything? after the data is in “production” ? (other option). When we are storing past data we should think who do we clean metadata.\nThe ansible repo can be used has a documentation on how the schema were dump and restore:\n- **Schemas dumps**: https://github.com/ruralinnovation/ansible/blob/dce9174cbcd65bf6533a6a4516764d6760ea902c/playbooks/cori-risi-old-db/README.md   \n\n- **schema per databases** https://github.com/ruralinnovation/ansible/tree/dce9174cbcd65bf6533a6a4516764d6760ea902c/playbooks/cori-risi-ad-postgresql/vars   \n\nData lifecycle?\nCurrently, we just have one DB and multiple schemas.\nI will divide with at least:\n\nprojects\n\nschema for specific projects\n\nstaging place at schema level\ncan be called by bots\nno limitation in writing/reading\n\nsources\n\nmostly some raw data could be redundant with data\ncan’t be called by bots\nmore limited writing\n\ndata\n\nData that we need frequently and has been processed by us\nCan be called by bots?\nno limitation in writing/reading\n\n\nThis three seems to have different lifecycle (ie when we update them/store them/delete part of them)"
+  },
+  {
+    "objectID": "PostgreSQL-RDS-Managment.html#ted",
+    "href": "PostgreSQL-RDS-Managment.html#ted",
+    "title": "PostgreSQL-RDS-Managment",
+    "section": "TED",
+    "text": "TED\nshinyapp: - entry point app.R - it is unsing cori.apps for component - it is using doctR and doctR needs fonts - renv.lock is used by shinyapps.io to download the correct packages and version - it needs core_data"
+  },
+  {
+    "objectID": "The-coriverse-suite-of-packages.html",
+    "href": "The-coriverse-suite-of-packages.html",
+    "title": "Core proprietary packages",
+    "section": "",
+    "text": "Core proprietary packages\n\ncori.utils\n\nA collection of simple helper functions and small, useful data sets intended to make life easier and solve simple problems\n\n\n\ncori.db\n\nA collection of functions for working the CORI/RISI Postgres database\n\n\n\nRto\n\nA system agnostic wrapper for the CARTO API for uploading data\n\n\n\n\n\nCore External Packages\nThese packages are standard across MDA workflows, and should be preferred unless a specific use case demands otherwise.\n\ntidyverse\n\nPreferred suite of packages for most data analysis tasks\n\n\n\nsf\n\nCore MDA spatial analysis library\n\n\n\nleaflet\n\nAd-hoc mapping of spatial data\n\n\n\nrairtable\n\nEfficient, Tidyverse-friendly Airtable API interaction"
+  },
+  {
+    "objectID": "Suggested-Code-Snippets.html",
+    "href": "Suggested-Code-Snippets.html",
+    "title": "Suggested Code Snippets",
+    "section": "",
+    "text": "Working with SQL\nRead Data\nWrite Data\nDisconnect from DB\nValidate join\nExplore Data\nVisualize data on a map\nCompare 2 dataframes"
+  },
+  {
+    "objectID": "Suggested-Code-Snippets.html#toc",
+    "href": "Suggested-Code-Snippets.html#toc",
+    "title": "Suggested Code Snippets",
+    "section": "",
+    "text": "Working with SQL\nRead Data\nWrite Data\nDisconnect from DB\nValidate join\nExplore Data\nVisualize data on a map\nCompare 2 dataframes"
+  },
+  {
+    "objectID": "onboarding_team_db.html",
+    "href": "onboarding_team_db.html",
+    "title": "CORI MDA Wiki",
+    "section": "",
+    "text": "Software requirement: PG Admin &gt; 7\n\n\n\nRight clic on Server -&gt; Register -&gt; Server\nNew windows pop up:\n\n\nName: cori-ad\nIn the Connection tab Host name/address: cori-risi-ad-postgresql.c6zaibvi9wyg.us-east-1.rds.amazonaws.com\nUsername: your username (your email)\nPassword: your password\nWhat do you have in Parameters’s tab? if not add SSL mode as prefer\n\n\nOpen the “Query tool” and enter:\n\nThe “Query tool” look like a small silo:\n\nTo turn the “Query Tool” from “grey” to “black” select the postgres DB.\nThen enter:\nALTER USER \"your_username\" WITH PASSWORD 'my_secret_pwd';\nYour username need to be double quoted.\nWhen it displays “Query returned successfully” you should be able to save this password.\nThen you can disconnect from the server and when you reconnect it will ask for your password and you can save it from here:\n\n\n\n\nRefer to the coriverse wiki and cori.db readme for more details instructions on installing this package.\nremotes::install_github(\"ruralinnovation/cori.db\")\npackageVersion(\"cori.db\")\n# [1] ‘0.2.0’\ncori.db::set_db_credentials(\"your_username\", \"my_secret_pwd\")\n# Restart the R session \n\n\n\nmda_team users do not have permission to create schema.\nWhen creating a new schema to allow everyone in a team to access it the ownership need to be changed.\nALTER SCHEMA \"my_schema\" OWNER TO mda_team;"
+  },
+  {
+    "objectID": "onboarding_team_db.html#onboarding-team",
+    "href": "onboarding_team_db.html#onboarding-team",
+    "title": "CORI MDA Wiki",
+    "section": "",
+    "text": "Software requirement: PG Admin &gt; 7\n\n\n\nRight clic on Server -&gt; Register -&gt; Server\nNew windows pop up:\n\n\nName: cori-ad\nIn the Connection tab Host name/address: cori-risi-ad-postgresql.c6zaibvi9wyg.us-east-1.rds.amazonaws.com\nUsername: your username (your email)\nPassword: your password\nWhat do you have in Parameters’s tab? if not add SSL mode as prefer\n\n\nOpen the “Query tool” and enter:\n\nThe “Query tool” look like a small silo:\n\nTo turn the “Query Tool” from “grey” to “black” select the postgres DB.\nThen enter:\nALTER USER \"your_username\" WITH PASSWORD 'my_secret_pwd';\nYour username need to be double quoted.\nWhen it displays “Query returned successfully” you should be able to save this password.\nThen you can disconnect from the server and when you reconnect it will ask for your password and you can save it from here:\n\n\n\n\nRefer to the coriverse wiki and cori.db readme for more details instructions on installing this package.\nremotes::install_github(\"ruralinnovation/cori.db\")\npackageVersion(\"cori.db\")\n# [1] ‘0.2.0’\ncori.db::set_db_credentials(\"your_username\", \"my_secret_pwd\")\n# Restart the R session \n\n\n\nmda_team users do not have permission to create schema.\nWhen creating a new schema to allow everyone in a team to access it the ownership need to be changed.\nALTER SCHEMA \"my_schema\" OWNER TO mda_team;"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": ".",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "Repository-Classification.html",
+    "href": "Repository-Classification.html",
+    "title": "Repository-Classification",
+    "section": "",
+    "text": "Repository-Classification\nMDA repositories run the gamut from code under active development to stale code that is no longer useful. To document the status of repositories, use one of the five following tags.\n\n\nStable\n\n\n\nlifecycle\n\n\nThis should be the standard tag for repositories that are not under active development. Stable code should have no anticipated breaking changes and have received some QA. To mark a repository as stable:\n\nPaste ![lifecycle](https://img.shields.io/badge/lifecycle-stable-green.svg) into the readme and commit changes\nAdd ‘stable’ as a topic for the repository\n\n\n\n\nMaturing\n\n\n\nlifecycle\n\n\nMaturing repositories are under active development. This tag should not be used long-term. It indicates that breaking changes are expected in the code. To be labeled ‘Maturing’, the existing code should have received some level of QA but is subject to change. To mark a repository as maturing:\n\nPaste ![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg) into the readme and commit changes\nAdd ‘maturing’ as a topic for the repository\n\n\n\n\nExperimental\n\n\n\nlifecycle\n\n\nThis tag should be used sparingly – ideally we should have few experimental repos. Code in an experimental repo may not have received any QA. Nothing generated from an experimental repo should be used in a deliverable or as the foundation for other code without serious external review. To mark a repository as experimental:\n\nPaste ![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg) into the readme and commit changes\nAdd ‘experimental’ as a topic for the repository\n\n\n\n\nDeprecated\n\n\n\nlifecycle\n\n\nWe may wish to preserve legacy code in some repositories. These should be marked as deprecated and link to the current state of the art. To mark a repository as deprecated:\n\nPaste ![lifecycle](https://img.shields.io/badge/lifecycle-deprecated-red.svg) into the readme and commit changes\nAdd ‘deprecated’ as a topic for the repository\n\n\n\n\nUnsupported\n\n\n\nlifecycle\n\n\nSome repositories contain code that is being used but should not receive additional development. This tag is intended to denote for ourselves and for anyone who comes after that if additional development on the tool or project associated with the repo is desired, there is a strong recommendation to rewrite the code entirely and not to treat the existing code as a useful or reliable foundation for future work.\nIn essence, this tag indicates the presence of catastrophic technical debt.\nTo mark a repository as unsupported:\n\nPaste ![lifecycle](https://www.repostatus.org/badges/latest/unsupported.svg) into the readme and commit changes\nAdd ‘unsupported’ as a topic for the repository"
+  },
+  {
+    "objectID": "profile/accelerate.html",
+    "href": "profile/accelerate.html",
+    "title": "CORI MDA Wiki",
+    "section": "",
+    "text": "The MDA team is at the forefront of an ongoing digital transformation currently taking place at the Center on Rural Innovation. We are informed by and closely following the evidence-based team management and future-facing data architecture approaches outlined in the following books…\n\nAccelerate The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations Paperback by Nicole Forsgren PhD, Jez Humble, Gene Kim\n\n\nArchitecting Data and Machine Learning Platforms Enable Analytics and AI-Driven Innovation in the Cloud by Marco Tranquillin, Valliappa Lakshmanan, Firat Tekiner"
+  },
+  {
+    "objectID": "help_I_have_a_data_team.html",
+    "href": "help_I_have_a_data_team.html",
+    "title": "Help I Have Data Team",
+    "section": "",
+    "text": "Help I Have Data Team\n\n\n🏗️ This page is under construction! 🏗️\n\nWhen I want to share data with them it is better to do it in .csv!\ncsv stand for comma separated value: it is a plain text file (with usually the first row containing the header) that divide every fields with a comma (“a separator”).\nSometimes you can also get ;, | or even ^ as separator!\nWhat matter here is that a csv file are a plain text file format, unlike .xls, were what you get is not what you see (when you share the files)!\n\n\nfiles name should not have white space and weird character!\nExample: final % 16 21.txt is a bad name!\nA lot of tools we are using are command line based (docker as an example) and here white spaces are used to separate stuff (arguments).\nNow, weird characters (#, $, &) are somewhat “fine”. The “somewhat” is hard to predict, sometimes this character are used for other purpose and sometimes the tools we are using (or a dependency of the tool we are using) is old enough to only use ASCI characters!"
+  }
+]
