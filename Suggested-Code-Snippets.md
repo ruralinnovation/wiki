@@ -1,7 +1,7 @@
 
----------------------
+# Suggested Code Snippets
 
-# TOC
+## TOC
 
 - [Working with SQL](#sql)
 
