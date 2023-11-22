@@ -1,87 +1,17 @@
 [
   {
-    "objectID": "Cori-Infrastructure.html",
-    "href": "Cori-Infrastructure.html",
+    "objectID": "onboarding_team_db.html",
+    "href": "onboarding_team_db.html",
     "title": "CORI MDA Wiki",
     "section": "",
-    "text": "For CORI infrastructure see:\nhttps://github.com/orgs/ruralinnovation/projects/1/views/1\nhttps://github.com/ruralinnovation/cori-infrastructure"
+    "text": "Software requirement: PG Admin &gt; 7\n\n\n\nRight clic on Server -&gt; Register -&gt; Server\nNew windows pop up:\n\n\nName: cori-ad\nIn the Connection tab Host name/address: cori-risi-ad-postgresql.c6zaibvi9wyg.us-east-1.rds.amazonaws.com\nUsername: your username (your email)\nPassword: your password\nWhat do you have in Parameters’s tab? if not add SSL mode as prefer\n\n\nOpen the “Query tool” and enter:\n\nThe “Query tool” look like a small silo:\n\nTo turn the “Query Tool” from “grey” to “black” select the postgres DB.\nThen enter:\nALTER USER \"your_username\" WITH PASSWORD 'my_secret_pwd';\nYour username need to be double quoted.\nWhen it displays “Query returned successfully” you should be able to save this password.\nThen you can disconnect from the server and when you reconnect it will ask for your password and you can save it from here:\n\n\n\n\nRefer to the coriverse wiki and cori.db readme for more details instructions on installing this package.\nremotes::install_github(\"ruralinnovation/cori.db\")\npackageVersion(\"cori.db\")\n# [1] ‘0.2.0’\ncori.db::set_db_credentials(\"your_username\", \"my_secret_pwd\")\n# Restart the R session \n\n\n\nmda_team users do not have permission to create schema.\nWhen creating a new schema to allow everyone in a team to access it the ownership need to be changed.\nALTER SCHEMA \"my_schema\" OWNER TO mda_team;"
   },
   {
-    "objectID": "MDA-Style-Guide.html",
-    "href": "MDA-Style-Guide.html",
+    "objectID": "onboarding_team_db.html#onboarding-team",
+    "href": "onboarding_team_db.html#onboarding-team",
     "title": "CORI MDA Wiki",
     "section": "",
-    "text": "This is the CORI/RISI MDA team style guide.\nThis is an evolving set of best practices for R programming on the MDA team. A template GitHub repo is available for new projects and provides suggestions for base structure and minimal documentation."
-  },
-  {
-    "objectID": "MDA-Style-Guide.html#naming-conventions",
-    "href": "MDA-Style-Guide.html#naming-conventions",
-    "title": "CORI MDA Wiki",
-    "section": "Naming Conventions",
-    "text": "Naming Conventions\n\nVariable and table names, both in code and on the database, should always be in snake_case, i.e. all lower case with underscore separation of words.\nGithub repositories dedicated to a new project should begin with the prefix proj-. Similarly, repositories dedicated to ETL of a specific data set should begin with the prefix data-. All repositories should have clear, descriptive names.\nFunctions are verbs. Whenever possible use a descriptive verb or action phrase to name your function (e.g. add_column(), rather than column_adder()).\nScripts that need to be run in a specific order should be prefixed with two digits and and an underscore, e.g. 01_, 02_ … 10_. Scripts numbered with a single digit will be displayed out of order in most file explorers when there are 10 or more scripts."
-  },
-  {
-    "objectID": "MDA-Style-Guide.html#code",
-    "href": "MDA-Style-Guide.html#code",
-    "title": "CORI MDA Wiki",
-    "section": "Code",
-    "text": "Code\n\nAlways use library() to load packages. require() is used in a lot of MDA legacy code, and should be replaced with library() when it is encountered.\nNeither library() nor require() should ever appear inside of functions.\n\nState package dependencies in your scripts explicitly at the top level using library().\n\nWhen creating functions that call tidyverse functions, use the embracing operator, e.g. {{ var }}, instead of !!as.name(var) or similar.\n\nVariables inside the embracing operator should always be padded with a space on either side.\n\nThere is no such thing as over-commented code. To the extent possible, a script should be self-documenting. Be kind to your reviewers (and six-months-from-now you) and write the comments even when you’re in a hurry.\nAvoid while loops and nested loops of any kind.\n\nWhile both have applications, they are rare and there are almost always cleaner solutions that are easier to understand and reason about in the long run.\n\nAlways use a project-oriented workflow.\nA great deal of legacy MDA code prefixes all variables with x.. This practice should be avoided moving forward.\nSeparate tasks, such as downloading a source file and then processing that data into a usable table, should be separated into numbered scripts.\nWhitespace makes code more readable. Always pad assignment operators and equals signs (including within function calls!) with a single space on both sides. Separate commands with one or more new lines.\nThe assignment operator (&lt;-) is preferred to = for object creation, consistent with the tidyverse style guide.\nWhen in doubt about good formatting, defer to the tidyverse style guide"
-  },
-  {
-    "objectID": "MDA-Style-Guide.html#tools",
-    "href": "MDA-Style-Guide.html#tools",
-    "title": "CORI MDA Wiki",
-    "section": "Tools",
-    "text": "Tools\n\nIf using RStudio, ensure that under Tools &gt;&gt; Global Options the option ‘Restore .RData into workspace at startup’ is not checked and the option ‘Save workspace to .RData on exit’ is set to Never. Using .RData to save presets and variables trades a minor convenience for major code portability headaches. Always start from a fresh session."
-  },
-  {
-    "objectID": "MDA-Style-Guide.html#the-zen-of-functional-programming-the-zen-of-python",
-    "href": "MDA-Style-Guide.html#the-zen-of-functional-programming-the-zen-of-python",
-    "title": "CORI MDA Wiki",
-    "section": "The Zen of Functional Programming (The Zen of Python +)",
-    "text": "The Zen of Functional Programming (The Zen of Python +)\n\nBeautiful is better than ugly.\nExplicit is better than implicit.\nSimple is better than complex.\nComplex is better than complicated.\nFlat is better than nested.\nSparse is better than dense.\nReadability counts.\nSpecial cases aren’t special enough to break the rules.\nAlthough practicality beats purity.\nErrors should never pass silently.\nUnless explicitly silenced.\nIn the face of ambiguity, refuse the temptation to guess.\nThere should be one– and preferably only one –obvious way to do it.\nIf you find the one obvious way to do it, document it here for the sake of your coworkers and yourself in six months.\nNow is better than never.\nAlthough never is often better than right now.\nIf the implementation is hard to explain, it’s a bad idea.\nIf the implementation is easy to explain, it may be a good idea.\nCopy and paste is the root of 42% of all evil.\nIf you would copy and paste code a third time, instead write a function.\nIf you would copy and paste a function for the third time in a script, instead use a functional.\nAlthough a loop is better than nothing.\nIf you would copy a function into a new script even once, document it and add it to the coriverse."
-  },
-  {
-    "objectID": "Git-Workflows.html",
-    "href": "Git-Workflows.html",
-    "title": "Git From the Command Line: Core commands",
-    "section": "",
-    "text": "Git From the Command Line: Core commands\n\ngit clone &lt;link&gt;: Clone a GitHub repository. The link to clone a repo is available in the green Code dropdown on the main page. Use the SSH option.\n\n\n\nclone_link\n\n\n\ngit pull: Pull changes and files from GitHub into your local repository.\n\ngit checkout -b &lt;new_branch&gt;: Allow you to create a new branch and go into it (git checkout allow you to navigate git graph)\n\ngit add (filename&gt;: Add new files to git\n\ngit commit: The expanded form is git commit -am 'commit message'. This tells Git to commit everything on the working tree (-a) and add a message (-m).\n\ngit push: Push local changes and files up to GitHub\n\n\nGitHub Workflow:\nIt is good practices to add important changes in a new branch and send it for a PR (Pull Request)\n\nCreate a PR with your commits (push it to remote repo)\nGet it reviewed by someone on the team - in GH and Airtable\n\nYou can inside of GitHub ask for a Reviewers, assign someone (Assignees) to do the merge (a Pull Request, is a merge inside of GitHub) or set up deadline (see at the right of the screan)\nOnce approved the PR you should not keep track of it inside of GitHub (the branch will still be inside of your local repo) and you should delete it. Github allow you to automatically do it: it is in the setting of the repo nearly at the bottom:\n\n\n\nScreenshot 2023-02-07 at 11 52 21 AM"
-  },
-  {
-    "objectID": "Metadata.html",
-    "href": "Metadata.html",
-    "title": "CORI MDA Wiki",
-    "section": "",
-    "text": "The MDA tracks a variety of metadata on high-traffic tables. Metadata is information about the data that we are sourcing and/or creating, which may include: * Where the data came from (source) * When the data was acquired * What the table names mean * What the field names mean * Any information about how the data was created/generated/derived * and more…"
-  },
-  {
-    "objectID": "Metadata.html#what-is-metadata",
-    "href": "Metadata.html#what-is-metadata",
-    "title": "CORI MDA Wiki",
-    "section": "",
-    "text": "The MDA tracks a variety of metadata on high-traffic tables. Metadata is information about the data that we are sourcing and/or creating, which may include: * Where the data came from (source) * When the data was acquired * What the table names mean * What the field names mean * Any information about how the data was created/generated/derived * and more…"
-  },
-  {
-    "objectID": "Metadata.html#when-should-metadata-be-updated",
-    "href": "Metadata.html#when-should-metadata-be-updated",
-    "title": "CORI MDA Wiki",
-    "section": "When should Metadata be updated?",
-    "text": "When should Metadata be updated?\nMetadata should always be created for: * All new source data sets * All product data sets (data sets exposed in a tool or MDA-derived data sets used across projects, e.g. Location Analysis)\nAdditionally, if you plan to expose the data set (schema + table within the PostgreSQL RDS instance) that you are working on to anyone else in the organization, you need to add Metadata."
-  },
-  {
-    "objectID": "Metadata.html#who-is-responsible-for-creating-and-updating-metadata",
-    "href": "Metadata.html#who-is-responsible-for-creating-and-updating-metadata",
-    "title": "CORI MDA Wiki",
-    "section": "Who is responsible for creating and updating metadata?",
-    "text": "Who is responsible for creating and updating metadata?\nData is typically either source data or generated for specific products or projects. The MDA Data Engineer has primary responsibility for ensuring the existence of source metadata. For project or product specific data, the project or product owner has ultimate responsibility for creating metadata."
-  },
-  {
-    "objectID": "Metadata.html#how-to-update-metadata-via-coriverse",
-    "href": "Metadata.html#how-to-update-metadata-via-coriverse",
-    "title": "CORI MDA Wiki",
-    "section": "How to update Metadata via coriverse",
-    "text": "How to update Metadata via coriverse\nFor instruction on creating and accessing MDA metadata, visit the cori_db wiki."
+    "text": "Software requirement: PG Admin &gt; 7\n\n\n\nRight clic on Server -&gt; Register -&gt; Server\nNew windows pop up:\n\n\nName: cori-ad\nIn the Connection tab Host name/address: cori-risi-ad-postgresql.c6zaibvi9wyg.us-east-1.rds.amazonaws.com\nUsername: your username (your email)\nPassword: your password\nWhat do you have in Parameters’s tab? if not add SSL mode as prefer\n\n\nOpen the “Query tool” and enter:\n\nThe “Query tool” look like a small silo:\n\nTo turn the “Query Tool” from “grey” to “black” select the postgres DB.\nThen enter:\nALTER USER \"your_username\" WITH PASSWORD 'my_secret_pwd';\nYour username need to be double quoted.\nWhen it displays “Query returned successfully” you should be able to save this password.\nThen you can disconnect from the server and when you reconnect it will ask for your password and you can save it from here:\n\n\n\n\nRefer to the coriverse wiki and cori.db readme for more details instructions on installing this package.\nremotes::install_github(\"ruralinnovation/cori.db\")\npackageVersion(\"cori.db\")\n# [1] ‘0.2.0’\ncori.db::set_db_credentials(\"your_username\", \"my_secret_pwd\")\n# Restart the R session \n\n\n\nmda_team users do not have permission to create schema.\nWhen creating a new schema to allow everyone in a team to access it the ownership need to be changed.\nALTER SCHEMA \"my_schema\" OWNER TO mda_team;"
   },
   {
     "objectID": "Spatial-Data-for-Mapping-and-Analysis.html",
@@ -133,13 +63,6 @@
     "text": "TED\nshinyapp: - entry point app.R - it is unsing cori.apps for component - it is using doctR and doctR needs fonts - renv.lock is used by shinyapps.io to download the correct packages and version - it needs core_data"
   },
   {
-    "objectID": "The-coriverse-suite-of-packages.html",
-    "href": "The-coriverse-suite-of-packages.html",
-    "title": "Core proprietary packages",
-    "section": "",
-    "text": "Core proprietary packages\n\ncori.utils\n\nA collection of simple helper functions and small, useful data sets intended to make life easier and solve simple problems\n\n\n\ncori.db\n\nA collection of functions for working the CORI/RISI Postgres database\n\n\n\nRto\n\nA system agnostic wrapper for the CARTO API for uploading data\n\n\n\n\n\nCore External Packages\nThese packages are standard across MDA workflows, and should be preferred unless a specific use case demands otherwise.\n\ntidyverse\n\nPreferred suite of packages for most data analysis tasks\n\n\n\nsf\n\nCore MDA spatial analysis library\n\n\n\nleaflet\n\nAd-hoc mapping of spatial data\n\n\n\nrairtable\n\nEfficient, Tidyverse-friendly Airtable API interaction"
-  },
-  {
     "objectID": "Suggested-Code-Snippets.html",
     "href": "Suggested-Code-Snippets.html",
     "title": "Suggested Code Snippets",
@@ -154,20 +77,6 @@
     "text": "Working with SQL\nRead Data\nWrite Data\nDisconnect from DB\nValidate join\nExplore Data\nVisualize data on a map\nCompare 2 dataframes"
   },
   {
-    "objectID": "onboarding_team_db.html",
-    "href": "onboarding_team_db.html",
-    "title": "CORI MDA Wiki",
-    "section": "",
-    "text": "Software requirement: PG Admin &gt; 7\n\n\n\nRight clic on Server -&gt; Register -&gt; Server\nNew windows pop up:\n\n\nName: cori-ad\nIn the Connection tab Host name/address: cori-risi-ad-postgresql.c6zaibvi9wyg.us-east-1.rds.amazonaws.com\nUsername: your username (your email)\nPassword: your password\nWhat do you have in Parameters’s tab? if not add SSL mode as prefer\n\n\nOpen the “Query tool” and enter:\n\nThe “Query tool” look like a small silo:\n\nTo turn the “Query Tool” from “grey” to “black” select the postgres DB.\nThen enter:\nALTER USER \"your_username\" WITH PASSWORD 'my_secret_pwd';\nYour username need to be double quoted.\nWhen it displays “Query returned successfully” you should be able to save this password.\nThen you can disconnect from the server and when you reconnect it will ask for your password and you can save it from here:\n\n\n\n\nRefer to the coriverse wiki and cori.db readme for more details instructions on installing this package.\nremotes::install_github(\"ruralinnovation/cori.db\")\npackageVersion(\"cori.db\")\n# [1] ‘0.2.0’\ncori.db::set_db_credentials(\"your_username\", \"my_secret_pwd\")\n# Restart the R session \n\n\n\nmda_team users do not have permission to create schema.\nWhen creating a new schema to allow everyone in a team to access it the ownership need to be changed.\nALTER SCHEMA \"my_schema\" OWNER TO mda_team;"
-  },
-  {
-    "objectID": "onboarding_team_db.html#onboarding-team",
-    "href": "onboarding_team_db.html#onboarding-team",
-    "title": "CORI MDA Wiki",
-    "section": "",
-    "text": "Software requirement: PG Admin &gt; 7\n\n\n\nRight clic on Server -&gt; Register -&gt; Server\nNew windows pop up:\n\n\nName: cori-ad\nIn the Connection tab Host name/address: cori-risi-ad-postgresql.c6zaibvi9wyg.us-east-1.rds.amazonaws.com\nUsername: your username (your email)\nPassword: your password\nWhat do you have in Parameters’s tab? if not add SSL mode as prefer\n\n\nOpen the “Query tool” and enter:\n\nThe “Query tool” look like a small silo:\n\nTo turn the “Query Tool” from “grey” to “black” select the postgres DB.\nThen enter:\nALTER USER \"your_username\" WITH PASSWORD 'my_secret_pwd';\nYour username need to be double quoted.\nWhen it displays “Query returned successfully” you should be able to save this password.\nThen you can disconnect from the server and when you reconnect it will ask for your password and you can save it from here:\n\n\n\n\nRefer to the coriverse wiki and cori.db readme for more details instructions on installing this package.\nremotes::install_github(\"ruralinnovation/cori.db\")\npackageVersion(\"cori.db\")\n# [1] ‘0.2.0’\ncori.db::set_db_credentials(\"your_username\", \"my_secret_pwd\")\n# Restart the R session \n\n\n\nmda_team users do not have permission to create schema.\nWhen creating a new schema to allow everyone in a team to access it the ownership need to be changed.\nALTER SCHEMA \"my_schema\" OWNER TO mda_team;"
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": ".",
@@ -175,18 +84,39 @@
     "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "MDA-Style-Guide.html",
+    "href": "MDA-Style-Guide.html",
+    "title": "CORI MDA Wiki",
     "section": "",
-    "text": "About this site"
+    "text": "This is the CORI/RISI MDA team style guide.\nThis is an evolving set of best practices for R programming on the MDA team. A template GitHub repo is available for new projects and provides suggestions for base structure and minimal documentation."
   },
   {
-    "objectID": "Repository-Classification.html",
-    "href": "Repository-Classification.html",
-    "title": "Repository-Classification",
-    "section": "",
-    "text": "Repository-Classification\nMDA repositories run the gamut from code under active development to stale code that is no longer useful. To document the status of repositories, use one of the five following tags.\n\n\nStable\n\n\n\nlifecycle\n\n\nThis should be the standard tag for repositories that are not under active development. Stable code should have no anticipated breaking changes and have received some QA. To mark a repository as stable:\n\nPaste ![lifecycle](https://img.shields.io/badge/lifecycle-stable-green.svg) into the readme and commit changes\nAdd ‘stable’ as a topic for the repository\n\n\n\n\nMaturing\n\n\n\nlifecycle\n\n\nMaturing repositories are under active development. This tag should not be used long-term. It indicates that breaking changes are expected in the code. To be labeled ‘Maturing’, the existing code should have received some level of QA but is subject to change. To mark a repository as maturing:\n\nPaste ![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg) into the readme and commit changes\nAdd ‘maturing’ as a topic for the repository\n\n\n\n\nExperimental\n\n\n\nlifecycle\n\n\nThis tag should be used sparingly – ideally we should have few experimental repos. Code in an experimental repo may not have received any QA. Nothing generated from an experimental repo should be used in a deliverable or as the foundation for other code without serious external review. To mark a repository as experimental:\n\nPaste ![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg) into the readme and commit changes\nAdd ‘experimental’ as a topic for the repository\n\n\n\n\nDeprecated\n\n\n\nlifecycle\n\n\nWe may wish to preserve legacy code in some repositories. These should be marked as deprecated and link to the current state of the art. To mark a repository as deprecated:\n\nPaste ![lifecycle](https://img.shields.io/badge/lifecycle-deprecated-red.svg) into the readme and commit changes\nAdd ‘deprecated’ as a topic for the repository\n\n\n\n\nUnsupported\n\n\n\nlifecycle\n\n\nSome repositories contain code that is being used but should not receive additional development. This tag is intended to denote for ourselves and for anyone who comes after that if additional development on the tool or project associated with the repo is desired, there is a strong recommendation to rewrite the code entirely and not to treat the existing code as a useful or reliable foundation for future work.\nIn essence, this tag indicates the presence of catastrophic technical debt.\nTo mark a repository as unsupported:\n\nPaste ![lifecycle](https://www.repostatus.org/badges/latest/unsupported.svg) into the readme and commit changes\nAdd ‘unsupported’ as a topic for the repository"
+    "objectID": "MDA-Style-Guide.html#naming-conventions",
+    "href": "MDA-Style-Guide.html#naming-conventions",
+    "title": "CORI MDA Wiki",
+    "section": "Naming Conventions",
+    "text": "Naming Conventions\n\nVariable and table names, both in code and on the database, should always be in snake_case, i.e. all lower case with underscore separation of words.\nGithub repositories dedicated to a new project should begin with the prefix proj-. Similarly, repositories dedicated to ETL of a specific data set should begin with the prefix data-. All repositories should have clear, descriptive names.\nFunctions are verbs. Whenever possible use a descriptive verb or action phrase to name your function (e.g. add_column(), rather than column_adder()).\nScripts that need to be run in a specific order should be prefixed with two digits and and an underscore, e.g. 01_, 02_ … 10_. Scripts numbered with a single digit will be displayed out of order in most file explorers when there are 10 or more scripts."
+  },
+  {
+    "objectID": "MDA-Style-Guide.html#code",
+    "href": "MDA-Style-Guide.html#code",
+    "title": "CORI MDA Wiki",
+    "section": "Code",
+    "text": "Code\n\nAlways use library() to load packages. require() is used in a lot of MDA legacy code, and should be replaced with library() when it is encountered.\nNeither library() nor require() should ever appear inside of functions.\n\nState package dependencies in your scripts explicitly at the top level using library().\n\nWhen creating functions that call tidyverse functions, use the embracing operator, e.g. {{ var }}, instead of !!as.name(var) or similar.\n\nVariables inside the embracing operator should always be padded with a space on either side.\n\nThere is no such thing as over-commented code. To the extent possible, a script should be self-documenting. Be kind to your reviewers (and six-months-from-now you) and write the comments even when you’re in a hurry.\nAvoid while loops and nested loops of any kind.\n\nWhile both have applications, they are rare and there are almost always cleaner solutions that are easier to understand and reason about in the long run.\n\nAlways use a project-oriented workflow.\nA great deal of legacy MDA code prefixes all variables with x.. This practice should be avoided moving forward.\nSeparate tasks, such as downloading a source file and then processing that data into a usable table, should be separated into numbered scripts.\nWhitespace makes code more readable. Always pad assignment operators and equals signs (including within function calls!) with a single space on both sides. Separate commands with one or more new lines.\nThe assignment operator (&lt;-) is preferred to = for object creation, consistent with the tidyverse style guide.\nWhen in doubt about good formatting, defer to the tidyverse style guide"
+  },
+  {
+    "objectID": "MDA-Style-Guide.html#tools",
+    "href": "MDA-Style-Guide.html#tools",
+    "title": "CORI MDA Wiki",
+    "section": "Tools",
+    "text": "Tools\n\nIf using RStudio, ensure that under Tools &gt;&gt; Global Options the option ‘Restore .RData into workspace at startup’ is not checked and the option ‘Save workspace to .RData on exit’ is set to Never. Using .RData to save presets and variables trades a minor convenience for major code portability headaches. Always start from a fresh session."
+  },
+  {
+    "objectID": "MDA-Style-Guide.html#the-zen-of-functional-programming-the-zen-of-python",
+    "href": "MDA-Style-Guide.html#the-zen-of-functional-programming-the-zen-of-python",
+    "title": "CORI MDA Wiki",
+    "section": "The Zen of Functional Programming (The Zen of Python +)",
+    "text": "The Zen of Functional Programming (The Zen of Python +)\n\nBeautiful is better than ugly.\nExplicit is better than implicit.\nSimple is better than complex.\nComplex is better than complicated.\nFlat is better than nested.\nSparse is better than dense.\nReadability counts.\nSpecial cases aren’t special enough to break the rules.\nAlthough practicality beats purity.\nErrors should never pass silently.\nUnless explicitly silenced.\nIn the face of ambiguity, refuse the temptation to guess.\nThere should be one– and preferably only one –obvious way to do it.\nIf you find the one obvious way to do it, document it here for the sake of your coworkers and yourself in six months.\nNow is better than never.\nAlthough never is often better than right now.\nIf the implementation is hard to explain, it’s a bad idea.\nIf the implementation is easy to explain, it may be a good idea.\nCopy and paste is the root of 42% of all evil.\nIf you would copy and paste code a third time, instead write a function.\nIf you would copy and paste a function for the third time in a script, instead use a functional.\nAlthough a loop is better than nothing.\nIf you would copy a function into a new script even once, document it and add it to the coriverse."
   },
   {
     "objectID": "profile/accelerate.html",
@@ -201,5 +131,75 @@
     "title": "Help I Have Data Team",
     "section": "",
     "text": "Help I Have Data Team\n\n\n🏗️ This page is under construction! 🏗️\n\nWhen I want to share data with them it is better to do it in .csv!\ncsv stand for comma separated value: it is a plain text file (with usually the first row containing the header) that divide every fields with a comma (“a separator”).\nSometimes you can also get ;, | or even ^ as separator!\nWhat matter here is that a csv file are a plain text file format, unlike .xls, were what you get is not what you see (when you share the files)!\n\n\nfiles name should not have white space and weird character!\nExample: final % 16 21.txt is a bad name!\nA lot of tools we are using are command line based (docker as an example) and here white spaces are used to separate stuff (arguments).\nNow, weird characters (#, $, &) are somewhat “fine”. The “somewhat” is hard to predict, sometimes this character are used for other purpose and sometimes the tools we are using (or a dependency of the tool we are using) is old enough to only use ASCI characters!"
+  },
+  {
+    "objectID": "Git-Workflows.html",
+    "href": "Git-Workflows.html",
+    "title": "Git From the Command Line: Core commands",
+    "section": "",
+    "text": "Git From the Command Line: Core commands\n\ngit clone &lt;link&gt;: Clone a GitHub repository. The link to clone a repo is available in the green Code dropdown on the main page. Use the SSH option.\n\n\n\nclone_link\n\n\n\ngit pull: Pull changes and files from GitHub into your local repository.\n\ngit checkout -b &lt;new_branch&gt;: Allow you to create a new branch and go into it (git checkout allow you to navigate git graph)\n\ngit add (filename&gt;: Add new files to git\n\ngit commit: The expanded form is git commit -am 'commit message'. This tells Git to commit everything on the working tree (-a) and add a message (-m).\n\ngit push: Push local changes and files up to GitHub\n\n\nGitHub Workflow:\nIt is good practices to add important changes in a new branch and send it for a PR (Pull Request)\n\nCreate a PR with your commits (push it to remote repo)\nGet it reviewed by someone on the team - in GH and Airtable\n\nYou can inside of GitHub ask for a Reviewers, assign someone (Assignees) to do the merge (a Pull Request, is a merge inside of GitHub) or set up deadline (see at the right of the screan)\nOnce approved the PR you should not keep track of it inside of GitHub (the branch will still be inside of your local repo) and you should delete it. Github allow you to automatically do it: it is in the setting of the repo nearly at the bottom:\n\n\n\nScreenshot 2023-02-07 at 11 52 21 AM"
+  },
+  {
+    "objectID": "Metadata.html",
+    "href": "Metadata.html",
+    "title": "CORI MDA Wiki",
+    "section": "",
+    "text": "The MDA tracks a variety of metadata on high-traffic tables. Metadata is information about the data that we are sourcing and/or creating, which may include: * Where the data came from (source) * When the data was acquired * What the table names mean * What the field names mean * Any information about how the data was created/generated/derived * and more…"
+  },
+  {
+    "objectID": "Metadata.html#what-is-metadata",
+    "href": "Metadata.html#what-is-metadata",
+    "title": "CORI MDA Wiki",
+    "section": "",
+    "text": "The MDA tracks a variety of metadata on high-traffic tables. Metadata is information about the data that we are sourcing and/or creating, which may include: * Where the data came from (source) * When the data was acquired * What the table names mean * What the field names mean * Any information about how the data was created/generated/derived * and more…"
+  },
+  {
+    "objectID": "Metadata.html#when-should-metadata-be-updated",
+    "href": "Metadata.html#when-should-metadata-be-updated",
+    "title": "CORI MDA Wiki",
+    "section": "When should Metadata be updated?",
+    "text": "When should Metadata be updated?\nMetadata should always be created for: * All new source data sets * All product data sets (data sets exposed in a tool or MDA-derived data sets used across projects, e.g. Location Analysis)\nAdditionally, if you plan to expose the data set (schema + table within the PostgreSQL RDS instance) that you are working on to anyone else in the organization, you need to add Metadata."
+  },
+  {
+    "objectID": "Metadata.html#who-is-responsible-for-creating-and-updating-metadata",
+    "href": "Metadata.html#who-is-responsible-for-creating-and-updating-metadata",
+    "title": "CORI MDA Wiki",
+    "section": "Who is responsible for creating and updating metadata?",
+    "text": "Who is responsible for creating and updating metadata?\nData is typically either source data or generated for specific products or projects. The MDA Data Engineer has primary responsibility for ensuring the existence of source metadata. For project or product specific data, the project or product owner has ultimate responsibility for creating metadata."
+  },
+  {
+    "objectID": "Metadata.html#how-to-update-metadata-via-coriverse",
+    "href": "Metadata.html#how-to-update-metadata-via-coriverse",
+    "title": "CORI MDA Wiki",
+    "section": "How to update Metadata via coriverse",
+    "text": "How to update Metadata via coriverse\nFor instruction on creating and accessing MDA metadata, visit the cori_db wiki."
+  },
+  {
+    "objectID": "Cori-Infrastructure.html",
+    "href": "Cori-Infrastructure.html",
+    "title": "CORI MDA Wiki",
+    "section": "",
+    "text": "For CORI infrastructure see:\nhttps://github.com/orgs/ruralinnovation/projects/1/views/1\nhttps://github.com/ruralinnovation/cori-infrastructure"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "The-coriverse-suite-of-packages.html",
+    "href": "The-coriverse-suite-of-packages.html",
+    "title": "Core proprietary packages",
+    "section": "",
+    "text": "Core proprietary packages\n\ncori.utils\n\nA collection of simple helper functions and small, useful data sets intended to make life easier and solve simple problems\n\n\n\ncori.db\n\nA collection of functions for working the CORI/RISI Postgres database\n\n\n\nRto\n\nA system agnostic wrapper for the CARTO API for uploading data\n\n\n\n\n\nCore External Packages\nThese packages are standard across MDA workflows, and should be preferred unless a specific use case demands otherwise.\n\ntidyverse\n\nPreferred suite of packages for most data analysis tasks\n\n\n\nsf\n\nCore MDA spatial analysis library\n\n\n\nleaflet\n\nAd-hoc mapping of spatial data\n\n\n\nrairtable\n\nEfficient, Tidyverse-friendly Airtable API interaction"
+  },
+  {
+    "objectID": "Repository-Classification.html",
+    "href": "Repository-Classification.html",
+    "title": "Repository-Classification",
+    "section": "",
+    "text": "Repository-Classification\nMDA repositories run the gamut from code under active development to stale code that is no longer useful. To document the status of repositories, use one of the five following tags.\n\n\nStable\n\n\n\nlifecycle\n\n\nThis should be the standard tag for repositories that are not under active development. Stable code should have no anticipated breaking changes and have received some QA. To mark a repository as stable:\n\nPaste ![lifecycle](https://img.shields.io/badge/lifecycle-stable-green.svg) into the readme and commit changes\nAdd ‘stable’ as a topic for the repository\n\n\n\n\nMaturing\n\n\n\nlifecycle\n\n\nMaturing repositories are under active development. This tag should not be used long-term. It indicates that breaking changes are expected in the code. To be labeled ‘Maturing’, the existing code should have received some level of QA but is subject to change. To mark a repository as maturing:\n\nPaste ![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg) into the readme and commit changes\nAdd ‘maturing’ as a topic for the repository\n\n\n\n\nExperimental\n\n\n\nlifecycle\n\n\nThis tag should be used sparingly – ideally we should have few experimental repos. Code in an experimental repo may not have received any QA. Nothing generated from an experimental repo should be used in a deliverable or as the foundation for other code without serious external review. To mark a repository as experimental:\n\nPaste ![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg) into the readme and commit changes\nAdd ‘experimental’ as a topic for the repository\n\n\n\n\nDeprecated\n\n\n\nlifecycle\n\n\nWe may wish to preserve legacy code in some repositories. These should be marked as deprecated and link to the current state of the art. To mark a repository as deprecated:\n\nPaste ![lifecycle](https://img.shields.io/badge/lifecycle-deprecated-red.svg) into the readme and commit changes\nAdd ‘deprecated’ as a topic for the repository\n\n\n\n\nUnsupported\n\n\n\nlifecycle\n\n\nSome repositories contain code that is being used but should not receive additional development. This tag is intended to denote for ourselves and for anyone who comes after that if additional development on the tool or project associated with the repo is desired, there is a strong recommendation to rewrite the code entirely and not to treat the existing code as a useful or reliable foundation for future work.\nIn essence, this tag indicates the presence of catastrophic technical debt.\nTo mark a repository as unsupported:\n\nPaste ![lifecycle](https://www.repostatus.org/badges/latest/unsupported.svg) into the readme and commit changes\nAdd ‘unsupported’ as a topic for the repository"
   }
 ]
