@@ -3,6 +3,8 @@ project:
 
 website:
   title: "CORI MDA Wiki"
+  repo-url: https://github.com/ruralinnovation/wiki
+  repo-actions: [edit, issue]
   navbar:
     left:
       - href: index.qmd
