@@ -1,3 +1,5 @@
+# Spatial Data for Mapping and Analysis
+
 There are two important spatial representations of Census geographies we work with at CORI/RISI.
 
 ### TIGER/Line

@@ -2,12 +2,32 @@ project:
   type: website
 
 website:
-  title: "."
+  title: "CORI MDA Wiki"
   navbar:
     left:
       - href: index.qmd
         text: Home
       - about.qmd
+  sidebar:
+    style: "docked"
+    search: true
+    contents:
+      - section: "Onboarding"
+        contents:
+          - onboarding_team_db.md
+          - QGIS.md
+          - The-coriverse-suite-of-packages.md
+          - MDA-Style-Guide.md
+          - Git-Workflows.md
+          - help_I_have_a_data_team.md
+          - Suggested-Code-Snippets.md
+          - Spatial-Data-for-Mapping-and-Analysis.md
+      - section: "Infrastructure"
+        contents:
+          - Cori-Infrastructure.md
+          - Metadata.md
+          - Repository-Classification.md
+          - PostgreSQL-RDS-Managment.md
 
 format:
   html:

@@ -1,3 +1,4 @@
 .[A-Za-z]*
 
 /.quarto/
+_site/
