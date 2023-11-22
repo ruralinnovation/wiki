@@ -2,10 +2,6 @@ This will include some materials for the use of QGIS
 
 ## Connecting QGIS to CORI RDS DB
 
-Resource: https://docs.qgis.org/3.28/en/docs/user_manual/auth_system/auth_overview.html 
-
-To interact with qgis in R: https://r-spatial.github.io/qgisprocess/ 
-
 In QGIS: 
 
  1. `QGIS` -> `Preferences` -> `Authentication`
@@ -43,5 +39,7 @@ If it is good you can press `ok` if not review the Host name other parameters.
 You should be able to browse `schema` and `table` from the database.
   
 
+Resource: https://docs.qgis.org/3.28/en/docs/user_manual/auth_system/auth_overview.html 
 
+To interact with qgis in R: https://r-spatial.github.io/qgisprocess/ 
 
