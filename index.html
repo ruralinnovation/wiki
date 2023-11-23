@@ -342,7 +342,7 @@ Instructions for creating a Personal Access Token are available in <a href="http
 </section>
 <section id="database-access-for-new-users" class="level1">
 <h1>Database Access For New Users</h1>
-<p>See the <a href="./wiki/onboarding_team_db.md">Database Onboarding</a> section in the <a href="https://ruralinnovation.github.io/wiki/">wiki</a>.</p>
+<p>See the <a href="//wiki/onboarding_team_db.md">Database Onboarding</a> section in the <a href="https://ruralinnovation.github.io/wiki/">wiki</a>.</p>
 <hr>
 </section>
 <section id="database-access-functions" class="level1">
@@ -399,10 +399,21 @@ Instructions for creating a Personal Access Token are available in <a href="http
   click I href &amp;quot;https://devtools.r-lib.org/reference/document.html&amp;quot;
   click Y href &amp;quot;https://r-pkgs.org/Whole-game.html#check&amp;quot;
   click X href &amp;quot;https://devtools.r-lib.org/reference/install.html&amp;quot;</code></pre>
+<pre class="mermaid"><code>sequenceDiagram
+  participant Alice
+  participant Bob
+  Alice-&amp;gt;&amp;gt;John: Hello John, how are you?
+  loop Healthcheck
+    John-&amp;gt;&amp;gt;John: Fight against hypochondria
+  end
+  Note right of John: Rational thoughts &amp;lt;br/&amp;gt;prevail!
+  John--&amp;gt;&amp;gt;Alice: Great!
+  John-&amp;gt;&amp;gt;Bob: How about you?
+  Bob--&amp;gt;&amp;gt;John: Jolly good!</code></pre>
 <section id="setup-for-development" class="level2">
 <h2 class="anchored" data-anchor-id="setup-for-development">Setup for Development</h2>
 <p>Once you have all the dependencies installed, to build and install this package from the local project directory, run:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>pkgbuild<span class="sc">::</span><span class="fu">clean_dll</span>(); pkgbuild<span class="sc">::</span><span class="fu">compile_dll</span>(); devtools<span class="sc">::</span><span class="fu">document</span>(); devtools<span class="sc">::</span><span class="fu">check</span>(); devtools<span class="sc">::</span><span class="fu">install</span>();</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>pkgbuild<span class="sc">::</span><span class="fu">clean_dll</span>(); pkgbuild<span class="sc">::</span><span class="fu">compile_dll</span>(); devtools<span class="sc">::</span><span class="fu">document</span>(); devtools<span class="sc">::</span><span class="fu">check</span>(); devtools<span class="sc">::</span><span class="fu">install</span>();</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="storing-data-in-s3" class="level1">
