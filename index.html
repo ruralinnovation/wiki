@@ -281,7 +281,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="welcome-to-the-coriverse" class="level1">
 <h1>Welcome to the coriverse!</h1>
 <p><img src="https://img.shields.io/badge/lifecycle-stable-green.svg" class="img-fluid"></p>
-<p>The coriverse is an effort to develop a standard set of best practices for the MDA team, centralize important or useful functions into an easily accessible location, and manage package dependencies for our scripts.</p>
+<p>The <code>coriverse</code> is an effort to develop a standard set of best practices for the MDA team, centralize important or useful functions into an easily accessible location, and manage package dependencies for our scripts.</p>
 <p>It will import:</p>
 <ul>
 <li><code>cori.charts</code></li>
@@ -347,7 +347,7 @@ Instructions for creating a Personal Access Token are available in <a href="http
 </section>
 <section id="database-access-functions" class="level1">
 <h1>Database Access Functions</h1>
-<p>See <a href="https://ruralinnovation.github.io/cori.db/">cori.db</a></p>
+<p>See <a href="https://github.com/ruralinnovation/cori.db/">cori.db</a></p>
 <hr>
 </section>
 <section id="development-process-for-new-coriverse-functions" class="level1">
@@ -366,48 +366,43 @@ Instructions for creating a Personal Access Token are available in <a href="http
 </ol>
 <p>1-7 are parts of “the whole game”, 2nd chapter of <a href="https://r-pkgs.org/">R Packages</a> from Hadley Wickham and Jenny Bryan and can be visualize here:</p>
 <pre class="mermaid"><code>flowchart LR
-  A[Hard edge] --&amp;gt; B(Round edge)
-  B --&amp;gt; C{Decision}
-  C --&amp;gt; D[Result one]
-  C --&amp;gt; E[Result two]</code></pre>
-<pre class="mermaid"><code>flowchart LR
-    subgraph one[Initializing package]
-        direction LR
-            A(&amp;quot;create_package()&amp;quot;)--&amp;gt;C(&amp;quot;use_git()&amp;quot;)
-            A--&amp;gt;B(&amp;quot;use_XX_licence()&amp;quot;)
-            A--&amp;gt; Z(&amp;quot;use_testthat()&amp;quot;)
-    end
-    subgraph two[Developping]
-        direction LR
-            D[create a function]--&amp;gt;E(&amp;quot;use_test()&amp;quot;)
-            D--&amp;gt;F(&amp;quot;use_r()&amp;quot;)
-            D--&amp;gt;G(&amp;quot;use_packge()&amp;quot;)
-            F--&amp;gt;H[&amp;quot;Insert Roxygen skeleton&amp;quot;]
-            H--&amp;gt;I(&amp;quot;document()&amp;quot;)
-    end
-    subgraph git
-        staged --&amp;gt; commit
-    end
-    one --&amp;gt; two
-    two --&amp;gt;|often| Y(&amp;quot;check()&amp;quot;)
-    two --&amp;gt; X(&amp;quot;install()&amp;quot;)
-    one --&amp;gt; git
-    two --&amp;gt; git
-    git --&amp;gt; Github
-    click A href &amp;quot;https://usethis.r-lib.org/reference/create_package.html&amp;quot;
-    click C href &amp;quot;https://usethis.r-lib.org/reference/use_git.html&amp;quot;
-    click B href &amp;quot;https://usethis.r-lib.org/reference/licenses.html&amp;quot;
-    click Z href &amp;quot;https://r-pkgs.org/Whole-game.html#use_testthat&amp;quot;
-    click E href &amp;quot;https://usethis.r-lib.org/reference/use_r.html&amp;quot;
-    click F href &amp;quot;https://usethis.r-lib.org/reference/use_r.html&amp;quot;
-    click G href &amp;quot;https://usethis.r-lib.org/reference/use_package.html&amp;quot;
-    click I href &amp;quot;https://devtools.r-lib.org/reference/document.html&amp;quot;
-    click Y href &amp;quot;https://r-pkgs.org/Whole-game.html#check&amp;quot;
-    click X href &amp;quot;https://devtools.r-lib.org/reference/install.html&amp;quot;</code></pre>
+  subgraph one[Initializing package]
+    direction LR
+    A(&amp;quot;create_package()&amp;quot;)--&amp;gt;C(&amp;quot;use_git()&amp;quot;)
+    A--&amp;gt;B(&amp;quot;use_XX_licence()&amp;quot;)
+    A--&amp;gt; Z(&amp;quot;use_testthat()&amp;quot;)
+  end
+  subgraph two[Developping]
+    direction LR
+    D[create a function]--&amp;gt;E(&amp;quot;use_test()&amp;quot;)
+    D--&amp;gt;F(&amp;quot;use_r()&amp;quot;)
+    D--&amp;gt;G(&amp;quot;use_packge()&amp;quot;)
+    F--&amp;gt;H[&amp;quot;Insert Roxygen skeleton&amp;quot;]
+    H--&amp;gt;I(&amp;quot;document()&amp;quot;)
+  end
+  subgraph git
+    staged --&amp;gt; commit
+  end
+  one --&amp;gt; two
+  two --&amp;gt;|often| Y(&amp;quot;check()&amp;quot;)
+  two --&amp;gt; X(&amp;quot;install()&amp;quot;)
+  one --&amp;gt; git
+  two --&amp;gt; git
+  git --&amp;gt; Github
+  click A href &amp;quot;https://usethis.r-lib.org/reference/create_package.html&amp;quot;
+  click C href &amp;quot;https://usethis.r-lib.org/reference/use_git.html&amp;quot;
+  click B href &amp;quot;https://usethis.r-lib.org/reference/licenses.html&amp;quot;
+  click Z href &amp;quot;https://r-pkgs.org/Whole-game.html#use_testthat&amp;quot;
+  click E href &amp;quot;https://usethis.r-lib.org/reference/use_r.html&amp;quot;
+  click F href &amp;quot;https://usethis.r-lib.org/reference/use_r.html&amp;quot;
+  click G href &amp;quot;https://usethis.r-lib.org/reference/use_package.html&amp;quot;
+  click I href &amp;quot;https://devtools.r-lib.org/reference/document.html&amp;quot;
+  click Y href &amp;quot;https://r-pkgs.org/Whole-game.html#check&amp;quot;
+  click X href &amp;quot;https://devtools.r-lib.org/reference/install.html&amp;quot;</code></pre>
 <section id="setup-for-development" class="level2">
 <h2 class="anchored" data-anchor-id="setup-for-development">Setup for Development</h2>
 <p>Once you have all the dependencies installed, to build and install this package from the local project directory, run:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>pkgbuild<span class="sc">::</span><span class="fu">clean_dll</span>(); pkgbuild<span class="sc">::</span><span class="fu">compile_dll</span>(); devtools<span class="sc">::</span><span class="fu">document</span>(); devtools<span class="sc">::</span><span class="fu">check</span>(); devtools<span class="sc">::</span><span class="fu">install</span>();</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>pkgbuild<span class="sc">::</span><span class="fu">clean_dll</span>(); pkgbuild<span class="sc">::</span><span class="fu">compile_dll</span>(); devtools<span class="sc">::</span><span class="fu">document</span>(); devtools<span class="sc">::</span><span class="fu">check</span>(); devtools<span class="sc">::</span><span class="fu">install</span>();</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="storing-data-in-s3" class="level1">
