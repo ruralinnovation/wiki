@@ -9,10 +9,10 @@ scripts.
 
 It will import:
 
-- `cori.charts`
-- `cori.data`
-- `cori.db`
-- `cori.utils`
+- [`cori.charts`](https://github.com/ruralinnovation/cori.charts/)
+- [`cori.data`](https://github.com/ruralinnovation/cori.data/)
+- [`cori.db`](https://github.com/ruralinnovation/cori.db/)
+- [`cori.utils`](https://github.com/ruralinnovation/cori.utils/)
 
 It will only attach:
 
@@ -89,8 +89,8 @@ the [cori_db wiki](https://github.com/ruralinnovation/cori_db/wiki)*
 
 # Database Access For New Users
 
-See the [Database Onboarding](onboarding_team_db.md) section in the
-[wiki](https://ruralinnovation.github.io/wiki/).
+See the [Database Onboarding](/wiki/onboarding_team_db.md) section in
+the [wiki](https://ruralinnovation.github.io/wiki/).
 
 ------------------------------------------------------------------------
 
