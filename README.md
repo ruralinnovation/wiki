@@ -89,8 +89,8 @@ the [cori_db wiki](https://github.com/ruralinnovation/cori_db/wiki)*
 
 # Database Access For New Users
 
-See the [Database Onboarding](//wiki/onboarding_team_db.md) section in
-the [wiki](https://ruralinnovation.github.io/wiki/).
+See the [Database Onboarding](onboarding_team_db.md) section in the
+[wiki](wiki).
 
 ------------------------------------------------------------------------
 
