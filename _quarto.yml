@@ -9,7 +9,8 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
+      - href: profile/about.qmd
+        text: About
   sidebar:
     style: "docked"
     search: true
@@ -33,7 +34,7 @@ website:
 
 format:
   html:
-    theme: cosmo
+    theme: slate
     css: styles.css
     toc: true
 

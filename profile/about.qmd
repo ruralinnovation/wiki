@@ -1,3 +1,7 @@
+---
+title: "The Center on Rural Innovation"
+---
+
 <a href="https://ruralinnovation.us/" target="_blank"><img src="https://raw.githubusercontent.com/ruralinnovation/.github/main/profile/cori-logo-light.svg" alt="The Center on Rural Innovation" width="12%" align="left" /></a><br/>
 ========================================================================================================================
 

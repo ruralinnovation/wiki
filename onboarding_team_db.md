@@ -1,8 +1,8 @@
-## Onboarding team 
+## Database Onboarding
 
-Software requirement: PG Admin > 7
+Software requirement: [pgAdmin 4 > v7](https://www.pgadmin.org/download)
 
-### First: in pg_admin:
+### First: in pgAdmin
 
 1. Right clic on `Server` -> Register -> Server
 2. New windows pop up:
@@ -46,7 +46,7 @@ cori.db::set_db_credentials("your_username", "my_secret_pwd")
 # Restart the R session 
 ```
 
-### Creating schema 
+### Creating a schema 
 
 `mda_team` users do not have permission to create `schema`. 
 
