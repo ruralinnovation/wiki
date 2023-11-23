@@ -89,7 +89,7 @@ the [cori_db wiki](https://github.com/ruralinnovation/cori_db/wiki)*
 
 # Database Access For New Users
 
-See the [Database Onboarding](/wiki/onboarding_team_db.md) section in
+See the [Database Onboarding](//wiki/onboarding_team_db.md) section in
 the [wiki](https://ruralinnovation.github.io/wiki/).
 
 ------------------------------------------------------------------------
@@ -160,6 +160,20 @@ flowchart LR
   click I href &quot;https://devtools.r-lib.org/reference/document.html&quot;
   click Y href &quot;https://r-pkgs.org/Whole-game.html#check&quot;
   click X href &quot;https://devtools.r-lib.org/reference/install.html&quot;
+```
+
+``` mermaid
+sequenceDiagram
+  participant Alice
+  participant Bob
+  Alice-&gt;&gt;John: Hello John, how are you?
+  loop Healthcheck
+    John-&gt;&gt;John: Fight against hypochondria
+  end
+  Note right of John: Rational thoughts &lt;br/&gt;prevail!
+  John--&gt;&gt;Alice: Great!
+  John-&gt;&gt;Bob: How about you?
+  Bob--&gt;&gt;John: Jolly good!
 ```
 
 ## Setup for Development
