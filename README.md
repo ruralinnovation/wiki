@@ -2,7 +2,7 @@
 
 ![](https://img.shields.io/badge/lifecycle-stable-green.svg)
 
-The coriverse is an effort to develop a standard set of best practices
+The `coriverse` is an effort to develop a standard set of best practices
 for the MDA team, centralize important or useful functions into an
 easily accessible location, and manage package dependencies for our
 scripts.
@@ -96,7 +96,7 @@ See the [Database Onboarding](onboarding_team_db.md) section in the
 
 # Database Access Functions
 
-See [cori.db](https://ruralinnovation.github.io/cori.db/)
+See [cori.db](https://github.com/ruralinnovation/cori.db/)
 
 ------------------------------------------------------------------------
 
@@ -127,47 +127,39 @@ can be visualize here:
 
 ``` mermaid
 flowchart LR
-  A[Hard edge] --&gt; B(Round edge)
-  B --&gt; C{Decision}
-  C --&gt; D[Result one]
-  C --&gt; E[Result two]
-```
-
-``` mermaid
-flowchart LR
-    subgraph one[Initializing package]
-        direction LR
-            A(&quot;create_package()&quot;)--&gt;C(&quot;use_git()&quot;)
-            A--&gt;B(&quot;use_XX_licence()&quot;)
-            A--&gt; Z(&quot;use_testthat()&quot;)
-    end
-    subgraph two[Developping]
-        direction LR
-            D[create a function]--&gt;E(&quot;use_test()&quot;)
-            D--&gt;F(&quot;use_r()&quot;)
-            D--&gt;G(&quot;use_packge()&quot;)
-            F--&gt;H[&quot;Insert Roxygen skeleton&quot;]
-            H--&gt;I(&quot;document()&quot;)
-    end
-    subgraph git
-        staged --&gt; commit
-    end
-    one --&gt; two
-    two --&gt;|often| Y(&quot;check()&quot;)
-    two --&gt; X(&quot;install()&quot;)
-    one --&gt; git
-    two --&gt; git
-    git --&gt; Github
-    click A href &quot;https://usethis.r-lib.org/reference/create_package.html&quot;
-    click C href &quot;https://usethis.r-lib.org/reference/use_git.html&quot;
-    click B href &quot;https://usethis.r-lib.org/reference/licenses.html&quot;
-    click Z href &quot;https://r-pkgs.org/Whole-game.html#use_testthat&quot;
-    click E href &quot;https://usethis.r-lib.org/reference/use_r.html&quot;
-    click F href &quot;https://usethis.r-lib.org/reference/use_r.html&quot;
-    click G href &quot;https://usethis.r-lib.org/reference/use_package.html&quot;
-    click I href &quot;https://devtools.r-lib.org/reference/document.html&quot;
-    click Y href &quot;https://r-pkgs.org/Whole-game.html#check&quot;
-    click X href &quot;https://devtools.r-lib.org/reference/install.html&quot;
+  subgraph one[Initializing package]
+    direction LR
+    A(&quot;create_package()&quot;)--&gt;C(&quot;use_git()&quot;)
+    A--&gt;B(&quot;use_XX_licence()&quot;)
+    A--&gt; Z(&quot;use_testthat()&quot;)
+  end
+  subgraph two[Developping]
+    direction LR
+    D[create a function]--&gt;E(&quot;use_test()&quot;)
+    D--&gt;F(&quot;use_r()&quot;)
+    D--&gt;G(&quot;use_packge()&quot;)
+    F--&gt;H[&quot;Insert Roxygen skeleton&quot;]
+    H--&gt;I(&quot;document()&quot;)
+  end
+  subgraph git
+    staged --&gt; commit
+  end
+  one --&gt; two
+  two --&gt;|often| Y(&quot;check()&quot;)
+  two --&gt; X(&quot;install()&quot;)
+  one --&gt; git
+  two --&gt; git
+  git --&gt; Github
+  click A href &quot;https://usethis.r-lib.org/reference/create_package.html&quot;
+  click C href &quot;https://usethis.r-lib.org/reference/use_git.html&quot;
+  click B href &quot;https://usethis.r-lib.org/reference/licenses.html&quot;
+  click Z href &quot;https://r-pkgs.org/Whole-game.html#use_testthat&quot;
+  click E href &quot;https://usethis.r-lib.org/reference/use_r.html&quot;
+  click F href &quot;https://usethis.r-lib.org/reference/use_r.html&quot;
+  click G href &quot;https://usethis.r-lib.org/reference/use_package.html&quot;
+  click I href &quot;https://devtools.r-lib.org/reference/document.html&quot;
+  click Y href &quot;https://r-pkgs.org/Whole-game.html#check&quot;
+  click X href &quot;https://devtools.r-lib.org/reference/install.html&quot;
 ```
 
 ## Setup for Development
