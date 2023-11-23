@@ -69,10 +69,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -120,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html" rel="" target="">
+    <a class="nav-link" href="./profile/about.html" rel="" target="">
  <span class="menu-text">About</span></a>
   </li>  
 </ul>
@@ -134,7 +134,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./onboarding_team_db.html">Onboarding</a></li><li class="breadcrumb-item"><a href="./onboarding_team_db.html">Onboarding team</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./onboarding_team_db.html">Onboarding</a></li><li class="breadcrumb-item"><a href="./onboarding_team_db.html">Database Onboarding</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -166,7 +166,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./onboarding_team_db.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Onboarding team</span></a>
+ <span class="menu-text">Database Onboarding</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -258,11 +258,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#onboarding-team" id="toc-onboarding-team" class="nav-link active" data-scroll-target="#onboarding-team">Onboarding team</a>
+  <li><a href="#database-onboarding" id="toc-database-onboarding" class="nav-link active" data-scroll-target="#database-onboarding">Database Onboarding</a>
   <ul class="collapse">
-  <li><a href="#first-in-pg_admin" id="toc-first-in-pg_admin" class="nav-link" data-scroll-target="#first-in-pg_admin">First: in pg_admin:</a></li>
+  <li><a href="#first-in-pgadmin" id="toc-first-in-pgadmin" class="nav-link" data-scroll-target="#first-in-pgadmin">First: in pgAdmin</a></li>
   <li><a href="#second-in-r" id="toc-second-in-r" class="nav-link" data-scroll-target="#second-in-r">Second: in R</a></li>
-  <li><a href="#creating-schema" id="toc-creating-schema" class="nav-link" data-scroll-target="#creating-schema">Creating schema</a></li>
+  <li><a href="#creating-a-schema" id="toc-creating-a-schema" class="nav-link" data-scroll-target="#creating-a-schema">Creating a schema</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/ruralinnovation/wiki/edit/main/onboarding_team_db.md" class="toc-action">Edit this page</a></p><p><a href="https://github.com/ruralinnovation/wiki/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -272,11 +272,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="onboarding-team" class="level2">
-<h2 class="anchored" data-anchor-id="onboarding-team">Onboarding team</h2>
-<p>Software requirement: PG Admin &gt; 7</p>
-<section id="first-in-pg_admin" class="level3">
-<h3 class="anchored" data-anchor-id="first-in-pg_admin">First: in pg_admin:</h3>
+<section id="database-onboarding" class="level2">
+<h2 class="anchored" data-anchor-id="database-onboarding">Database Onboarding</h2>
+<p>Software requirement: <a href="https://www.pgadmin.org/download">pgAdmin 4 &gt; v7</a></p>
+<section id="first-in-pgadmin" class="level3">
+<h3 class="anchored" data-anchor-id="first-in-pgadmin">First: in pgAdmin</h3>
 <ol type="1">
 <li>Right clic on <code>Server</code> -&gt; Register -&gt; Server</li>
 <li>New windows pop up:</li>
@@ -310,8 +310,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>cori.db<span class="sc">::</span><span class="fu">set_db_credentials</span>(<span class="st">"your_username"</span>, <span class="st">"my_secret_pwd"</span>)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Restart the R session </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="creating-schema" class="level3">
-<h3 class="anchored" data-anchor-id="creating-schema">Creating schema</h3>
+<section id="creating-a-schema" class="level3">
+<h3 class="anchored" data-anchor-id="creating-a-schema">Creating a schema</h3>
 <p><code>mda_team</code> users do not have permission to create <code>schema</code>.</p>
 <p>When creating a new schema to allow everyone in a team to access it the ownership need to be changed.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ALTER</span> <span class="kw">SCHEMA</span> <span class="ot">"my_schema"</span> OWNER <span class="kw">TO</span> mda_team; </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
