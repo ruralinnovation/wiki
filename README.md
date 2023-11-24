@@ -2,10 +2,10 @@
 
 ![](https://img.shields.io/badge/lifecycle-stable-green.svg)
 
-The `coriverse` is an effort to develop a standard set of best practices
-for the MDA team, centralize important or useful functions into an
-easily accessible location, and manage package dependencies for our
-scripts.
+The [`coriverse`](https://github.com/ruralinnovation/coriverse/) is an
+effort to develop a standard set of best practices for the MDA team,
+centralize important or useful functions into an easily accessible
+location, and manage package dependencies for our scripts.
 
 It will import:
 
@@ -129,51 +129,51 @@ can be visualize here:
 flowchart LR
   subgraph one[Initializing package]
     direction LR
-    A(&quot;create_package()&quot;)--&gt;C(&quot;use_git()&quot;)
-    A--&gt;B(&quot;use_XX_licence()&quot;)
-    A--&gt; Z(&quot;use_testthat()&quot;)
+    A("create_package()")-->C("use_git()")
+    A-->B("use_XX_licence()")
+    A--> Z("use_testthat()")
   end
   subgraph two[Developping]
     direction LR
-    D[create a function]--&gt;E(&quot;use_test()&quot;)
-    D--&gt;F(&quot;use_r()&quot;)
-    D--&gt;G(&quot;use_packge()&quot;)
-    F--&gt;H[&quot;Insert Roxygen skeleton&quot;]
-    H--&gt;I(&quot;document()&quot;)
+    D[create a function]-->E("use_test()")
+    D-->F("use_r()")
+    D-->G("use_packge()")
+    F-->H["Insert Roxygen skeleton"]
+    H-->I("document()")
   end
   subgraph git
-    staged --&gt; commit
+    staged --> commit
   end
-  one --&gt; two
-  two --&gt;|often| Y(&quot;check()&quot;)
-  two --&gt; X(&quot;install()&quot;)
-  one --&gt; git
-  two --&gt; git
-  git --&gt; Github
-  click A href &quot;https://usethis.r-lib.org/reference/create_package.html&quot;
-  click C href &quot;https://usethis.r-lib.org/reference/use_git.html&quot;
-  click B href &quot;https://usethis.r-lib.org/reference/licenses.html&quot;
-  click Z href &quot;https://r-pkgs.org/Whole-game.html#use_testthat&quot;
-  click E href &quot;https://usethis.r-lib.org/reference/use_r.html&quot;
-  click F href &quot;https://usethis.r-lib.org/reference/use_r.html&quot;
-  click G href &quot;https://usethis.r-lib.org/reference/use_package.html&quot;
-  click I href &quot;https://devtools.r-lib.org/reference/document.html&quot;
-  click Y href &quot;https://r-pkgs.org/Whole-game.html#check&quot;
-  click X href &quot;https://devtools.r-lib.org/reference/install.html&quot;
+  one --> two
+  two -->|often| Y("check()")
+  two --> X("install()")
+  one --> git
+  two --> git
+  git --> Github
+  click A href "https://usethis.r-lib.org/reference/create_package.html"
+  click C href "https://usethis.r-lib.org/reference/use_git.html"
+  click B href "https://usethis.r-lib.org/reference/licenses.html"
+  click Z href "https://r-pkgs.org/Whole-game.html#use_testthat"
+  click E href "https://usethis.r-lib.org/reference/use_r.html"
+  click F href "https://usethis.r-lib.org/reference/use_r.html"
+  click G href "https://usethis.r-lib.org/reference/use_package.html"
+  click I href "https://devtools.r-lib.org/reference/document.html"
+  click Y href "https://r-pkgs.org/Whole-game.html#check"
+  click X href "https://devtools.r-lib.org/reference/install.html"
 ```
 
 ``` mermaid
 sequenceDiagram
   participant Alice
   participant Bob
-  Alice-&gt;&gt;John: Hello John, how are you?
+  Alice->>John: Hello John, how are you?
   loop Healthcheck
-    John-&gt;&gt;John: Fight against hypochondria
+    John->>John: Fight against hypochondria
   end
-  Note right of John: Rational thoughts &lt;br/&gt;prevail!
-  John--&gt;&gt;Alice: Great!
-  John-&gt;&gt;Bob: How about you?
-  Bob--&gt;&gt;John: Jolly good!
+  Note right of John: Rational thoughts <br/>prevail!
+  John-->>Alice: Great!
+  John->>Bob: How about you?
+  Bob-->>John: Jolly good!
 ```
 
 ## Setup for Development
