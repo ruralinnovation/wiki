@@ -281,7 +281,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="welcome-to-the-coriverse" class="level1">
 <h1>Welcome to the coriverse!</h1>
 <p><img src="https://img.shields.io/badge/lifecycle-stable-green.svg" class="img-fluid"></p>
-<p>The <code>coriverse</code> is an effort to develop a standard set of best practices for the MDA team, centralize important or useful functions into an easily accessible location, and manage package dependencies for our scripts.</p>
+<p>The <a href="https://github.com/ruralinnovation/coriverse/"><code>coriverse</code></a> is an effort to develop a standard set of best practices for the MDA team, centralize important or useful functions into an easily accessible location, and manage package dependencies for our scripts.</p>
 <p>It will import:</p>
 <ul>
 <li><a href="https://github.com/ruralinnovation/cori.charts/"><code>cori.charts</code></a></li>
@@ -342,7 +342,7 @@ Instructions for creating a Personal Access Token are available in <a href="http
 </section>
 <section id="database-access-for-new-users" class="level1">
 <h1>Database Access For New Users</h1>
-<p>See the <a href="//wiki/onboarding_team_db.md">Database Onboarding</a> section in the <a href="https://ruralinnovation.github.io/wiki/">wiki</a>.</p>
+<p>See the <a href="./onboarding_team_db.html">Database Onboarding</a> section in the <a href="wiki">wiki</a>.</p>
 <hr>
 </section>
 <section id="database-access-functions" class="level1">
@@ -368,48 +368,48 @@ Instructions for creating a Personal Access Token are available in <a href="http
 <pre class="mermaid"><code>flowchart LR
   subgraph one[Initializing package]
     direction LR
-    A(&amp;quot;create_package()&amp;quot;)--&amp;gt;C(&amp;quot;use_git()&amp;quot;)
-    A--&amp;gt;B(&amp;quot;use_XX_licence()&amp;quot;)
-    A--&amp;gt; Z(&amp;quot;use_testthat()&amp;quot;)
+    A("create_package()")--&gt;C("use_git()")
+    A--&gt;B("use_XX_licence()")
+    A--&gt; Z("use_testthat()")
   end
   subgraph two[Developping]
     direction LR
-    D[create a function]--&amp;gt;E(&amp;quot;use_test()&amp;quot;)
-    D--&amp;gt;F(&amp;quot;use_r()&amp;quot;)
-    D--&amp;gt;G(&amp;quot;use_packge()&amp;quot;)
-    F--&amp;gt;H[&amp;quot;Insert Roxygen skeleton&amp;quot;]
-    H--&amp;gt;I(&amp;quot;document()&amp;quot;)
+    D[create a function]--&gt;E("use_test()")
+    D--&gt;F("use_r()")
+    D--&gt;G("use_packge()")
+    F--&gt;H["Insert Roxygen skeleton"]
+    H--&gt;I("document()")
   end
   subgraph git
-    staged --&amp;gt; commit
+    staged --&gt; commit
   end
-  one --&amp;gt; two
-  two --&amp;gt;|often| Y(&amp;quot;check()&amp;quot;)
-  two --&amp;gt; X(&amp;quot;install()&amp;quot;)
-  one --&amp;gt; git
-  two --&amp;gt; git
-  git --&amp;gt; Github
-  click A href &amp;quot;https://usethis.r-lib.org/reference/create_package.html&amp;quot;
-  click C href &amp;quot;https://usethis.r-lib.org/reference/use_git.html&amp;quot;
-  click B href &amp;quot;https://usethis.r-lib.org/reference/licenses.html&amp;quot;
-  click Z href &amp;quot;https://r-pkgs.org/Whole-game.html#use_testthat&amp;quot;
-  click E href &amp;quot;https://usethis.r-lib.org/reference/use_r.html&amp;quot;
-  click F href &amp;quot;https://usethis.r-lib.org/reference/use_r.html&amp;quot;
-  click G href &amp;quot;https://usethis.r-lib.org/reference/use_package.html&amp;quot;
-  click I href &amp;quot;https://devtools.r-lib.org/reference/document.html&amp;quot;
-  click Y href &amp;quot;https://r-pkgs.org/Whole-game.html#check&amp;quot;
-  click X href &amp;quot;https://devtools.r-lib.org/reference/install.html&amp;quot;</code></pre>
+  one --&gt; two
+  two --&gt;|often| Y("check()")
+  two --&gt; X("install()")
+  one --&gt; git
+  two --&gt; git
+  git --&gt; Github
+  click A href "https://usethis.r-lib.org/reference/create_package.html"
+  click C href "https://usethis.r-lib.org/reference/use_git.html"
+  click B href "https://usethis.r-lib.org/reference/licenses.html"
+  click Z href "https://r-pkgs.org/Whole-game.html#use_testthat"
+  click E href "https://usethis.r-lib.org/reference/use_r.html"
+  click F href "https://usethis.r-lib.org/reference/use_r.html"
+  click G href "https://usethis.r-lib.org/reference/use_package.html"
+  click I href "https://devtools.r-lib.org/reference/document.html"
+  click Y href "https://r-pkgs.org/Whole-game.html#check"
+  click X href "https://devtools.r-lib.org/reference/install.html"</code></pre>
 <pre class="mermaid"><code>sequenceDiagram
   participant Alice
   participant Bob
-  Alice-&amp;gt;&amp;gt;John: Hello John, how are you?
+  Alice-&gt;&gt;John: Hello John, how are you?
   loop Healthcheck
-    John-&amp;gt;&amp;gt;John: Fight against hypochondria
+    John-&gt;&gt;John: Fight against hypochondria
   end
-  Note right of John: Rational thoughts &amp;lt;br/&amp;gt;prevail!
-  John--&amp;gt;&amp;gt;Alice: Great!
-  John-&amp;gt;&amp;gt;Bob: How about you?
-  Bob--&amp;gt;&amp;gt;John: Jolly good!</code></pre>
+  Note right of John: Rational thoughts &lt;br/&gt;prevail!
+  John--&gt;&gt;Alice: Great!
+  John-&gt;&gt;Bob: How about you?
+  Bob--&gt;&gt;John: Jolly good!</code></pre>
 <section id="setup-for-development" class="level2">
 <h2 class="anchored" data-anchor-id="setup-for-development">Setup for Development</h2>
 <p>Once you have all the dependencies installed, to build and install this package from the local project directory, run:</p>
