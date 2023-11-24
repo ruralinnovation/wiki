@@ -43,11 +43,11 @@ shell profile (preferably) or with an `.Renviron` file.
 component R packages that address different pieces of the MDA workflow.
 To install, use the following steps:
 
-0.  Ensure you have :package: `remotes` 2.4.0 or greater installed
+1.  Ensure you have :package: `remotes` 2.4.0 or greater installed
     (current version as of June 2021) and `usethis`. Use
-    `install.packages('remotes');install.packages('usethis')` to get the
-    latest version.
-1.  Create a GitHub token:
+    `install.packages('remotes'); install.packages('usethis')` to get
+    the latest version.
+2.  Create a GitHub token:
 
 ``` r
     ## (optional, if not previously done) set your user name and email:
@@ -62,10 +62,9 @@ To install, use the following steps:
     credentials::set_github_pat("ghp_...")
 ```
 
-1.  Set an environment variable called `GITHUB_PAT` by running
+3.  Set an environment variable called `GITHUB_PAT` by running
     `Sys.setenv(GITHUB_PAT = 'MY_TOKEN_HERE')`, replacing MY_TOKEN_HERE
-    with the valid GitHub personal access token you previously
-    created.  
+    with the valid GitHub personal access token you previously created.
     Instructions for creating a Personal Access Token are available in
     [GitHub’s
     documentation](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token).
@@ -74,7 +73,7 @@ To install, use the following steps:
 
 ![scope](https://user-images.githubusercontent.com/33400922/135469840-d7076fe8-4e89-49ea-aeab-0701d3d54d12.PNG)
 
-2.  Use the `install_github()` function to install the coriverse
+4.  Use the `install_github()` function to install the coriverse
     package(s), which will look for the environment variable GITHUB_PAT
     and will allow you to install packages from private repos. Call:
 
@@ -82,8 +81,9 @@ To install, use the following steps:
     remotes::install_github('ruralinnovation/coriverse')
 ```
 
-*For instructions on connecting to the database using the coriverse, see
-the [cori_db wiki](https://github.com/ruralinnovation/cori_db/wiki)*
+*For instructions on programmatically connecting to the database using
+the coriverse, see
+[cori.db](https://github.com/ruralinnovation/cori.db/)*
 
 ------------------------------------------------------------------------
 
@@ -91,12 +91,6 @@ the [cori_db wiki](https://github.com/ruralinnovation/cori_db/wiki)*
 
 See the [Database Onboarding](onboarding_team_db.md) section in the
 [wiki](wiki).
-
-------------------------------------------------------------------------
-
-# Database Access Functions
-
-See [cori.db](https://github.com/ruralinnovation/cori.db/)
 
 ------------------------------------------------------------------------
 
@@ -160,20 +154,6 @@ flowchart LR
   click I href "https://devtools.r-lib.org/reference/document.html"
   click Y href "https://r-pkgs.org/Whole-game.html#check"
   click X href "https://devtools.r-lib.org/reference/install.html"
-```
-
-``` mermaid
-sequenceDiagram
-  participant Alice
-  participant Bob
-  Alice->>John: Hello John, how are you?
-  loop Healthcheck
-    John->>John: Fight against hypochondria
-  end
-  Note right of John: Rational thoughts <br/>prevail!
-  John-->>Alice: Great!
-  John->>Bob: How about you?
-  Bob-->>John: Jolly good!
 ```
 
 ## Setup for Development
