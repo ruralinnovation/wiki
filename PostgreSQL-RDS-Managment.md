@@ -184,7 +184,7 @@ Some examples of role inheritance:
 
 - [ ] Create architecture diagram
 
-- [ ] Plan for communicating/social db best practices
+- [ ] Plan for communicating/socializing db best practices
 
 - [X] AWS costs (pull invoices):
 
