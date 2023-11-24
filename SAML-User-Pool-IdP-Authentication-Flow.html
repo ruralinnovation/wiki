@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>CORI MDA Wiki – the-coriverse-suite-of-packages</title>
+<title>CORI MDA Wiki – saml-user-pool-idp-authentication-flow</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -100,7 +100,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./onboarding_team_db.html">Onboarding</a></li><li class="breadcrumb-item"><a href="./The-coriverse-suite-of-packages.html">Core proprietary packages</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -143,7 +143,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./The-coriverse-suite-of-packages.html" class="sidebar-item-text sidebar-link active">
+  <a href="./The-coriverse-suite-of-packages.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Core proprietary packages</span></a>
   </div>
 </li>
@@ -220,83 +220,45 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#core-proprietary-packages" id="toc-core-proprietary-packages" class="nav-link active" data-scroll-target="#core-proprietary-packages">Core proprietary packages</a>
-  <ul class="collapse">
-  <li><a href="#cori.utils" id="toc-cori.utils" class="nav-link" data-scroll-target="#cori.utils">cori.utils</a></li>
-  <li><a href="#cori.db" id="toc-cori.db" class="nav-link" data-scroll-target="#cori.db">cori.db</a></li>
-  <li><a href="#rto" id="toc-rto" class="nav-link" data-scroll-target="#rto">Rto</a></li>
-  </ul></li>
-  <li><a href="#core-external-packages" id="toc-core-external-packages" class="nav-link" data-scroll-target="#core-external-packages">Core External Packages</a>
-  <ul class="collapse">
-  <li><a href="#tidyverse" id="toc-tidyverse" class="nav-link" data-scroll-target="#tidyverse">tidyverse</a></li>
-  <li><a href="#sf" id="toc-sf" class="nav-link" data-scroll-target="#sf">sf</a></li>
-  <li><a href="#leaflet" id="toc-leaflet" class="nav-link" data-scroll-target="#leaflet">leaflet</a></li>
-  <li><a href="#rairtable" id="toc-rairtable" class="nav-link" data-scroll-target="#rairtable">rairtable</a></li>
-  </ul></li>
-  </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/ruralinnovation/wiki/edit/main/The-coriverse-suite-of-packages.md" class="toc-action">Edit this page</a></p><p><a href="https://github.com/ruralinnovation/wiki/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
 
-<section id="core-proprietary-packages" class="level1">
-<h1>Core proprietary packages</h1>
-<section id="cori.utils" class="level3">
-<h3 class="anchored" data-anchor-id="cori.utils"><a href="https://github.com/ruralinnovation/cori_utils">cori.utils</a></h3>
-<ul>
-<li>A collection of simple helper functions and small, useful data sets intended to make life easier and solve simple problems</li>
-</ul>
-</section>
-<section id="cori.db" class="level3">
-<h3 class="anchored" data-anchor-id="cori.db"><a href="https://github.com/ruralinnovation/cori_db">cori.db</a></h3>
-<ul>
-<li>A collection of functions for working the CORI/RISI Postgres database</li>
-</ul>
-</section>
-<section id="rto" class="level3">
-<h3 class="anchored" data-anchor-id="rto"><a href="https://github.com/ruralinnovation/Rto">Rto</a></h3>
-<ul>
-<li>A system agnostic wrapper for the CARTO API for uploading data</li>
-</ul>
-<hr>
-</section>
-</section>
-<section id="core-external-packages" class="level1">
-<h1>Core External Packages</h1>
-<p><strong>These packages are standard across MDA workflows, and should be preferred unless a specific use case demands otherwise.</strong></p>
-<section id="tidyverse" class="level3">
-<h3 class="anchored" data-anchor-id="tidyverse"><a href="https://www.tidyverse.org/">tidyverse</a></h3>
-<ul>
-<li>Preferred suite of packages for most data analysis tasks</li>
-</ul>
-</section>
-<section id="sf" class="level3">
-<h3 class="anchored" data-anchor-id="sf"><a href="https://r-spatial.github.io/sf/">sf</a></h3>
-<ul>
-<li>Core MDA spatial analysis library</li>
-</ul>
-</section>
-<section id="leaflet" class="level3">
-<h3 class="anchored" data-anchor-id="leaflet"><a href="https://rstudio.github.io/leaflet/">leaflet</a></h3>
-<ul>
-<li>Ad-hoc mapping of spatial data</li>
-</ul>
-</section>
-<section id="rairtable" class="level3">
-<h3 class="anchored" data-anchor-id="rairtable"><a href="https://matthewjrogers.github.io/rairtable/index.html">rairtable</a></h3>
-<ul>
-<li>Efficient, Tidyverse-friendly Airtable API interaction</li>
-</ul>
+<blockquote class="blockquote">
+<p>The following has been extracted from AWS Docs (with added info for more clarity and context):</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-saml-idp-authentication.html">SAML User Pool IdP Authentication Flow</a></p>
+</blockquote>
+<p>You can integrate SAML-based IdPs directly from your user pool.</p>
+<ol type="1">
+<li><p>The app starts the sign-up and sign-in process by directing your user to the UI hosted by AWS. A mobile app can use web view to show the pages hosted by AWS.</p></li>
+<li><p>Typically, your user pool determines the IdP for your user from that user’s email address.</p></li>
+</ol>
+<p>Alternatively, if your app gathered information before directing the user to your user pool, it can provide that information to Amazon Cognito through a query parameter.</p>
+<ol start="3" type="1">
+<li><p>Your user is redirected to the IdP.</p></li>
+<li><p>The IdP authenticates the user if necessary. If the IdP recognizes that the user has an active session, the IdP skips the authentication to provide a single sign-in (SSO) experience.</p></li>
+<li><p>The IdP POSTs the SAML assertion to the Amazon Cognito service.</p></li>
+</ol>
+<blockquote class="blockquote">
+<p>Note Amazon Cognito cancels authentication requests that do not complete within 5 minutes, and redirects the user to the hosted UI. The page displays a Something went wrong error message.</p>
+</blockquote>
+<ol start="6" type="1">
+<li>After verifying the SAML assertion and collecting the user attributes (claims) from the assertion, Amazon Cognito internally creates or updates the user’s profile in the user pool. Amazon Cognito returns OIDC tokens to the app for the now signed-in user.</li>
+</ol>
+<p>The following diagram shows the authentication flow for this process:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://user-images.githubusercontent.com/47429329/179631656-fdbc8110-13a4-4582-9b73-4cdeb8be2dfb.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">image</figcaption>
+</figure>
+</div>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -536,4 +498,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/ruralinnovation/wiki/edit/main/SAML-User-Pool-IdP-Authentication-Flow.md" class="toc-action">Edit this page</a></p><p><a href="https://github.com/ruralinnovation/wiki/issues/new" class="toc-action">Report an issue</a></p></div></div></div></div></footer></body></html>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>CORI MDA Wiki – the-coriverse-suite-of-packages</title>
+<title>CORI MDA Wiki – migrating-from-cdk-v1---v2</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -100,7 +100,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./onboarding_team_db.html">Onboarding</a></li><li class="breadcrumb-item"><a href="./The-coriverse-suite-of-packages.html">Core proprietary packages</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -143,7 +143,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./The-coriverse-suite-of-packages.html" class="sidebar-item-text sidebar-link active">
+  <a href="./The-coriverse-suite-of-packages.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Core proprietary packages</span></a>
   </div>
 </li>
@@ -224,75 +224,42 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#core-proprietary-packages" id="toc-core-proprietary-packages" class="nav-link active" data-scroll-target="#core-proprietary-packages">Core proprietary packages</a>
+  <li><a href="#main-changes" id="toc-main-changes" class="nav-link active" data-scroll-target="#main-changes">Main Changes</a>
   <ul class="collapse">
-  <li><a href="#cori.utils" id="toc-cori.utils" class="nav-link" data-scroll-target="#cori.utils">cori.utils</a></li>
-  <li><a href="#cori.db" id="toc-cori.db" class="nav-link" data-scroll-target="#cori.db">cori.db</a></li>
-  <li><a href="#rto" id="toc-rto" class="nav-link" data-scroll-target="#rto">Rto</a></li>
-  </ul></li>
-  <li><a href="#core-external-packages" id="toc-core-external-packages" class="nav-link" data-scroll-target="#core-external-packages">Core External Packages</a>
-  <ul class="collapse">
-  <li><a href="#tidyverse" id="toc-tidyverse" class="nav-link" data-scroll-target="#tidyverse">tidyverse</a></li>
-  <li><a href="#sf" id="toc-sf" class="nav-link" data-scroll-target="#sf">sf</a></li>
-  <li><a href="#leaflet" id="toc-leaflet" class="nav-link" data-scroll-target="#leaflet">leaflet</a></li>
-  <li><a href="#rairtable" id="toc-rairtable" class="nav-link" data-scroll-target="#rairtable">rairtable</a></li>
+  <li><a href="#upgrade-python" id="toc-upgrade-python" class="nav-link" data-scroll-target="#upgrade-python">Upgrade Python</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/ruralinnovation/wiki/edit/main/The-coriverse-suite-of-packages.md" class="toc-action">Edit this page</a></p><p><a href="https://github.com/ruralinnovation/wiki/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/ruralinnovation/wiki/edit/main/Migrating-from-CDK-V1-=--V2.md" class="toc-action">Edit this page</a></p><p><a href="https://github.com/ruralinnovation/wiki/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
 
-<section id="core-proprietary-packages" class="level1">
-<h1>Core proprietary packages</h1>
-<section id="cori.utils" class="level3">
-<h3 class="anchored" data-anchor-id="cori.utils"><a href="https://github.com/ruralinnovation/cori_utils">cori.utils</a></h3>
-<ul>
-<li>A collection of simple helper functions and small, useful data sets intended to make life easier and solve simple problems</li>
-</ul>
-</section>
-<section id="cori.db" class="level3">
-<h3 class="anchored" data-anchor-id="cori.db"><a href="https://github.com/ruralinnovation/cori_db">cori.db</a></h3>
-<ul>
-<li>A collection of functions for working the CORI/RISI Postgres database</li>
-</ul>
-</section>
-<section id="rto" class="level3">
-<h3 class="anchored" data-anchor-id="rto"><a href="https://github.com/ruralinnovation/Rto">Rto</a></h3>
-<ul>
-<li>A system agnostic wrapper for the CARTO API for uploading data</li>
-</ul>
-<hr>
-</section>
-</section>
-<section id="core-external-packages" class="level1">
-<h1>Core External Packages</h1>
-<p><strong>These packages are standard across MDA workflows, and should be preferred unless a specific use case demands otherwise.</strong></p>
-<section id="tidyverse" class="level3">
-<h3 class="anchored" data-anchor-id="tidyverse"><a href="https://www.tidyverse.org/">tidyverse</a></h3>
-<ul>
-<li>Preferred suite of packages for most data analysis tasks</li>
-</ul>
-</section>
-<section id="sf" class="level3">
-<h3 class="anchored" data-anchor-id="sf"><a href="https://r-spatial.github.io/sf/">sf</a></h3>
-<ul>
-<li>Core MDA spatial analysis library</li>
-</ul>
-</section>
-<section id="leaflet" class="level3">
-<h3 class="anchored" data-anchor-id="leaflet"><a href="https://rstudio.github.io/leaflet/">leaflet</a></h3>
-<ul>
-<li>Ad-hoc mapping of spatial data</li>
-</ul>
-</section>
-<section id="rairtable" class="level3">
-<h3 class="anchored" data-anchor-id="rairtable"><a href="https://matthewjrogers.github.io/rairtable/index.html">rairtable</a></h3>
-<ul>
-<li>Efficient, Tidyverse-friendly Airtable API interaction</li>
-</ul>
+<section id="main-changes" class="level2">
+<h2 class="anchored" data-anchor-id="main-changes">Main Changes</h2>
+<p>The main changes from AWS CDK v1 to CDK v2 are as follows. - AWS CDK v2 consolidates the stable parts of the AWS Construct Library, including the core library, into a single package, <code>aws-cdk-lib</code>. Developers no longer need to install additional packages for the individual AWS services they use. This single-package approach also means that you don’t have to synchronize the versions of the various CDK library packages. L1 (CfnXXXX) constructs, which represent the exact resources available in AWS CloudFormation, are always considered stable and so are included in <code>aws-cdk-lib</code>. - Experimental modules, where we’re still working with the community to develop new <a href="https://docs.aws.amazon.com/cdk/v2/guide/constructs.html#constructs_lib">L2 or L3 constructs</a>, are not included in <code>aws-cdk-lib</code>. Instead, they’re distributed as individual packages. Experimental packages are named with an <code>alpha</code> suffix and a semantic version number. The semantic version number matches the first version of the AWS Construct Library that they’re compatible with, also with an <code>alpha</code> suffix. Constructs move into <code>aws-cdk-lib</code> after being designated stable, permitting the main Construct Library to adhere to strict semantic versioning. Stability is specified at the service level. For example, if we begin creating one or more <a href="https://docs.aws.amazon.com/cdk/v2/guide/constructs.html#constructs_lib">L2 constructs</a> for Amazon AppFlow, which at this writing has only L1 constructs, they first appear in a module named <code>@aws-cdk/aws-appflow-alpha</code>. Then, they move to <code>aws-cdk-lib</code> when we feel that the new constructs meet the fundamental needs of customers. Once a module has been designated stable and incorporated into <code>aws-cdk-lib</code>, new APIs are added using the “BetaN” convention described in the next bullet. A new version of each experimental module is released with every release of the AWS CDK. For the most part, however, they needn’t be kept in sync. You can upgrade <code>aws-cdk-lib</code> or the experimental module whenever you want. The exception is that when two or more related experimental modules depend on each other, they must be the same version. - For stable modules to which new functionality is being added, new APIs (whether entirely new constructs or new methods or properties on an existing construct) receive a <code>Beta1</code> suffix while work is in progress. (Followed by <code>Beta2</code>, <code>Beta3</code>, and so on when breaking changes are needed.) A version of the API without the suffix is added when the API is designated stable. All methods except the latest (whether beta or final) are then deprecated. For example, if we add a new method <code>grantPower()</code> to a construct, it initially appears as <code>grantPowerBeta1()</code>. If breaking changes are needed (for example, a new required parameter or property), the next version of the method would be named <code>grantPowerBeta2()</code>, and so on. When work is complete and the API is finalized, the method <code>grantPower()</code> (with no suffix) is added, and the BetaN methods are deprecated. All the beta APIs remain in the Construct Library until the next major version (3.0) release, and their signatures will not change. You’ll see deprecation warnings if you use them, so you should move to the final version of the API at your earliest convenience. However, no future AWS CDK 2.x releases will break your application. - The <code>Construct</code> class has been extracted from the AWS CDK into a separate library, along with related types. This is done to support efforts to apply the Construct Programming Model to other domains. If you are writing your own constructs or using related APIs, you must declare the <code>constructs</code> module as a dependency and make minor changes to your imports. If you are using advanced features, such as hooking into the CDK app lifecycle, more changes may be needed. For full details, <a href="https://github.com/aws/aws-cdk-rfcs/blob/master/text/0192-remove-constructs-compat.md#release-notes">see the RFC</a>. - Deprecated properties, methods, and types in AWS CDK v1.x and its Construct Library have been removed completely from the CDK v2 API. In most supported languages, these APIs produce warnings under v1.x, so you may have already migrated to the replacement APIs. A complete <a href="https://github.com/aws/aws-cdk/blob/master/DEPRECATED_APIs.md">list of deprecated APIs</a> in CDK v1.x is available on GitHub. - Behavior that was gated by feature flags in AWS CDK v1.x is enabled by default in CDK v2. The earlier feature flags are no longer needed, and in most cases they’re not supported. A few are still available to let you revert to CDK v1 behavior in very specific circumstances. For more information, see <a href="https://docs.aws.amazon.com/cdk/v2/guide/migrating-v2.html#migrating-v2-v1-upgrade-cdk-json">Updating feature flags</a>. - With CDK v2, the environments you deploy into must be bootstrapped using the modern bootstrap stack. The legacy bootstrap stack (the default under v1) is no longer supported. CDK v2 furthermore requires a new version of the modern stack. To upgrade your existing environments, re-bootstrap them. It is no longer necessary to set any feature flags or environment variables to use the modern bootstrap stack.</p>
+<p>## Migration Steps</p>
+<p>### Update feature flags in <code>cdk.json</code> tp <code>false</code> - <code>@aws-cdk/core:enableStackNameDuplicates</code> - <code>aws-cdk:enableDiffNoFail</code> - <code>@aws-cdk/aws-ecr-assets:dockerIgnoreSupport</code> - <code>@aws-cdk/aws-secretsmanager:parseOwnedSecretName</code> - <code>@aws-cdk/aws-kms:defaultKeyPolicies</code> - <code>@aws-cdk/aws-s3:grantWriteWithoutAcl</code> - <code>@aws-cdk/aws-efs:defaultEncryptionAtRest</code></p>
+<p><strong>Before</strong> <code>{    "app": "npx ts-node --prefer-ts-exts bin/aws-helper.ts",    "context": {      "@aws-cdk/core:newStyleStackSynthesis": false,      "@aws-cdk/core:stackRelativeExports": false,      "@aws-cdk/aws-rds:lowercaseDbIdentifier": false,      "@aws-cdk/aws-apigateway:usagePlanKeyOrderInsensitiveId": false,      "@aws-cdk/aws-lambda:recognizeVersionProps": false,      "@aws-cdk/aws-cloudfront:defaultSecurityPolicyTLSv1.2_2021": false    }  }</code> <strong>After</strong> <code>{    "app": "npx ts-node --prefer-ts-exts bin/aws-helper.ts",    "context": {      "@aws-cdk/core:newStyleStackSynthesis": false,      "@aws-cdk/core:stackRelativeExports": false,      "@aws-cdk/aws-rds:lowercaseDbIdentifier": false,      "@aws-cdk/aws-apigateway:usagePlanKeyOrderInsensitiveId": false,      "@aws-cdk/aws-lambda:recognizeVersionProps": false,      "@aws-cdk/aws-cloudfront:defaultSecurityPolicyTLSv1.2_2021": false    }  }</code> ### Bump to latest version of V1 as a precaution <code>npm i @aws-cdk@1.204.0 --save</code></p>
+<p>### Update your app’s dependencies and imports as necessary for the programming language that it’s written in. Should look something like the following</p>
+<blockquote class="blockquote">
+<p>NOTE: Some libs could be experimental in CDK V2, which will mean we have to import those alpha packages in separately, like V1.</p>
+<pre><code>"dependencies": {
+"@aws-cdk/aws-lambda-python-alpha": "^2.0.0-alpha.11",
+"aws-cdk-lib": "^2.0.0",
+"constructs": "^10.0.0"
+}</code></pre>
+<h3 id="bump-cdk-toolkit" class="anchored">Bump CDK Toolkit</h3>
+<pre><code>npm install -g aws-cdk@latest</code></pre>
+<h3 id="bootstrap-all-accounts-again" class="anchored">Bootstrap all accounts again</h3>
+<p>cdk bootstrap aws://ACCOUNT-NUMBER-1/REGION-1 –profile dev,uat,prod</p>
+</blockquote>
+<section id="upgrade-python" class="level3">
+<h3 class="anchored" data-anchor-id="upgrade-python">Upgrade Python</h3>
+<p>Window OS Simply download and install the Python 3.9 installer from the Python download <a href="https://www.python.org/downloads/release/python-390/">page</a>. And you are not sure which version is for you. I would recommend going for Windows x86–64 executable installer version or you can simply click this <a href="https://www.python.org/ftp/python/3.9.0/python-3.9.0-amd64.exe">link</a>.</p>
+<p>Recommended Python Installer (Screenshot from the Python Download page) You may check on the “Add Python to Path” option while installing to register Python3.9 as the main python on your system</p>
+<p><code>$ python --version</code> Python 3.9.0</p>
 
 
 </section>

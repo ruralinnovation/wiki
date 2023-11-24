@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>CORI MDA Wiki – working-with-the-graphql-schemas</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">CORI MDA Wiki</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./profile/about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Onboarding</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./onboarding_team_db.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Database Onboarding</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./QGIS.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Connecting QGIS to CORI RDS DB</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./The-coriverse-suite-of-packages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Core proprietary packages</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./MDA-Style-Guide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Naming Conventions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Git-Workflows.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Git From the Command Line: Core commands</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./help_I_have_a_data_team.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Help I Have Data Team</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Suggested-Code-Snippets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Suggested Code Snippets</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Spatial-Data-for-Mapping-and-Analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spatial Data for Mapping and Analysis</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Infrastructure</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./CORI-Data-API.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CORI Data API</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./PostgreSQL-RDS-Managment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PostgreSQL-RDS-Managment</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Repository-Classification.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Repository-Classification</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Metadata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">What is Metadata?</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#working-with-the-apollo-graphql-schema" id="toc-working-with-the-apollo-graphql-schema" class="nav-link active" data-scroll-target="#working-with-the-apollo-graphql-schema">Working With The Apollo GraphQL Schema</a>
+  <ul class="collapse">
+  <li><a href="#directory-structure" id="toc-directory-structure" class="nav-link" data-scroll-target="#directory-structure">Directory Structure</a></li>
+  <li><a href="#graphql-tools" id="toc-graphql-tools" class="nav-link" data-scroll-target="#graphql-tools">GraphQL Tools</a></li>
+  <li><a href="#graphql.js" id="toc-graphql.js" class="nav-link" data-scroll-target="#graphql.js">GraphQL.Js</a></li>
+  <li><a href="#geojson-type" id="toc-geojson-type" class="nav-link" data-scroll-target="#geojson-type">GeoJson Type</a></li>
+  <li><a href="#adding-queries-that-connect-to-the-python-data-service-restapi" id="toc-adding-queries-that-connect-to-the-python-data-service-restapi" class="nav-link" data-scroll-target="#adding-queries-that-connect-to-the-python-data-service-restapi">Adding Queries that connect to the Python Data Service (RestAPI)</a></li>
+  <li><a href="#query-structure" id="toc-query-structure" class="nav-link" data-scroll-target="#query-structure">Query Structure</a>
+  <ul class="collapse">
+  <li><a href="#understanding-the-resolver" id="toc-understanding-the-resolver" class="nav-link" data-scroll-target="#understanding-the-resolver">Understanding the Resolver</a></li>
+  </ul></li>
+  <li><a href="#understanding-apollo-server-data-sources" id="toc-understanding-apollo-server-data-sources" class="nav-link" data-scroll-target="#understanding-apollo-server-data-sources">Understanding Apollo Server Data Source(s)</a>
+  <ul class="collapse">
+  <li><a href="#data-source-implementation" id="toc-data-source-implementation" class="nav-link" data-scroll-target="#data-source-implementation">Data Source Implementation</a></li>
+  <li><a href="#adding-to-the-apollo-server-config-for-access-by-resolvers." id="toc-adding-to-the-apollo-server-config-for-access-by-resolvers." class="nav-link" data-scroll-target="#adding-to-the-apollo-server-config-for-access-by-resolvers.">Adding to the Apollo Server Config for access by resolvers.</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/ruralinnovation/wiki/edit/main/Working-with-the-GraphQL-Schemas.md" class="toc-action">Edit this page</a></p><p><a href="https://github.com/ruralinnovation/wiki/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="working-with-the-apollo-graphql-schema" class="level1">
+<h1>Working With The Apollo GraphQL Schema</h1>
+<blockquote class="blockquote">
+<p>The schema design and definition has been purposely decoupled from the Apollo Server specification located in the <code>infrastructure</code> (CDK) codebase. The schema is built as part of the sequence of build steps for the entire project, and the Apollo Server (Lambda) imports the compiled <code>SDL</code> for use by your GraphQL server.</p>
+</blockquote>
+<p>The <a href="https://www.apollographql.com/docs/apollo-server/schema/schema/">Apollo GraphQL Schema</a> is a separate package located in the <code>packages/schemas</code> directory.</p>
+<section id="directory-structure" class="level2">
+<h2 class="anchored" data-anchor-id="directory-structure">Directory Structure</h2>
+<pre class="text"><code>
+├── dist                                    # build output (auto-generated during compilation)
+├── schema                                  # Schema definitions written in Typescript
+    ├── queries                             # Query definitions written in Typescript
+├── merge-schemas.ts                      # Script that imports merged schemas, converts to `SDL` and outputs to `dist` directory.
+└── index.ts                                # Entry File that imports and merges queries
+</code></pre>
+</section>
+<section id="graphql-tools" class="level2">
+<h2 class="anchored" data-anchor-id="graphql-tools">GraphQL Tools</h2>
+<p>We leverage <a href="https://www.graphql-tools.com/">GraphQL Tools</a> in order to design and spec out schemas in Typescript.</p>
+<blockquote class="blockquote">
+<p>GraphQL Tools is a set of NPM packages and an opinionated structure for how to build a GraphQL schema and resolvers in JavaScript, following the GraphQL-first development workflow.</p>
+</blockquote>
+</section>
+<section id="graphql.js" class="level2">
+<h2 class="anchored" data-anchor-id="graphql.js">GraphQL.Js</h2>
+<blockquote class="blockquote">
+<p>The JavaScript reference implementation for GraphQL, a query language for APIs created by Facebook.</p>
+</blockquote>
+<p>We import constructs from <code>graphql</code> node library and leverage them to build schemas and queries.</p>
+</section>
+<section id="geojson-type" class="level2">
+<h2 class="anchored" data-anchor-id="geojson-type">GeoJson Type</h2>
+<p>There is a custom GeoJson Type (following the <a href="https://geojson.org/">geojson spec</a>) located in the root of the <code>schemas/schemas</code> directory. This is the primary return type used by the all the resolvers in the Api. As your application and API grows, this will obviously be supplemented with different return types.</p>
+</section>
+<section id="adding-queries-that-connect-to-the-python-data-service-restapi" class="level2">
+<h2 class="anchored" data-anchor-id="adding-queries-that-connect-to-the-python-data-service-restapi">Adding Queries that connect to the Python Data Service (RestAPI)</h2>
+<blockquote class="blockquote">
+<p>We have organized individual service queries into their own file (e.g.&nbsp;<code>bcatQueries</code>). You can follow this structure, or develop another structure that is more friendly to your organization.</p>
+</blockquote>
+<ol type="1">
+<li>Create a new query file in <code>schemas/schemas/queries</code>.</li>
+<li>Import your required libraries at the top of the file</li>
+</ol>
+<p>For example:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode typescript code-with-copy"><code class="sourceCode typescript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> { GraphQLBoolean<span class="op">,</span> GraphQLList<span class="op">,</span> GraphQLString } <span class="im">from</span> <span class="st">'graphql'</span><span class="op">;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> GeoJSON <span class="im">from</span> <span class="st">'../geojson'</span><span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="3" type="1">
+<li>Create queries (You can use the <code>bcatQueries</code> as an scaffolding)</li>
+</ol>
+</section>
+<section id="query-structure" class="level2">
+<h2 class="anchored" data-anchor-id="query-structure">Query Structure</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode typescript code-with-copy"><code class="sourceCode typescript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Query Name</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  auction_904_subsidy_awards_county_geojson<span class="op">:</span> {</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Query Return Type</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    type<span class="op">:</span> GeoJSON<span class="op">.</span><span class="at">FeatureCollectionObject</span><span class="op">,</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Query Arguments</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    args<span class="op">:</span> {</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>      county<span class="op">:</span> {</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        type<span class="op">:</span> GraphQLString<span class="op">!,</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>      }<span class="op">,</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>      skipCache<span class="op">:</span> {</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        type<span class="op">:</span> GraphQLBoolean<span class="op">,</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>      }<span class="op">,</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Query Resolver</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    resolve<span class="op">:</span> <span class="kw">async</span> (</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>      _<span class="op">:</span> <span class="dt">any</span><span class="op">,</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>      { county<span class="op">,</span> skipCache }<span class="op">:</span> { county<span class="op">:</span> <span class="dt">string</span><span class="op">;</span> skipCache<span class="op">:</span> <span class="dt">boolean</span> <span class="op">|</span> <span class="dt">undefined</span> }<span class="op">,</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>      { dataSources<span class="op">:</span> { pythonApi }<span class="op">,</span> redisClient }<span class="op">:</span> <span class="dt">any</span><span class="op">,</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>      info<span class="op">:</span> <span class="dt">any</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    ) <span class="kw">=&gt;</span> {</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> skipCache</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>        <span class="op">?</span> <span class="cf">await</span> pythonApi<span class="op">.</span><span class="fu">getItem</span>(<span class="vs">`bcat/auction_904_subsidy_awards/geojson?geoid_co=</span><span class="sc">${</span>county<span class="sc">}</span><span class="vs">`</span>)</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>        <span class="op">:</span> <span class="cf">await</span> redisClient<span class="op">.</span><span class="fu">checkCache</span>(<span class="vs">`auction_904_subsidy_awards-</span><span class="sc">${</span>county<span class="sc">}</span><span class="vs">`</span><span class="op">,</span> <span class="kw">async</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="cf">await</span> pythonApi<span class="op">.</span><span class="fu">getItem</span>(<span class="vs">`bcat/auction_904_subsidy_awards/geojson?geoid_co=</span><span class="sc">${</span>county<span class="sc">}</span><span class="vs">`</span>)<span class="op">;</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>          })<span class="op">;</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>  }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="understanding-the-resolver" class="level3">
+<h3 class="anchored" data-anchor-id="understanding-the-resolver">Understanding the Resolver</h3>
+<p><a href="https://www.apollographql.com/docs/apollo-server/data/resolvers/">Apollo Studio Resolver Docs</a></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode typescript code-with-copy"><code class="sourceCode typescript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> resolvers <span class="op">=</span> {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  Query<span class="op">:</span> {</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">user</span>(parent<span class="op">,</span> args<span class="op">,</span> context<span class="op">,</span> info) {</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> users<span class="op">.</span><span class="fu">find</span>(user <span class="kw">=&gt;</span> user<span class="op">.</span><span class="at">id</span> <span class="op">===</span> args<span class="op">.</span><span class="at">id</span>)<span class="op">;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>A resolver can optionally accept four positional arguments: (parent, args, context, info)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://user-images.githubusercontent.com/47429329/183250677-9e07d6c6-3615-415a-b385-d1f97d439912.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">image</figcaption>
+</figure>
+</div>
+<p>The Apollo Server has a single Data Source (Python RestAPI) and the Redis Cache Adapter. Both of these adapters are available on the <code>context</code> argument.</p>
+<p>You will see in the BCAT query above, the context argument is <code>destructured</code> (<a href="https://simonsmith.io/destructuring-objects-as-function-parameters-in-es6">more info</a>) into:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode typescript code-with-copy"><code class="sourceCode typescript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>{ dataSources<span class="op">:</span> { pythonApi }<span class="op">,</span> redisClient }<span class="op">:</span> <span class="dt">any</span><span class="op">,</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This will allow you to reference these adapters without writing something like <code>context.dataSources.pythonApi</code>. It makes for cleaner code.</p>
+<p>Passing these adapters in as arguments to your resolvers also allows you to decouple the schema from the server code (where these adapters are configured and instantiated).</p>
+<p>Both of these adapters are instantiated in your Apollo Server Lambda and added to the apollo configuration. Then they are available in these arguments for all resolvers.</p>
+<p>We have included a <code>skipCache</code> optional argument in all of the <code>bcatQueries</code>. If this argument is defined and true, the resolver will skip checking the RedisCache for an existing value for the query. This is a good option for your testing.</p>
+<p>Otherwise, every resolver first checks the RedisCache using the <code>checkCache</code> method on the RedisAdapter client with a key that resembles:</p>
+<p><code>{queryName}-{argument}</code> e.g.&nbsp;<code>auction_904_subsidy_awards-${county}</code></p>
+<p>The <code>checkCache</code> method on the RedisClient accepts a second argument that provided the python data source query to use if there is not data located in the cache for that query. It will make a request using this method then automatically store the return value in the cache before returning it to the resolver.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode typescript code-with-copy"><code class="sourceCode typescript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">checkCache</span>(key<span class="op">:</span> <span class="dt">string</span><span class="op">,</span> cb<span class="op">:</span> <span class="bu">Function</span><span class="op">,</span> maxAge<span class="op">:</span> <span class="dt">number</span> <span class="op">=</span> globalTTL)<span class="op">:</span> <span class="bu">Promise</span><span class="op">&lt;</span><span class="dt">unknown</span><span class="op">&gt;</span> {</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="kw">new</span> <span class="bu">Promise</span>((resolve<span class="op">,</span> reject) <span class="kw">=&gt;</span> {</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>      <span class="cf">try</span> {</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">getCacheValue</span>(key)<span class="op">.</span><span class="fu">then</span>(cacheRes <span class="kw">=&gt;</span> {</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>          <span class="cf">if</span> (<span class="op">!</span>cacheRes) {</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>            <span class="fu">cb</span>()<span class="op">.</span><span class="fu">then</span>(dbValue <span class="kw">=&gt;</span> {</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>              <span class="cf">if</span> (<span class="op">!</span>dbValue) {</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>                dbValue <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>              }</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>              <span class="kw">this</span><span class="op">.</span><span class="at">rawCache</span><span class="op">.</span><span class="fu">setex</span>(key<span class="op">,</span> maxAge<span class="op">,</span> <span class="bu">JSON</span><span class="op">.</span><span class="fu">stringify</span>(dbValue))<span class="op">;</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>              <span class="fu">resolve</span>(dbValue)<span class="op">;</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>            })<span class="op">;</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>          } <span class="cf">else</span> {</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>            <span class="fu">resolve</span>(cacheRes)<span class="op">;</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>          }</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>        })<span class="op">;</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>      } <span class="cf">catch</span> (err) {</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>        <span class="fu">reject</span>(err)<span class="op">;</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>  }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="return-schema" class="level4">
+<h4 class="anchored" data-anchor-id="return-schema">Return Schema</h4>
+<p>The return value(s) from your PythonAPI calls MUST match the return schema defined in your GraphQL query. The request will error if it does not (e.g.&nbsp;if a required attribute is missing).</p>
+</section>
+</section>
+</section>
+<section id="understanding-apollo-server-data-sources" class="level2">
+<h2 class="anchored" data-anchor-id="understanding-apollo-server-data-sources">Understanding Apollo Server Data Source(s)</h2>
+<blockquote class="blockquote">
+<p>Data sources are classes that Apollo Server can use to encapsulate fetching data from a particular source, such as a database or a REST API. These classes help handle caching, deduplication, and errors while resolving operations. Your server can use any number of different data sources. You don’t have to use data sources to fetch data, but they’re strongly recommended.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>NOTE: The following data sources are configured, instantiated and connected to the Apollo Server in:</p>
+</blockquote>
+<p><code>packages/infrastructure/src/constructs/api/ApolloGraphqlServer</code></p>
+<p>We ahve included this information here to shed more light on how your schema queries connect to the source data.</p>
+<p>The only data source for the Apollo Server is the existing Python Data RestAPI.</p>
+<p>This data source is a <code>RESTDataSource</code> and is fully supported by Apollo Studio.</p>
+<p><a href="https://www.apollographql.com/docs/apollo-server/data/data-sources/">Apollo Studio Data Sources</a></p>
+<p><a href="https://github.com/apollographql/apollo-server/tree/main/packages/apollo-datasource-rest">Apollo Studio RESTDataSource</a></p>
+<section id="data-source-implementation" class="level3">
+<h3 class="anchored" data-anchor-id="data-source-implementation">Data Source Implementation</h3>
+<p>We have created a <code>BaseDataSource</code> that implements the core <code>getItem</code> request for the RestAPI. For extensibility we created another Data Source class that inherits from this Base class, to add custom logic to in the future.</p>
+<p>As of now the API is <code>READONLY</code> which means the <code>getItem</code> method should be enough for most cases. As the API grows and other request methods are includes (POST, PUT), you can add these core methods to the Base class for all other DataSource classes to inherit from.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode typescript code-with-copy"><code class="sourceCode typescript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> { RESTDataSource<span class="op">,</span> RequestOptions } <span class="im">from</span> <span class="st">'apollo-datasource-rest'</span><span class="op">;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> { EnvConfig } <span class="im">from</span> <span class="st">'../../EnvConfig'</span><span class="op">;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> BaseDataSource <span class="kw">extends</span> RESTDataSource {</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constructor</span>() {</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">super</span>()<span class="op">;</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">.</span><span class="at">baseURL</span> <span class="op">=</span> <span class="vs">`</span><span class="sc">${</span>EnvConfig<span class="op">.</span><span class="at">PYTHON_API_URL</span><span class="sc">}</span><span class="vs">`</span><span class="op">;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">willSendRequest</span>(request<span class="op">:</span> RequestOptions) {</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    request<span class="op">.</span><span class="at">headers</span><span class="op">.</span><span class="fu">set</span>(<span class="st">'Authorization'</span><span class="op">,</span> <span class="kw">this</span><span class="op">.</span><span class="at">context</span><span class="op">.</span><span class="at">headers</span><span class="op">.</span><span class="at">Authorization</span>)<span class="op">;</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="kw">async</span> <span class="fu">getItem</span>(path<span class="op">?:</span> <span class="dt">string</span>) {</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> res <span class="op">=</span> <span class="cf">await</span> <span class="kw">this</span><span class="op">.</span><span class="fu">get</span>(path <span class="op">?</span> path <span class="op">:</span> <span class="st">''</span><span class="op">,</span> <span class="kw">undefined</span>)<span class="op">;</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> res<span class="op">;</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode typescript code-with-copy"><code class="sourceCode typescript"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> { BaseDataSource } <span class="im">from</span> <span class="st">'./BaseDataSource'</span><span class="op">;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">class</span> PythonRestApi <span class="kw">extends</span> BaseDataSource {</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">constructor</span>() {</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">super</span>()<span class="op">;</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="adding-to-the-apollo-server-config-for-access-by-resolvers." class="level3">
+<h3 class="anchored" data-anchor-id="adding-to-the-apollo-server-config-for-access-by-resolvers.">Adding to the Apollo Server Config for access by resolvers.</h3>
+<p>Data Sources are added to the Apollo Server Configuration and are passed into resolvers through the the <code>context</code>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://user-images.githubusercontent.com/47429329/183416253-dd3a093e-a271-4757-909a-ff69d55c23ab.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">image</figcaption>
+</figure>
+</div>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

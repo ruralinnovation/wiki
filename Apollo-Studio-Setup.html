@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>CORI MDA Wiki – repository-classification</title>
+<title>CORI MDA Wiki – apollo-studio-setup</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -100,7 +134,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./CORI-Data-API.html">Infrastructure</a></li><li class="breadcrumb-item"><a href="./Repository-Classification.html">Repository-Classification</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -202,7 +236,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Repository-Classification.html" class="sidebar-item-text sidebar-link active">
+  <a href="./Repository-Classification.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Repository-Classification</span></a>
   </div>
 </li>
@@ -224,104 +258,232 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#repository-classification" id="toc-repository-classification" class="nav-link active" data-scroll-target="#repository-classification">Repository-Classification</a>
-  <ul class="collapse">
-  <li><a href="#stable" id="toc-stable" class="nav-link" data-scroll-target="#stable">Stable</a></li>
-  <li><a href="#maturing" id="toc-maturing" class="nav-link" data-scroll-target="#maturing">Maturing</a></li>
-  <li><a href="#experimental" id="toc-experimental" class="nav-link" data-scroll-target="#experimental">Experimental</a></li>
-  <li><a href="#deprecated" id="toc-deprecated" class="nav-link" data-scroll-target="#deprecated">Deprecated</a></li>
-  <li><a href="#unsupported" id="toc-unsupported" class="nav-link" data-scroll-target="#unsupported">Unsupported</a></li>
-  </ul></li>
+  <li><a href="#create-an-apollo-studio-account" id="toc-create-an-apollo-studio-account" class="nav-link active" data-scroll-target="#create-an-apollo-studio-account">Create an Apollo Studio Account</a></li>
+  <li><a href="#integrate-existing-api" id="toc-integrate-existing-api" class="nav-link" data-scroll-target="#integrate-existing-api">Integrate Existing Api</a></li>
+  <li><a href="#setup-automated-authentication-in-a-preflight-script" id="toc-setup-automated-authentication-in-a-preflight-script" class="nav-link" data-scroll-target="#setup-automated-authentication-in-a-preflight-script">Setup Automated Authentication in a Preflight Script</a></li>
+  <li><a href="#send-requests" id="toc-send-requests" class="nav-link" data-scroll-target="#send-requests">Send Requests</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/ruralinnovation/wiki/edit/main/Repository-Classification.md" class="toc-action">Edit this page</a></p><p><a href="https://github.com/ruralinnovation/wiki/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/ruralinnovation/wiki/edit/main/Apollo-Studio-Setup.md" class="toc-action">Edit this page</a></p><p><a href="https://github.com/ruralinnovation/wiki/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
 
-<section id="repository-classification" class="level1">
-<h1>Repository-Classification</h1>
-<p>MDA repositories run the gamut from code under active development to stale code that is no longer useful. To document the status of repositories, use one of the five following tags.</p>
-<hr>
-<section id="stable" class="level3">
-<h3 class="anchored" data-anchor-id="stable">Stable</h3>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://img.shields.io/badge/lifecycle-stable-green.svg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">lifecycle</figcaption>
-</figure>
-</div>
-<p>This should be the standard tag for repositories that are not under active development. Stable code should have no anticipated breaking changes and have received some QA. To mark a repository as stable:</p>
-<ul>
-<li>Paste <code>![lifecycle](https://img.shields.io/badge/lifecycle-stable-green.svg)</code> into the <code>readme</code> and commit changes</li>
-<li>Add ‘stable’ as a topic for the repository</li>
-</ul>
-<hr>
+<p><a href="https://www.apollographql.com/docs/studio/getting-started">Getting started with Apollo Studio</a></p>
+<section id="create-an-apollo-studio-account" class="level1">
+<h1>Create an Apollo Studio Account</h1>
+<p>You can sign up for Studio with either your GitHub identity or a username and password.</p>
+<ol type="1">
+<li><p>Go to <a href="https://studio.apollographql.com/">studio.apollographql.com</a> and click Let’s get started.</p></li>
+<li><p>Complete the signup flow, which includes:</p></li>
+<li><p>Creating an <a href="https://www.apollographql.com/docs/studio/org/organizations">organization</a> that you can invite teammates to</p></li>
+<li><p><a href="https://www.apollographql.com/pricing/">Selecting a plan</a> for your organization (the Free plan is always free, and the Team plan provides a free trial of paid features)</p></li>
+</ol>
 </section>
-<section id="maturing" class="level3">
-<h3 class="anchored" data-anchor-id="maturing">Maturing</h3>
+<section id="integrate-existing-api" class="level1">
+<h1>Integrate Existing Api</h1>
+<blockquote class="blockquote">
+<p>Note: The Apollo Docs suggest you import/link an existing schema. We have found that using the explorer to dynamically access this information is the easiest way to get started.</p>
+</blockquote>
+<ol type="1">
+<li>Click the Apollo Explorer Button on the top left of the screen.</li>
+</ol>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">lifecycle</figcaption>
+<p><img src="https://user-images.githubusercontent.com/47429329/180656288-f30cb10c-90eb-4ae6-8429-6d4b0c0f6fa4.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">image</figcaption>
 </figure>
 </div>
-<p>Maturing repositories are under active development. This tag should not be used long-term. It indicates that breaking changes are expected in the code. To be labeled ‘Maturing’, the existing code should have received some level of QA but is subject to change. To mark a repository as maturing:</p>
-<ul>
-<li>Paste <code>![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)</code> into the <code>readme</code> and commit changes</li>
-<li>Add ‘maturing’ as a topic for the repository</li>
-</ul>
-<hr>
+<ol start="2" type="1">
+<li>On the top right of the screen is a sandbox url input, click the settings icon in this input.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://user-images.githubusercontent.com/47429329/180656312-c9910961-a4aa-4841-81cc-6d23a144d4d5.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">image</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://user-images.githubusercontent.com/47429329/180656429-43599a20-7b22-473e-bc6e-b9b51d8f5aa2.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">image</figcaption>
+</figure>
+</div>
+<ol start="3" type="1">
+<li>Enter in the Cloudfront GraphQL API URL and click <code>save</code></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://user-images.githubusercontent.com/47429329/180656361-05dc6e40-a59d-4608-ae26-b9cb480e1943.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">image</figcaption>
+</figure>
+</div>
+<ol start="4" type="1">
+<li>Click the headers tab on the bottom of the screen</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://user-images.githubusercontent.com/47429329/180656568-73420437-5c26-4ca1-a61e-c39599a66510.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">image</figcaption>
+</figure>
+</div>
+<ol start="5" type="1">
+<li>Copy the generated id token from your Postman Environment and enter it into this header field.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://user-images.githubusercontent.com/47429329/180656594-1bface6e-f436-4146-9b6e-73bce4b3f247.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">image</figcaption>
+</figure>
+</div>
+<ol start="6" type="1">
+<li>Apollo Studio will use introspection to access the schema of your API. If it has worked you should see your schema on the left side of the screen.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://user-images.githubusercontent.com/47429329/180656714-4a83b1a5-5289-4b9a-9f66-9fb1c4c83b6e.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">image</figcaption>
+</figure>
+</div>
+<ol start="7" type="1">
+<li>Publish your schema by pressing the <code>publish</code> button to the right of the sandbox url input. Because this schema is connected to your DEV APi, using an appropriate naming convention.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://user-images.githubusercontent.com/47429329/180656749-b6143703-9831-4aae-b74a-eef5e6efdc77.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">image</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://user-images.githubusercontent.com/47429329/180656788-b34b61b1-c2b5-40d8-a67d-c91d3c67d1bb.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">image</figcaption>
+</figure>
+</div>
 </section>
-<section id="experimental" class="level3">
-<h3 class="anchored" data-anchor-id="experimental">Experimental</h3>
+<section id="setup-automated-authentication-in-a-preflight-script" class="level1">
+<h1>Setup Automated Authentication in a Preflight Script</h1>
+<ol type="1">
+<li>Once your graph is published , you will br automatically navigated to that graphs screen.</li>
+</ol>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">lifecycle</figcaption>
+<p><img src="https://user-images.githubusercontent.com/47429329/180656870-34e9ed69-94ca-4d03-8544-d8c38ba7db99.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">image</figcaption>
 </figure>
 </div>
-<p>This tag should be used sparingly – ideally we should have few experimental repos. Code in an experimental repo may not have received any QA. Nothing generated from an experimental repo should be used in a deliverable or as the foundation for other code without serious external review. To mark a repository as experimental:</p>
-<ul>
-<li>Paste <code>![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)</code> into the <code>readme</code> and commit changes</li>
-<li>Add ‘experimental’ as a topic for the repository</li>
-</ul>
-<hr>
+<ol start="2" type="1">
+<li>Click the <code>Explorer</code> navigation element.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://user-images.githubusercontent.com/47429329/180656896-19fb7b61-fdab-4c4f-84b9-443aa70330d5.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">image</figcaption>
+</figure>
+</div>
+<ol start="3" type="1">
+<li>There is a section <code>Preflight script</code>, click the <code>add script</code> button.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://user-images.githubusercontent.com/47429329/180656935-716a5e00-c613-478b-9189-2b37ed6c4421.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">image</figcaption>
+</figure>
+</div>
+<ol start="4" type="1">
+<li>Add the following script:</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> clientId <span class="op">=</span> explorer<span class="op">.</span><span class="at">environment</span><span class="op">.</span><span class="fu">get</span>(<span class="st">"cognitoClientId"</span>)<span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> username <span class="op">=</span> explorer<span class="op">.</span><span class="at">environment</span><span class="op">.</span><span class="fu">get</span>(<span class="st">"cognitoUserName"</span>)<span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> password <span class="op">=</span> explorer<span class="op">.</span><span class="at">environment</span><span class="op">.</span><span class="fu">get</span>(<span class="st">"cognitoUserPassword"</span>)<span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span> {</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>       <span class="kw">const</span> response <span class="op">=</span> <span class="cf">await</span> explorer<span class="op">.</span><span class="fu">fetch</span>(<span class="st">"https://cognito-idp.us-east-1.amazonaws.com/"</span><span class="op">,</span> {</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>              <span class="dt">method</span><span class="op">:</span> <span class="st">'POST'</span><span class="op">,</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>              <span class="dt">headers</span><span class="op">:</span> {</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>                     <span class="st">'X-Amz-Target'</span><span class="op">:</span> <span class="st">'AWSCognitoIdentityProviderService.InitiateAuth'</span><span class="op">,</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>                     <span class="st">'Content-Type'</span><span class="op">:</span> <span class="st">'application/x-amz-json-1.1'</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>              }<span class="op">,</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>              <span class="dt">body</span><span class="op">:</span> <span class="bu">JSON</span><span class="op">.</span><span class="fu">stringify</span>({</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"AuthParameters"</span><span class="op">:</span> {</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"USERNAME"</span><span class="op">:</span> username<span class="op">,</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"PASSWORD"</span><span class="op">:</span> password</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>                     }<span class="op">,</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"AuthFlow"</span><span class="op">:</span> <span class="st">"USER_PASSWORD_AUTH"</span><span class="op">,</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"ClientId"</span><span class="op">:</span> clientId</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>              })</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>       })<span class="op">;</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>       <span class="kw">const</span> body <span class="op">=</span> <span class="bu">JSON</span><span class="op">.</span><span class="fu">parse</span>(response<span class="op">.</span><span class="at">body</span>)<span class="op">;</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>       explorer<span class="op">.</span><span class="at">environment</span><span class="op">.</span><span class="fu">set</span>(<span class="st">"cognitoClientId"</span><span class="op">,</span> clientId)<span class="op">;</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>       explorer<span class="op">.</span><span class="at">environment</span><span class="op">.</span><span class="fu">set</span>(<span class="st">"cognitoUserName"</span><span class="op">,</span> username)<span class="op">;</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>       explorer<span class="op">.</span><span class="at">environment</span><span class="op">.</span><span class="fu">set</span>(<span class="st">"cognitoUserPassword"</span><span class="op">,</span> password)<span class="op">;</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>       explorer<span class="op">.</span><span class="at">environment</span><span class="op">.</span><span class="fu">set</span>(<span class="st">"cognitoIdToken"</span><span class="op">,</span> body<span class="op">.</span><span class="at">AuthenticationResult</span><span class="op">.</span><span class="at">IdToken</span>)<span class="op">;</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="cf">catch</span> (err) {</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>       <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">'ERROR AUTHENTICATING'</span><span class="op">,</span> err)<span class="op">;</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>       explorer<span class="op">.</span><span class="at">environment</span><span class="op">.</span><span class="fu">set</span>(<span class="st">"cognitoClientId"</span><span class="op">,</span> clientId)<span class="op">;</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>       explorer<span class="op">.</span><span class="at">environment</span><span class="op">.</span><span class="fu">set</span>(<span class="st">"cognitoUserName"</span><span class="op">,</span> username)<span class="op">;</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>       explorer<span class="op">.</span><span class="at">environment</span><span class="op">.</span><span class="fu">set</span>(<span class="st">"cognitoUserPassword"</span><span class="op">,</span> password)<span class="op">;</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="5" type="1">
+<li>Add an env variables json in the <code>Environment variables</code> section with values from your Postman/Cognito environment</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"cognitoClientId"</span><span class="fu">:</span> <span class="st">"6um99fv2qtb6f7ise3i037vna"</span><span class="fu">,</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"cognitoUserName"</span><span class="fu">:</span> <span class="st">"mf-int-test@yopmail.com"</span><span class="fu">,</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"cognitoUserPassword"</span><span class="fu">:</span> <span class="st">"PASSWORD"</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://user-images.githubusercontent.com/47429329/180657014-c525de8a-a97c-499b-8e50-8f4869fdff04.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">image</figcaption>
+</figure>
+</div>
+<ol start="6" type="1">
+<li>Click the Preflight script on</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://user-images.githubusercontent.com/47429329/180657125-7e8eb2c6-b78e-4df9-8470-b33dffca8bc2.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">image</figcaption>
+</figure>
+</div>
+<ol start="7" type="1">
+<li>Update the shared headers to reference the new id token variable.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://user-images.githubusercontent.com/47429329/180657154-6b4f7bc1-9557-4ed6-b6a1-a64b455ad2a4.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">image</figcaption>
+</figure>
+</div>
 </section>
-<section id="deprecated" class="level3">
-<h3 class="anchored" data-anchor-id="deprecated">Deprecated</h3>
+<section id="send-requests" class="level1">
+<h1>Send Requests</h1>
+<p>Select queries from your schema and add graphql variables. Then send requests!</p>
+<pre><code>query auction_904_subsidy_awards_geojson ($counties: [String]!, $skipCache: Boolean) {
+    auction_904_subsidy_awards_geojson (counties: $counties, skipCache: $skipCache) {
+        type
+        features {
+            type
+            id
+            properties
+            geometry {
+                coordinates
+                type
+            }
+        }
+    }
+}</code></pre>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://img.shields.io/badge/lifecycle-deprecated-red.svg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">lifecycle</figcaption>
+<p><img src="https://user-images.githubusercontent.com/47429329/180657251-644638d4-f0ec-4926-8000-625b501a73c1.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">image</figcaption>
 </figure>
 </div>
-<p>We may wish to preserve legacy code in some repositories. These should be marked as deprecated and link to the current state of the art. To mark a repository as deprecated:</p>
-<ul>
-<li>Paste <code>![lifecycle](https://img.shields.io/badge/lifecycle-deprecated-red.svg)</code> into the <code>readme</code> and commit changes</li>
-<li>Add ‘deprecated’ as a topic for the repository</li>
-</ul>
-<hr>
-</section>
-<section id="unsupported" class="level3">
-<h3 class="anchored" data-anchor-id="unsupported">Unsupported</h3>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://www.repostatus.org/badges/latest/unsupported.svg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">lifecycle</figcaption>
-</figure>
-</div>
-<p>Some repositories contain code that is being used but should not receive additional development. This tag is intended to denote for ourselves and for anyone who comes after that if additional development on the tool or project associated with the repo is desired, there is a strong recommendation to rewrite the code entirely and not to treat the existing code as a useful or reliable foundation for future work.</p>
-<p>In essence, this tag indicates the presence of catastrophic technical debt.</p>
-<p>To mark a repository as unsupported:</p>
-<ul>
-<li>Paste <code>![lifecycle](https://www.repostatus.org/badges/latest/unsupported.svg)</code> into the <code>readme</code> and commit changes</li>
-<li>Add ‘unsupported’ as a topic for the repository</li>
-</ul>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

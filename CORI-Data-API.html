@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>CORI MDA Wiki – cori-data-api</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">CORI MDA Wiki</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./profile/about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./CORI-Data-API.html">Infrastructure</a></li><li class="breadcrumb-item"><a href="./CORI-Data-API.html">CORI Data API</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Onboarding</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./onboarding_team_db.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Database Onboarding</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./QGIS.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Connecting QGIS to CORI RDS DB</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./The-coriverse-suite-of-packages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Core proprietary packages</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./MDA-Style-Guide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Naming Conventions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Git-Workflows.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Git From the Command Line: Core commands</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./help_I_have_a_data_team.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Help I Have Data Team</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Suggested-Code-Snippets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Suggested Code Snippets</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Spatial-Data-for-Mapping-and-Analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spatial Data for Mapping and Analysis</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Infrastructure</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./CORI-Data-API.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">CORI Data API</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./PostgreSQL-RDS-Managment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PostgreSQL-RDS-Managment</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Repository-Classification.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Repository-Classification</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Metadata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">What is Metadata?</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#cori-data-api" id="toc-cori-data-api" class="nav-link active" data-scroll-target="#cori-data-api">CORI Data API</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#architecture" id="toc-architecture" class="nav-link" data-scroll-target="#architecture">Architecture</a></li>
+  <li><a href="#external-dependencies" id="toc-external-dependencies" class="nav-link" data-scroll-target="#external-dependencies">External Dependencies</a></li>
+  <li><a href="#environment-setup" id="toc-environment-setup" class="nav-link" data-scroll-target="#environment-setup">Environment Setup</a>
+  <ul class="collapse">
+  <li><a href="#requirements" id="toc-requirements" class="nav-link" data-scroll-target="#requirements">Requirements</a>
+  <ul class="collapse">
+  <li><a href="#nodejs-16.x-and-npm-8.x" id="toc-nodejs-16.x-and-npm-8.x" class="nav-link" data-scroll-target="#nodejs-16.x-and-npm-8.x">NodeJS 16.x+ and NPM 8.x+</a></li>
+  <li><a href="#aws-cli" id="toc-aws-cli" class="nav-link" data-scroll-target="#aws-cli">AWS CLI</a></li>
+  <li><a href="#aws-sam-cli" id="toc-aws-sam-cli" class="nav-link" data-scroll-target="#aws-sam-cli">AWS SAM CLI</a></li>
+  <li><a href="#aws-cdk-v2" id="toc-aws-cdk-v2" class="nav-link" data-scroll-target="#aws-cdk-v2">AWS CDK V2</a></li>
+  <li><a href="#python-3.9" id="toc-python-3.9" class="nav-link" data-scroll-target="#python-3.9">Python 3.9+</a></li>
+  <li><a href="#additional-suggested-environment-setup" id="toc-additional-suggested-environment-setup" class="nav-link" data-scroll-target="#additional-suggested-environment-setup">Additional Suggested Environment Setup</a></li>
+  </ul></li>
+  <li><a href="#installation-and-development" id="toc-installation-and-development" class="nav-link" data-scroll-target="#installation-and-development">Installation and Development</a>
+  <ul class="collapse">
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting started</a></li>
+  </ul></li>
+  <li><a href="#working-with-npm-workspaces" id="toc-working-with-npm-workspaces" class="nav-link" data-scroll-target="#working-with-npm-workspaces">Working with NPM Workspaces</a></li>
+  </ul></li>
+  <li><a href="#project-structure" id="toc-project-structure" class="nav-link" data-scroll-target="#project-structure">Project Structure</a>
+  <ul class="collapse">
+  <li><a href="#directory-structure" id="toc-directory-structure" class="nav-link" data-scroll-target="#directory-structure">Directory Structure</a></li>
+  </ul></li>
+  <li><a href="#database-integration" id="toc-database-integration" class="nav-link" data-scroll-target="#database-integration">Database Integration</a>
+  <ul class="collapse">
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a>
+  <ul class="collapse">
+  <li><a href="#userrole-setup" id="toc-userrole-setup" class="nav-link" data-scroll-target="#userrole-setup">User/Role Setup</a></li>
+  </ul></li>
+  <li><a href="#update-api-configuration-file" id="toc-update-api-configuration-file" class="nav-link" data-scroll-target="#update-api-configuration-file">Update Api Configuration File</a></li>
+  </ul></li>
+  <li><a href="#redis-cache-integration" id="toc-redis-cache-integration" class="nav-link" data-scroll-target="#redis-cache-integration">Redis Cache Integration</a>
+  <ul class="collapse">
+  <li><a href="#prerequisites-1" id="toc-prerequisites-1" class="nav-link" data-scroll-target="#prerequisites-1">Prerequisites</a>
+  <ul class="collapse">
+  <li><a href="#userrole-setup-1" id="toc-userrole-setup-1" class="nav-link" data-scroll-target="#userrole-setup-1">User/Role Setup</a></li>
+  </ul></li>
+  <li><a href="#update-api-configuration" id="toc-update-api-configuration" class="nav-link" data-scroll-target="#update-api-configuration">Update Api Configuration</a></li>
+  </ul></li>
+  <li><a href="#local-development-and-testing" id="toc-local-development-and-testing" class="nav-link" data-scroll-target="#local-development-and-testing">Local Development and Testing</a>
+  <ul class="collapse">
+  <li><a href="#starting-the-local-server" id="toc-starting-the-local-server" class="nav-link" data-scroll-target="#starting-the-local-server">Starting the Local Server</a></li>
+  </ul></li>
+  <li><a href="#cicd-pipeline" id="toc-cicd-pipeline" class="nav-link" data-scroll-target="#cicd-pipeline">CICD Pipeline</a>
+  <ul class="collapse">
+  <li><a href="#cicd-setup" id="toc-cicd-setup" class="nav-link" data-scroll-target="#cicd-setup">CICD Setup</a>
+  <ul class="collapse">
+  <li><a href="#github-setup" id="toc-github-setup" class="nav-link" data-scroll-target="#github-setup">Github Setup</a></li>
+  </ul></li>
+  <li><a href="#pipeline-infrastructure" id="toc-pipeline-infrastructure" class="nav-link" data-scroll-target="#pipeline-infrastructure">Pipeline Infrastructure</a>
+  <ul class="collapse">
+  <li><a href="#pipeline-code" id="toc-pipeline-code" class="nav-link" data-scroll-target="#pipeline-code">Pipeline code</a></li>
+  <li><a href="#pipeline-deployment" id="toc-pipeline-deployment" class="nav-link" data-scroll-target="#pipeline-deployment">Pipeline deployment</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#python-microservices" id="toc-python-microservices" class="nav-link" data-scroll-target="#python-microservices">Python Microservices</a>
+  <ul class="collapse">
+  <li><a href="#directory-structure-1" id="toc-directory-structure-1" class="nav-link" data-scroll-target="#directory-structure-1">Directory Structure</a></li>
+  <li><a href="#python-dependency-layer" id="toc-python-dependency-layer" class="nav-link" data-scroll-target="#python-dependency-layer">Python Dependency Layer</a>
+  <ul class="collapse">
+  <li><a href="#included-packages" id="toc-included-packages" class="nav-link" data-scroll-target="#included-packages">Included Packages</a></li>
+  <li><a href="#adding-new-dependencies-to-the-layer" id="toc-adding-new-dependencies-to-the-layer" class="nav-link" data-scroll-target="#adding-new-dependencies-to-the-layer">Adding New Dependencies to the Layer</a></li>
+  </ul></li>
+  <li><a href="#creating-new-services" id="toc-creating-new-services" class="nav-link" data-scroll-target="#creating-new-services">Creating New Services</a></li>
+  </ul></li>
+  <li><a href="#api-stack-supporting-constructs" id="toc-api-stack-supporting-constructs" class="nav-link" data-scroll-target="#api-stack-supporting-constructs">Api Stack &amp; Supporting Constructs</a>
+  <ul class="collapse">
+  <li><a href="#core-apistack" id="toc-core-apistack" class="nav-link" data-scroll-target="#core-apistack">Core ApiStack</a></li>
+  <li><a href="#custom-constructs" id="toc-custom-constructs" class="nav-link" data-scroll-target="#custom-constructs">Custom Constructs</a>
+  <ul class="collapse">
+  <li><a href="#networking-construct" id="toc-networking-construct" class="nav-link" data-scroll-target="#networking-construct">Networking Construct</a></li>
+  <li><a href="#authentication-cognito-construct" id="toc-authentication-cognito-construct" class="nav-link" data-scroll-target="#authentication-cognito-construct">Authentication (Cognito) Construct</a></li>
+  <li><a href="#python-data-server-construct" id="toc-python-data-server-construct" class="nav-link" data-scroll-target="#python-data-server-construct">Python Data Server Construct</a></li>
+  <li><a href="#apollo-graphql-server-construct" id="toc-apollo-graphql-server-construct" class="nav-link" data-scroll-target="#apollo-graphql-server-construct">Apollo (GraphQL) Server Construct</a></li>
+  <li><a href="#hosting-cloudfront-construct" id="toc-hosting-cloudfront-construct" class="nav-link" data-scroll-target="#hosting-cloudfront-construct">Hosting (CloudFront) Construct</a></li>
+  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/ruralinnovation/wiki/edit/main/CORI-Data-API.md" class="toc-action">Edit this page</a></p><p><a href="https://github.com/ruralinnovation/wiki/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="cori-data-api" class="level1">
+<h1>CORI Data API</h1>
+</section>
+<section id="overview" class="level1">
+<h1>Overview</h1>
+<p>The <a href="https://github.com/ruralinnovation/cori-data-api/"><code>cori-data-api</code></a> repository (as distinct from the <code>cori.data.api</code> R package) houses all the code to:</p>
+<ol type="1">
+<li>Create a RestApi with Python Lambdas connecting to a PostgreSQL Database.</li>
+<li>Create a GraphQL Api with Typescript Lambdas connecting to the Python RestAPI (as a DataSource).</li>
+<li>Create a CICD Pipeline that connects to this Github repository, is triggered on commits/PRs to specific branches, and re-builds and re-deploys the two updated APIs.</li>
+</ol>
+</section>
+<section id="architecture" class="level1">
+<h1>Architecture</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://user-images.githubusercontent.com/47429329/179373858-d5ec71ac-03b3-40c6-b39c-591f795675d4.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">image</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://user-images.githubusercontent.com/47429329/179630808-6a129b60-440c-44ea-8b60-f69470f56db1.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">image</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://user-images.githubusercontent.com/47429329/179631056-13152301-0818-4357-a6a9-a49dc0786137.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">image</figcaption>
+</figure>
+</div>
+</section>
+<section id="external-dependencies" class="level1">
+<h1>External Dependencies</h1>
+<p>This project has two external dependencies:</p>
+<ol type="1">
+<li>PostgreSQL database (Amazon RDS)</li>
+<li>Redis Cache (Hosted on Redis Cloud)</li>
+</ol>
+<blockquote class="blockquote">
+<p>You can safely customize and update these services in their respective interfaces. All other updates to this project should be handled IN CODE and deployed through the CICD Pipeline by committing to a specific branch.</p>
+</blockquote>
+</section>
+<section id="environment-setup" class="level1">
+<h1>Environment Setup</h1>
+<section id="requirements" class="level2">
+<h2 class="anchored" data-anchor-id="requirements">Requirements</h2>
+<ul>
+<li>NodeJS 16.x+ - <a href="https://nodejs.org/en/download/">Installing NodeJS</a></li>
+<li>npm 8.x+ - (needed for NPM Workspaces) - (should be installed as part of NodeJS installation)</li>
+<li>AWS CLI - <a href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html">Installing AWS CLI</a></li>
+<li>AWS SAM CLI <a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html">Installing SAM CLI</a></li>
+<li>AWS CDK V2 - <a href="https://docs.aws.amazon.com/cdk/api/v2/">Installing AWS CDK V2</a></li>
+<li>Python 3.9+ - <a href="https://www.python.org/downloads/">Installing Python</a></li>
+</ul>
+<section id="nodejs-16.x-and-npm-8.x" class="level3">
+<h3 class="anchored" data-anchor-id="nodejs-16.x-and-npm-8.x">NodeJS 16.x+ and NPM 8.x+</h3>
+<blockquote class="blockquote">
+<p>This project uses NPM Workspaces to managing multiple packages from your local file system from within a singular top-level, root package. NPM workspaces requires NPM version 8+. This should be installed as part of the installation of NodeJS 16.x+</p>
+</blockquote>
+<p><a href="https://nodejs.org/en/download/">Installing NodeJS</a></p>
+</section>
+<section id="aws-cli" class="level3">
+<h3 class="anchored" data-anchor-id="aws-cli">AWS CLI</h3>
+<p>The AWS Command Line Interface (AWS CLI) is an open source tool that enables you to interact with AWS services using commands in your command-line shell. With minimal configuration, the AWS CLI enables you to start running commands that implement functionality equivalent to that provided by the browser-based AWS Management Console from the command prompt in your terminal program:</p>
+<p><a href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html">Installing AWS CLI</a></p>
+</section>
+<section id="aws-sam-cli" class="level3">
+<h3 class="anchored" data-anchor-id="aws-sam-cli">AWS SAM CLI</h3>
+<p>AWS SAM provides you with a command line tool, the AWS SAM CLI, that makes it easy for you to create and manage serverless applications. You need to install and configure a few things in order to use the AWS SAM CLI.</p>
+<p><a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html">Installing SAM CLI</a></p>
+</section>
+<section id="aws-cdk-v2" class="level3">
+<h3 class="anchored" data-anchor-id="aws-cdk-v2">AWS CDK V2</h3>
+<p>The AWS CDK lets you build reliable, scalable, cost-effective applications in the cloud with the considerable expressive power of a programming language. This approach yields many benefits, including:</p>
+<ul>
+<li><p>Build with high-level constructs that automatically provide sensible, secure defaults for your AWS resources, defining more infrastructure with less code.</p></li>
+<li><p>Use programming idioms like parameters, conditionals, loops, composition, and inheritance to model your system design from building blocks provided by AWS and others.</p></li>
+<li><p>Put your infrastructure, application code, and configuration all in one place, ensuring that at every milestone you have a complete, cloud-deployable system.</p></li>
+<li><p>Employ software engineering practices such as code reviews, unit tests, and source control to make your infrastructure more robust.</p></li>
+<li><p>Connect your AWS resources together (even across stacks) and grant permissions using simple, intent-oriented APIs.</p></li>
+<li><p>Import existing AWS CloudFormation templates to give your resources a CDK API.</p></li>
+<li><p>Use the power of AWS CloudFormation to perform infrastructure deployments predictably and repeatedly, with rollback on error.</p></li>
+<li><p>Easily share infrastructure design patterns among teams within your organization or even with the public.</p></li>
+</ul>
+<p><a href="https://docs.aws.amazon.com/cdk/api/v2/">Installing AWS CDK V2</a></p>
+</section>
+<section id="python-3.9" class="level3">
+<h3 class="anchored" data-anchor-id="python-3.9">Python 3.9+</h3>
+<p><a href="https://www.python.org/downloads/">Installing Python</a></p>
+</section>
+<section id="additional-suggested-environment-setup" class="level3">
+<h3 class="anchored" data-anchor-id="additional-suggested-environment-setup">Additional Suggested Environment Setup</h3>
+<ul>
+<li>A Node Version Manager <a href="https://github.com/nvm-sh/nvm">Installing NVM</a> or <a href="https://github.com/tj/n">Installing n</a></li>
+</ul>
+</section>
+</section>
+<section id="installation-and-development" class="level2">
+<h2 class="anchored" data-anchor-id="installation-and-development">Installation and Development</h2>
+<section id="getting-started" class="level3">
+<h3 class="anchored" data-anchor-id="getting-started">Getting started</h3>
+<ol type="1">
+<li><p>Clone the repo</p>
+<p><code>git clone https://github.com/ruralinnovation/cori-data-api.git</code></p></li>
+<li><p>Change into project directory</p>
+<p><code>cd cori-data-api</code></p></li>
+<li><p>Install libraries for all packages</p>
+<p><code>npm install</code></p></li>
+<li><p>Set local environment (shell) varibles:</p></li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>    <span class="ex">$</span> export INTEGRATION_TESTING_USERNAME=<span class="op">&lt;</span>aws-cognito-username<span class="op">&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">$</span> export INTEGRATION_TESTING_PASSWORD=<span class="op">&lt;</span>aws-cognito-pasword<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>At this point, you should be able to build the api and run the test suite:</p>
+<pre><code>$ npm run build
+$ npm run test</code></pre>
+</section>
+</section>
+<section id="working-with-npm-workspaces" class="level2">
+<h2 class="anchored" data-anchor-id="working-with-npm-workspaces">Working with NPM Workspaces</h2>
+<blockquote class="blockquote">
+<p>We suggest reading through the NPM Workspaces documentation before attempting to install any new packages or work with this repository.</p>
+</blockquote>
+<p><a href="https://docs.npmjs.com/cli/v8/using-npm/workspaces">NPM Workspaces Documentation</a></p>
+<p>Workspaces allows you to organize your code in a mono-repo with multiple packages (projects). There is a shared dependency tree to reduce build time and redundant packages.</p>
+</section>
+</section>
+<section id="project-structure" class="level1">
+<h1>Project Structure</h1>
+<section id="directory-structure" class="level3">
+<h3 class="anchored" data-anchor-id="directory-structure">Directory Structure</h3>
+<section id="overview-1" class="level4">
+<h4 class="anchored" data-anchor-id="overview-1">Overview</h4>
+<ul>
+<li><code>.github</code> - Configuration for Github Actions</li>
+<li><code>.vscode</code> - VSCode Configuration for local debugging</li>
+<li><code>docs</code> - Documentation resources</li>
+<li><code>postgresql</code> - supportive database scripts and documentation</li>
+<li><code>packages/infrastructure</code> - Typescript/NodeJS Infrastructure (CDK) code</li>
+<li><code>packages/graphql-schemas</code> - Typescript/NodeJS GraphQL (Lambda) Code</li>
+<li><code>packages/python-lambdas</code> - Python Lambdas, Business Logic and Code</li>
+</ul>
+<p>infrastructure</p>
+<p>graphql-schemas</p>
+<p>python-lambdas</p>
+<blockquote class="blockquote">
+<p>This project uses NPM Workspaces to managing multiple packages from your local file system from within a singular top-level, root package.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>For more information please <a href="https://docs.npmjs.com/cli/v8/using-npm/workspaces">READ THE DOCS</a></p>
+</blockquote>
+</section>
+</section>
+</section>
+<section id="database-integration" class="level1">
+<h1>Database Integration</h1>
+<p>The main data source for the APIs is a PostgreSQL RDS hosted in AWS. The Python RestAPI is the only integration point to the database. All endpoints provisioned in the Python RestAPI are served by Python lambdas that house the database queries, and transformations.</p>
+<p>The Python lambdas are located in the same VPC as the PostgreSQL RDS database. These lambdas have no connection to the public internet to protect the database. In addition, the RestAPI is a READ_ONLY API, which allows us to create a READ_ONLY database user/role for the lambdas to use for database access, which limits security risks.</p>
+<section id="prerequisites" class="level2">
+<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
+<section id="userrole-setup" class="level3">
+<h3 class="anchored" data-anchor-id="userrole-setup">User/Role Setup</h3>
+<section id="create-a-read_only-user" class="level4">
+<h4 class="anchored" data-anchor-id="create-a-read_only-user">Create a READ_ONLY user</h4>
+<ol type="1">
+<li>Log in to database as admin with psql</li>
+<li>Create read only role and new user with:</li>
+</ol>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">ROLE</span> read_only_access;</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">GRANT</span> <span class="kw">CONNECT</span> <span class="kw">ON</span> <span class="kw">DATABASE</span> (DB_NAME} <span class="kw">TO</span> read_only_access;</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="kw">GRANT</span> <span class="kw">USAGE</span> <span class="kw">ON</span> <span class="kw">SCHEMA</span> <span class="kw">public</span> <span class="kw">TO</span> read_only_access;</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="kw">GRANT</span> <span class="kw">SELECT</span> <span class="kw">ON</span> <span class="kw">ALL</span> <span class="kw">TABLES</span> <span class="kw">IN</span> <span class="kw">SCHEMA</span> <span class="kw">public</span> <span class="kw">TO</span> read_only_access;</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="kw">GRANT</span> <span class="kw">SELECT</span> <span class="kw">ON</span> <span class="kw">ALL</span> <span class="kw">TABLES</span> <span class="kw">IN</span> <span class="kw">SCHEMA</span> bcat <span class="kw">TO</span> read_only_access;</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="fu">USER</span> read_only_user <span class="kw">WITH</span> <span class="kw">PASSWORD</span>  ________________;</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="kw">GRANT</span> read_only_access <span class="kw">TO</span> read_only_user;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="3" type="1">
+<li>Keep note of password for next step</li>
+</ol>
+</section>
+<section id="save-database-credentials-in-aws-parameter-store" class="level4">
+<h4 class="anchored" data-anchor-id="save-database-credentials-in-aws-parameter-store">Save database credentials in AWS Parameter Store</h4>
+<ol type="1">
+<li>Log into AWS Console</li>
+<li>Go to Systems Manager/Parameter Store</li>
+<li>Save the database password in a parameter with a prefix e.g.&nbsp;<code>/cori/api/password</code></li>
+<li>Keep note of the parameter name</li>
+</ol>
+<p><img width="1432" alt="image" src="https://user-images.githubusercontent.com/47429329/178010306-ab430097-ad80-4769-92fe-6d8d835e3116.png"></p>
+<p><img width="1431" alt="image" src="https://user-images.githubusercontent.com/47429329/178010527-e8cdc728-e8d2-4666-9fe4-d1ec982277f7.png"></p>
+</section>
+</section>
+</section>
+<section id="update-api-configuration-file" class="level2">
+<h2 class="anchored" data-anchor-id="update-api-configuration-file">Update Api Configuration File</h2>
+<p>The <code>ApiStackProps</code> has an <code>databaseConfig</code> attribute with the following schema:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode typescript code-with-copy"><code class="sourceCode typescript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">interface</span> DatabaseConfig {</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  vpcId<span class="op">:</span> <span class="dt">string</span><span class="op">;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  databaseSecurityGroupId<span class="op">:</span> <span class="dt">string</span><span class="op">;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  host<span class="op">:</span> <span class="dt">string</span><span class="op">;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  dbname<span class="op">:</span> <span class="dt">string</span><span class="op">;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  dbuser<span class="op">:</span> <span class="dt">string</span><span class="op">;</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  parameterName<span class="op">:</span> <span class="dt">string</span><span class="op">;</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Open the main configuration file for your environment in <code>config/config.ts</code>. Update the attributes values with your database information.</p>
+<p>The <code>dbuser</code> attribute value should be <code>read_only_user</code> if that is how you configured the previous section.</p>
+<p>The <code>paramaterName</code> attribute value should be the name of the password parameter you stores in AWS Parameter Store in the previous step. (e.g.&nbsp;<code>/cori/api/password</code>)</p>
+</section>
+</section>
+<section id="redis-cache-integration" class="level1">
+<h1>Redis Cache Integration</h1>
+<p>todo</p>
+<section id="prerequisites-1" class="level2">
+<h2 class="anchored" data-anchor-id="prerequisites-1">Prerequisites</h2>
+<section id="userrole-setup-1" class="level3">
+<h3 class="anchored" data-anchor-id="userrole-setup-1">User/Role Setup</h3>
+<p>todo</p>
+</section>
+</section>
+<section id="update-api-configuration" class="level2">
+<h2 class="anchored" data-anchor-id="update-api-configuration">Update Api Configuration</h2>
+<p>todo</p>
+</section>
+</section>
+<section id="local-development-and-testing" class="level1">
+<h1>Local Development and Testing</h1>
+<p>You can test your python business logic with the local development server. In order to bypass the use of the Lambda Layers (which don’t play nice with local servers), there is a lambda dedicated to local testing located in the <code>python-lambdas/local</code> directory.</p>
+<p>The <code>index.py</code> file houses the lambda handler that is triggered by all local api queries. You can copy your business logic into this lambda to test out functionality. All queries should be prefixed with <code>/local</code>:</p>
+<p>The local server url is <code>http://localhost:2000/local/</code></p>
+<section id="starting-the-local-server" class="level2">
+<h2 class="anchored" data-anchor-id="starting-the-local-server">Starting the Local Server</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run start</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="cicd-pipeline" class="level1">
+<h1>CICD Pipeline</h1>
+<p>The CICD pipeline has been deployed in your AWS Account and re-builds/re-deploys will be triggered by PRs to the <code>dev</code> and <code>main</code> branches in your github repository.</p>
+<p><a href="https://aws.amazon.com/blogs/developer/cdk-pipelines-continuous-delivery-for-aws-cdk-applications/">CDK Pipelines</a> <a href="https://cdkworkshop.com/50-java/70-advanced-topics/100-pipelines.html">CDK Pipelines Workshops</a></p>
+<section id="cicd-setup" class="level2">
+<h2 class="anchored" data-anchor-id="cicd-setup">CICD Setup</h2>
+<section id="github-setup" class="level3">
+<h3 class="anchored" data-anchor-id="github-setup">Github Setup</h3>
+<ol type="1">
+<li>Create a new user in Github for CICD</li>
+<li>Create a Personal Access Token for this user</li>
+<li>Store the Personal Access Token in AWS Secrets Manager with the name <code>github-token</code></li>
+</ol>
+</section>
+</section>
+<section id="pipeline-infrastructure" class="level2">
+<h2 class="anchored" data-anchor-id="pipeline-infrastructure">Pipeline Infrastructure</h2>
+<p>The Pipeline is configured using CDK Pipeline construct.</p>
+<blockquote class="blockquote">
+<p>CDK Pipelines is an opinionated construct library. It is purpose-built to deploy one or more copies of your CDK applications using CloudFormation with a minimal amount of effort on your part. It is not intended to support arbitrary deployment pipelines, and very specifically it is not built to use CodeDeploy to applications to instances, or deploy your custom-built ECR images to an ECS cluster directly: use CDK file assets with CloudFormation Init for instances, or CDK container assets for ECS clusters instead.</p>
+</blockquote>
+<p><a href="https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.pipelines-readme.html">CDK Pipelines Module</a></p>
+<section id="pipeline-code" class="level3">
+<h3 class="anchored" data-anchor-id="pipeline-code">Pipeline code</h3>
+<p>The Pipeline code is located in the <code>packages/infrastructure/src/stacks/PipelineStack.ts</code> file.</p>
+<p>In order to be deployed this stack requires configuration parameters for connecting to Github as well as deploying the ApiStack.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode typescript code-with-copy"><code class="sourceCode typescript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">interface</span> PipelineStackProps {</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">/**</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">   * GitHub source configuration</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">   */</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  source<span class="op">:</span> {</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">     * Case-sensitive GitHub repo name</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">     *  i.e. mergingfutures/cori-data-api</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">     */</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    repo<span class="op">:</span> <span class="dt">string</span><span class="op">;</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co">     * Which branch to listen on</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">     * When changes are committed, the pipeline will trigger</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co">     */</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    branch<span class="op">:</span> <span class="dt">string</span><span class="op">;</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="co">     * Personal access token for authentication</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="co">     *  i.e. cdk.SecretValue.secretsManager('mergingfutures-pat')</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="co">     */</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    authentication<span class="op">:</span> SecretValue<span class="op">;</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="co">     * How to trigger the pipeline.</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a><span class="co">     *  Must have admin access on repo to use WEBHOOK.</span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a><span class="co">     *  Only read access is required for POLL</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="co">     */</span></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>    trigger<span class="op">?:</span> GitHubTrigger<span class="op">;</span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>  <span class="co">/**</span></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a><span class="co">   * Use this to re-use an existing S3 bucket.</span></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a><span class="co">   */</span></span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>  artifactBucketName<span class="op">?:</span> <span class="dt">string</span><span class="op">;</span></span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>  <span class="co">/**</span></span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a><span class="co">   * Configures the api to be deployed by the pipeline</span></span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a><span class="co">   */</span></span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>  ApiConfig<span class="op">:</span> ApiStackProps<span class="op">;</span></span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>  <span class="co">/**</span></span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a><span class="co">   * Credentials for Integration Testing</span></span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a><span class="co">   */</span></span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>  integrationConfig<span class="op">:</span> {</span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>    userName<span class="op">:</span> <span class="dt">string</span><span class="op">;</span></span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>    password<span class="op">:</span> <span class="dt">string</span><span class="op">;</span></span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="pipeline-deployment" class="level3">
+<h3 class="anchored" data-anchor-id="pipeline-deployment">Pipeline deployment</h3>
+<p>Each pipeline is associated with a branch and an environment.</p>
+<blockquote class="blockquote">
+<p>We have setup a DEV and PROD Pipeline for you, but you can have other pipelines connected to other branches as well.</p>
+</blockquote>
+<ol type="1">
+<li>Check out the associated branch.</li>
+<li>Ensure the branch code is pushed to the remote repo</li>
+<li>Create a entry for the branch in <code>config/configs</code></li>
+</ol>
+<section id="bootstrapping" class="level4">
+<h4 class="anchored" data-anchor-id="bootstrapping">Bootstrapping</h4>
+<ol type="1">
+<li><p>In the main pipeline account</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run bootstrap:pipeline <span class="at">--</span> aws://{ACCOUNT-NUMBER}/{REGION} [--profile {PROFILE}]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li><p>In any other accounts (if using cross-account deploy)</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run bootstrap:pipeline <span class="at">--</span> aws://{ACCOUNT-NUMBER}/{REGION} <span class="at">--trust</span> {PIPELINE-ACCOUNT-NUMBER} [--profile {PROFILE}]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ol>
+</section>
+<section id="deploy-the-pipeline" class="level4">
+<h4 class="anchored" data-anchor-id="deploy-the-pipeline">Deploy the Pipeline</h4>
+<p>Each pipeline is associated with a branch and an environment.</p>
+<ol type="1">
+<li><p>Check out the associated branch.</p></li>
+<li><p>Create a entry for the branch in <code>config/configs</code></p></li>
+<li><p>Deploy the pipeline</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> packages/infrastructure</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run deploy:pipeline <span class="at">--</span> [--profile {PROFILE}]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ol>
+<p>Once deployed, the pipeline will trigger on new commits to the associated branch.</p>
+</section>
+</section>
+</section>
+</section>
+<section id="python-microservices" class="level1">
+<h1>Python Microservices</h1>
+<p>The Python Microservices are located in the <code>python-lambdas</code> directory.</p>
+<section id="directory-structure-1" class="level2">
+<h2 class="anchored" data-anchor-id="directory-structure-1">Directory Structure</h2>
+<pre class="text"><code>
+├── dependency-layer                        # Shared dependency/libraries layer
+├── bcat                                    # BCAT Service
+├── local                                   # Local Development service
+└── scaffolding                             # Scaffolding for new service (See Creating New Service Section)
+</code></pre>
+</section>
+<section id="python-dependency-layer" class="level2">
+<h2 class="anchored" data-anchor-id="python-dependency-layer">Python Dependency Layer</h2>
+<p>Lambda layers provide a convenient way to package libraries and other dependencies that you can use with your Lambda functions. Using layers reduces the size of uploaded deployment archives and makes it faster to deploy your code.</p>
+<p>A layer is a .zip file archive that can contain additional code or data. A layer can contain libraries, a custom runtime, data, or configuration files. Layers promote code sharing and separation of responsibilities so that you can iterate faster on writing business logic.</p>
+<p>You can use layers only with Lambda functions deployed as a .zip file archive. For functions defined as a container image, you package your preferred runtime and all code dependencies when you create the container image. For more information, see Working with Lambda layers and extensions in container images on the AWS Compute Blog.</p>
+<p>You can create layers using the Lambda console, the Lambda API, AWS CloudFormation, or the AWS Serverless Application Model (AWS SAM). For more information about creating layers with AWS SAM, see Working with layers in the AWS Serverless Application Model Developer Guide.</p>
+<p><a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Creating and sharing Lambda Layers</a></p>
+<p>It is import that you only include packages in your layer that a majority of the lambdas will use, as redundant libraries will increase container start time and reduce performance.</p>
+<blockquote class="blockquote">
+<p>You are not limited to using a single layer in a lambda and can include up to 5 layers for each individual lambda. As the API grows you may find creating an assortment of dependency layers specific to certain typological functions is necessary. The total unzipped size of the function and all layers cannot exceed the unzipped deployment package size quota of 250 MB.</p>
+</blockquote>
+<p>The dependencies for the Python Microservices are packaged and zipped in the <code>packages/python-lambdas/dependency-layer</code> directory.</p>
+<p>This zipped filed is then deployed as a lambda layer dependency for all python lambdas. This will cut down on container start time by sharing these resources across many lambdas.</p>
+<section id="included-packages" class="level3">
+<h3 class="anchored" data-anchor-id="included-packages">Included Packages</h3>
+<ol type="1">
+<li>psycopg = “^3.0.14”</li>
+<li>psycopg-binary = “^3.0.14”</li>
+<li>aws-lambda-powertools = “^1.26.0”</li>
+</ol>
+<section id="psycopg-psycopg-binary" class="level4">
+<h4 class="anchored" data-anchor-id="psycopg-psycopg-binary">Psycopg &amp; Psycopg-Binary</h4>
+<p>Psycopg is the most popular PostgreSQL adapter for the Python programming language. Its core is a complete implementation of the Python DB API 2.0 specifications. Several extensions allow access to many of the features offered by PostgreSQL.</p>
+<p><a href="https://www.psycopg.org/">Documentation</a></p>
+</section>
+<section id="aws-python-lambda-powertools" class="level4">
+<h4 class="anchored" data-anchor-id="aws-python-lambda-powertools">AWS Python Lambda Powertools</h4>
+<p>We leverage AWS Lambda Powertools library, which is a suite of utilities for AWS Lambda functions to ease adopting best practices such as tracing, structured logging, custom metrics, idempotency, batching, and more.</p>
+<p>Check out this <a href="https://aws.amazon.com/blogs/opensource/simplifying-serverless-best-practices-with-lambda-powertools/">detailed blog post</a> with a practical example.</p>
+<p>In our experience it has a developer friendly (Flask-like) Api. It makes it very easy to configure routing/endpoints in each Python Microservice.</p>
+<p>For more information <a href="https://awslabs.github.io/aws-lambda-powertools-python/latest/">READ THE DOCS</a></p>
+</section>
+</section>
+<section id="adding-new-dependencies-to-the-layer" class="level3">
+<h3 class="anchored" data-anchor-id="adding-new-dependencies-to-the-layer">Adding New Dependencies to the Layer</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Change into the Python Microservices directory</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> packages/python-lambdas</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Activate the Python environment</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> .env/bin/activate</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Add new packages</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install package1, package2</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Copy Packages directory into the Dist directory</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> ./.env/lib/python3.8/site-packages ./dist/python</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Zip up the dist directory packages</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="ex">...</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="creating-new-services" class="level2">
+<h2 class="anchored" data-anchor-id="creating-new-services">Creating New Services</h2>
+<ol type="1">
+<li>Copy/paste scaffolding directory</li>
+<li>Rename service directory and the name in the <code>pyproject.toml</code> file</li>
+<li>Update <code>index.py</code> with custom endpoints and logic.</li>
+<li></li>
+<li></li>
+<li>Create a new ApiEndpoint in the ApiStack with the new service as handler for the endpoints. (see Creating a new Api Endpoint)</li>
+<li>Push changes to current branch to re-deploy with pipeline.</li>
+<li>Check Integration Tests Step in <code>CodePipeline</code> interface.</li>
+<li></li>
+</ol>
+</section>
+</section>
+<section id="api-stack-supporting-constructs" class="level1">
+<h1>Api Stack &amp; Supporting Constructs</h1>
+<p>The Core ApiStack is composed of:</p>
+<ol type="1">
+<li>Networking Construct</li>
+<li>Authentication (Construct) Construct</li>
+<li>Python Data Server Construct</li>
+<li>Apollo (GraphQL) Server Construct</li>
+<li>Hosting (CloudFront) Construct</li>
+</ol>
+<p>Constructs are located in the <code>packages/infrastructure/src/constructs</code></p>
+<section id="core-apistack" class="level2">
+<h2 class="anchored" data-anchor-id="core-apistack">Core ApiStack</h2>
+<p>The Root Stack for the entire API project is the <code>ApiStack</code>.</p>
+<p>This stack is located at: <code>packages/infrastructure/src/stacks/ApiStack.ts</code></p>
+<p>Familiarize yourself with the <code>ApiStackProps</code> specified at the top of the file. These props are all the required and optional parameters that drive the configuration and deployment of the two APis and supporting lambdas, the networking, the hosting and the authentication.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode typescript code-with-copy"><code class="sourceCode typescript"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">interface</span> DatabaseConfig {</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  vpcId<span class="op">:</span> <span class="dt">string</span><span class="op">;</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  databaseSecurityGroupId<span class="op">:</span> <span class="dt">string</span><span class="op">;</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  host<span class="op">:</span> <span class="dt">string</span><span class="op">;</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  dbname<span class="op">:</span> <span class="dt">string</span><span class="op">;</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  dbuser<span class="op">:</span> <span class="dt">string</span><span class="op">;</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  parameterName<span class="op">:</span> <span class="dt">string</span><span class="op">;</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">interface</span> CacheConfig {</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  host<span class="op">:</span> <span class="dt">string</span><span class="op">;</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  port<span class="op">:</span> <span class="dt">number</span><span class="op">;</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>  username<span class="op">:</span> <span class="dt">string</span><span class="op">;</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>  parameterName<span class="op">:</span> <span class="dt">string</span><span class="op">;</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>  globalTTL<span class="op">:</span> <span class="dt">string</span><span class="op">;</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="kw">interface</span> AppSyncUserPoolConfig {</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>  userPoolId<span class="op">:</span> <span class="dt">string</span><span class="op">;</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">interface</span> ServiceConfig {</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>  <span class="co">/**</span></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a><span class="co">   * The Logical Name of the service (NO SPACES) e.g. BCATService</span></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a><span class="co">   */</span></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>  logicalName<span class="op">:</span> <span class="dt">string</span><span class="op">;</span></span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>  <span class="co">/**</span></span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a><span class="co">   * The Core path to trigger the Microservice e.g. /bcat</span></span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a><span class="co">   */</span></span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>  corePath<span class="op">:</span> <span class="dt">string</span><span class="op">;</span></span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>  <span class="co">/**</span></span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a><span class="co">   * The name of the directory this service is located.  e.g. bcat</span></span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a><span class="co">   */</span></span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>  directoryName<span class="op">:</span> <span class="dt">string</span><span class="op">;</span></span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a><span class="kw">interface</span> AppSyncConfig {</span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a>  <span class="co">/**</span></span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a><span class="co">   * Optional: When provided will configure additional user pools in the app sync authorization configuration</span></span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a><span class="co">   */</span></span>
+<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a>  additionalUserPools<span class="op">:</span> AppSyncUserPoolConfig[]<span class="op">;</span></span>
+<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="kw">interface</span> ApiStackProps <span class="kw">extends</span> StackProps {</span>
+<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a>  env<span class="op">:</span> {</span>
+<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a>    account<span class="op">:</span> <span class="dt">string</span><span class="op">;</span></span>
+<span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a>    region<span class="op">:</span> <span class="dt">string</span><span class="op">;</span></span>
+<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
+<span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a>  client<span class="op">:</span> <span class="dt">string</span><span class="op">;</span></span>
+<span id="cb12-50"><a href="#cb12-50" aria-hidden="true" tabindex="-1"></a>  stage<span class="op">:</span> <span class="dt">string</span><span class="op">;</span></span>
+<span id="cb12-51"><a href="#cb12-51" aria-hidden="true" tabindex="-1"></a>  project<span class="op">:</span> <span class="dt">string</span><span class="op">;</span></span>
+<span id="cb12-52"><a href="#cb12-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-53"><a href="#cb12-53" aria-hidden="true" tabindex="-1"></a>  loggingLevel<span class="op">:</span> <span class="dt">string</span><span class="op">;</span></span>
+<span id="cb12-54"><a href="#cb12-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-55"><a href="#cb12-55" aria-hidden="true" tabindex="-1"></a>  <span class="co">/**</span></span>
+<span id="cb12-56"><a href="#cb12-56" aria-hidden="true" tabindex="-1"></a><span class="co">   * Retain Dynamo Table and UserPool on delete</span></span>
+<span id="cb12-57"><a href="#cb12-57" aria-hidden="true" tabindex="-1"></a><span class="co">   */</span></span>
+<span id="cb12-58"><a href="#cb12-58" aria-hidden="true" tabindex="-1"></a>  retain<span class="op">:</span> <span class="dt">boolean</span><span class="op">;</span></span>
+<span id="cb12-59"><a href="#cb12-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-60"><a href="#cb12-60" aria-hidden="true" tabindex="-1"></a>  <span class="co">/**</span></span>
+<span id="cb12-61"><a href="#cb12-61" aria-hidden="true" tabindex="-1"></a><span class="co">   * Database integration configuration</span></span>
+<span id="cb12-62"><a href="#cb12-62" aria-hidden="true" tabindex="-1"></a><span class="co">   * Puts lambdas in VPC. Expecting VPC to be in another stack or deployed already.</span></span>
+<span id="cb12-63"><a href="#cb12-63" aria-hidden="true" tabindex="-1"></a><span class="co">   * DB creds are accessed through parameter store and deployed as part of the lambda service environment.</span></span>
+<span id="cb12-64"><a href="#cb12-64" aria-hidden="true" tabindex="-1"></a><span class="co">   *</span></span>
+<span id="cb12-65"><a href="#cb12-65" aria-hidden="true" tabindex="-1"></a><span class="co">   */</span></span>
+<span id="cb12-66"><a href="#cb12-66" aria-hidden="true" tabindex="-1"></a>  databaseConfig<span class="op">:</span> DatabaseConfig<span class="op">;</span></span>
+<span id="cb12-67"><a href="#cb12-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-68"><a href="#cb12-68" aria-hidden="true" tabindex="-1"></a>  <span class="co">/**</span></span>
+<span id="cb12-69"><a href="#cb12-69" aria-hidden="true" tabindex="-1"></a><span class="co">   *</span></span>
+<span id="cb12-70"><a href="#cb12-70" aria-hidden="true" tabindex="-1"></a><span class="co">   */</span></span>
+<span id="cb12-71"><a href="#cb12-71" aria-hidden="true" tabindex="-1"></a>  cacheEnabled<span class="op">:</span> <span class="dt">boolean</span><span class="op">;</span></span>
+<span id="cb12-72"><a href="#cb12-72" aria-hidden="true" tabindex="-1"></a>  cacheConfig<span class="op">:</span> CacheConfig<span class="op">;</span></span>
+<span id="cb12-73"><a href="#cb12-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-74"><a href="#cb12-74" aria-hidden="true" tabindex="-1"></a>  <span class="co">/**</span></span>
+<span id="cb12-75"><a href="#cb12-75" aria-hidden="true" tabindex="-1"></a><span class="co">   * Optional. When provided, will attach to existing Cognito for authentication.</span></span>
+<span id="cb12-76"><a href="#cb12-76" aria-hidden="true" tabindex="-1"></a><span class="co">   */</span></span>
+<span id="cb12-77"><a href="#cb12-77" aria-hidden="true" tabindex="-1"></a>  existingCognito<span class="op">?:</span> ExistingCognitoConfig<span class="op">;</span></span>
+<span id="cb12-78"><a href="#cb12-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-79"><a href="#cb12-79" aria-hidden="true" tabindex="-1"></a>  microservicesConfig<span class="op">:</span> ServiceConfig[]<span class="op">;</span></span>
+<span id="cb12-80"><a href="#cb12-80" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="custom-constructs" class="level2">
+<h2 class="anchored" data-anchor-id="custom-constructs">Custom Constructs</h2>
+<section id="networking-construct" class="level3">
+<h3 class="anchored" data-anchor-id="networking-construct">Networking Construct</h3>
+<p>The <strong>Networking Construct</strong> is responsible for creating a new <code>Security Group</code> for all of the Python Lambdas, and enabling communication between this new Lambda Security Group and the existing Database Security Group. This construct accepts the <code>DatabaseConfig</code> in order to instantiate the required resources.</p>
+<blockquote class="blockquote">
+<p>All Python Lambdas are placed within your existing VPC and have no connection to the public internet.<br>
+The only INGRESS communication allowed to these lambdas are from <strong>Api Gateway</strong> on Core AWS Network.<br>
+The only EGRESS communication allowed from these lambdas is to the PostgreSQL Database and this is opened from the link between the two security groups.<br>
+This eliminates any security risks from the public internet.</p>
+</blockquote>
+<section id="aws-cdk-v2-constructs-used" class="level4">
+<h4 class="anchored" data-anchor-id="aws-cdk-v2-constructs-used">AWS CDK V2 Constructs Used</h4>
+<ol type="1">
+<li><a href="https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_ec2.Vpc.html">VPC Construct</a></li>
+<li><a href="https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_ec2.SecurityGroup.html">Security Group Construct</a></li>
+</ol>
+</section>
+<section id="more-information" class="level4">
+<h4 class="anchored" data-anchor-id="more-information">More Information</h4>
+<ol type="1">
+<li><a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a></li>
+<li><a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html">Security Groups</a></li>
+</ol>
+</section>
+</section>
+<section id="authentication-cognito-construct" class="level3">
+<h3 class="anchored" data-anchor-id="authentication-cognito-construct">Authentication (Cognito) Construct</h3>
+<p>The <strong>Authentication (Cognito) Construct</strong> is responsible for one of two things:</p>
+<ol type="1">
+<li><p>If you have an existing Cognito UserPool you want to use as a directory for controlling access to the APIs, this construct imports a reference to that UserPool and adds a new Postman client for development testing.</p>
+<p><strong>OR</strong></p></li>
+<li><p>If you don’t have an existing UserPool, this construct creates a new UserPool, adds a new Authentication domain, and then adds the Postman client for development testing.</p></li>
+</ol>
+<blockquote class="blockquote">
+<p>This construct is then passed into the ApiGateways in both servers (PythonDataServer &amp; ApolloServer) for attaching CognitoAuthorizers as access controls.</p>
+</blockquote>
+<section id="aws-cdk-v2-constructs-used-1" class="level4">
+<h4 class="anchored" data-anchor-id="aws-cdk-v2-constructs-used-1">AWS CDK V2 Constructs Used</h4>
+<ol type="1">
+<li><a href="https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_cognito.UserPool.html">UserPool Construct</a></li>
+<li><a href="https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_cognito.CfnUserPoolDomain.html">CfnUserPoolDomain Construct</a></li>
+<li><a href="https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_cognito.UserPoolClient.html">UserPoolClient Construct</a></li>
+</ol>
+</section>
+<section id="more-information-1" class="level4">
+<h4 class="anchored" data-anchor-id="more-information-1">More Information</h4>
+<ol type="1">
+<li><a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html">Cognito User Pools</a></li>
+<li><a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-assign-domain.html">User Pool Domains</a></li>
+<li><a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html">User Pool App Clients</a></li>
+</ol>
+</section>
+</section>
+<section id="python-data-server-construct" class="level3">
+<h3 class="anchored" data-anchor-id="python-data-server-construct">Python Data Server Construct</h3>
+<p>The <strong>Python Data Server Construct</strong> is responsible for:</p>
+<ol type="1">
+<li>Create the <code>ApiGateway</code> for your Python Microservices.</li>
+<li>Deploy the Dependency Layer</li>
+<li>Deploy new Python Microservices.</li>
+<li>Create Endpoints on the <code>ApiGateway</code> to trigger new Microservices.</li>
+</ol>
+<section id="custom-cdk-v2-constructs-used" class="level4">
+<h4 class="anchored" data-anchor-id="custom-cdk-v2-constructs-used">Custom CDK V2 Constructs Used</h4>
+<ol type="1">
+<li><a href="https://github.com/mergingfutures/cori-data-api/blob/dev/packages/infrastructure/src/constructs/api/ApiGw.ts">ApiGw Construct</a></li>
+</ol>
+<p>Creates Api Gateway with Cognito Authorization. Has supporting methods for adding new endpoints with lambda triggers.</p>
+<ol start="2" type="1">
+<li><a href="https://github.com/mergingfutures/cori-data-api/blob/dev/packages/infrastructure/src/constructs/lambda/PythonLambda.ts">Python Lambda Construct</a></li>
+</ol>
+<p>Create a new Python Lambda (microservice) with an associated Log Group</p>
+<blockquote class="blockquote">
+
+</blockquote>
+</section>
+<section id="aws-cdk-v2-constructs-used-2" class="level4">
+<h4 class="anchored" data-anchor-id="aws-cdk-v2-constructs-used-2">AWS CDK V2 Constructs Used</h4>
+<ol type="1">
+<li><a href="https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_apigateway.RestApi.html">RestApi</a></li>
+<li><a href="https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_apigateway.CognitoUserPoolsAuthorizer.html">CognitoUserPoolsAuthorizer</a>.</li>
+<li><a href="https://docs.aws.amazon.com/cdk/api/v2/docs/@aws-cdk_aws-lambda-python-alpha.PythonFunction.html">PythonFunction</a>.</li>
+<li><a href="https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_logs.LogGroup.html">LogGroup</a>.</li>
+</ol>
+</section>
+<section id="more-information-2" class="level4">
+<h4 class="anchored" data-anchor-id="more-information-2">More Information</h4>
+<ol type="1">
+<li><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-rest-api.html">Working With Rest Apis</a></li>
+<li><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html">Control access to a REST API using Amazon Cognito user pools as authorizer</a></li>
+<li><a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-python.html">Building lambda functions with python</a></li>
+<li><a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html">What is Amazon CloudWatch Logs</a></li>
+</ol>
+</section>
+</section>
+<section id="apollo-graphql-server-construct" class="level3">
+<h3 class="anchored" data-anchor-id="apollo-graphql-server-construct">Apollo (GraphQL) Server Construct</h3>
+<p>The Apollo GraphQL Server Construct is responsible for:</p>
+<ol type="1">
+<li>Create the <code>ApiGateway</code> for your GraphQL Server.</li>
+<li>Deploy a single NodeJS Lambda function to respond to GraphQL requests.</li>
+<li>Create Endpoint on the <code>ApiGateway</code> to trigger lambda.</li>
+</ol>
+<section id="custom-cdk-v2-constructs-used-1" class="level4">
+<h4 class="anchored" data-anchor-id="custom-cdk-v2-constructs-used-1">Custom CDK V2 Constructs Used</h4>
+<ol type="1">
+<li><a href="https://github.com/mergingfutures/cori-data-api/blob/dev/packages/infrastructure/src/constructs/api/ApiGw.ts">ApiGw Construct</a></li>
+</ol>
+<p>Creates Api Gateway with Cognito Authorization. Has supporting methods for adding new endpoints with lambda triggers.</p>
+</section>
+<section id="aws-cdk-v2-constructs-used-3" class="level4">
+<h4 class="anchored" data-anchor-id="aws-cdk-v2-constructs-used-3">AWS CDK V2 Constructs Used</h4>
+<ol type="1">
+<li><a href="https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_apigateway.RestApi.html">RestApi</a></li>
+<li><a href="https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_apigateway.CognitoUserPoolsAuthorizer.html">CognitoUserPoolsAuthorizer</a>.</li>
+<li><a href="https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_lambda_nodejs.NodejsFunction.html">NodejsFunction</a>.</li>
+<li><a href="https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_logs.LogGroup.html">LogGroup</a>.</li>
+</ol>
+</section>
+<section id="more-information-3" class="level4">
+<h4 class="anchored" data-anchor-id="more-information-3">More Information</h4>
+<ol type="1">
+<li><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-rest-api.html">Working With Rest Apis</a></li>
+<li><a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html">Control access to a REST API using Amazon Cognito user pools as authorizer</a></li>
+<li><a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-typescript.html">Building lambda functions with Typescript</a></li>
+<li><a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-nodejs.html">Building lambda functions with Node.js</a></li>
+<li><a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html">What is Amazon CloudWatch Logs</a></li>
+</ol>
+</section>
+</section>
+<section id="hosting-cloudfront-construct" class="level3">
+<h3 class="anchored" data-anchor-id="hosting-cloudfront-construct">Hosting (CloudFront) Construct</h3>
+<p>The <code>Hosting Construct</code> is responsible for:</p>
+<ol type="1">
+<li>Create a Cloudfront Distribution.</li>
+<li>Create origin on <code>/</code> path for Python RestApi</li>
+<li>Create origin on <code>/graphql</code> path for Apollo Server.</li>
+<li>Create bucket for access logs.</li>
+</ol>
+<section id="aws-cdk-v2-constructs-used-4" class="level4">
+<h4 class="anchored" data-anchor-id="aws-cdk-v2-constructs-used-4">AWS CDK V2 Constructs Used</h4>
+<ol type="1">
+<li><a href="https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_cloudfront.CloudFrontWebDistribution.html">CloudFrontWebDistribution</a></li>
+<li><a href="https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.Bucket.html">Bucket</a></li>
+</ol>
+</section>
+<section id="more-information-4" class="level4">
+<h4 class="anchored" data-anchor-id="more-information-4">More Information</h4>
+<ol type="1">
+<li><a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html">What is Amazon Cloudfront</a></li>
+<li><a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-overview.html">Overview of distributions</a></li>
+<li><a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-working-with.html">Working with distributions</a></li>
+<li><a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistS3AndCustomOrigins.html">Using various origins with CloudFront distributions</a></li>
+<li><a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/logging.html">CloudFront logging</a></li>
+</ol>
+</section>
+</section>
+<section id="resources" class="level3">
+<h3 class="anchored" data-anchor-id="resources">Resources</h3>
+<p><a href="https://www.youtube.com/watch?v=--HTK0Y44ew">CDK Day 2020 - Building Real-time Back Ends on AWS with AppSync and CDK</a></p>
+<p><a href="https://docs.npmjs.com/cli/v8/using-npm/workspaces">NPM Workspaces</a></p>
+<p><a href="https://www.graphql-tools.com/">GraphQL Tools</a></p>
+<p><a href="https://docs.aws.amazon.com/cdk/api/v2/">AWS CDK V2</a></p>
+<p><a href="https://docs.github.com/en/actions">Github Actions</a></p>
+<p><a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ShareSnapshot.html">Sharing DB Snapshot between Accounts</a> <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ShareSnapshot.html#USER_ShareSnapshot.Encrypted">Sharing KMS KEY</a></p>
+<p><a href="https://aws.amazon.com/blogs/database/is-amazon-rds-for-postgresql-or-amazon-aurora-postgresql-a-better-choice-for-me/">Amazon RDS PostgreSQL verses Amazon Aurora PostgreSQL</a></p>
+<p><a href="https://typescript-eslint.io/">Typescript / ESLint</a></p>
+<p><a href="https://www.typescriptlang.org/">Typescript</a></p>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
