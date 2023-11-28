@@ -27,6 +27,7 @@ website:
           - Spatial-Data-for-Mapping-and-Analysis.md
       - section: "Infrastructure"
         contents:
+          - Ansible.md
           - CORI-Data-API.md
 #          - section: "CORI Data API"
 #            contents:
