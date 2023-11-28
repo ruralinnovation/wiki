@@ -1,6 +1,10 @@
 ## Database Onboarding
 
-Software requirement: [pgAdmin 4 > v7](https://www.pgadmin.org/download)
+- Software requirement: [pgAdmin 4 > v7](https://www.pgadmin.org/download)
+
+Most CORI Computer are Mac: https://www.postgresql.org/ftp/pgadmin/pgadmin4/v7.8/macos/
+
+- Your IP address should have been whitelisted, if not contact John or Olivier.  
 
 ### First: in pgAdmin
 
