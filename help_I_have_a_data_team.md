@@ -20,3 +20,20 @@ A lot of tools we are using are command line based (docker as an example) and he
 Now, weird characters (#,  $, &) are somewhat "fine". The "somewhat" is hard to predict, sometimes this character are used for other purpose and sometimes the tools we are using (or a dependency of the tool we are using) is old enough to only use ASCI characters!
 
 
+Naming is hard but some conventions can greatly help. 
+
+We can take one FCC files as an example: 
+
+`bdc_40_Other_fixed_broadband_J23_14nov2023.csv`
+
+We have nearly everything we need nicely separated by `_`:   
+- "40" is the state fips  
+- "Other" is the technology category  
+- "fixed broadband" is what FCC is calling "data type"  
+- "J23" is teh release (June 2023)   
+- "14nov2023" is the date of release  
+
+We could improve it by by changing a `_` to `-` between "fixed" and "broadband" (because they are part of the category):
+
+`bdc_40_Other_fixed-broadband_J23_14nov2023.csv`
+
