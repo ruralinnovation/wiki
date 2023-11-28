@@ -224,7 +224,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#connecting-qgis-to-cori-rds-db" id="toc-connecting-qgis-to-cori-rds-db" class="nav-link active" data-scroll-target="#connecting-qgis-to-cori-rds-db">Connecting QGIS to CORI RDS DB</a></li>
+  <li><a href="#connecting-qgis-to-cori-rds-db" id="toc-connecting-qgis-to-cori-rds-db" class="nav-link active" data-scroll-target="#connecting-qgis-to-cori-rds-db">Connecting QGIS to CORI RDS DB</a>
+  <ul class="collapse">
+  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources:</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/ruralinnovation/wiki/edit/main/QGIS.md" class="toc-action">Edit this page</a></p><p><a href="https://github.com/ruralinnovation/wiki/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -238,8 +241,11 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="connecting-qgis-to-cori-rds-db">Connecting QGIS to CORI RDS DB</h2>
 <p>In QGIS:</p>
 <ol type="1">
-<li><p><code>QGIS</code> -&gt; <code>Preferences</code> -&gt; <code>Authentication</code></p></li>
-<li><p>In Authentication use the green ➕ to add a new way of doing it.</p></li>
+<li><code>QGIS</code> -&gt; <code>Preferences</code> -&gt; <code>Authentication</code></li>
+</ol>
+<p><img src="img/QGIS/pref_qgis.png" class="img-fluid"></p>
+<ol start="2" type="1">
+<li>In Authentication use the green ➕ to add a new way of doing it.</li>
 </ol>
 <p>If it is the first time it will ask you to set up a master password (I think it is just for mac).</p>
 <ol start="3" type="1">
@@ -247,23 +253,32 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Pick a name: I am using <code>cori</code></p></li>
 <li><p>Provide the correct Username and Password</p></li>
 </ol>
+<p>It should look like this:</p>
+<p><img src="img/QGIS/authentification.png" class="img-fluid"></p>
 <p>In QGIS <code>Browser</code>:</p>
 <ol type="1">
 <li><p>Right click on <code>PostgreSQL</code></p></li>
 <li><p><code>New connections</code></p></li>
-<li><p>Pick a name (again I am using CORI)</p></li>
+</ol>
+<p><img src="img/QGIS/newconnection.png" class="img-fluid"></p>
+<ol start="3" type="1">
+<li><p>Pick a name (again I am using <code>CORI</code>)</p></li>
 <li><p>Host: our aws RDS</p></li>
 <li><p>Port: we are using the default one (5432)</p></li>
-<li><p>Database name: the name of the DB, we will not use SSL (but we probably could)</p></li>
-<li><p>In Athentication select the previous configurations we have done</p></li>
+<li><p>Database name: the name of the DB</p></li>
+<li><p>In <code>Athentication</code> select the previous configurations we have done</p></li>
 <li><p>You can “Test Connection”</p></li>
 </ol>
+<p><img src="img/QGIS/edit_postgis_new_connection.png" class="img-fluid"></p>
 <p>If it is good you can press <code>ok</code> if not review the Host name other parameters.</p>
-<p>You should be able to browse <code>schema</code> and <code>table</code> from the database.</p>
-<p>Resource: https://docs.qgis.org/3.28/en/docs/user_manual/auth_system/auth_overview.html</p>
-<p>To interact with qgis in R: https://r-spatial.github.io/qgisprocess/</p>
+<p>You should be able to browse <code>schemas</code> and <code>tables</code> from the database.</p>
+<section id="resources" class="level3">
+<h3 class="anchored" data-anchor-id="resources">Resources:</h3>
+<p>QGIS LTR Doc: https://docs.qgis.org/3.28/en/docs/user_manual/auth_system/auth_overview.html</p>
+<p>To interact with QGIS in R: https://r-spatial.github.io/qgisprocess/</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

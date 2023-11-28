@@ -254,6 +254,17 @@ ul.task-list li input[type="checkbox"] {
 <p>Example: <code>final % 16 21.txt</code> is a bad name!</p>
 <p>A lot of tools we are using are command line based (docker as an example) and here white spaces are used to separate stuff (arguments).</p>
 <p>Now, weird characters (#, $, &amp;) are somewhat “fine”. The “somewhat” is hard to predict, sometimes this character are used for other purpose and sometimes the tools we are using (or a dependency of the tool we are using) is old enough to only use ASCI characters!</p>
+<p>Naming is hard but some conventions can greatly help.</p>
+<p>We can take one FCC files as an example:</p>
+<p><code>bdc_40_Other_fixed_broadband_J23_14nov2023.csv</code></p>
+<p>We have nearly everything we need nicely separated by <code>_</code>:<br>
+- “40” is the state fips<br>
+- “Other” is the technology category<br>
+- “fixed broadband” is what FCC is calling “data type”<br>
+- “J23” is teh release (June 2023)<br>
+- “14nov2023” is the date of release</p>
+<p>We could improve it by by changing a <code>_</code> to <code>-</code> between “fixed” and “broadband” (because they are part of the category):</p>
+<p><code>bdc_40_Other_fixed-broadband_J23_14nov2023.csv</code></p>
 
 
 </section>
