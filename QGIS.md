@@ -40,7 +40,9 @@ In QGIS `Browser`:
 
  7. In `Athentication` select the previous configurations we have done
 
- 8.  You can "Test Connection" 
+ 8. SSL_mode need to be set on “Prefer”
+
+ 9.  You can "Test Connection" 
 
 ![](img/QGIS/edit_postgis_new_connection.png)
 
