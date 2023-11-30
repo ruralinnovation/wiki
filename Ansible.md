@@ -69,3 +69,13 @@ $ ansible cori_risi_r_server -i inventory/hosts.yml -a "/bin/echo hello"
 
 https://stackoverflow.com/questions/22483555/postgresql-give-all-permissions-to-a-user-on-a-postgresql-database
 -->
+
+_Notes_:
+To run `ansible` playbooks on the R server with `nohup` you can use this sequence of shell commands (from the ansible project directory):
+```bash
+read -s password
+******
+echo $password > p.temp
+nohup bash -c 'ansible-playbook -i inventory/hosts.yml playbooks/cori-risi-ad-postgresql/main.yml --extra-vars "db_database=data" --extra-vars "password_file=$(pwd)/p.temp"' > cori-risi-ad-postgresql.log &
+```
+Remember to delete the `p.temp` file afterwards.
