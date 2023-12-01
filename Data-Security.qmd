@@ -18,10 +18,20 @@ by contrast, our Data Security obligations compel us to accept responsibility fo
 
 ### Data Access Points
 
+Our information security considerations in regards to protected and/or sensitive data can be approximately divided into two high-level facets:
+
+  1. Environments in which that data is stored and accessed.
+  2. Procedures for receiving, transmitting and disposing of that data.
+
+We process, store and access data within the following environments, with the accompanying security measures, as described:
+
   - **AWS** (S3 / EC2 / RDS): access to infrastructure; authenticated and authorized by IAM user accounts
 
   - **Database** (PostgreSQL + Security Groups [Firewall] + [Active Directory + VPN for administrators]): access to data content; AD & VPN form an administrative security boundary
 
   - **Laptops/Workstations** (Mac OS X + Bitfender + Uprise): access to development environment; IT Security for local systems provided by Uprise
 
+Our procedures for handling data include the following:
+
   - **Practices/Protocols/Policy?** (i.e. instruct each other not to upload protected data to Google sheets and publish the link on a webpage): access to sharing, transferring and transmitting
+
