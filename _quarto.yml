@@ -44,6 +44,7 @@ website:
 ##              - Session-2-‐-2023‐10‐23.md
 ##              - Support-Sessions.md
 ##              - Working-with-the-GraphQL-Schemas.md
+          - Data-Security.qmd
           - PostgreSQL-RDS-Managment.md
           - Repository-Classification.md
           - Metadata.md
