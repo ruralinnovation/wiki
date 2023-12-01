@@ -53,3 +53,6 @@ Our procedures for handling protected and/or sensitive data include the followin
   - Protected data assets and files are never checked into version control (git) and common data file type extensions are explicitly excluded by each project's `.gitignore` file
   - On completion of a project or when deemed necessary any time beforehand, protected and/or sensitive data is removed from all database instances, S3 buckets and laptops/workstation hard drives
 
+#### Public and/or Open Data
+
+  - ...
