@@ -1,0 +1,23 @@
+---
+title: "Data Security"
+execute:
+  echo: true
+  output: true
+  message: false
+  warning: false
+---
+
+
+### Introduction
+
+Data Security is pretty much the opposite of your standard Privacy Policy document. While our current [Privacy Policy](https://ruralinnovation.us/privacy-policy/) states,
+
+> In the event that any information under our control is compromised as a result of a breach of security, we will take commercially reasonable steps to investigate the situation and, where appropriate, notify those individuals whose information may have been compromised and take other steps, in accordance with any applicable laws and regulations. Please keep in mind that you are responsible for the security of any Personal Information in your control.
+
+by contrast, our Data Security obligations compel us to accept responsibility for the transfer, receipt and usage of certain kinds of data. Even though the statements above claim to address "any information under our control," our Data Security measures superceed those statements and acknowledge that certain categories of data present a liability to our organization and are, in fact, our legal responsibility to protect by way of contractual agreements asserting that we will protect that data against specific kinds of transfer or usage which are expressly or implicitly prohibited by the contract. The main purpose of a Data Security practice is to ensure compliance with these prohibitions while also facilitating practical access and productive usage of the data for the benefit of our clients and users.
+
+### Data Access Points
+
+AWS (S3 / EC2 / RDS) - access to infrastructure,
+Database (PostgreSQL + Kerberos + Security Groups [Firewall]) - access to data content
+Laptops/Workstations (Mac OS X + Bitfender + Uprise) - access to development environment

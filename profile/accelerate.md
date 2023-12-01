@@ -1,5 +1,5 @@
 
-The MDA team is at the forefront of an ongoing digital transformation currently taking place at the Center on Rural Innovation. We are informed by and closely following the evidence-based team management and future-facing data architecture approaches outlined in the following books...
+The MDA team is at the forefront of an ongoing digital transformation at the Center on Rural Innovation. We are informed by and closely following the evidence-based team management and future-facing data architecture approaches outlined in the following books...
 
 > [**Accelerate**](https://www.amazon.com/dp/1942788339/)<br />
 > _**The Science of Lean Software and DevOps:**_<br />
