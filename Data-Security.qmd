@@ -18,6 +18,10 @@ by contrast, our Data Security obligations compel us to accept responsibility fo
 
 ### Data Access Points
 
-AWS (S3 / EC2 / RDS) - access to infrastructure,
-Database (PostgreSQL + Kerberos + Security Groups [Firewall]) - access to data content
-Laptops/Workstations (Mac OS X + Bitfender + Uprise) - access to development environment
+  - **AWS** (S3 / EC2 / RDS): access to infrastructure; authenticated and authorized by IAM user accounts
+
+  - **Database** (PostgreSQL + Security Groups [Firewall] + [Active Directory + VPN for administrators]): access to data content; AD & VPN form an administrative security boundary
+
+  - **Laptops/Workstations** (Mac OS X + Bitfender + Uprise): access to development environment; IT Security for local systems provided by Uprise
+
+  - **Practices/Protocols/Policy?** (i.e. instruct each other not to upload protected data to Google sheets and publish the link on a webpage): access to sharing, transferring and transmitting
