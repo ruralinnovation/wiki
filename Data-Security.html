@@ -265,7 +265,12 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="data-access-points" class="level3">
 <h3 class="anchored" data-anchor-id="data-access-points">Data Access Points</h3>
-<p>AWS (S3 / EC2 / RDS) - access to infrastructure, Database (PostgreSQL + Kerberos + Security Groups [Firewall]) - access to data content Laptops/Workstations (Mac OS X + Bitfender + Uprise) - access to development environment</p>
+<ul>
+<li><p><strong>AWS</strong> (S3 / EC2 / RDS): access to infrastructure; authenticated and authorized by IAM user accounts</p></li>
+<li><p><strong>Database</strong> (PostgreSQL + Security Groups [Firewall] + [Active Directory + VPN for administrators]): access to data content; AD &amp; VPN form an administrative security boundary</p></li>
+<li><p><strong>Laptops/Workstations</strong> (Mac OS X + Bitfender + Uprise): access to development environment; IT Security for local systems provided by Uprise</p></li>
+<li><p><strong>Practices/Protocols/Policy?</strong> (i.e.&nbsp;instruct each other not to upload protected data to Google sheets and publish the link on a webpage): access to sharing, transferring and transmitting</p></li>
+</ul>
 
 
 </section>
