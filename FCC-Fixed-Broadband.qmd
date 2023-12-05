@@ -1,0 +1,13 @@
+---
+title: "Fixed Broadband Availability Data"
+execute:
+  echo: true
+  output: true
+  message: false
+  warning: false
+---
+
+[FCC National Broadband Map](https://broadbandmap.fcc.gov/data-download/nationwide-data)
+
+To perform place-based analysis on broadband access, service availability, and relative affordability, including broadband serviceable location data, we utilize the [BDC Public Data Downloads](https://broadbandmap.fcc.gov/data-download/nationwide-data) repository and [BDC Public Data API](https://us-fcc.box.com/v/bdc-public-data-api-spec) served by the FCC National Broadband Map. To date, we are not seeking, nor have we been granted access to the Broadband Serviceable Location Fabric dataset (sometimes referred to as the _FCC Broadband Fabric_, _FCC Fabric_, or _Location Fabric_) produced by CQA ([CostQuest Associates](https://www.costquest.com/)).
+

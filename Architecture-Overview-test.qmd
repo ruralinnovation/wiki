@@ -1,0 +1,20 @@
+---
+title: "Data Infrastructure Architecture"
+execute:
+  echo: true
+  output: true
+  message: false
+  warning: false
+format:
+  gfm:
+    toc: false
+---
+
+## Overview
+
+graph TD
+  B --> C{Let me think}
+  C -->|One| D[Laptop]
+  C -->|Two| E[iPhone]
+  C -->|Three| F[(fa:fa-database Database)]
+

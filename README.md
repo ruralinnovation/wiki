@@ -50,6 +50,10 @@ To install, use the following steps:
 2.  Create a GitHub token:
 
 ``` r
+Simple include function, similar to C/C++. The context assumes that you're either
+passing an .R script at a given path to the Rscript command or interactively executing
+R code within the Rstudio console. Other uses of this function will require an absolute
+path in the function argument.
     ## (optional, if not previously done) set your user name and email:
     # usethis::use_git_config(user.name = "YourName", user.email = "your@mail.com")
     
@@ -90,7 +94,7 @@ the coriverse, see
 # Database Access For New Users
 
 See the [Database Onboarding](onboarding_team_db.md) section in the
-[wiki](wiki).
+[wiki](https://ruralinnovation.github.io/wiki/).
 
 ------------------------------------------------------------------------
 
@@ -113,7 +117,7 @@ See the [Database Onboarding](onboarding_team_db.md) section in the
 8.  Run `devtools::check()`
 9.  If the check passes with no errors, warnings, or notes, push to your
     branch. Otherwise, resolve errors, warnings, and notes.
-10. Open a pull request and tag Matt R for review.
+10. Open a pull request and contact another MDA team member for review.
 
 1-7 are parts of “the whole game”, 2nd chapter of [R
 Packages](https://r-pkgs.org/) from Hadley Wickham and Jenny Bryan and

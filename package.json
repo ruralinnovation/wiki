@@ -1,0 +1,27 @@
+{
+  "name": "@cori-risi/wiki",
+  "version": "0.0.1",
+  "author": "Rural Innovation Strategies, Inc.",
+  "description": "MDA team wiki",
+  "private": true,
+  "license": "ISC",
+  "homepage": "https://ruralinnovation.github.io/wiki/",
+  "keywords": [
+    "documentation",
+    "quarto",
+    "template",
+    "r"
+  ],
+  "devDependencies": {
+    "@mermaid-js/mermaid-cli": "^10.6.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ruralinnovation/wiki"
+  },
+  "scripts": {
+    "build": "quarto render --output-dir _site",
+    "clean": "rm -rf _site/*",
+    "preview": "quarto preview"
+  }
+}
