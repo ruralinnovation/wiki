@@ -27,9 +27,17 @@ A **CUD** is...
 
   - ...
 
-A **Broadband Serviceable Location** is ...
+A **Broadband Serviceable Location** (BSL) is
 
-  - ...
+> A broadband serviceable location (BSL) is “a business or residential location in the United States at which mass-market fixed broadband Internet access service is, or can be, installed.” 
+
+source:  https://help.bdc.fcc.gov/hc/en-us/articles/16842264428059-About-the-Fabric-What-a-Broadband-Serviceable-Location-BSL-Is-and-Is-Not
+
+In theory it can be split in residential and Business locations but this distinction does not seems very efefctive in the [NBM](https://broadbandmap.fcc.gov/data-download/nationwide-data?version=jun2023) dataset. Usually a locatiom will have access to mulitple ISP hat offers different servcies (technologies, upload, downlowad speed). 
+
+In the NBM dataset we do not know their exact latitude and longitude and only their appartenance to a census block geoid and H3 index. 
+
+
 
 An **ISP** is...
 
