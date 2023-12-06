@@ -8,7 +8,6 @@ execute:
 ---
 
 A **Block** ...
-
   - is the smallest geographic area for which the Bureau of the Census collects and tabulates decennial census data
   - is the smallest statistical unit of analysis of a single Community's economic participation, social impact, and inventory of tech ecosystem resources (?)
   - is the smallest geospatial unit at which we can geographically place, filter or group Broadband Serviceable Location data
@@ -16,7 +15,6 @@ A **Block** ...
   - can ...
 
 A **Tract** ...
-
   - is ...
 
 A **County** ...
@@ -63,6 +61,13 @@ A **Tech Startup** ...
 
   - is ...
 
+A **Data Archive**
+  - is a remote store data for one or more _immutable_ artifacts of source data or outputs of product data
+  - is a system for storing, documenting, and indexing versions of data artifacts
+
+A **Data Cache**
+  - is a remote store for one or more _mutable_ representations or views of data product  
+
 ~~Rural ...~~
-> "Rural" is an adjective, so for the purpose of this list it should be applied to other terms (i.e. A Rural County ...)
+  > "Rural" is an adjective, so for the purpose of this list it should be applied to other terms (i.e. A Rural County ...)
 
