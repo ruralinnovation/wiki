@@ -25,6 +25,9 @@ website:
           - help_I_have_a_data_team.md
           - Suggested-Code-Snippets.md
           - Spatial-Data-for-Mapping-and-Analysis.md
+      - section: Knowledge
+        contents:
+          - CORI-Ontology.qmd
       - section: "Infrastructure"
         contents:
           - Ansible.md
