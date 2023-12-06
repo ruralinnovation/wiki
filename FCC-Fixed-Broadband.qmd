@@ -1,12 +1,40 @@
 ---
-title: "Fixed Broadband Availability Data"
+title: "Broadband Consulting Tech Requirement"
 execute:
-  echo: true
-  output: true
-  message: false
-  warning: false
+echo: true
+output: true
+message: false
+warning: false
 ---
 
+
+BB Knowledge set is focused on how to pull people together to plan/build infrastructure in strategic ways.
+
+To do this we need:
+- Collaboration and Shareability (!)
+  - e.g. map view
+    - (capability currently supported by Carto)
+    - ArcGIS Online:
+      - “it seemed like a better version of Carto” - Myles
+- Insert BEAD dynamic tool requirments here….
+- Understanding of where infrastructure is/is not
+  - What (tech + service level)
+  - Who (ownership)
+  - Density of (potential) subscribers
+- Understanding real life performance of BB networks
+- Dynamically assess multiple geographic contexts for potential infrastructure planning;
+  - compare these contexts
+  - non-standard geographies driven by real world requirements
+- Lowest level of geographic context may be neighborhood
+- May approximate mapping of block-level data to non-standard geography [when possible][is hard]
+- Would block-selector tool be helpful?
+- Some geography selection is by **name**
+  - Ability to map names to geographic representations
+
+
+
+
+## Fixed Broadband Availability Data
 [FCC National Broadband Map](https://broadbandmap.fcc.gov/data-download/nationwide-data)
 
 To perform place-based analysis on broadband access, service availability, and relative affordability, including broadband serviceable location data, we utilize the [BDC Public Data Downloads](https://broadbandmap.fcc.gov/data-download/nationwide-data) repository and [BDC Public Data API](https://us-fcc.box.com/v/bdc-public-data-api-spec) served by the FCC National Broadband Map. To date, we are not seeking, nor have we been granted access to the Broadband Serviceable Location Fabric dataset (sometimes referred to as the _FCC Broadband Fabric_, _FCC Fabric_, or _Location Fabric_) produced by CQA ([CostQuest Associates](https://www.costquest.com/)).
