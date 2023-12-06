@@ -1,20 +1,13 @@
 ---
-title: "Data Infrastructure Architecture"
+title: "Architecture of MDA Data Infrastructure"
 execute:
   echo: true
   output: true
   message: false
   warning: false
-format:
-  gfm:
-    toc: false
 ---
 
 ## Overview
 
-graph TD
-  B --> C{Let me think}
-  C -->|One| D[Laptop]
-  C -->|Two| E[iPhone]
-  C -->|Three| F[(fa:fa-database Database)]
+<a href="" target="_blank"><img src="output.svg" alt="mermaid-diagram" width="100%" align="left" /></a><br/>
 

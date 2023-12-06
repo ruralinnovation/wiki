@@ -1,0 +1,47 @@
+---
+title: Visualizing "the Whole Game"
+config:
+  theme: neutral
+#  theme: base
+#  themeVariables:
+#    primaryColor: "#00ff00"
+#    primaryTextColor: '#000'
+#    primaryBorderColor: '#7C0000'
+#    lineColor: '#F8B229'
+#    secondaryColor: '#006100'
+#    tertiaryColor: '#fff'
+---
+flowchart
+    subgraph one[Initializing package]
+        direction LR
+        A("create_package()")-->C("use_git()")
+        A-->B("use_XX_licence()")
+        A--> Z("use_testthat()")
+    end
+    subgraph two[Developping]
+        direction LR
+        D[create a function]-->E("use_test()")
+        D-->F("use_r()")
+        D-->G("use_packge()")
+        F-->H["Insert Roxygen skeleton"]
+        H-->I("document()")
+    end
+    subgraph git
+        staged --> commit
+    end
+    one --> two
+    two -->|often| Y("check()")
+    two --> X("install()")
+    one --> git
+    two --> git
+    git --> Github
+    click A href "https://usethis.r-lib.org/reference/create_package.html"
+    click C href "https://usethis.r-lib.org/reference/use_git.html"
+    click B href "https://usethis.r-lib.org/reference/licenses.html"
+    click Z href "https://r-pkgs.org/Whole-game.html#use_testthat"
+    click E href "https://usethis.r-lib.org/reference/use_r.html"
+    click F href "https://usethis.r-lib.org/reference/use_r.html"
+    click G href "https://usethis.r-lib.org/reference/use_package.html"
+    click I href "https://devtools.r-lib.org/reference/document.html"
+    click Y href "https://r-pkgs.org/Whole-game.html#check"
+    click X href "https://devtools.r-lib.org/reference/install.html"
