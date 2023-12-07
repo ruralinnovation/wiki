@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>CORI MDA Wiki -</title>
+<title>CORI MDA Wiki - Architecture of MDA Data Infrastructure</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,40 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -93,9 +59,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="styles.css">
@@ -119,7 +82,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="./index.html" rel="" target="">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
@@ -137,7 +100,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Welcome to the coriverse!</li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Architecture of MDA Data Infrastructure</li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -290,23 +253,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#initial-setup" id="toc-initial-setup" class="nav-link active" data-scroll-target="#initial-setup">Initial Setup</a></li>
-  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a></li>
-  <li><a href="#database-access-for-new-users" id="toc-database-access-for-new-users" class="nav-link" data-scroll-target="#database-access-for-new-users">Database Access For New Users</a></li>
-  <li><a href="#development-process-for-new-coriverse-functions" id="toc-development-process-for-new-coriverse-functions" class="nav-link" data-scroll-target="#development-process-for-new-coriverse-functions">Development Process for New <code>coriverse</code> Functions</a>
-  <ul class="collapse">
-  <li><a href="#setup-for-development" id="toc-setup-for-development" class="nav-link" data-scroll-target="#setup-for-development">Setup for Development</a></li>
-  </ul></li>
-  <li><a href="#storing-data-in-s3" id="toc-storing-data-in-s3" class="nav-link" data-scroll-target="#storing-data-in-s3">Storing Data in S3</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/ruralinnovation/wiki/edit/main/index.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/ruralinnovation/wiki/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/ruralinnovation/wiki/edit/main/Architecture-Overview-test.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/ruralinnovation/wiki/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Welcome to the coriverse!</h1>
+<h1 class="title">Architecture of MDA Data Infrastructure</h1>
 </div>
 
 
@@ -321,171 +277,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p><img src="https://img.shields.io/badge/lifecycle-stable-green.svg" class="img-fluid"></p>
-<p>The <a href="https://github.com/ruralinnovation/coriverse/"><code>coriverse</code></a> is an effort to develop a standard set of best practices for the MDA team, centralize important or useful functions into an easily accessible location, and manage package dependencies for our scripts.</p>
-<p>It will import:</p>
-<ul>
-<li><a href="https://github.com/ruralinnovation/cori.charts/"><code>cori.charts</code></a></li>
-<li><a href="https://github.com/ruralinnovation/cori.data/"><code>cori.data</code></a></li>
-<li><a href="https://github.com/ruralinnovation/cori.db/"><code>cori.db</code></a></li>
-<li><a href="https://github.com/ruralinnovation/cori.utils/"><code>cori.utils</code></a></li>
-</ul>
-<p>It will only attach:</p>
-<ul>
-<li><code>cori.db</code></li>
-<li><code>cori.utils</code></li>
-</ul>
-<section id="initial-setup" class="level2">
-<h2 class="anchored" data-anchor-id="initial-setup">Initial Setup</h2>
-<p>In order to install this package (using <code>devtools</code> or <code>remotes</code>), you need to first set up local environment variables, either through your shell profile (preferably) or with an <code>.Renviron</code> file.</p>
-<p><code>~/.profile</code>:</p>
-<pre><code>export GITHUB_USER='&lt;your-github-user-name&gt;'
-export GITHUB_PAT='&lt;your-github-personal-authentication-token&gt;'</code></pre>
-<p><code>~/.Renviron</code>:</p>
-<pre><code>GITHUB_USER="&lt;your-github-user-name&gt;"   
-GITHUB_PAT="&lt;your-github-personal-authentication-token&gt;"</code></pre>
-<hr>
-</section>
-<section id="installation" class="level1">
-<h1>Installation</h1>
-<p><code>coriverse</code> is an R metapackage, allowing us to conveniently install component R packages that address different pieces of the MDA workflow. To install, use the following steps:</p>
-<ol type="1">
-<li>Ensure you have :package: <code>remotes</code> 2.4.0 or greater installed (current version as of June 2021) and <code>usethis</code>. Use <code>install.packages('remotes'); install.packages('usethis')</code> to get the latest version.</li>
-<li>Create a GitHub token:</li>
-</ol>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>    <span class="do">## (optional, if not previously done) set your user name and email:</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># usethis::use_git_config(user.name = "YourName", user.email = "your@mail.com")</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="do">## create a personal access token for authentication:</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    usethis<span class="sc">::</span><span class="fu">create_github_token</span>() </span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="do">## in case usethis version &lt; 2.0.0: usethis::browse_github_token() (or even better: update usethis!)</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="do">## 2023-01-25: it opens the default web browser at github PAT web page see 1.</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="do">## set personal access token:</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    credentials<span class="sc">::</span><span class="fu">set_github_pat</span>(<span class="st">"ghp_..."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol start="3" type="1">
-<li>Set an environment variable called <code>GITHUB_PAT</code> by running <code>Sys.setenv(GITHUB_PAT = 'MY_TOKEN_HERE')</code>, replacing MY_TOKEN_HERE with the valid GitHub personal access token you previously created. Instructions for creating a Personal Access Token are available in <a href="https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token">GitHub’s documentation</a>. Your PAT only needs <code>repo</code> permissions (the first section of options when creating a PAT).</li>
-</ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://user-images.githubusercontent.com/33400922/135469840-d7076fe8-4e89-49ea-aeab-0701d3d54d12.PNG" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">scope</figcaption>
-</figure>
-</div>
-<ol start="4" type="1">
-<li>Use the <code>install_github()</code> function to install the coriverse package(s), which will look for the environment variable GITHUB_PAT and will allow you to install packages from private repos. Call:</li>
-</ol>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>    remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">'ruralinnovation/coriverse'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><em>For instructions on programmatically connecting to the database using the coriverse, see <a href="https://github.com/ruralinnovation/cori.db/">cori.db</a></em></p>
-<hr>
-</section>
-<section id="database-access-for-new-users" class="level1">
-<h1>Database Access For New Users</h1>
-<p>See the <a href="./onboarding_team_db.html">Database Onboarding</a> section in the <a href="https://ruralinnovation.github.io/wiki/">wiki</a>.</p>
-<hr>
-</section>
-<section id="development-process-for-new-coriverse-functions" class="level1">
-<h1>Development Process for New <code>coriverse</code> Functions</h1>
-<ol type="1">
-<li>Create a branch of the appropriate <code>coriverse</code> package repo</li>
-<li>Write a function. All functions from external packages should reference the package with :: syntax (e.g.&nbsp;dplyr::filter())</li>
-<li>Save the function in the R folder of the appropriate coriverse package repo in your branch. The file name should match the function name.</li>
-<li>Insert a roxygen skeleton (CTRL + SHIFT + ALT + R in RStudio)</li>
-<li>Update the title, documentation of the parameters, and the return value. Add an <code>@import</code> tag for each package the function depends on. If the function uses only one or two functions from an external package, use an <code>@importFrom</code> tag for each function.</li>
-<li>If the packages the function depends on do not appear in the Imports field of the DESCRIPTION file, add the package name(s) there</li>
-<li>Run <code>devtools::document()</code></li>
-<li>Run <code>devtools::check()</code></li>
-<li>If the check passes with no errors, warnings, or notes, push to your branch. Otherwise, resolve errors, warnings, and notes.</li>
-<li>Open a pull request and contact another MDA team member for review.</li>
-</ol>
-<p>1-7 are parts of “The Whole Game”, the 1st chapter in the <em>Getting Started</em> section of <strong><a href="https://r-pkgs.org/">R Packages</a></strong> from Hadley Wickham and Jenny Bryan and can be visualized here:</p>
-<!--
-
-:::{.cell}
-
-:::{.cell-output-display}
-
-:::{}
-
-:::{}
-
-<pre class="mermaid mermaid-js">%%{init: {&#39;theme&#39;: &#39;forest&#39;}}%%
-%%flowchart
-%%    subgraph one[Initializing package]
-%%        direction LR
-%%        A(&quot;create_package()&quot;)--&gt;C(&quot;use_git()&quot;)
-%%        A--&gt;B(&quot;use_XX_licence()&quot;)
-%%        A--&gt; Z(&quot;use_testthat()&quot;)
-%%    end
-%%    subgraph two[Developping]
-%%        direction LR
-%%        D[create a function]--&gt;E(&quot;use_test()&quot;)
-%%        D--&gt;F(&quot;use_r()&quot;)
-%%        D--&gt;G(&quot;use_packge()&quot;)
-%%        F--&gt;H[&quot;Insert Roxygen skeleton&quot;]
-%%        H--&gt;I(&quot;document()&quot;)
-%%    end
-%%    subgraph git
-%%        staged --&gt; commit
-%%    end
-%%    one --&gt; two
-%%    two --&gt;|often| Y(&quot;check()&quot;)
-%%    two --&gt; X(&quot;install()&quot;)
-%%    one --&gt; git
-%%    two --&gt; git
-%%    git --&gt; Github
-%%    click A href &quot;https://usethis.r-lib.org/reference/create_package.html&quot;
-%%    click C href &quot;https://usethis.r-lib.org/reference/use_git.html&quot;
-%%    click B href &quot;https://usethis.r-lib.org/reference/licenses.html&quot;
-%%    click Z href &quot;https://r-pkgs.org/Whole-game.html#use_testthat&quot;
-%%    click E href &quot;https://usethis.r-lib.org/reference/use_r.html&quot;
-%%    click F href &quot;https://usethis.r-lib.org/reference/use_r.html&quot;
-%%    click G href &quot;https://usethis.r-lib.org/reference/use_package.html&quot;
-%%    click I href &quot;https://devtools.r-lib.org/reference/document.html&quot;
-%%    click Y href &quot;https://r-pkgs.org/Whole-game.html#check&quot;
-%%    click X href &quot;https://devtools.r-lib.org/reference/install.html&quot;
-</pre>
-:::
-:::
-:::
-:::
-
--->
-<p><img src="whole-game.svg" class="img-fluid"></p>
-<!--
-<a href="https://r-pkgs.org/whole-game.html" target="_blank">
-<img src="whole-game.svg"
-     alt="mermaid-diagram"
-     align="left"
-     width="100%" />
-</a>
-_Visualizing "the Whole Game"_
--->
-<hr>
-<section id="setup-for-development" class="level2">
-<h2 class="anchored" data-anchor-id="setup-for-development">Setup for Development</h2>
-<p>Once you have all the dependencies installed, to build and install this package from the local project directory, run:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>pkgbuild<span class="sc">::</span><span class="fu">clean_dll</span>(); pkgbuild<span class="sc">::</span><span class="fu">compile_dll</span>(); devtools<span class="sc">::</span><span class="fu">document</span>(); devtools<span class="sc">::</span><span class="fu">check</span>(); devtools<span class="sc">::</span><span class="fu">install</span>();</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-</section>
-<section id="storing-data-in-s3" class="level1">
-<h1>Storing Data in S3</h1>
-<p>You will need access to the s3 storage.</p>
-<ol type="1">
-<li>To create a new <code>bucket</code> use the <code>create bucket</code> orange button.</li>
-</ol>
-<p><strong>Naming convention of bucket:</strong></p>
-<ul>
-<li>for project do: <code>pro-&lt;NAME_OF_PROJECT&gt;</code>, example: <code>proj-rwjf</code><br>
-</li>
-<li>for data used in multiple project: <code>&lt;NAME_OF_PROJECT&gt;-data</code>, example: <code>puma-data</code></li>
-</ul>
-<p>(⚠️ no uppercase, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html">here</a>)</p>
-<p><em>We keep the default values and press <code>create bucket</code> at the bottom of the page (UX can change a bit over time).</em></p>
-<ol start="2" type="1">
-<li><p>Inside the bucket use the upload button top open a new web page were you can drag and drop the file you need to upload</p></li>
-<li><p>Do not forget to click the upload button at the bottom of this page (it will open a new page with the status of the upload).</p></li>
-</ol>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p><a href="" target="_blank"><img src="output.svg" alt="mermaid-diagram" width="100%" align="left"></a><br></p>
 
 
 </section>
