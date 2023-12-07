@@ -9,7 +9,7 @@ execute:
 
 ## General Terms
 
-### The [American Community Survey (ACS)](https://www.census.gov/programs-surveys/acs/data.html)
+### The [American Community Survey (ACS)](https://www.census.gov/programs-surveys/acs/data.html)...
   - is an ongoing initiative within the United States Census Bureau
   - relases a variety of data tables every year covering a wide range of social, economic, housing, and demographic data
 
