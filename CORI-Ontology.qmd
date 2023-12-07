@@ -32,8 +32,9 @@ execute:
 
   - is “a business or residential location in the United States at which mass-market fixed broadband Internet access service is, or can be, installed.” 
       - source:  https://help.bdc.fcc.gov/hc/en-us/articles/16842264428059-About-the-Fabric-What-a-Broadband-Serviceable-Location-BSL-Is-and-Is-Not 
-  - can be split in residential and Business locations but this distinction does not seems very effective in the [NBM](https://broadbandmap.fcc.gov/data-download/nationwide-data?version=jun2023) dataset. Usually a location will have access to mulitple ISP hat offers different servcies (technologies, upload, downlowad speed). 
-      - In the NBM dataset we do not know their exact latitude and longitude but only their appartenance to a census block geoid and H3 index. 
+  - is a location that can have access to mulitple ISPs, each offering different servcies (technologies, upload, downlowad speed).
+  - can be split into residential and business locations but this distinction does not seems very effective in the [NBM](https://broadbandmap.fcc.gov/data-download/nationwide-data?version=jun2023) dataset. 
+  - is not geographically represented with exact latitude and longitude, but only by census block geoid and H3 index in the NBM dataset (MDA references this data as the National Broadband Map; officially the dataset is released as [BDC (Broadband Data Collection) Public Data](https://broadbandmap.fcc.gov/data-download/nationwide-data)). 
 
 ### An **ISP** ...
   - is ...
@@ -60,10 +61,10 @@ execute:
 ### A **Data Cache**
   - is a remote store for one or more _mutable_ representations or views of data product
 
-### An Eligibility Requirement
+### An **Eligibility Requirement**
   - is ...
 
-### A Geographic Eligibility Requirement
+### A **Geographic Eligibility Requirement**
   - is ...
 
 > ~~Rural ...~~
