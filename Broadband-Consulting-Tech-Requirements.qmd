@@ -7,32 +7,39 @@ message: false
 warning: false
 ---
 
-
-BB Knowledge set is focused on how to pull people together to plan/build infrastructure in strategic ways.
+Our tradable broadband knowledge set is focused on how to pull people together to plan/build broadband infrastructure in strategic ways.
 
 To do this we need:
-- Collaboration and Shareability (!)
-  - e.g. map view
-    - (capability currently supported by Carto)
-    - ArcGIS Online:
-      - “it seemed like a better version of Carto” - Myles
-- Insert BEAD dynamic tool requirments here….
-- Understanding of where infrastructure is/is not
-  - What (tech + service level)
-  - Who (ownership)
-  - Density of (potential) subscribers
-- Understanding real life performance of BB networks
-- Dynamically assess multiple geographic contexts for potential infrastructure planning;
-  - compare these contexts
-  - non-standard geographies driven by real world requirements
-- Lowest level of geographic context may be neighborhood
-- May approximate mapping of block-level data to non-standard geography [when possible][is hard]
-- Would block-selector tool be helpful?
-- Some geography selection is by **name**
-  - Ability to map names to geographic representations
+  - **Collaboration** and **Share-ability** (!)
+      - **Web-based map** views that can be shared and accessed by **URL**
+        - Currently, this capability is primarily supported by Carto
+        - Potential enablement with ArcGIS Online:
+          - “_it seemed like a better version of Carto_” - Myles
+  - Understanding of telecommunications **infrastructure** and landscape:
+      - **Where** is/is not
+         - Operating footprint
+         - Grant funded areas (past awards?)
+      - **What** (tech + service level)
+        - ISP presence
+        - Advertised speeds
+          - Categorized by grant criteria
+        - [Insert BEAD dynamic tool requirments here...]
+      - **Who** (ownership)
+        - DBA mapped back to single entity (source-of-truth)
+        - Funding history (previous grant recipient?)
+      - **Density** of (potential) subscribers
+  - Understanding real life performance of BB networks
+  - Dynamically assess multiple geographic contexts for potential infrastructure planning;
+      - compare these contexts
+      - non-standard geographies driven by real world requirements
+  - Lowest level of geographic context may be neighborhood
+  - May approximate mapping of block-level data to non-standard geography; when possible (_this is hard_)
+  - Some geography selection is by **name**
+      - Ability to map names to geospatial representations
+  - Would block-selector tool be helpful?
+      - With support for automatically suggesting block set mappings for non-standard geographic features as well, as mapping to geographically-relevant names (within limited/scoped contexts)
 
-
-
+<hr />
 
 ## Fixed Broadband Availability Data
 [FCC National Broadband Map](https://broadbandmap.fcc.gov/data-download/nationwide-data)
