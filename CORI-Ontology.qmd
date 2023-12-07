@@ -9,6 +9,10 @@ execute:
 
 ## General Terms
 
+### The [American Community Survey (ACS)](https://www.census.gov/programs-surveys/acs/data.html)
+  - is an ongoing initiative within the United States Census Bureau
+  - relases a variety of data tables every year covering a wide range of social, economic, housing, and demographic data
+
 ### A **Block** ...
   - is the smallest geographic area for which the Bureau of the Census collects and tabulates decennial census data
   - is the smallest statistical unit of analysis of a single Community's economic participation, social impact, and inventory of tech ecosystem resources (?)
