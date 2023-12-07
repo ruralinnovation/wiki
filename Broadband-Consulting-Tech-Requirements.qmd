@@ -1,10 +1,10 @@
 ---
 title: "Broadband Consulting Tech Requirement"
 execute:
-echo: true
-output: true
-message: false
-warning: false
+  echo: true
+  output: true
+  message: false
+  warning: false
 ---
 
 Our tradable broadband knowledge set is focused on how to pull people together to plan/build broadband infrastructure in strategic ways.
