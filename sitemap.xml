@@ -1,143 +1,143 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://github.com/ruralinnovation/wiki/Metadata.html</loc>
-    <lastmod>2023-12-07T19:41:15.181Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/ruralinnovation/wiki/Cori-Infrastructure.html</loc>
-    <lastmod>2023-12-07T19:41:14.529Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/ruralinnovation/wiki/CORI-Ontology.html</loc>
-    <lastmod>2023-12-07T19:41:14.021Z</lastmod>
-  </url>
-  <url>
     <loc>https://github.com/ruralinnovation/wiki/Support-Sessions.html</loc>
-    <lastmod>2023-12-07T19:41:13.189Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/ruralinnovation/wiki/Postman-Workspace-Setup-and-Configuration.html</loc>
-    <lastmod>2023-12-07T19:41:12.641Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/ruralinnovation/wiki/MDA-Style-Guide.html</loc>
-    <lastmod>2023-12-07T19:41:11.925Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/ruralinnovation/wiki/Suggested-Code-Snippets.html</loc>
-    <lastmod>2023-12-07T19:41:11.089Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/ruralinnovation/wiki/Repository-Classification.html</loc>
-    <lastmod>2023-12-07T19:41:10.049Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/ruralinnovation/wiki/QGIS.html</loc>
-    <lastmod>2023-12-07T19:41:09.441Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/ruralinnovation/wiki/Configuring-our-AWS-CLI-(CDK-and-SAM)-Credentials.html</loc>
-    <lastmod>2023-12-07T19:41:08.881Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/ruralinnovation/wiki/cori-dev.postman.collection.json.html</loc>
-    <lastmod>2023-12-07T19:41:07.845Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/ruralinnovation/wiki/CORI-Data-API.html</loc>
-    <lastmod>2023-12-07T19:41:06.701Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/ruralinnovation/wiki/PostgreSQL-RDS-Managment.html</loc>
-    <lastmod>2023-12-07T19:41:05.309Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/ruralinnovation/wiki/cori-dev.postman_environment.json.html</loc>
-    <lastmod>2023-12-07T19:41:04.305Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/ruralinnovation/wiki/profile/accelerate.html</loc>
-    <lastmod>2023-12-07T19:41:03.485Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/ruralinnovation/wiki/Session-2-‐-2023‐10‐23.html</loc>
-    <lastmod>2023-12-07T19:41:02.953Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/ruralinnovation/wiki/Adding-New-Endpoints-&-Services-to-the-Python-RESTApi.html</loc>
-    <lastmod>2023-12-07T19:41:02.333Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/ruralinnovation/wiki/Working-with-the-GraphQL-Schemas.html</loc>
-    <lastmod>2023-12-07T19:41:01.333Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/ruralinnovation/wiki/Git-Workflows.html</loc>
-    <lastmod>2023-12-07T19:41:01.925Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/ruralinnovation/wiki/Example-React-Map-Container-with-REACT-MAP-GL-Package.html</loc>
-    <lastmod>2023-12-07T19:41:02.713Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/ruralinnovation/wiki/profile/about.html</loc>
-    <lastmod>2023-12-07T19:41:03.221Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/ruralinnovation/wiki/index.html</loc>
-    <lastmod>2023-12-07T19:41:04.045Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/ruralinnovation/wiki/onboarding_team_db.html</loc>
-    <lastmod>2023-12-07T19:41:04.761Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/ruralinnovation/wiki/help_I_have_a_data_team.html</loc>
-    <lastmod>2023-12-07T19:41:05.589Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/ruralinnovation/wiki/The-coriverse-suite-of-packages.html</loc>
-    <lastmod>2023-12-07T19:41:06.973Z</lastmod>
+    <lastmod>2023-12-07T20:14:43.634Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ruralinnovation/wiki/R-and-Python-API-Usage.html</loc>
-    <lastmod>2023-12-07T19:41:08.333Z</lastmod>
+    <lastmod>2023-12-07T20:14:42.893Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/ruralinnovation/wiki/SAML-User-Pool-IdP-Authentication-Flow.html</loc>
-    <lastmod>2023-12-07T19:41:09.161Z</lastmod>
+    <loc>https://github.com/ruralinnovation/wiki/Repository-Classification.html</loc>
+    <lastmod>2023-12-07T20:14:42.169Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/ruralinnovation/wiki/Broadband-Consulting-Tech-Requirements.html</loc>
-    <lastmod>2023-12-07T19:41:09.733Z</lastmod>
+    <loc>https://github.com/ruralinnovation/wiki/CORI-Ontology.html</loc>
+    <lastmod>2023-12-07T20:14:41.605Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/ruralinnovation/wiki/Ansible.html</loc>
-    <lastmod>2023-12-07T19:41:10.553Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/ruralinnovation/wiki/Apollo-Studio-Setup.html</loc>
-    <lastmod>2023-12-07T19:41:11.497Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/ruralinnovation/wiki/Migrating-from-CDK-V1-=--V2.html</loc>
-    <lastmod>2023-12-07T19:41:12.297Z</lastmod>
+    <loc>https://github.com/ruralinnovation/wiki/Adding-New-Endpoints-&-Services-to-the-Python-RESTApi.html</loc>
+    <lastmod>2023-12-07T20:14:40.893Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ruralinnovation/wiki/Architecture-Overview-test.html</loc>
-    <lastmod>2023-12-07T19:41:12.905Z</lastmod>
+    <lastmod>2023-12-07T20:14:40.265Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ruralinnovation/wiki/Working-with-the-GraphQL-Schemas.html</loc>
+    <lastmod>2023-12-07T20:14:39.633Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ruralinnovation/wiki/cori-dev.postman.collection.json.html</loc>
+    <lastmod>2023-12-07T20:14:38.481Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ruralinnovation/wiki/The-coriverse-suite-of-packages.html</loc>
+    <lastmod>2023-12-07T20:14:37.305Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ruralinnovation/wiki/QGIS.html</loc>
+    <lastmod>2023-12-07T20:14:35.929Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ruralinnovation/wiki/React,-AWS-Amplify-and-API-Usage.html</loc>
-    <lastmod>2023-12-07T19:41:13.669Z</lastmod>
+    <lastmod>2023-12-07T20:14:35.069Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/ruralinnovation/wiki/Spatial-Data-for-Mapping-and-Analysis.html</loc>
-    <lastmod>2023-12-07T19:41:14.289Z</lastmod>
+    <loc>https://github.com/ruralinnovation/wiki/Cori-Infrastructure.html</loc>
+    <lastmod>2023-12-07T20:14:34.041Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ruralinnovation/wiki/Metadata.html</loc>
+    <lastmod>2023-12-07T20:14:33.265Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ruralinnovation/wiki/index.html</loc>
+    <lastmod>2023-12-07T20:14:32.661Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ruralinnovation/wiki/Apollo-Studio-Setup.html</loc>
+    <lastmod>2023-12-07T20:14:31.845Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ruralinnovation/wiki/help_I_have_a_data_team.html</loc>
+    <lastmod>2023-12-07T20:14:31.041Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ruralinnovation/wiki/profile/about.html</loc>
+    <lastmod>2023-12-07T20:14:30.457Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ruralinnovation/wiki/Postman-Workspace-Setup-and-Configuration.html</loc>
+    <lastmod>2023-12-07T20:14:29.621Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ruralinnovation/wiki/profile/accelerate.html</loc>
+    <lastmod>2023-12-07T20:14:30.177Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ruralinnovation/wiki/Broadband-Consulting-Tech-Requirements.html</loc>
+    <lastmod>2023-12-07T20:14:30.757Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ruralinnovation/wiki/MDA-Style-Guide.html</loc>
+    <lastmod>2023-12-07T20:14:31.449Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ruralinnovation/wiki/Git-Workflows.html</loc>
+    <lastmod>2023-12-07T20:14:32.121Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ruralinnovation/wiki/SAML-User-Pool-IdP-Authentication-Flow.html</loc>
+    <lastmod>2023-12-07T20:14:32.945Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ruralinnovation/wiki/Suggested-Code-Snippets.html</loc>
+    <lastmod>2023-12-07T20:14:33.765Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ruralinnovation/wiki/Configuring-our-AWS-CLI-(CDK-and-SAM)-Credentials.html</loc>
+    <lastmod>2023-12-07T20:14:34.581Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ruralinnovation/wiki/PostgreSQL-RDS-Managment.html</loc>
+    <lastmod>2023-12-07T20:14:35.653Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ruralinnovation/wiki/CORI-Data-API.html</loc>
+    <lastmod>2023-12-07T20:14:37.041Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ruralinnovation/wiki/Migrating-from-CDK-V1-=--V2.html</loc>
+    <lastmod>2023-12-07T20:14:37.669Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ruralinnovation/wiki/Ansible.html</loc>
+    <lastmod>2023-12-07T20:14:38.981Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/ruralinnovation/wiki/Data-Security.html</loc>
-    <lastmod>2023-12-07T19:41:14.917Z</lastmod>
+    <lastmod>2023-12-07T20:14:40.017Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ruralinnovation/wiki/cori-dev.postman_environment.json.html</loc>
+    <lastmod>2023-12-07T20:14:40.513Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ruralinnovation/wiki/Example-React-Map-Container-with-REACT-MAP-GL-Package.html</loc>
+    <lastmod>2023-12-07T20:14:41.261Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ruralinnovation/wiki/Spatial-Data-for-Mapping-and-Analysis.html</loc>
+    <lastmod>2023-12-07T20:14:41.865Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ruralinnovation/wiki/Session-2-‐-2023‐10‐23.html</loc>
+    <lastmod>2023-12-07T20:14:42.409Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/ruralinnovation/wiki/onboarding_team_db.html</loc>
+    <lastmod>2023-12-07T20:14:43.378Z</lastmod>
   </url>
 </urlset>
