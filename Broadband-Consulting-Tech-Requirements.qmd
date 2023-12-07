@@ -22,13 +22,15 @@ To do this we need:
       - **What** (tech + service level)
         - ISP presence
         - Advertised speeds
-          - Categorized by grant criteria
-        - [Insert BEAD dynamic tool requirments here...]
+          - Categorized by grant criteria (e.g. BEAD)
       - **Who** (ownership)
         - DBA mapped back to single entity (source-of-truth)
         - Funding history (previous grant recipient?)
       - **Density** of (potential) subscribers
-  - Understanding real life performance of BB networks
+      - **Social/Demographic** quality of (potential) subscribers
+      - **Physical Layout** of existing network and potential (future) networks
+          - Calculate route miles needed for potential deployments in more sophisticated manner
+  - Understanding real life performance of broadband networks
   - Dynamically assess multiple geographic contexts for potential infrastructure planning;
       - compare these contexts
       - non-standard geographies driven by real world requirements
