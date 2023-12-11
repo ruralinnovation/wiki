@@ -249,13 +249,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#fixed-broadband-availability-data" id="toc-fixed-broadband-availability-data" class="nav-link active" data-scroll-target="#fixed-broadband-availability-data">Fixed Broadband Availability Data</a></li>
-  </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/ruralinnovation/wiki/edit/main/Broadband-Consulting-Tech-Requirements.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/ruralinnovation/wiki/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -278,15 +272,80 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p>Our tradable broadband knowledge set is focused on how to pull people together to plan/build broadband infrastructure in strategic ways.</p>
-<p>To do this we need: - <strong>Collaboration</strong> and <strong>Share-ability</strong> (!) - <strong>Web-based map</strong> views that can be shared and accessed by <strong>URL</strong> - Currently, this capability is primarily supported by Carto - Potential enablement with ArcGIS Online: - “<em>it seemed like a better version of Carto</em>” - Myles - Understanding of telecommunications <strong>infrastructure</strong> and landscape: - <strong>Where</strong> is/is not - Operating footprint - Grant funded areas (past awards?) - <strong>What</strong> (tech + service level) - ISP presence - Advertised speeds - Categorized by grant criteria (e.g.&nbsp;BEAD) - <strong>Who</strong> (ownership) - DBA mapped back to single entity (source-of-truth) - Funding history (previous grant recipient?) - <strong>Density</strong> of (potential) subscribers - <strong>Social/Demographic</strong> quality of (potential) subscribers - <strong>Physical Layout</strong> of existing network and potential (future) networks - Calculate route miles needed for potential deployments in more sophisticated manner - Understanding real life performance of broadband networks - Dynamically assess multiple geographic contexts for potential infrastructure planning; - compare these contexts - non-standard geographies driven by real world requirements - Lowest level of geographic context may be neighborhood - May approximate mapping of block-level data to non-standard geography; when possible (<em>this is hard</em>) - Some geography selection is by <strong>name</strong> - Ability to map names to geospatial representations - Would block-selector tool be helpful? - With support for automatically suggesting block set mappings for non-standard geographic features as well, as mapping to geographically-relevant names (within limited/scoped contexts)</p>
+<p>To do this we need:</p>
+<ul>
+<li><strong>Collaboration</strong> and <strong>Share-ability</strong> (!)
+<ul>
+<li><strong>Web-based map</strong> views that can be shared and accessed by <strong>URL</strong>
+<ul>
+<li>Currently, this capability is primarily supported by Carto</li>
+<li>Potential enablement with ArcGIS Online:
+<ul>
+<li>“<em>it seemed like a better version of Carto</em>” - Myles</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>Understanding of telecommunications <strong>infrastructure</strong> and landscape:
+<ul>
+<li><strong>Where</strong> is/is not
+<ul>
+<li>Operating footprint</li>
+<li>Grant funded areas (past awards?)</li>
+</ul></li>
+<li><strong>What</strong> (tech + service level)
+<ul>
+<li>ISP presence</li>
+<li>Advertised speeds
+<ul>
+<li>Categorized by grant criteria (e.g.&nbsp;BEAD)</li>
+</ul></li>
+</ul></li>
+<li><strong>Who</strong> (ownership)
+<ul>
+<li>DBA mapped back to single entity (source-of-truth)</li>
+<li>Funding history (previous grant recipient?)</li>
+</ul></li>
+<li><strong>Density</strong> of (potential) subscribers</li>
+<li><strong>Social/Demographic</strong> analysis of (potential) subscribers
+<ul>
+<li>Calculate route miles needed for potential deployments in more sophisticated manner</li>
+</ul></li>
+</ul></li>
+<li>Understanding <strong>actual performance</strong> (average speeds) of broadband networks</li>
+<li>Understanding <strong>physical topology</strong> (layout) of existing network
+<ul>
+<li>Ability to <strong>model</strong> and <strong>compare</strong> models of potential (future) <strong>physical topology</strong> of networks
+<ul>
+<li>Determine/calculate feasibility by:
+<ul>
+<li>Costs</li>
+<li>Route Miles</li>
+<li>Technology</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>Dynamically assess multiple geographic contexts for potential infrastructure planning
+<ul>
+<li>compare these contexts</li>
+<li>non-standard geographies driven by real world requirements</li>
+<li>Lowest level of geographic context may be neighborhood</li>
+<li>May approximate mapping of block-level data to non-standard geography; when possible (<em>this is hard</em>)</li>
+<li>Some geography selection is by <strong>name</strong>
+<ul>
+<li>Ability to map names to geospatial representations</li>
+</ul></li>
+<li>Would block-selector tool be helpful?
+<ul>
+<li>+support for automatically suggesting block set mappings for non-standard geographic features as well, as mapping to geographically-relevant names (within limited/scoped contexts)</li>
+</ul></li>
+</ul></li>
+</ul>
 <hr>
-<section id="fixed-broadband-availability-data" class="level2">
-<h2 class="anchored" data-anchor-id="fixed-broadband-availability-data">Fixed Broadband Availability Data</h2>
-<p><a href="https://broadbandmap.fcc.gov/data-download/nationwide-data">FCC National Broadband Map</a></p>
-<p>To perform place-based analysis on broadband access, service availability, and relative affordability, including broadband serviceable location data, we utilize the <a href="https://broadbandmap.fcc.gov/data-download/nationwide-data">BDC Public Data Downloads</a> repository and <a href="https://us-fcc.box.com/v/bdc-public-data-api-spec">BDC Public Data API</a> served by the FCC National Broadband Map. To date, we are not seeking, nor have we been granted access to the Broadband Serviceable Location Fabric dataset (sometimes referred to as the <em>FCC Broadband Fabric</em>, <em>FCC Fabric</em>, or <em>Location Fabric</em>) produced by CQA (<a href="https://www.costquest.com/">CostQuest Associates</a>).</p>
+<blockquote class="blockquote">
+<p>NOTE: <strong>Fixed Broadband Availability Data from the <a href="https://broadbandmap.fcc.gov/data-download/nationwide-data">FCC’s National Broadband Map</a></strong> <br> To perform place-based analysis on broadband access, service availability, and relative affordability, including broadband serviceable location data, we utilize the <a href="https://broadbandmap.fcc.gov/data-download/nationwide-data">BDC Public Data Downloads</a> repository and <a href="https://us-fcc.box.com/v/bdc-public-data-api-spec">BDC Public Data API</a> served by the FCC National Broadband Map. To date, we are not seeking, nor have we been granted access to the Broadband Serviceable Location Fabric dataset (sometimes referred to as the <em>FCC Broadband Fabric</em>, <em>FCC Fabric</em>, or <em>Location Fabric</em>) produced by CQA (<a href="https://www.costquest.com/">CostQuest Associates</a>).</p>
+</blockquote>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -526,4 +585,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/ruralinnovation/wiki/edit/main/Broadband-Consulting-Tech-Requirements.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/ruralinnovation/wiki/issues/new" class="toc-action">Report an issue</a></p></div></div></div></div></footer></body></html>
