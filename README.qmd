@@ -1,5 +1,5 @@
 ---
-title: "Welcome to the coriverse!"
+title: ""
 execute:
   echo: true
   output: true
@@ -10,9 +10,14 @@ format:
     toc: false
 ---
 
+
+Enter the coriverse!
+====================
 ![](https://img.shields.io/badge/lifecycle-stable-green.svg)
 
 The [`coriverse`](https://github.com/ruralinnovation/coriverse/) is an effort to develop a standard set of best practices for the MDA team, centralize important or useful functions into an easily accessible location, and manage package dependencies for our scripts.
+
+It's also an `R` package!
 
 It will import:
 
