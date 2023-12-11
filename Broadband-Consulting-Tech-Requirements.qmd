@@ -10,6 +10,7 @@ execute:
 Our tradable broadband knowledge set is focused on how to pull people together to plan/build broadband infrastructure in strategic ways.
 
 To do this we need:
+
   - **Collaboration** and **Share-ability** (!)
       - **Web-based map** views that can be shared and accessed by **URL**
         - Currently, this capability is primarily supported by Carto
@@ -27,24 +28,27 @@ To do this we need:
         - DBA mapped back to single entity (source-of-truth)
         - Funding history (previous grant recipient?)
       - **Density** of (potential) subscribers
-      - **Social/Demographic** quality of (potential) subscribers
-      - **Physical Layout** of existing network and potential (future) networks
+      - **Social/Demographic** analysis of (potential) subscribers
           - Calculate route miles needed for potential deployments in more sophisticated manner
-  - Understanding real life performance of broadband networks
-  - Dynamically assess multiple geographic contexts for potential infrastructure planning;
+  - Understanding **actual performance** (average speeds) of broadband networks
+  - Understanding **physical topology** (layout) of existing network
+      - Ability to **model** and **compare** models of potential (future) **physical topology** of networks
+          - Determine/calculate feasibility by:
+            - Costs
+            - Route Miles
+            - Technology
+  - Dynamically assess multiple geographic contexts for potential infrastructure planning
       - compare these contexts
       - non-standard geographies driven by real world requirements
-  - Lowest level of geographic context may be neighborhood
-  - May approximate mapping of block-level data to non-standard geography; when possible (_this is hard_)
-  - Some geography selection is by **name**
-      - Ability to map names to geospatial representations
-  - Would block-selector tool be helpful?
-      - With support for automatically suggesting block set mappings for non-standard geographic features as well, as mapping to geographically-relevant names (within limited/scoped contexts)
+      - Lowest level of geographic context may be neighborhood
+      - May approximate mapping of block-level data to non-standard geography; when possible (_this is hard_)
+      - Some geography selection is by **name**
+        - Ability to map names to geospatial representations
+      - Would block-selector tool be helpful?
+        - +support for automatically suggesting block set mappings for non-standard geographic features as well, as mapping to geographically-relevant names (within limited/scoped contexts)
 
 <hr />
 
-## Fixed Broadband Availability Data
-[FCC National Broadband Map](https://broadbandmap.fcc.gov/data-download/nationwide-data)
-
-To perform place-based analysis on broadband access, service availability, and relative affordability, including broadband serviceable location data, we utilize the [BDC Public Data Downloads](https://broadbandmap.fcc.gov/data-download/nationwide-data) repository and [BDC Public Data API](https://us-fcc.box.com/v/bdc-public-data-api-spec) served by the FCC National Broadband Map. To date, we are not seeking, nor have we been granted access to the Broadband Serviceable Location Fabric dataset (sometimes referred to as the _FCC Broadband Fabric_, _FCC Fabric_, or _Location Fabric_) produced by CQA ([CostQuest Associates](https://www.costquest.com/)).
+> NOTE: **Fixed Broadband Availability Data from the [FCC's National Broadband Map](https://broadbandmap.fcc.gov/data-download/nationwide-data)** <br />
+> To perform place-based analysis on broadband access, service availability, and relative affordability, including broadband serviceable location data, we utilize the [BDC Public Data Downloads](https://broadbandmap.fcc.gov/data-download/nationwide-data) repository and [BDC Public Data API](https://us-fcc.box.com/v/bdc-public-data-api-spec) served by the FCC National Broadband Map. To date, we are not seeking, nor have we been granted access to the Broadband Serviceable Location Fabric dataset (sometimes referred to as the _FCC Broadband Fabric_, _FCC Fabric_, or _Location Fabric_) produced by CQA ([CostQuest Associates](https://www.costquest.com/)).
 

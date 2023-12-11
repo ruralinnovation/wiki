@@ -1,0 +1,14 @@
+---
+title: "Data Infrastructure Overview"
+execute:
+  echo: true
+  output: true
+  message: false
+  warning: false
+---
+
+<!--
+![](MDA%20Data%20Infrastructure.svg)
+-->
+
+<div style="background-color: #fff"><a href="" target="_blank"><img src="MDA%20Data%20Infrastructure.svg" alt="mermaid-diagram" style="background-color: #fff" width="100%" /></a><br/>
