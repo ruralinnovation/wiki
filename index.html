@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>CORI MDA Wiki -</title>
+<title>CORI/RISI Mapping &amp; Data Analytics (MDA) -</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -109,7 +109,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">CORI MDA Wiki</span>
+    <span class="navbar-title">CORI/RISI Mapping &amp; Data Analytics (MDA)</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -137,7 +137,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Welcome to the coriverse!</li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -290,7 +290,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#initial-setup" id="toc-initial-setup" class="nav-link active" data-scroll-target="#initial-setup">Initial Setup</a></li>
+  <li><a href="#enter-the-coriverse" id="toc-enter-the-coriverse" class="nav-link active" data-scroll-target="#enter-the-coriverse">Enter the coriverse!</a>
+  <ul class="collapse">
+  <li><a href="#initial-setup" id="toc-initial-setup" class="nav-link" data-scroll-target="#initial-setup">Initial Setup</a></li>
+  </ul></li>
   <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a></li>
   <li><a href="#database-access-for-new-users" id="toc-database-access-for-new-users" class="nav-link" data-scroll-target="#database-access-for-new-users">Database Access For New Users</a></li>
   <li><a href="#development-process-for-new-coriverse-functions" id="toc-development-process-for-new-coriverse-functions" class="nav-link" data-scroll-target="#development-process-for-new-coriverse-functions">Development Process for New <code>coriverse</code> Functions</a>
@@ -304,25 +307,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Welcome to the coriverse!</h1>
-</div>
 
 
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-</header>
-
+<p>We are building a one-of-a-kind, data-driven platform that can provide the whole-systems, integrated model that is necessary to describe and explain the place that <strong>Rural</strong> inhabits within the broader social and economic fabric of the United States. The ultimate goal of those efforts is to energize and guide local ingenuity and leadership within rural communities as they confront the overwhelming organizational challenges involved in the development of an emerging <em>local</em> tech economy. This synthesis has the potential to substantially shift the cultural, intellectual and material/capital contributions of rural people living in rural places.</p>
+<p>As the Mapping and Data Analytics team, we are responsible for the foundational data and methodology that underlies any explanatory model that is produced or data product that is delivered and/or published, by the <a href="https://ruralinnovation.us/">Center on Rural Innovation</a> and <a href="https://ruralinnovationstrategies.com/">Rural Innovation Strategies, Inc.</a>, respectively. Inherit in engaging with this responsibility is an ongoing need to map the knowledge that is generated and/or captured by our work to the basic terms of which that knowledge is composed. The collective and individual professional experience of the MDA team provides a wide breadth of analytical insights into the data that we use, but much of this value is implicit in the final output of our work product, rather than intentionally and continuously integrated into the system on which our work is occurring. As much as possible, we should aim to build a system or a <em>platform</em> for our work that maximizes our ability to sustain and improve our models, as well as the organization’s ability to intelligently utilize our models in pursuit of our mission.</p>
+<blockquote class="blockquote">
+<p>Note: See <a href="./CORI-Ontology.html">CORI/RISI Ontology</a> to follow/contribute to our refinement of the relevant terms of our analysis.</p>
+</blockquote>
+<section id="enter-the-coriverse" class="level1">
+<h1>Enter the coriverse!</h1>
 <p><img src="https://img.shields.io/badge/lifecycle-stable-green.svg" class="img-fluid"></p>
 <p>The <a href="https://github.com/ruralinnovation/coriverse/"><code>coriverse</code></a> is an effort to develop a standard set of best practices for the MDA team, centralize important or useful functions into an easily accessible location, and manage package dependencies for our scripts.</p>
+<p>It’s also an <code>R</code> package!</p>
 <p>It will import:</p>
 <ul>
 <li><a href="https://github.com/ruralinnovation/cori.charts/"><code>cori.charts</code></a></li>
@@ -345,6 +341,7 @@ export GITHUB_PAT='&lt;your-github-personal-authentication-token&gt;'</code></pr
 <pre><code>GITHUB_USER="&lt;your-github-user-name&gt;"   
 GITHUB_PAT="&lt;your-github-personal-authentication-token&gt;"</code></pre>
 <hr>
+</section>
 </section>
 <section id="installation" class="level1">
 <h1>Installation</h1>
