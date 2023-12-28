@@ -37,7 +37,15 @@ This package can be installed by using `devtools` or `remotes`.
 
 ### "But wait! Why are we using R?"
 
-Excellent question, ...
+R is used for several reasons. The first one is probably historical: at the begining the team has a lot of R users. Now R is used as our main "glue" language it fills the gap between projects that require more sofware development, data engineering and data analysis. 
+
+We do not have a full IT departement and a lot of our solutions are "hand made" we cannot afford to spend times mannaging conda/venv setup. R, thanks to CRAN, offer a good selection of packages without a need for too much investement into that. 
+
+R also offer a mature spatial data ecosystem, wrapper around API for our data source (US census data), litterate programming experience with rmarkdon and Quarto, great data visualizations packages (ggplot2, shiny) and is probably on top for statistical analysis and modeling.
+
+Rstudio is a good and free IDE that can be run in a server or desktop but the integration with VScode or emacs is also good. 
+
+Finally, the strong focus on producing good documentation and a lively community make it a fun ecosystem to interact with!
 
 ### Install R on Mac OS X
 
