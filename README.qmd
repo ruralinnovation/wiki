@@ -35,26 +35,26 @@ It will only attach:
 
 This package can be installed by using `devtools` or `remotes`.
 
-### "But wait! Why are we using R?"
+### Why `R`
 
-R is used for several reasons. The first one is probably historical: at the begining the team has a lot of R users. Now R is used as our main "glue" language it fills the gap between projects that require more sofware development, data engineering and data analysis. 
+[`R`](https://www.r-project.org/) is used for several reasons. The first one is probably historical: at the beginning the team had a lot of `R` users. Now `R` is used as our main "glue" language. It fills the gap between the data analysis requirements and the data engineering and software development requirements of our various projects.
 
-We do not have a full IT departement and a lot of our solutions are "hand made" we cannot afford to spend times mannaging conda/venv setup. R, thanks to CRAN, offer a good selection of packages without a need for too much investement into that. 
+We do not have a full IT department and a lot of our solutions are "hand made" we cannot afford to spend times managing conda/venv setup. `R`, thanks to [CRAN](https://cran.r-project.org/), offers a good [selection of packages](https://cran.r-project.org/web/packages/index.html) without a need for too much investment.
 
-R also offer a mature spatial data ecosystem, wrapper around API for our data source (US census data), litterate programming experience with rmarkdon and Quarto, great data visualizations packages (ggplot2, shiny) and is probably on top for statistical analysis and modeling.
+`R` also offers a mature geospatial data ecosystem, wrappers around API(s) for our data sources (e.g., US census data), literate programming experience with Rmarkdown and Quarto, great data visualizations packages (i.e., `ggplot2`, `shiny`), and is probably on top for statistical analysis and modeling.
 
-Rstudio is a good and free IDE that can be run in a server or desktop but the integration with VScode or emacs is also good. 
+[Rstudio](https://posit.co/products/open-source/rstudio/) is a good and free IDE that can be run on a server or desktop, but `R` also integrates with [VScode](https://code.visualstudio.com/download) or emacs.
 
 Finally, the strong focus on producing good documentation and a lively community make it a fun ecosystem to interact with!
 
-### Install R on Mac OS X
+### Install `R` on Mac OS X
 
 If you are installing the `R` language on your system for the first time, we recommend that you do _not_ use the `homebrew` client to manage your installation. You should begin by ensuring that the command-line component for [Xcode](//apps.apple.com/us/app/xcode/id497799835?mt=12) is available on your system and that GNU Fortran has been installed from this [source](//cran.r-project.org/bin/macosx/tools/):
 
   - [gfortran-12.2-universal.pkg](//mac.r-project.org/tools/gfortran-12.2-universal.pkg)
   - [Xcode](//download.developer.apple.com/Developer_Tools/Command_Line_Tools_for_Xcode_15.1/Command_Line_Tools_for_Xcode_15.1.dmg)
 
-Once these prerequisites are installed, head over to [CRAN](//cran.r-project.org/bin/macosx/) and download the latest version of `R` for macOS 11 (Big Sur) and higher ([`4.3.2`](//cran.r-project.org/bin/macosx/big-sur-arm64/base/R-4.3.2-arm64.pkg) as of the last update to these instructions).
+Once these prerequisites are installed, head over to [CRAN](//cran.r-project.org/bin/macosx/) and download the latest version of `R` for macOS 11 (and higher; `R` version [`4.3.2`](//cran.r-project.org/bin/macosx/big-sur-arm64/base/R-4.3.2-arm64.pkg) as of the last update to these instructions).
 
 
 ### Environment variables
@@ -74,7 +74,7 @@ After installing `R`, you need to first set up local environment variables, eith
 
 ### Installation
 
-`coriverse` is an R metapackage, allowing us to conveniently install component R packages that address different pieces of the MDA workflow. To install, use the following steps:
+`coriverse` is an `R` metapackage, allowing us to conveniently install component `R` packages that address different pieces of the MDA workflow. To install, use the following steps:
 
 1. Ensure you have :package: `remotes` 2.4.0 or greater installed (current version as of June 2021) and `usethis`. Use `install.packages('remotes'); install.packages('usethis')` to get the latest version.
 2. Create a GitHub token:
@@ -114,7 +114,7 @@ See the [Database Onboarding](onboarding_team_db.md) section in the [wiki](https
 
 1. Create a branch of the appropriate `coriverse` package repo
 2. Write a function. All functions from external packages should reference the package with :: syntax (e.g. dplyr::filter())
-3. Save the function in the R folder of the appropriate coriverse package repo in your branch. The file name should match the function name.
+3. Save the function in the `R` folder of the appropriate coriverse package repo in your branch. The file name should match the function name.
 4. Insert a roxygen skeleton (CTRL + SHIFT + ALT + R in RStudio)
 5. Update the title, documentation of the parameters, and the return value. Add an `@import` tag for each package the function depends on. If the function uses only one or two functions from an external package, use an `@importFrom` tag for each function.
 6. If the packages the function depends on do not appear in the Imports field of the DESCRIPTION file, add the package name(s) there
