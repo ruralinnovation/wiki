@@ -2,7 +2,7 @@ project:
   type: website
 
 website:
-  title: "CORI/RISI Mapping & Data Analytics (MDA)"
+  title: "CORI/RISI Mapping & Data Analysis (MDA)"
   repo-url: https://github.com/ruralinnovation/wiki
   repo-actions: [edit, issue]
   navbar:
@@ -15,7 +15,33 @@ website:
     style: "docked"
     search: true
     contents:
-      - section: "Onboarding"
+      - section: "Infrastructure"
+        contents:
+          - Ansible.md
+          - CORI-Data-API.md
+          #          - section: "CORI Data API"
+          #            contents:
+          #              - CORI-Data-API.md
+          ##              - Adding-New-Endpoints-&-Services-to-the-Python-RESTApi.md
+          ##              - Apollo-Studio-Setup.md
+          ##              - Configuring-our-AWS-CLI-(CDK-and-SAM)-Credentials.md
+          ##              - Example-React-Map-Container-with-REACT-MAP-GL-Package.md
+          ##              - Migrating-from-CDK-V1-=--V2.md
+          ##              - Postman-Workspace-Setup-and-Configuration.md
+          ##              - R-and-Python-API-Usage.md
+          ##              - React,-AWS-Amplify-and-API-Usage.md
+          ##              - SAML-User-Pool-IdP-Authentication-Flow.md
+          ##              - Session-2-‐-2023‐10‐23.md
+          ##              - Support-Sessions.md
+          ##              - Working-with-the-GraphQL-Schemas.md
+          - Data-Security.qmd
+          - PostgreSQL-RDS-Managment.md
+          - Repository-Classification.md
+          - Metadata.md
+      - section: Knowledge
+        contents:
+          - CORI-Ontology.qmd
+      - section: "Team Onboarding"
         contents:
           - onboarding_team_db.md
           - QGIS.md
@@ -25,32 +51,6 @@ website:
           - help_I_have_a_data_team.md
           - Suggested-Code-Snippets.md
           - Spatial-Data-for-Mapping-and-Analysis.md
-      - section: Knowledge
-        contents:
-          - CORI-Ontology.qmd
-      - section: "Infrastructure"
-        contents:
-          - Ansible.md
-          - CORI-Data-API.md
-#          - section: "CORI Data API"
-#            contents:
-#              - CORI-Data-API.md
-##              - Adding-New-Endpoints-&-Services-to-the-Python-RESTApi.md
-##              - Apollo-Studio-Setup.md
-##              - Configuring-our-AWS-CLI-(CDK-and-SAM)-Credentials.md
-##              - Example-React-Map-Container-with-REACT-MAP-GL-Package.md
-##              - Migrating-from-CDK-V1-=--V2.md
-##              - Postman-Workspace-Setup-and-Configuration.md
-##              - R-and-Python-API-Usage.md
-##              - React,-AWS-Amplify-and-API-Usage.md
-##              - SAML-User-Pool-IdP-Authentication-Flow.md
-##              - Session-2-‐-2023‐10‐23.md
-##              - Support-Sessions.md
-##              - Working-with-the-GraphQL-Schemas.md
-          - Data-Security.qmd
-          - PostgreSQL-RDS-Managment.md
-          - Repository-Classification.md
-          - Metadata.md
 
 format:
   html:
