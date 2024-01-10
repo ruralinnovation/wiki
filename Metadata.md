@@ -11,10 +11,15 @@ The MDA tracks a variety of metadata on high-traffic tables. Metadata is informa
 ## When should Metadata be updated?
 
 Metadata should always be created for:
-  * All new source data sets
-  * All product data sets (data sets exposed in a tool or MDA-derived data sets used across projects, e.g. Location Analysis)
+  * All active source data sets (data stored in database after ETL, not necessarily raw source data).
+  * All product data sets (data sets exposed in a tool or MDA-derived data sets used across projects, i.e. Climate Resiliency data)
+  * Data produced for a specific (terminal) project does not necessarily require metadata, this is left to the discretion of the analyst.
 
 Additionally, if you plan to expose the data set (schema + table within the PostgreSQL RDS instance) that you are working on to _anyone_ else in the organization, you need to add Metadata.
+
+## When should Metadata be removed?
+
+When source data is removed from the database.
 
 ## Who is responsible for creating and updating metadata?
 
