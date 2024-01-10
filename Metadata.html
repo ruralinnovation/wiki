@@ -255,6 +255,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#what-is-metadata" id="toc-what-is-metadata" class="nav-link active" data-scroll-target="#what-is-metadata">What is Metadata?</a></li>
   <li><a href="#when-should-metadata-be-updated" id="toc-when-should-metadata-be-updated" class="nav-link" data-scroll-target="#when-should-metadata-be-updated">When should Metadata be updated?</a></li>
+  <li><a href="#when-should-metadata-be-removed" id="toc-when-should-metadata-be-removed" class="nav-link" data-scroll-target="#when-should-metadata-be-removed">When should Metadata be removed?</a></li>
   <li><a href="#who-is-responsible-for-creating-and-updating-metadata" id="toc-who-is-responsible-for-creating-and-updating-metadata" class="nav-link" data-scroll-target="#who-is-responsible-for-creating-and-updating-metadata">Who is responsible for creating and updating metadata?</a></li>
   <li><a href="#how-to-update-metadata-via-coriverse" id="toc-how-to-update-metadata-via-coriverse" class="nav-link" data-scroll-target="#how-to-update-metadata-via-coriverse">How to update Metadata via <code>coriverse</code></a></li>
   </ul>
@@ -271,8 +272,12 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="when-should-metadata-be-updated" class="level2">
 <h2 class="anchored" data-anchor-id="when-should-metadata-be-updated">When should Metadata be updated?</h2>
-<p>Metadata should always be created for: * All new source data sets * All product data sets (data sets exposed in a tool or MDA-derived data sets used across projects, e.g.&nbsp;Location Analysis)</p>
+<p>Metadata should always be created for: * All active source data sets (data stored in database after ETL, not necessarily raw source data). * All product data sets (data sets exposed in a tool or MDA-derived data sets used across projects, i.e.&nbsp;Climate Resiliency data) * Data produced for a specific (terminal) project does not necessarily require metadata, this is left to the discretion of the analyst.</p>
 <p>Additionally, if you plan to expose the data set (schema + table within the PostgreSQL RDS instance) that you are working on to <em>anyone</em> else in the organization, you need to add Metadata.</p>
+</section>
+<section id="when-should-metadata-be-removed" class="level2">
+<h2 class="anchored" data-anchor-id="when-should-metadata-be-removed">When should Metadata be removed?</h2>
+<p>When source data is removed from the database.</p>
 </section>
 <section id="who-is-responsible-for-creating-and-updating-metadata" class="level2">
 <h2 class="anchored" data-anchor-id="who-is-responsible-for-creating-and-updating-metadata">Who is responsible for creating and updating metadata?</h2>

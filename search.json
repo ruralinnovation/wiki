@@ -256,7 +256,14 @@
     "href": "Metadata.html#when-should-metadata-be-updated",
     "title": "CORI/RISI Mapping & Data Analysis (MDA)",
     "section": "When should Metadata be updated?",
-    "text": "When should Metadata be updated?\nMetadata should always be created for: * All new source data sets * All product data sets (data sets exposed in a tool or MDA-derived data sets used across projects, e.g. Location Analysis)\nAdditionally, if you plan to expose the data set (schema + table within the PostgreSQL RDS instance) that you are working on to anyone else in the organization, you need to add Metadata."
+    "text": "When should Metadata be updated?\nMetadata should always be created for: * All active source data sets (data stored in database after ETL, not necessarily raw source data). * All product data sets (data sets exposed in a tool or MDA-derived data sets used across projects, i.e. Climate Resiliency data) * Data produced for a specific (terminal) project does not necessarily require metadata, this is left to the discretion of the analyst.\nAdditionally, if you plan to expose the data set (schema + table within the PostgreSQL RDS instance) that you are working on to anyone else in the organization, you need to add Metadata."
+  },
+  {
+    "objectID": "Metadata.html#when-should-metadata-be-removed",
+    "href": "Metadata.html#when-should-metadata-be-removed",
+    "title": "CORI/RISI Mapping & Data Analysis (MDA)",
+    "section": "When should Metadata be removed?",
+    "text": "When should Metadata be removed?\nWhen source data is removed from the database."
   },
   {
     "objectID": "Metadata.html#who-is-responsible-for-creating-and-updating-metadata",
