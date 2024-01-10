@@ -1,5 +1,17 @@
 # PostgreSQL-RDS-Managment
 
+What kind of data is "legacy" data? 
+what kind of data should be "versionned"? here we need stable structure
+  what can be candidate for that -> fcc county? 
+FCC annualized it (standardize?) -> to what extend are we supporting this pipeline 
+
+storing archive in "cheap format" that can be queried outside of PG (option are OLAP DB/filesystem)? -> paws / targets
+
+Maybe do not use acs schema and just use it for/inside TED 
+
+caching -> S3 / not team wide
+
+Archive -> team wide
 
 🏗️ This page is under construction! 🏗️
 =======================================
