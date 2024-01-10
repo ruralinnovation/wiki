@@ -490,6 +490,13 @@
     "text": "The following has been extracted from AWS Docs (with added info for more clarity and context):\n\n\nSAML User Pool IdP Authentication Flow\n\nYou can integrate SAML-based IdPs directly from your user pool.\n\nThe app starts the sign-up and sign-in process by directing your user to the UI hosted by AWS. A mobile app can use web view to show the pages hosted by AWS.\nTypically, your user pool determines the IdP for your user from that user’s email address.\n\nAlternatively, if your app gathered information before directing the user to your user pool, it can provide that information to Amazon Cognito through a query parameter.\n\nYour user is redirected to the IdP.\nThe IdP authenticates the user if necessary. If the IdP recognizes that the user has an active session, the IdP skips the authentication to provide a single sign-in (SSO) experience.\nThe IdP POSTs the SAML assertion to the Amazon Cognito service.\n\n\nNote Amazon Cognito cancels authentication requests that do not complete within 5 minutes, and redirects the user to the hosted UI. The page displays a Something went wrong error message.\n\n\nAfter verifying the SAML assertion and collecting the user attributes (claims) from the assertion, Amazon Cognito internally creates or updates the user’s profile in the user pool. Amazon Cognito returns OIDC tokens to the app for the now signed-in user.\n\nThe following diagram shows the authentication flow for this process:\n\n\n\nimage"
   },
   {
+    "objectID": "PostgreSQL-RDS-Managment.html",
+    "href": "PostgreSQL-RDS-Managment.html",
+    "title": "PostgreSQL-RDS-Managment",
+    "section": "",
+    "text": "What kind of data is “legacy” data? what kind of data should be “versionned”? here we need stable structure what can be candidate for that -&gt; fcc county? FCC annualized it (standardize?) -&gt; to what extend are we supporting this pipeline\nstoring archive in “cheap format” that can be queried outside of PG (option are OLAP DB/filesystem)? -&gt; paws / targets\nMaybe do not use acs schema and just use it for/inside TED\ncaching -&gt; S3 / not team wide\nArchive -&gt; team wide"
+  },
+  {
     "objectID": "PostgreSQL-RDS-Managment.html#database-migration-update-2023-11-20",
     "href": "PostgreSQL-RDS-Managment.html#database-migration-update-2023-11-20",
     "title": "PostgreSQL-RDS-Managment",
