@@ -280,6 +280,13 @@
     "text": "How to update Metadata via coriverse\nFor instruction on creating and accessing MDA metadata, visit the cori_db wiki."
   },
   {
+    "objectID": "Metadata.html#works-on-metadata",
+    "href": "Metadata.html#works-on-metadata",
+    "title": "CORI/RISI Mapping & Data Analysis (MDA)",
+    "section": "works on Metadata",
+    "text": "works on Metadata\n\nglobal level view\nwe have: - tables in DB (data-prod / data ?), tables can support products and/or analysis or be temporary - a schema (multiple tables) that are referencing those information (metadata) - an R package (cori.db) that are helping updating Metadata - someone need to either fill a csv and/or write the description for the metadata to be complete - metadata can be a dependency on other tools - it has a “visualizer”: CORI explorer &lt;- dependencies on metadata function\nList of specific tables:\n# [1] \"acs_metadata\"         \"field_metadata\"      \n# [3] \"source_metadata\"      \"product_metadata\"    \n# [5] \"table_metadata\"       \"pipeline_diagnostics\"\n\n\ncori.db functions and a yaml dealing with metadata\nyaml (nst/params/package_params.yml) with the structure of 3 tables : - source_metadata - field_metadata - table_metadata:\nie only those 3 tables are supported by cori.db - create_metadata_tables() is the first function to run for new data set it has the yaml as dependency, can be run with a df or without, by default write 3 .csv, if a df is provided it will return one of the csv with the column name already filled\n\nupdate_metadata() take con, and need field_meta, table_meta, source_meta to exist and be valid df or exit the cols of the 3 must be same as yaml or stop if the data are already in metadata it will ask the user if he want to override it\n\n(Pot. improvement: it will break in a non interactive sessions)\nrepeat the process for the 3 tables\nglue produce multiple queries hence the need to Vectorize\nthen it deletes and append (times 3)\n\nread_db() (using pull_metadata) by default it will check if the table is present in 3 tables and save a 3 csv for them with select row\nacs metadata is updated here https://github.com/ruralinnovation/data-acs/blob/master/99_update_metadata.R it uses prev function update_metadata and DBI::dbWriteTable(con, “acs_metadata”, codebook, overwrite = TRUE) be careful update_metadata is commented out in main branch\n\n\n\nTODO product to metadata\n\nmetadata in MVP state\nupdate our tools in production: BEAD / CH\ncori.utils check\nside not unsure if dplyr::add_rows should be added here"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Enter the coriverse!",
