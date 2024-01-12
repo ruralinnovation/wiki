@@ -28,3 +28,60 @@ Data is typically either source data or generated for specific products or proje
 ## How to update Metadata via `coriverse`
 
 For instruction on creating and accessing MDA metadata, visit the [cori_db wiki](https://github.com/ruralinnovation/cori_db/wiki/Metadata).
+
+## works on Metadata
+
+### global level view
+
+we have:
+- tables in DB (data-prod / data ?), tables can support products and/or analysis or be temporary
+- a schema (multiple tables) that are referencing those information (metadata)
+- an R package (cori.db) that are helping updating Metadata
+- someone need to either fill a csv and/or write the description for the metadata to be complete
+- metadata can be a dependency on other tools
+- it has a "visualizer": CORI explorer  <- dependencies on metadata function
+
+List of specific tables: 
+``` r
+# [1] "acs_metadata"         "field_metadata"      
+# [3] "source_metadata"      "product_metadata"    
+# [5] "table_metadata"       "pipeline_diagnostics"
+```
+
+### cori.db functions and a yaml dealing with metadata
+
+yaml (nst/params/package_params.yml) with the structure of 3 tables :
+- source_metadata
+- field_metadata
+- table_metadata:
+
+ie only those 3 tables are supported by cori.db 
+- `create_metadata_tables()` is the first function to run for new data set 
+it has the yaml as dependency, can be run with a df or without, 
+by default write 3 .csv, if a df is provided it will 
+return one of the csv with the column name already filled
+
+- `update_metadata()` take con, and need field_meta, table_meta, source_meta to exist and be valid df or exit 
+ the cols of the 3 must be same as yaml or stop
+ if the data are already in metadata it will ask the user if he want to override it
+
+ (Pot. improvement: it will break in a non interactive sessions)
+ 
+ repeat the process for the 3 tables 
+ 
+ glue produce multiple queries hence the need to Vectorize 
+ 
+ then it deletes and append (times 3)
+
+ - `read_db()` (using pull_metadata) by default it will check if the table is 
+present in 3 tables and save a 3 csv for them with select row
+
+ - acs metadata is updated here https://github.com/ruralinnovation/data-acs/blob/master/99_update_metadata.R
+ it uses prev function update_metadata and DBI::dbWriteTable(con, "acs_metadata", codebook, overwrite = TRUE)
+ be careful update_metadata is commented out in main branch
+
+### TODO product to metadata
+-  metadata in MVP state
+-  update our tools in production: BEAD / CH 
+- cori.utils check
+- side not unsure if dplyr::add_rows should be added here
