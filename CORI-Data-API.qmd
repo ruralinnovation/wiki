@@ -385,8 +385,7 @@ The Python Microservices are located in the `python-lambdas` directory.
 ```text
 
 ├── dependency-layer                        # Shared dependency/libraries layer
-├── bcat                                    # BCAT Service
-├── local                                   # Local Development service
+├── rest                                    # Lambda entry point to RESTful services
 └── scaffolding                             # Scaffolding for new service (See Creating New Service Section)
 
 ```
@@ -456,12 +455,12 @@ cp -r ./.env/lib/python3.8/site-packages ./dist/python
 
 ## Creating New Services
 
-1. Copy/paste scaffolding directory
+1. Copy/paste scaffolding directory to a new folder under the `rest` directory
 2. Rename service directory and the name in the `pyproject.toml` file
-3. Update `index.py` with custom endpoints and logic.
+3. Create  `__init__.py` with custom functions and logic.
 4. [OPTIONAL]: Update `___.robot` testing files with testing logic.
 5. [OPTIONAL]: Add new integration tests in `./packages/infrastructure/spec/integration-test.spec.ts`.
-6. Create a new ApiEndpoint in the ApiStack with the new service as handler for the endpoints. (see Creating a new Api Endpoint)
+6. The RESTful component uses a single ApiEndpoint, so import functions from the new Python module into `rest/index.py` and add relevant endpoints with Flask's `app.add_url_rule(...)` syntax. ~~Create a new ApiEndpoint in the ApiStack with the new service as handler for the endpoints. (see Creating a new Api Endpoint)~~
 7. Push changes to current branch to re-deploy with pipeline.
 8. Check Integration Tests Step in `CodePipeline` interface.
 9. [OPTIONAL]: Once the new endpoints are deployed you can add new integration tests and run them locally.  You cannot use the integration tests on new endpoints until they are available.
