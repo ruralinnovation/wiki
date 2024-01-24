@@ -1,3 +1,16 @@
+---
+title: ""
+execute:
+  echo: true
+  output: true
+  message: false
+  warning: false
+format:
+  gfm:
+    toc: false
+---
+
+
 CORI Data API
 =============
 
@@ -5,8 +18,8 @@ CORI Data API
 
 The [`cori-data-api`](https://github.com/ruralinnovation/cori-data-api/) repository (as distinct from the `cori.data.api` package) houses all the code to:
 
-1. Create a RestApi with Python Lambdas connecting to a PostgreSQL Database.
-2. Create a GraphQL Api with Typescript Lambdas connecting to the Python RestAPI (as a DataSource).
+1. Create a RESTful component of the API with Python Lambdas connecting to a PostgreSQL Database.
+2. Create a GraphQL Api with Typescript Lambdas connecting to the RESTful component of the API (as a DataSource).
 3. Create a CICD Pipeline that connects to this Github repository, is triggered on commits/PRs to specific branches, and re-builds and re-deploys the two updated APIs.
 
 # Architecture
@@ -147,7 +160,7 @@ python-lambdas
 
 # Database Integration
 
-The main data source for the APIs is a PostgreSQL RDS hosted in AWS. The Python RestAPI is the only integration point to the database. All endpoints provisioned in the Python RestAPI are served by Python lambdas that house the database queries, and transformations.
+The main data source for the APIs is a PostgreSQL RDS hosted in AWS. The RESTful component of the API is the only integration point to the database. All endpoints provisioned in the RESTful component of the API are served by Python functions that house the database queries, and transformations.
 
 The Python lambdas are located in the same VPC as the PostgreSQL RDS database. These lambdas have no connection to the public internet to protect the database. In addition, the RestAPI is a READ_ONLY API, which allows us to create a READ_ONLY database user/role for the lambdas to use for database access, which limits security risks.
 
@@ -157,13 +170,13 @@ The Python lambdas are located in the same VPC as the PostgreSQL RDS database. T
 
 #### Create a READ_ONLY user
 
-1. Log in to database as admin with psql
+1. Log into the database as admin with psql
 2. Create read only role and new user with:
 
 ```sql
 CREATE ROLE read_only_access;
 
-GRANT CONNECT ON DATABASE (DB_NAME} TO read_only_access;
+GRANT CONNECT ON DATABASE data TO read_only_access;
 
 GRANT USAGE ON SCHEMA public TO read_only_access;
 
@@ -171,7 +184,7 @@ GRANT SELECT ON ALL TABLES IN SCHEMA public TO read_only_access;
 
 GRANT SELECT ON ALL TABLES IN SCHEMA bcat TO read_only_access;
 
-CREATE USER read_only_user WITH PASSWORD  ________________;
+CREATE USER read_only_user WITH PASSWORD  '________________';
 
 GRANT read_only_access TO read_only_user;
 ```
@@ -412,13 +425,15 @@ Psycopg is the most popular PostgreSQL adapter for the Python programming langua
 
 #### AWS Python Lambda Powertools
 
-We leverage AWS Lambda Powertools library, which is a suite of utilities for AWS Lambda functions to ease adopting best practices such as tracing, structured logging, custom metrics, idempotency, batching, and more.
+The Python function for the RESTful portion of the API are now using the Flask framework.
 
-Check out this [detailed blog post](https://aws.amazon.com/blogs/opensource/simplifying-serverless-best-practices-with-lambda-powertools/) with a practical example.
+~~We leverage AWS Lambda Powertools library, which is a suite of utilities for AWS Lambda functions to ease adopting best practices such as tracing, structured logging, custom metrics, idempotency, batching, and more.~~
 
-In our experience it has a developer friendly (Flask-like) Api. It makes it very easy to configure routing/endpoints in each Python Microservice.
+~~Check out this [detailed blog post](https://aws.amazon.com/blogs/opensource/simplifying-serverless-best-practices-with-lambda-powertools/) with a practical example.~~
 
-For more information [READ THE DOCS](https://awslabs.github.io/aws-lambda-powertools-python/latest/)
+~~In our experience it has a developer friendly (Flask-like) Api. It makes it very easy to configure routing/endpoints in each Python Microservice.~~
+
+~~For more information [READ THE DOCS](https://awslabs.github.io/aws-lambda-powertools-python/latest/)~~
 
 ### Adding New Dependencies to the Layer
 
@@ -472,6 +487,8 @@ This stack is located at: `packages/infrastructure/src/stacks/ApiStack.ts`
 Familiarize yourself with the `ApiStackProps` specified at the top of the file. These props are all the required and optional parameters that drive the configuration and deployment of the two APis and supporting lambdas, the networking, the hosting and the authentication.
 
 ```Typescript
+import { StackProps } from "aws-cdk-lib";
+// ...
 
 export interface DatabaseConfig {
   vpcId: string;
@@ -670,7 +687,7 @@ Creates Api Gateway with Cognito Authorization.  Has supporting methods for addi
 The `Hosting Construct` is responsible for:
 
 1. Create a Cloudfront Distribution.
-2. Create origin on `/` path for Python RestApi
+2. Create origin on `/` path for RESTful component of the API (Python)
 3. Create origin on `/graphql` path for Apollo Server.
 4. Create bucket for access logs.
 
