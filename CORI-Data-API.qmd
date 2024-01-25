@@ -458,8 +458,8 @@ cp -r ./.env/lib/python3.8/site-packages ./dist/python
 1. Copy/paste scaffolding directory to a new folder under the `rest` directory
 2. Rename service directory and the name in the `pyproject.toml` file
 3. Create  `__init__.py` with custom functions and logic.
-4. [OPTIONAL]: Update `___.robot` testing files with testing logic.
-5. [OPTIONAL]: Add new integration tests in `./packages/infrastructure/spec/integration-test.spec.ts`.
+4. _OPTIONAL_: Update `___.robot` testing files with testing logic.
+5. _OPTIONAL_: Add new integration tests in `./packages/infrastructure/spec/integration-test.spec.ts`.
 6. The RESTful component uses a single ApiEndpoint, so import functions from the new Python module into `rest/index.py` and add relevant endpoints with Flask's `app.add_url_rule(...)` syntax. ~~Create a new ApiEndpoint in the ApiStack with the new service as handler for the endpoints. (see Creating a new Api Endpoint)~~
 7. Push changes to current branch to re-deploy with pipeline.
 8. Check Integration Tests Step in `CodePipeline` interface.
