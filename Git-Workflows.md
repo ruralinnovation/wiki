@@ -4,9 +4,11 @@
 
 Git is a Distributed Version Control System (yup non distributed exist). Being "distributed" allows you to own nearly all the files. 
 
-GitHub started has an hosting plateform for remote repository of Git. Now it is a social media, a CI/CD plateform and more. Github is an "opinionated" version of Git. 
+GitHub started has an hosting plateform for remote repository of Git. Now it is a social media, a forge, a CI/CD plateform and more. Github is an "opinionated" version of Git. 
 
-Few big difference between git and other VCS worth noting: git track change at the line level, just add stuff. 
+Few big difference between git and other VCS worth noting: git track change at the line level and it just add stuff. 
+
+Git works with a "tree" structure hence you can keep that analogy in mind. You are always working on a "branch"  (by default just one branch: `main`/`master`, `trunck` is an other commun name).  
 
 ## Git From the Command Line: Core commands
 
@@ -18,7 +20,7 @@ Few big difference between git and other VCS worth noting: git track change at t
 
 ---------------------
 
-`git pull`: Pull changes and files from GitHub into your local repository. By default (ie with a non modified steup) a `git pull` does a `git fetch` and a `git merge` (or attempt to).
+`git pull`: Pull changes and files from GitHub into your local repository. By default (ie with a non modified setup) a `git pull` does a `git fetch` and a `git merge` (or attempt to).
 
 ---------------------
 
@@ -34,7 +36,22 @@ Few big difference between git and other VCS worth noting: git track change at t
 
 ---------------------
 
+`git status` is telling you what is going one. `git diff` is more precise and usually integrated in your IDE. 
+
+---------------------
+
 `git push`: Push local changes and files up to GitHub
+
+## A typical git/github set up / workflow
+
+You will have a repository in one local computer(s) and one in GH. Sometimes I like having one in my GH space, one in CORI. The benefit is that I can mess up my GH space while not screwing the CORI's one. The draw backs are that I need to be more careful how my git local is setup (ie what is define as my `remotes` and `upstream`). 
+
+You can also use git without having a remote repository. 
+
+The connection to git is done with SSH. 
+
+In git a file can be not tracked (see `.gitignore`/`.gitkeep`), unmodified, modified, staged. If a file is tracked (you asked git to keep track of it with `git add [file]`) then this file can be modified or not. The first time you add a file it is modified because git knows nothing about it. Then you can "staged" it, if a file "modified" is "staged" it goes to unmodified (until modification were done on it).  A commit is creating a new "node" in your tree of files that are "staged". 
+
 
 ## GitHub Workflow:
 
@@ -43,7 +60,7 @@ It is good practices to add important changes in a new branch and send it for a 
 - Create a PR with your commits (push it to remote repo) 
 - Get it reviewed by someone on the team - in GH / their local repository.
    
-You can inside of GitHub ask for a Reviewers, assign someone (Assignees) to do the merge (a Pull Request, is a merge inside of GitHub) or set up deadline (see at the right of the screan)
+You can inside of GitHub ask for a Reviewers, assign someone (Assignees) to do the merge (a Pull Request, is a merge inside of GitHub). 
 
 Once approved the PR you should not keep track of it inside of GitHub (the branch will still be inside of your local repo) and you should delete it. Github allow you to automatically do it: it is in the `setting` of the repo nearly at the bottom:
 
@@ -55,4 +72,5 @@ Once approved the PR you should not keep track of it inside of GitHub (the branc
 - happy git with R : https://happygitwithr.com/
 - git pro : https://git-scm.com/book/en/v2
 - https://ohshitgit.com/ (NB most of it concerns git not github)
-- A comics version: https://wizardzines.com/zines/oh-shit-git/ (a new zines should be available soon) 
+- A comics version: https://wizardzines.com/zines/oh-shit-git/ (a new zines should be available soon)
+- MIT missing semester: https://missing.csail.mit.edu/2020/version-control/
