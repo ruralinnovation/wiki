@@ -264,6 +264,7 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#quick-definitions" id="toc-quick-definitions" class="nav-link" data-scroll-target="#quick-definitions">Quick definitions</a></li>
   <li><a href="#git-from-the-command-line-core-commands" id="toc-git-from-the-command-line-core-commands" class="nav-link" data-scroll-target="#git-from-the-command-line-core-commands">Git From the Command Line: Core commands</a></li>
+  <li><a href="#a-typical-gitgithub-set-up-workflow" id="toc-a-typical-gitgithub-set-up-workflow" class="nav-link" data-scroll-target="#a-typical-gitgithub-set-up-workflow">A typical git/github set up / workflow</a></li>
   <li><a href="#github-workflow" id="toc-github-workflow" class="nav-link" data-scroll-target="#github-workflow">GitHub Workflow:</a></li>
   <li><a href="#ressources" id="toc-ressources" class="nav-link" data-scroll-target="#ressources">Ressources</a></li>
   </ul></li>
@@ -281,8 +282,9 @@ ul.task-list li input[type="checkbox"] {
 <section id="quick-definitions" class="level2">
 <h2 class="anchored" data-anchor-id="quick-definitions">Quick definitions</h2>
 <p>Git is a Distributed Version Control System (yup non distributed exist). Being “distributed” allows you to own nearly all the files.</p>
-<p>GitHub started has an hosting plateform for remote repository of Git. Now it is a social media, a CI/CD plateform and more. Github is an “opinionated” version of Git.</p>
-<p>Few big difference between git and other VCS worth noting: git track change at the line level, just add stuff.</p>
+<p>GitHub started has an hosting plateform for remote repository of Git. Now it is a social media, a forge, a CI/CD plateform and more. Github is an “opinionated” version of Git.</p>
+<p>Few big difference between git and other VCS worth noting: git track change at the line level and it just add stuff.</p>
+<p>Git works with a “tree” structure hence you can keep that analogy in mind. You are always working on a “branch” (by default just one branch: <code>main</code>/<code>master</code>, <code>trunck</code> is an other commun name).</p>
 </section>
 <section id="git-from-the-command-line-core-commands" class="level2">
 <h2 class="anchored" data-anchor-id="git-from-the-command-line-core-commands">Git From the Command Line: Core commands</h2>
@@ -295,7 +297,7 @@ ul.task-list li input[type="checkbox"] {
 </figure>
 </div>
 <hr>
-<p><code>git pull</code>: Pull changes and files from GitHub into your local repository. By default (ie with a non modified steup) a <code>git pull</code> does a <code>git fetch</code> and a <code>git merge</code> (or attempt to).</p>
+<p><code>git pull</code>: Pull changes and files from GitHub into your local repository. By default (ie with a non modified setup) a <code>git pull</code> does a <code>git fetch</code> and a <code>git merge</code> (or attempt to).</p>
 <hr>
 <p><code>git checkout -b &lt;new_branch&gt;</code>: Allow you to create a new branch and go into it (<code>git checkout</code> allow you to navigate git graph)</p>
 <hr>
@@ -303,7 +305,16 @@ ul.task-list li input[type="checkbox"] {
 <hr>
 <p><code>git commit</code>: The expanded form is <code>git commit -am 'commit message'</code>. This tells Git to commit everything on the working tree (<code>-a</code>) and add a message (<code>-m</code>).</p>
 <hr>
+<p><code>git status</code> is telling you what is going one. <code>git diff</code> is more precise and usually integrated in your IDE.</p>
+<hr>
 <p><code>git push</code>: Push local changes and files up to GitHub</p>
+</section>
+<section id="a-typical-gitgithub-set-up-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="a-typical-gitgithub-set-up-workflow">A typical git/github set up / workflow</h2>
+<p>You will have a repository in one local computer(s) and one in GH. Sometimes I like having one in my GH space, one in CORI. The benefit is that I can mess up my GH space while not screwing the CORI’s one. The draw backs are that I need to be more careful how my git local is setup (ie what is define as my <code>remotes</code> and <code>upstream</code>).</p>
+<p>You can also use git without having a remote repository.</p>
+<p>The connection to git is done with SSH.</p>
+<p>In git a file can be not tracked (see <code>.gitignore</code>/<code>.gitkeep</code>), unmodified, modified, staged. If a file is tracked (you asked git to keep track of it with <code>git add [file]</code>) then this file can be modified or not. The first time you add a file it is modified because git knows nothing about it. Then you can “staged” it, if a file “modified” is “staged” it goes to unmodified (until modification were done on it). A commit is creating a new “node” in your tree of files that are “staged”.</p>
 </section>
 <section id="github-workflow" class="level2">
 <h2 class="anchored" data-anchor-id="github-workflow">GitHub Workflow:</h2>
@@ -312,7 +323,7 @@ ul.task-list li input[type="checkbox"] {
 <li>Create a PR with your commits (push it to remote repo)</li>
 <li>Get it reviewed by someone on the team - in GH / their local repository.</li>
 </ul>
-<p>You can inside of GitHub ask for a Reviewers, assign someone (Assignees) to do the merge (a Pull Request, is a merge inside of GitHub) or set up deadline (see at the right of the screan)</p>
+<p>You can inside of GitHub ask for a Reviewers, assign someone (Assignees) to do the merge (a Pull Request, is a merge inside of GitHub).</p>
 <p>Once approved the PR you should not keep track of it inside of GitHub (the branch will still be inside of your local repo) and you should delete it. Github allow you to automatically do it: it is in the <code>setting</code> of the repo nearly at the bottom:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -328,6 +339,7 @@ ul.task-list li input[type="checkbox"] {
 <li>git pro : https://git-scm.com/book/en/v2</li>
 <li>https://ohshitgit.com/ (NB most of it concerns git not github)</li>
 <li>A comics version: https://wizardzines.com/zines/oh-shit-git/ (a new zines should be available soon)</li>
+<li>MIT missing semester: https://missing.csail.mit.edu/2020/version-control/</li>
 </ul>
 
 
