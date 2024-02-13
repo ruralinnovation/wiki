@@ -165,7 +165,7 @@ See the [Database Onboarding](onboarding_team_db.md) section in the [wiki](https
 ```
 -->
 
-![](whole-game.svg)
+![](img/whole-game.svg)
 
 <!--
 <a href="https://r-pkgs.org/whole-game.html" target="_blank">

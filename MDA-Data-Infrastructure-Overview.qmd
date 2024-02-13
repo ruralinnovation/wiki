@@ -8,7 +8,7 @@ execute:
 ---
 
 <div style="background-color: #fff"><a href="" target="_blank" style="background-color: #fff">
-![](MDA%20Data%20Infrastructure.svg)
+![](img/MDA%20Data%20Infrastructure.svg)
 <!--
 <img src="MDA%20Data%20Infrastructure.svg" alt="mermaid-diagram" style="background-color: #fff" width="100%" />
 -->
@@ -16,4 +16,6 @@ execute:
 </div>
 <br/>
 
-![](MDA%20Data%20Flow.svg)
+<!--
+![](MDA%20Data%20Flow.svg
+-->
