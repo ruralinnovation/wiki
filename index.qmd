@@ -8,4 +8,6 @@ As the Mapping and Data Analytics team, we are responsible for the foundational 
 
 > Note: See [CORI/RISI Ontology](CORI-Ontology.qmd) to follow/contribute to our refinement of the relevant terms of our analysis.
 
+<hr />
+
 {{< include README.qmd >}}
