@@ -35,6 +35,13 @@ It will only attach:
 
 This package can be installed by using `devtools` or `remotes`.
 
+### Setup for Development
+
+Once you have all the dependencies installed, to build and install this package from the local project directory, run:
+```r
+pkgbuild::clean_dll(); pkgbuild::compile_dll(); devtools::document(); devtools::check(); devtools::install();
+```
+
 ### Why `R`
 
 [`R`](https://www.r-project.org/) is used for several reasons. The first one is probably historical: at the beginning the team had a lot of `R` users. Now `R` is used as our main "glue" language. It fills the gap between the data analysis requirements and the data engineering and software development requirements of our various projects.
