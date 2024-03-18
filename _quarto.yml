@@ -56,7 +56,7 @@ website:
 
 format:
   html:
-    theme: slate
+    theme: minty 
     css: styles.css
     toc: true
 
