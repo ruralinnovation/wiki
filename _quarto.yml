@@ -15,6 +15,10 @@ website:
     style: "docked"
     search: true
     contents:
+      - section: "Capabilities & Knowledge"
+        contents:
+          - Broadband-Consulting-Tech-Requirements.qmd
+          - CORI-Ontology.qmd
       - section: "Infrastructure"
         contents:
           - Ansible.md
@@ -38,15 +42,13 @@ website:
           - PostgreSQL-RDS-Managment.md
           - Repository-Classification.md
           - Metadata.md
-      - section: Knowledge
-        contents:
-          - CORI-Ontology.qmd
       - section: "Team Onboarding"
         contents:
           - onboarding_team_db.md
           - QGIS.md
           - The-coriverse-suite-of-packages.md
           - MDA-Style-Guide.md
+          - G-Drive-Practice.qmd
           - Git-Workflows.md
           - help_I_have_a_data_team.md
           - Suggested-Code-Snippets.md

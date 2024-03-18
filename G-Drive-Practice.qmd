@@ -1,0 +1,12 @@
+---
+title: "Google Drive Practice"
+execute:
+  echo: true
+  output: true
+  message: false
+  warning: false
+---
+
+[MDA Shared Drive](https://drive.google.com/drive/folders/0AEeONsPzOd08Uk9PVA)
+
+Drew recommends ...
