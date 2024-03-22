@@ -47,7 +47,7 @@ To do this we need:
       - Some geography selection is by **name**
         - Ability to map names to geospatial representations
       - Would block-selector tool be helpful?
-        - +support for automatically suggesting block set mappings for non-standard geographic features as well, as mapping to geographically-relevant names (within limited/scoped contexts)
+        - +support for automatically suggesting block set mappings for non-standard geographic features as well as mapping to geographically-relevant names (within limited/scoped contexts)
 
 <hr />
 
