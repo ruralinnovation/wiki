@@ -18,6 +18,7 @@ To do this we need:
         - Currently, this capability is primarily supported by Carto
         - Potential enablement with ArcGIS Online:
           - “_it seemed like a better version of Carto_” - Myles
+        - Felt is also nice https://felt.com/ and work with QGIS
   - Understanding of telecommunications **infrastructure** and landscape:
       - **Where** is/is not
          - Operating footprint
@@ -31,7 +32,9 @@ To do this we need:
         - Funding history (previous grant recipient?)
       - **Density** of (potential) subscribers
       - **Social/Demographic** analysis of (potential) subscribers
-          - Calculate route miles needed for potential deployments in more sophisticated manner
+          - Calculate route miles needed for potential deployments in more sophisticated manner  
+      - at which **scale/granularity** (resoltion): what is the best resolution to provide valuable insight without glutting everythings?
+     
   - Understanding **actual performance** (average speeds) of broadband networks
   - Understanding **physical topology** (layout) of existing network
       - Ability to **model** and **compare** models of potential (future) **physical topology** of networks
@@ -47,7 +50,7 @@ To do this we need:
       - Some geography selection is by **name**
         - Ability to map names to geospatial representations
       - Would block-selector tool be helpful?
-        - +support for automatically suggesting block set mappings for non-standard geographic features as well, as mapping to geographically-relevant names (within limited/scoped contexts)
+        - +support for automatically suggesting block set mappings for non-standard geographic features as well as mapping to geographically-relevant names (within limited/scoped contexts)
 
 <hr />
 
