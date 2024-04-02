@@ -1,0 +1,17 @@
+---
+title: "BEAD Changelog"
+execute:
+  echo: true
+  output: true
+  message: false
+  warning: false
+---
+
+
+2024-03-27 Updates for version 2
+
+  - ...
+  - ...
+  - ...
+
+

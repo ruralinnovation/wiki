@@ -1,0 +1,22 @@
+---
+title: "Research Consulting Tech Support"
+execute:
+  echo: true
+  output: true
+  message: false
+  warning: false
+---
+
+_Note: What follows if from the start of an MDA discussion about the ways we can/cannot provide access to data (for research)..._
+
+We approve access to the following datasets, in the following ways:
+
+- `acs`
+    - Google Sheets (?)
+    - R (YES, BUT we cannot QC or guarantee the _resulting_ work product)
+    - Tableau (YES,...)
+
+- `...`
+
+
+<hr />
