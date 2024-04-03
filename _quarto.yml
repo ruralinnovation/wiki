@@ -62,5 +62,7 @@ format:
     css: styles.css
     toc: true
 
-
-
+resources:
+  - "data/*"
+  - "img/*"
+  - "img/MDA Data Infrastructure_files/*"
