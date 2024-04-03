@@ -1,4 +1,5 @@
 .[A-Za-z]*
 
+/data/
 /.quarto/
 _site/
