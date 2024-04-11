@@ -135,6 +135,16 @@ See the [Database Onboarding](onboarding_team_db.md) section in the [wiki](https
 1-7 are parts of "The Whole Game", the 1st chapter in the _Getting Started_ section of **[R Packages](https://r-pkgs.org/)** from Hadley Wickham and Jenny Bryan and can be visualized here:
 
 <!--
+<a href="https://r-pkgs.org/whole-game.html" target="_blank">
+<img src="img/whole-game.svg"
+     alt="mermaid-diagram"
+     align="left"
+     width="100%" />
+</a>
+_Visualizing "the Whole Game"_
+-->
+
+<!--
 ```{mermaid}
 %%{init: {'theme': 'forest'}}%%
 %%flowchart
@@ -175,16 +185,6 @@ See the [Database Onboarding](onboarding_team_db.md) section in the [wiki](https
 -->
 
 ![](img/whole-game.svg)
-
-<!--
-<a href="https://r-pkgs.org/whole-game.html" target="_blank">
-<img src="whole-game.svg"
-     alt="mermaid-diagram"
-     align="left"
-     width="100%" />
-</a>
-_Visualizing "the Whole Game"_
--->
 
 <hr />
 

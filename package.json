@@ -23,8 +23,8 @@
     "build": "npm run render:mermaid && quarto render --output-dir _site",
     "clean": "rm -rf _site/*",
     "preview": "quarto preview",
-    "render:mermaid": "mmdc -i whole-game.mmd -o whole-game.svg",
-    "test:mermaid": "mmdc -i input.mmd -o output.svg",
+    "render:mermaid": "mmdc -i img/whole-game.mmd -o img/whole-game.svg",
+    "test:mermaid": "mmdc -i img/input.mmd -o img/output.svg",
     "mermaid": "mmdc"
   }
 }
