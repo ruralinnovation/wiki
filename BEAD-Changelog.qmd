@@ -7,25 +7,23 @@ execute:
   warning: false
 ---
 
+## 2024-04-02 Updates for version 3
 
-2024-03-27 Updates for version 2
+  - Federal funding data is now sourced from https://fundingmap.fcc.gov/data-download/funding-data.<br/>
+    The funding programs currently tracked on the rural broadband service map include:
+    - RURAL ECONNECTIVITY PROGRAM
+    - Broadband Infrastructure Program
+    - Capital Projects Fund
+    - State and Local Fiscal Recovery Fund
+    - Connect America Fund Phase II
+    - Enhanced Alternative Connect America Cost Model
+    - RDOF data from https://www.fcc.gov/auction/904 to https://fundingmap.fcc.gov/data-download/funding-data
+
+## 2024-03-27 Updates for version 2
 
   - ...
   - ...
   - ...
-  
-2024-04-02 Updates for version 3
-
-- Replacing RDOF data from https://www.fcc.gov/auction/904 to https://fundingmap.fcc.gov/data-download/funding-data
-
-- Adding from https://fundingmap.fcc.gov/data-download/funding-data   
-  -  RURAL ECONNECTIVITY PROGRAM    
-  -  Broadband Infrastructure Program    
-  -  Capital Projects Fund   
-  -  State and Local Fiscal Recovery Fund   
-  -  Connect America Fund Phase II    
-  -  Enhanced Alternative Connect America Cost Model    
-
 
 
 
