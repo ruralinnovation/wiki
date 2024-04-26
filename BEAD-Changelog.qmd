@@ -7,11 +7,30 @@ execute:
   warning: false
 ---
 
+## 2024-04-23 Updates for version 3
 
-2024-03-27 Updates for version 2
+  - Add county-level broadband stats (FCC) to the [Broadband County Summary](https://broadband-county-summary.ruralinnovation.us/) companion app
+  - Add button to download broadband summary data for area selected on map
+  - Add button to share URL for area selected on map
+  - Federal funding data is now sourced from [https://fundingmap.fcc.gov/data-download/funding-data](https://fundingmap.fcc.gov/data-download/funding-data).<br/>
+    The funding programs currently tracked on the rural broadband map include:
+      - Broadband Infrastructure Program
+      - Capital Projects Fund
+      - Connect America Fund Phase II
+      - COMMUNITY CONNECT GRANT PROGRAM
+      - Enhanced Alternative Connect America Cost Model
+      - RDOF data (originally from https://www.fcc.gov/auction/904)
+      - RURAL ECONNECTIVITY PROGRAM
+      - State and Local Fiscal Recovery Fund
+      - TELEPHONE LOAN PROGRAM
+      - Tribal Broadband Connectivity Program NOFO 1
 
-  - ...
-  - ...
-  - ...
+## 2024-03-27 Updates for version 2
+
+  - Create and deploy a [Broadband County Summary](https://broadband-county-summary.ruralinnovation.us/) companion app
+  - Move county-level ACS statistics the companion app
+  - Improve data fetching from CORI Data API (CDA) endpoints.
+  - Simplify display of summary stats for Census blocks, ISP technology, and Award info in the Detailed Info section
+
 
 
