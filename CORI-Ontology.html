@@ -71,7 +71,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed">
+<body class="nav-sidebar docked nav-fixed slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -288,9 +288,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#a-county" id="toc-a-county" class="nav-link" data-scroll-target="#a-county">A <strong>County</strong> …</a></li>
   <li><a href="#a-rural-county" id="toc-a-rural-county" class="nav-link" data-scroll-target="#a-rural-county">A <strong>Rural County</strong> …</a></li>
   <li><a href="#a-cud" id="toc-a-cud" class="nav-link" data-scroll-target="#a-cud">A <strong>CUD</strong> …</a></li>
+  <li><a href="#zip-code-zcta" id="toc-zip-code-zcta" class="nav-link" data-scroll-target="#zip-code-zcta">ZIP code / ZCTA</a></li>
   <li><a href="#a-broadband-serviceable-location-bsl" id="toc-a-broadband-serviceable-location-bsl" class="nav-link" data-scroll-target="#a-broadband-serviceable-location-bsl">A <strong>Broadband Serviceable Location</strong> (BSL) …</a></li>
   <li><a href="#the-national-broadband-map" id="toc-the-national-broadband-map" class="nav-link" data-scroll-target="#the-national-broadband-map">The National Broadband Map …</a></li>
-  <li><a href="#an-isp" id="toc-an-isp" class="nav-link" data-scroll-target="#an-isp">An <strong>ISP</strong> …</a></li>
+  <li><a href="#an-internet-service-provider-isp" id="toc-an-internet-service-provider-isp" class="nav-link" data-scroll-target="#an-internet-service-provider-isp">An <strong>Internet Service Provider (ISP)</strong> …</a></li>
   <li><a href="#an-eligibility-requirement" id="toc-an-eligibility-requirement" class="nav-link" data-scroll-target="#an-eligibility-requirement">An <strong>Eligibility Requirement</strong></a></li>
   <li><a href="#a-geographic-eligibility-requirement" id="toc-a-geographic-eligibility-requirement" class="nav-link" data-scroll-target="#a-geographic-eligibility-requirement">A <strong>Geographic Eligibility Requirement</strong></a></li>
   <li><a href="#a-community" id="toc-a-community" class="nav-link" data-scroll-target="#a-community">A <strong>Community</strong> …</a></li>
@@ -305,7 +306,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="toc-actions"><ul><li><a href="https://github.com/ruralinnovation/wiki/edit/main/CORI-Ontology.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/ruralinnovation/wiki/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Broadband-Consulting-Tech-Requirements.html">Capabilities &amp; Knowledge</a></li><li class="breadcrumb-item"><a href="./CORI-Ontology.html">CORI/RISI Ontology</a></li></ol></nav>
 <div class="quarto-title">
@@ -326,7 +327,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="general-terms" class="level2">
+<section id="general-terms" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="general-terms">General Terms</h2>
 <section id="the-american-community-survey-acs" class="level3">
 <h3 class="anchored" data-anchor-id="the-american-community-survey-acs">The <a href="https://www.census.gov/programs-surveys/acs/data.html">American Community Survey (ACS)</a>…</h3>
@@ -353,20 +354,27 @@ ul.task-list li input[type="checkbox"] {
 <li>is …</li>
 </ul>
 </section>
-<section id="a-tract" class="level3">
+<section id="a-tract" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="a-tract">A <strong>Tract</strong> …</h3>
 <ul>
-<li>is a union of the set of blocks and/or block groups that are located within a specified geographical boundary</li>
+<li><p>Started being used in 1910 (NY city), <strong>at first</strong> should follow rivers and roads and contains around 400 peoples.</p></li>
+<li><p>if divided between two new tracts and should follow this kind of pattern<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>: Census Tract O3 (parent) is divided in Census Tract 03.01 (child 1) and Census Tract 03.02.</p></li>
+</ul>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;https://www.youtube.com/watch?v=DOe4alPmjss</p></div><div class="">
+<p>Note Olivier 26-04-2024: still unclear how that translate in <code>geoid_tr</code> and how do they deal when we move from two “parents” to one “child”</p>
+</div></div>
+<ul>
+<li>is a union of the set of blocks and/or block groups that are located within a specified geographical boundary (unsure about that do they start from block and build tract or tract and divide in block)</li>
 <li>is often arbitrary, except for coinciding with political lines, in <a href="#an-unincorporated-area">unincorporated areas</a> of the United States</li>
 <li>for some metrics, can be statistically described by the aggregation of statistics for each of its constituent blocks</li>
 </ul>
 </section>
-<section id="an-unincorporated-area" class="level3">
+<section id="an-unincorporated-area" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="an-unincorporated-area">An <strong>Unincorporated Area</strong> …</h3>
 <ul>
-<li>is a region that is not governed by a local municipality</li>
+<li>is a region that is not governed by a local municipality, see also Census Designated Space (CDP)<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></li>
 </ul>
-</section>
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;https://www.census.gov/programs-surveys/bas/information/cdp.html</p></div></div></section>
 <section id="a-county" class="level3">
 <h3 class="anchored" data-anchor-id="a-county">A <strong>County</strong> …</h3>
 <ul>
@@ -385,13 +393,16 @@ ul.task-list li input[type="checkbox"] {
 <li>is …</li>
 </ul>
 </section>
-<section id="a-broadband-serviceable-location-bsl" class="level3">
+<section id="zip-code-zcta" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="zip-code-zcta">ZIP code / ZCTA</h3>
+<p>ZIP (“Zone Improvment Plan”) code were made to help deliver mails (“delivery routes”), they usually follow roads that were affected to a postman. At their smallest level they are tied to address (point). The Census Bureau is provisding a Zip Code Tabulation Area (ZCTA) that allow to link which is the dominant ZIP code in a census tabulation blocks<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</p>
+<div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;https://www.census.gov/programs-surveys/geography/guidance/geo-areas/zctas.html</p></div></div></section>
+<section id="a-broadband-serviceable-location-bsl" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="a-broadband-serviceable-location-bsl">A <strong>Broadband Serviceable Location</strong> (BSL) …</h3>
 <ul>
-<li>is “a business or residential location in the United States at which mass-market fixed broadband Internet access service is, or can be, installed.”
-<ul>
-<li>source: https://help.bdc.fcc.gov/hc/en-us/articles/16842264428059-About-the-Fabric-What-a-Broadband-Serviceable-Location-BSL-Is-and-Is-Not</li>
-</ul></li>
+<li>is “a business or residential location in the United States at which mass-market fixed broadband Internet access service is, or can be, installed.”<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></li>
+</ul>
+<div class="no-row-height column-margin column-container"><div id="fn4"><p><sup>4</sup>&nbsp;source: https://help.bdc.fcc.gov/hc/en-us/articles/16842264428059-About-the-Fabric-What-a-Broadband-Serviceable-Location-BSL-Is-and-Is-Not</p></div></div><ul>
 <li>is a location that can have access to multiple ISPs, each offering different services (technologies, upload, download speed).</li>
 <li>can be split into residential and business locations but this distinction does not seem very effective in the <a href="#the-national-broadband-map">National Broadband Map</a> dataset.</li>
 <li>is not geographically represented with exact latitude and longitude, but only by <a href="#a-block">census block</a> geoid and H3 index in the NBM dataset (MDA references this data as the National Broadband Map; officially the dataset is released as <a href="https://broadbandmap.fcc.gov/data-download/nationwide-data">BDC (Broadband Data Collection) Public Data</a>).</li>
@@ -404,11 +415,12 @@ ul.task-list li input[type="checkbox"] {
 <li>provides information about the internet services available to individual locations across the country, along with new maps of mobile coverage, as reported by Internet Service Providers (ISPs) in the FCC’s ongoing Broadband Data Collection.</li>
 </ul>
 </section>
-<section id="an-isp" class="level3">
-<h3 class="anchored" data-anchor-id="an-isp">An <strong>ISP</strong> …</h3>
+<section id="an-internet-service-provider-isp" class="level3">
+<h3 class="anchored" data-anchor-id="an-internet-service-provider-isp">An <strong>Internet Service Provider (ISP)</strong> …</h3>
 <ul>
-<li>is …</li>
+<li>is a FCC provider (with a provider ID)?</li>
 </ul>
+<p>In the FCC Broadband Map they are defined by a <code>frn</code>, <code>provider_id</code> and <code>brand_name</code>. We are mostly working with the one who are providing “fixed” services.</p>
 </section>
 <section id="an-eligibility-requirement" class="level3">
 <h3 class="anchored" data-anchor-id="an-eligibility-requirement">An <strong>Eligibility Requirement</strong></h3>
@@ -471,6 +483,7 @@ ul.task-list li input[type="checkbox"] {
 
 </section>
 </section>
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
