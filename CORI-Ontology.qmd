@@ -5,6 +5,8 @@ execute:
   output: true
   message: false
   warning: false
+reference-location: margin
+citation-location: margin
 ---
 
 ## General Terms
@@ -25,13 +27,26 @@ execute:
 ### A **Block Group** ...
   - is ...
 
-### A **Tract** ...
-  - is a union of the set of blocks and/or block groups that are located within a specified geographical boundary
+### A **Tract** ... 
+
+  - Started being used in 1910 (NY city), **at first** should follow rivers and roads and contains around 400 peoples. 
+
+  - if divided between two new tracts and should follow this kind of pattern[^census_tract]: Census Tract O3 (parent) is divided in Census Tract 03.01 (child 1) and Census Tract 03.02.
+
+ [^census_tract]: https://www.youtube.com/watch?v=DOe4alPmjss 
+  
+::: {.column-margin}
+Note Olivier 26-04-2024: still unclear how that translate in `geoid_tr` and how do they deal when we move from two "parents" to one "child" 
+:::
+
+  - is a union of the set of blocks and/or block groups that are located within a specified geographical boundary (unsure about that do they start from block and build tract or tract and divide in block)
   - is often arbitrary, except for coinciding with political lines, in [unincorporated areas](#an-unincorporated-area) of the United States
   - for some metrics, can be statistically described by the aggregation of statistics for each of its constituent blocks
 
 ### An **Unincorporated Area** ...
-  - is a region that is not governed by a local municipality
+  - is a region that is not governed by a local municipality, see also Census Designated Space (CDP)[^CDP]
+
+ [^CDP]: https://www.census.gov/programs-surveys/bas/information/cdp.html
 
 ### A **County** ...
   - is ...
@@ -42,10 +57,18 @@ execute:
 ### A **CUD** ...
   - is ...
 
+### ZIP code / ZCTA
+
+ZIP ("Zone Improvment Plan") code were made to help deliver mails ("delivery routes"), they usually follow roads that were affected to a postman. At their smallest level they are tied to address (point). The Census Bureau is provisding a Zip Code Tabulation Area (ZCTA) that allow to link which is the dominant ZIP code in a census tabulation blocks[^zcta].
+
+[^zcta]: https://www.census.gov/programs-surveys/geography/guidance/geo-areas/zctas.html
+
 ### A **Broadband Serviceable Location** (BSL) ...
 
-  - is “a business or residential location in the United States at which mass-market fixed broadband Internet access service is, or can be, installed.” 
-      - source:  https://help.bdc.fcc.gov/hc/en-us/articles/16842264428059-About-the-Fabric-What-a-Broadband-Serviceable-Location-BSL-Is-and-Is-Not 
+  - is “a business or residential location in the United States at which mass-market fixed broadband Internet access service is, or can be, installed.”[^bslsource]
+
+[^bslsource]: source:  https://help.bdc.fcc.gov/hc/en-us/articles/16842264428059-About-the-Fabric-What-a-Broadband-Serviceable-Location-BSL-Is-and-Is-Not 
+
   - is a location that can have access to multiple ISPs, each offering different services (technologies, upload, download speed).
   - can be split into residential and business locations but this distinction does not seem very effective in the [National Broadband Map](#the-national-broadband-map) dataset.
   - is not geographically represented with exact latitude and longitude, but only by [census block](#a-block) geoid and H3 index in the NBM dataset (MDA references this data as the National Broadband Map; officially the dataset is released as [BDC (Broadband Data Collection) Public Data](https://broadbandmap.fcc.gov/data-download/nationwide-data)).
@@ -54,8 +77,10 @@ execute:
   - is an ongoing initiative within the Federal Communications Commission
   - provides information about the internet services available to individual locations across the country, along with new maps of mobile coverage, as reported by Internet Service Providers (ISPs) in the FCC’s ongoing Broadband Data Collection.
 
-### An **ISP** ...
-  - is ...
+### An **Internet Service Provider (ISP)** ...
+  - is a FCC provider (with a provider ID)?
+
+  In the FCC Broadband Map they are defined by a `frn`, `provider_id` and `brand_name`. We are mostly working with the one who are providing "fixed" services. 
 
 ### An **Eligibility Requirement**
   - is ...
