@@ -107,7 +107,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Ansible.html">Infrastructure</a></li><li class="breadcrumb-item"><a href="./MDA-Data-Infrastructure-Overview.html">Data Infrastructure Overview</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Data Infrastructure Overview</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -169,12 +169,6 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="./CORI-Data-API.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">CORI Data API</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./MDA-Data-Infrastructure-Overview.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Data Infrastructure Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -285,7 +279,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Ansible.html">Infrastructure</a></li><li class="breadcrumb-item"><a href="./MDA-Data-Infrastructure-Overview.html">Data Infrastructure Overview</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Data Infrastructure Overview</h1>
 </div>
@@ -305,32 +299,11 @@ ul.task-list li input[type="checkbox"] {
 
 
 <div style="background-color: #fff">
-<a href="" target="_blank" style="background-color: #fff"> <img src="img/MDA Data Infrastructure.svg" class="img-fluid"> <!--
-  <img src="MDA%20Data%20Infrastructure.svg" alt="mermaid-diagram" style="background-color: #fff" width="100%" />
---> </a>
+<p><a href="" target="_blank" style="background-color: #fff"> <img src="img/MDA Data Infrastructure.svg" class="img-fluid"> <!--
+<img src="MDA%20Data%20Infrastructure.svg" alt="mermaid-diagram" style="background-color: #fff" width="100%" />
+--> </a></p>
 </div>
 <p><br></p>
-<ol type="1">
-<li>The central repository for our data is a single RDS cluster running PostgreSQL and hosting multiple database instances. These databases can either be accessed by regular login roles which are assigned privileges via membership in pg managed group roles or by a few administrative login roles that are managed with Active Directory and thus restricted to access via AD login services within the CORI-RISI VPC (the AD Domain controllers do not have any public network interfaces).</li>
-<li><ol type="a">
-<li>The CORI-RISI R server is an EC2/Linux virtual machine accessible to all MDA team members via ssh keys. It is joined the AD domain, so administrators have direct access to the database from this remote server. It also runs R pipelines/workloads as well as hosts a shared instances of R Server, although most day-to-day R analytics happens on our individual work stations (laptops).</li>
-<li>An EC2/Windows virtual machine is available for more advanced administration of Active Directory.</li>
-</ol></li>
-<li>AWS hosts an AWS-managed Active Directory instance which includes two domain controllers. The servers joined to this domain (aws.ruralinnovation.us) include the RDS cluster, the CORI-RISI R server and the Windows server administrative instance.</li>
-<li>AWS Cognito service for user authentication and profiles. This service also integrates with Google login, which is currently our main way of tracking non-anonymous users. The CORI Data API endpoints connect to this service to validate authorized access to the API via temporary tokens issued by Cognito.</li>
-<li>CORI Data API development endpoint services. Each endpoint service routes request to Lambda functions to perform the backend processing and querying of the database. These are divided into
-<ol type="a">
-<li>GraphQL (TypeScript) and</li>
-<li>REST (Python) API protocols.</li>
-</ol></li>
-<li>CORI Data API production endpoint services. These are divided into
-<ol type="a">
-<li>GraphQL (TypeScript) and</li>
-<li>REST (Python) API protocols.</li>
-</ol></li>
-<li>Public facing web applications are deployed on AWS Amplify, a frontend hosting service. These applications are based on React JS and utilize the CORI Data API for backend data support.</li>
-<li>We maintain a standalone instance of the opensource CartoDB map server hosted on an EC2/Linux virtual machine. The data used by this server is self-contained and the server itself has no connection to our database.</li>
-</ol>
 <!--
 ![](MDA%20Data%20Flow.svg
 -->
