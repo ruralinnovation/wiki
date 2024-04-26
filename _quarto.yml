@@ -38,7 +38,6 @@ website:
           ##              - Session-2-‐-2023‐10‐23.md
           ##              - Support-Sessions.md
           ##              - Working-with-the-GraphQL-Schemas.md
-          - MDA-Data-Infrastructure-Overview.qmd
           - Data-Security.qmd
           - PostgreSQL-RDS-Managment.md
           - R-DBI-GDAL-PG-SF.qmd
@@ -62,7 +61,5 @@ format:
     css: styles.css
     toc: true
 
-resources:
-  - "data/*"
-  - "img/*"
-  - "img/MDA Data Infrastructure_files/*"
+
+
