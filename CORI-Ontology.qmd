@@ -65,8 +65,10 @@ ZIP ("Zone Improvment Plan") code were made to help deliver mails ("delivery rou
 
 ### A **Broadband Serviceable Location** (BSL) ...
 
-  - is “a business or residential location in the United States at which mass-market fixed broadband Internet access service is, or can be, installed.” 
-      - source:  https://help.bdc.fcc.gov/hc/en-us/articles/16842264428059-About-the-Fabric-What-a-Broadband-Serviceable-Location-BSL-Is-and-Is-Not 
+  - is “a business or residential location in the United States at which mass-market fixed broadband Internet access service is, or can be, installed.”[^bslsource]
+
+[^bslsource]: source:  https://help.bdc.fcc.gov/hc/en-us/articles/16842264428059-About-the-Fabric-What-a-Broadband-Serviceable-Location-BSL-Is-and-Is-Not 
+
   - is a location that can have access to multiple ISPs, each offering different services (technologies, upload, download speed).
   - can be split into residential and business locations but this distinction does not seem very effective in the [National Broadband Map](#the-national-broadband-map) dataset.
   - is not geographically represented with exact latitude and longitude, but only by [census block](#a-block) geoid and H3 index in the NBM dataset (MDA references this data as the National Broadband Map; officially the dataset is released as [BDC (Broadband Data Collection) Public Data](https://broadbandmap.fcc.gov/data-download/nationwide-data)).
@@ -76,7 +78,9 @@ ZIP ("Zone Improvment Plan") code were made to help deliver mails ("delivery rou
   - provides information about the internet services available to individual locations across the country, along with new maps of mobile coverage, as reported by Internet Service Providers (ISPs) in the FCC’s ongoing Broadband Data Collection.
 
 ### An **Internet Service Provider (ISP)** ...
-  - is ...
+  - is a FCC provider (with a provider ID)?
+
+  In the FCC Broadband Map they are defined by a `frn`, `provider_id` and `brand_name`. We are mostly working with the one who are providing "fixed" services. 
 
 ### An **Eligibility Requirement**
   - is ...
