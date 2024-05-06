@@ -29,7 +29,12 @@ citation-location: margin
 
 - [ ] duckd <-> s3
 
-- [ ] back end: arrow vs duckdb vs polars?  
+- [ ] back end: arrow vs duckdb vs polars? 
+
+### R option to interact with S3 
+
+- [Pins](https://pins.rstudio.com/index.html): can write parquet / arrow etc, dev by Posit team, I have not a clear view of their dependencies ..
+
 
 ## arrow / duckdb
 
@@ -42,6 +47,8 @@ citation-location: margin
 - [ ] PG -> parquet 
 
 - [ ] appending parquet? 
+
+- on Arrow posts from Danielle: https://blog.djnavarro.net/posts/2022-12-26_strange-year/#writing-about-apache-arrow (usually awesome) 
 
 ## Resources
 
