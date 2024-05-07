@@ -1,0 +1,61 @@
+---
+title: "CORI/RISI Ontology"
+execute:
+  echo: true
+  output: true
+  message: false
+  warning: false
+reference-location: margin
+citation-location: margin
+---
+
+
+## S3 storage: 
+
+- [ ] csv (R read into memory)  
+
+- [ ] pmtiles ???
+
+- [ ] does it need to download to your computer vs accessing directly to the cloud?
+
+- [ ] parquet 
+
+- handling permissions / credentials in R 
+    * [ ] listing 
+    * [ ] reading
+    * [ ] writing 
+
+- [ ] targets?
+
+- [ ] duckd <-> s3
+
+- [ ] back end: arrow vs duckdb vs polars? 
+
+### R option to interact with S3 
+
+- [Pins](https://pins.rstudio.com/index.html): can write parquet / arrow etc, dev by Posit team, I have not a clear view of their dependencies ..
+
+
+## arrow / duckdb
+
+- [ ] maturity on OS 
+
+- [ ] maturity in R 
+
+- [ ] status on spatial operations
+
+- [ ] PG -> parquet 
+
+- [ ] appending parquet? 
+
+- on Arrow posts from Danielle: https://blog.djnavarro.net/posts/2022-12-26_strange-year/#writing-about-apache-arrow (usually awesome) 
+
+## Resources
+
+- https://www.crunchydata.com/blog/parquet-and-postgres-in-the-data-lake
+
+- https://mastodon.cloud/@milvus/112395302626488455
+
+- https://grantmcdermott.com/duckdb-polars/
+
+- https://duckdb.org/docs/ 
