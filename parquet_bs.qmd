@@ -79,8 +79,6 @@ What could be a good partition scheme for FCC data?
 ## Workflow "mind map"
 
 
-### Arrow
-
 ```{mermaid}
 flowchart LR
 dplyr --> arrow
@@ -88,14 +86,9 @@ arrow --> filesystem["`**Filesystem**
     multiple csv
     parquet
     more ..`"]
-```
 
-Technicaly arrow has dplyr methods.
+arrow <-->|?| duckDB
 
-### DuckDB
-
-```{mermaid}
-flowchart LR
 dplyr --> dbplyr
 dplyr --> DBI
 dbplyr --> DBI 
@@ -106,7 +99,7 @@ duckDB --> filesystem["`**Filesystem**
     more ..`"]
 ```
 
-:::
+
 
 ## Resources
 
