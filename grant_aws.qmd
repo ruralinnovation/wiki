@@ -1,0 +1,55 @@
+---
+title: "Grant"
+execute:
+  echo: true
+  output: true
+  message: false
+  warning: false
+format:
+  html:
+    code-fold: true
+reference-location: margin
+citation-location: margin
+---
+
+# AWS Imagine
+
+3 categories:
+
+    - Momentum to Modernize, 
+
+    - Go Further, Faster, 
+
+    - Pathfinder – Generative AI 
+
+## Rules:
+
+- We can submit only submit one application (one categories)
+
+- Round one: open to everyone, round two on invitation
+
+- Proposal w/o any personal info
+
+- US nonprofit with active 501 
+
+### Importants dates
+
+- portal will open on May 3, 2024
+
+- Dead line for round one: **June 3 2024**
+
+- Notification for round 2 July 17 2024
+
+
+## Good to know / Resources
+
+- [Tutorial Video](https://www.youtube.com/watch?v=AfApI2auGXw)
+
+- We can contact the AWS Nonprofits team ([form](https://aws.amazon.com/government-education/contact/)), and should, we need to prepare an **high level summary before**  
+
+
+Project are devided by:
+
+- Project information (I think we can be in 8 b. c, e)
+
+- Technical design (2 a, c, d, e, k (maybe m))
