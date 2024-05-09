@@ -53,3 +53,15 @@ Project are devided by:
 - Project information (I think we can be in 8 b. c, e)
 
 - Technical design (2 a, c, d, e, k (maybe m))
+
+## Retro-Planning for the MDA
+
+- Giving us buffer we (Robin?) want to submit May 30
+
+- MDA proposition should be done May 28
+
+- Write the grant with feedback from AWS 
+
+- Write high level summary and get feedback from AWS Team May 20
+
+- Decide on an what we want to do: Dead line May 16
