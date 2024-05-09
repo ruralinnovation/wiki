@@ -48,25 +48,38 @@ citation-location: margin
 - We can contact the AWS Nonprofits team ([form](https://aws.amazon.com/government-education/contact/)), and should, we need to prepare an **high level summary before**  
 
 
-Project are devided by:
-
-- Project information (I think we can be in 8 b. c, e)
-
-- Technical design (2 a, c, d, e, k (maybe m))
-
 ## Retro-Planning for the MDA
-
-- Giving us buffer we (Robin?) want to submit May 30
-
-- MDA proposition should be done May 28
-
-- Write the grant with feedback from AWS 
-
-- Write high level summary and get feedback from AWS Team May 20
 
 - Decide on an what we want to do: Dead line May 16
 
-# Outline of the project 
+- Write high level summary and get feedback from AWS Team May 17[^aws_ref] 
+
+[^aws_ref]: p11 of AWS Imagine 2024
+
+- Write the grant with feedback from AWS 
+
+- MDA proposition should be done May 24
+
+- Giving us buffer we (Robin?/Mike?) want to submit May 30
+
+## first brainstorm: 
+
+At CORI we are helpintg rural communities and their leaders understand the rural divide and reduce it.
+This is a critical moment for broadband funding and infrastructure expansion that will have major impacts on communities across the nation.
+Our broadband team contribute to it and our research team provide insights on the second part.  
+
+Both rely on fresh, actionable and easy to share data. 
+To do that our mapping and data team have been ingested, processed FCC data and are shared those results either with web apps or with in-house analytics. 
+Sadly our manual processes do not allow us:
+- to keep up with the volume and frequencies of FCC releases
+- get the granularity that expert on the ground needs 
+- keep memory over time, trends, to drive thought leadership
+
+In its ever evolving landscape behind abble to efficiently capture and store data with the help of AWS infrastructure will create valuable resources for our partner and communities.
+Both the "Momentum to Modernize" and "Go Further, Faster" grants could potentially help us and provide new opportunities to become a hub and source of truth/expertise on broadband data.
+
+
+# Outline of the grant application
 
 (just a copy of AWS pdf / checked if that match also the application portal)
 
@@ -169,14 +182,6 @@ you can provide any one of them)
 
 2. What is your project and how does it relate to your organization’s mission? [200 - 350 words]
 
-At CORI we are helpintg rural communities and their leaders understand the rural divide and reduce it. Our broadband team contribute to the second part and our research team provide inside on the second part. 
-
-Both rely on frech, actionable and easy to share data. To do that our mapping and data team have been ingested, processed FCC data and are shared those results either with web apps or with in-house analytics. Sadly our manual processes do not allow us
-- to keep up with the volume and frequencies of FCC releases
-- get the granularity that expert on the ground needs 
-- keep memory over time to drive thought leadership
-
-Both Momentum to Modernize and Go Further, Faster could potentially help us and provide new opportunity to become a hub and source of truth/expertise on broadband data.
 
 ~~3. (For Pathfinder applicants only) How does generative AI fit into your overall project design? How
 will it strategically enhance your mission achievement? [100 - 250 words]~~
