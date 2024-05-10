@@ -356,13 +356,19 @@ ul.task-list li input[type="checkbox"] {
 <li><p>“Always lead the mission with technology as a core strategic enablement”</p></li>
 <li><p>“Senior leader who is the project champion”</p></li>
 <li><p>“convey urgency and importance of your project”</p></li>
-<li><p>“work backward from the end user”</p></li>
+<li><p>“work backward from the end user”: we are lacking here, I think first end user is us, them bb team, then ISP / BB consultant, then citizen</p></li>
 <li><p>“end goal connect your mission”</p></li>
-<li><p>“dynamic dashboard”</p></li>
-<li><p>“what services will it use”</p></li>
-<li><p>“how do the technical elements fits together”</p></li>
+<li><p>“dynamic dashboard”: should we look into quicksight?</p></li>
+<li><p>“what services will it use”: S3, next is do we have a spark question or a duck db question</p></li>
+<li><p>“how do the technical elements fits together”:</p></li>
+</ul>
+<p>I think our data warehouse is good we want to leverage a data lake to select more valuable data to move to teh data warehouse/product phase</p>
+<ul>
 <li><p>“what skill resources do you have in house”</p></li>
-<li><p>“what yoiu plan to acquire the most”</p></li>
+<li><p>“what you plan to acquire the most”</p></li>
+<li><p>organizing asset in data lake and build an infrastructure to query it</p></li>
+<li><p>expose it to partner / first end user</p></li>
+<li><p>open it to more partners</p></li>
 <li><p>Maybe we can use some AI ML on checking FCC data aginst location (presence or not) and MLAB on quality of services</p></li>
 <li><p>“articulate why each piece of the imagine grant is useful not only cash”</p></li>
 <li><p>research long term (maybe more for phase 2)</p></li>
@@ -504,7 +510,7 @@ ul.task-list li input[type="checkbox"] {
 <li>Which AWS IMAGINE Grant category are you applying for? [select one]</li>
 </ol>
 <ol type="a">
-<li>Momentum to Modernize award &lt;– <strong>The one I think we should apply</strong></li>
+<li>Momentum to Modernize award &lt;– <strong>The one I think we should apply, was my first tought but maybe we should go for the other one</strong></li>
 <li>Go Further, Faster award</li>
 <li>Pathfinder – Generative AI award</li>
 </ol>
@@ -547,8 +553,14 @@ ul.task-list li input[type="checkbox"] {
 <section id="technical-design" class="level2">
 <h2 class="anchored" data-anchor-id="technical-design">Technical Design</h2>
 <ol type="1">
-<li><p>Describe your project’s technical design at a high level. What does it do and how? [200 - 350 words]</p></li>
-<li><p>What type(s) of workload(s) will your project include? [Select all that apply] (Hint: Learn more about types of workloads in our latest publication on how nonprofits leverage the cloud today)</p></li>
+<li>Describe your project’s technical design at a high level. What does it do and how? [200 - 350 words]</li>
+</ol>
+<p>The goals are to builds an analytics data lake that centralise broadband data to support broadband expension, grant applications and research on broadband equity and development.</p>
+<p>We are curently using a data warehouse solution that work great once we have clear understanding of what our partners need but the rapid change in the broadband landscape make that approach to slow to innovate and serve our communities. We need intermediate places and process that allow us to catalog our assets, then work on non structured data and provide quick insights for important feedback loops with partners and stackholders. Then we need to build the infrastucture to ease the query of such data: do we have spark question or duck DB question (scope neded here prob: R package use of AWS solution?).</p>
+<p>Idea on machine learning (FCC data is declarative data and need to be confronted either on local knowledge and/or other data source : census, MLAB ?: anomaly detection?) come after can we use multiple source of data to get more close to reallity on the ground and build better bb infrastructure?</p>
+<p>Question on being publics on that.</p>
+<ol start="2" type="1">
+<li>What type(s) of workload(s) will your project include? [Select all that apply] (Hint: Learn more about types of workloads in our latest publication on how nonprofits leverage the cloud today)</li>
 </ol>
 <ol type="a">
 <li>Digital content management (e.g.&nbsp;hosting and scaling websites)</li>
