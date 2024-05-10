@@ -7,7 +7,7 @@ a 501(c)(3) nonprofit organization partnering with rural leaders across
 the country to build tech economies that support scalable
 entrepreneurship and lead to more tech jobs in rural America.
 
-These repositories are maintained by the *Mapping and Data Anaylytics*
+These repositories are maintained by the *Mapping and Data Analytics*
 (MDA) team at CORI/RISI.
 
 Our team provides data, analytics and visualizations to support rural
