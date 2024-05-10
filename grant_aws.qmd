@@ -45,6 +45,44 @@ citation-location: margin
 
 - [Tutorial Video](https://www.youtube.com/watch?v=AfApI2auGXw)
 
+- My takes on it (1.5 speed video):
+    * Importance of holistics approach ie: provide tech + support 
+
+    * "Momentum to modernize": We are really looking for organization that view these types of project as fundational steps" (setting up the fundation to unlock futur doors)
+
+    * "To go further faster award": "Thing big", "highly innovative program", "DevOps"
+
+    * "Always lead the mission with technology as a core strategic enablement"
+
+    * "Senior leader who is the project champion"
+
+    * "convey urgency and importance of your project"
+
+    * "work backward from the end user"
+
+    * "end goal connect your mission"
+
+    * "dynamic dashboard"
+
+    * "what services will it use"
+
+    * "how do the technical elements fits together" 
+
+    * "what skill resources do you have in house"
+
+    * "what yoiu plan to acquire the most"
+
+    * Maybe we can use some AI ML on checking FCC data aginst location (presence or not) and MLAB on quality of services
+
+    * "articulate why each piece of the imagine grant is useful not only cash"  
+
+    * research long term (maybe more for phase 2)
+
+    * automate the ingestion delivery
+
+    * technical diagram: AWS architecture diagrams 
+
+
 - We can contact the AWS Nonprofits team ([form](https://aws.amazon.com/government-education/contact/)), and should, we need to prepare an **high level summary before**  
 
 
@@ -64,19 +102,22 @@ citation-location: margin
 
 ## first brainstorm: 
 
-At CORI we are helpintg rural communities and their leaders understand the rural divide and reduce it.
+At CORI we are helping rural communities and their leaders understand the rural divide and reduce it.
 This is a critical moment for broadband funding and infrastructure expansion that will have major impacts on communities across the nation.
-Our broadband team contribute to it and our research team provide insights on the second part.  
+Our broadband team contributes to it and our research team provides insights on how this affects communities.
 
-Both rely on fresh, actionable and easy to share data. 
-To do that our mapping and data team have been ingested, processed FCC data and are shared those results either with web apps or with in-house analytics. 
+Both rely on fresh, actionable and easy to share data.
+To do that our mapping and data team have been ingested, processed FCC data and shared those results either with web apps or with in-house analytics.
 Sadly our manual processes do not allow us:
 - to keep up with the volume and frequencies of FCC releases
-- get the granularity that expert on the ground needs 
+- to add different source of data and combine them
+- get the granularity that expert on the ground needs
 - keep memory over time, trends, to drive thought leadership
+- expand our audience
 
-In its ever evolving landscape behind abble to efficiently capture and store data with the help of AWS infrastructure will create valuable resources for our partner and communities.
+In its ever evolving landscape, being able to efficiently capture and store data with the help of AWS infrastructure will create valuable resources for our partner and communities.
 Both the "Momentum to Modernize" and "Go Further, Faster" grants could potentially help us and provide new opportunities to become a hub and source of truth/expertise on broadband data.
+
 
 
 # Outline of the grant application
@@ -172,6 +213,8 @@ a) If selected “Yes,” please provide your account ID (if your organization h
 you can provide any one of them)
 
 13. Have you applied for the IMAGINE Grant before? [Yes/No]
+
+-> it will need to confirmed 
 
 ## Project Information
 
