@@ -74,11 +74,12 @@ citation-location: margin
 
     * "what you plan to acquire the most"
 
-    - organizing asset in data lake and build an infrastructure to query it 
+    - organizing assets in data lake (S3) and build an infrastructure to query it 
+    - core data: broadband data (Open Data Lakehouse?)
     - expose it to partner / first end user
     - open it to more partners
 
-    * Maybe we can use some AI ML on checking FCC data aginst location (presence or not) and MLAB on quality of services
+    * Maybe we can use some AI ML on checking FCC data against location (presence or not) and MLAB on quality of services
 
     * "articulate why each piece of the imagine grant is useful not only cash"  
 
@@ -116,7 +117,7 @@ Both rely on fresh, actionable and easy to share data.
 To do that our mapping and data team have been ingested, processed FCC data and shared those results either with web apps or with in-house analytics.
 Sadly our manual processes do not allow us:
 - to keep up with the volume and frequencies of FCC releases
-- to add different source of data and combine them
+- to add different sources (MLab, Ookla) of data and combine them 
 - get the granularity that expert on the ground needs
 - keep memory over time, trends, to drive thought leadership
 - expand our audience
@@ -280,12 +281,19 @@ words]
 
 The goals are to builds an analytics data lake that centralise broadband data to support broadband expension, grant applications and research on broadband equity and development. 
 
-We are curently using a data warehouse solution that work great once we have clear understanding of what our partners need but the rapid change in the broadband landscape make that approach to slow to innovate and serve our communities. 
-We need intermediate places and process that allow us to catalog our assets, then work on non structured data and provide quick insights for important feedback loops with partners and stackholders. Then we need to build the infrastucture to ease the query of such data: do we have spark question or duck DB question (scope neded here prob: R package use of AWS solution?). 
+The goals are to build an analytics data lake that centralizes broadband data to support broadband expansion, grant applications and research on broadband equity and development.
 
-Idea on machine learning (FCC data is declarative data and need to be confronted either on local knowledge and/or other data source : census, MLAB ?: anomaly detection?) come after can we use multiple source of data to get more close to reallity on the ground and build better bb infrastructure?
+We are currently using a data warehouse solution that works great once we have a clear understanding of what our partners need but the rapid change in the broadband landscape makes that approach too slow to innovate and serve our communities in the necessary timeframe.
 
-Question on being publics on that. 
+We need intermediate places and processes that allow us to catalog our assets, then work on non structured data and provide quick insights for important feedback loops with partners and stakeholders. The size of broadband data makes it in the beginning of the realm of big data and typical in memory solutions are reaching their limits. 
+
+I think right now we are good with the AWS lambda function but we need a way to build intermediaries tools/workflow to allow us to get feedback from partners and build on top of it for better and more products. IE this data lake needs an efficient way to query, do quick and shareable visualization then it will be awesome if it integrates well on our "production" pipeline.
+Then we need to build the infrastructure to ease the query of such data: do we have a spark question or duckDB/parquet question (scope needed here prob: R package verus use of AWS solution?).
+
+Idea on machine learning: FCC data is declarative data and needs to be confronted either on local knowledge and/or other data sources:: census data, MLAB ?: anomaly detection/outlier detection?. It comes after the fact that we can use multiple sources of data to get closer to reality on the ground and build better bb infrastructure?
+
+Question on being public/managing permission on that (cognito)
+
 
 
 2. What type(s) of workload(s) will your project include? [Select all that apply] (Hint: Learn more
