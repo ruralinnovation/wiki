@@ -58,19 +58,25 @@ citation-location: margin
 
     * "convey urgency and importance of your project"
 
-    * "work backward from the end user"
+    * "work backward from the end user": we are lacking here, I think first end user is us, them bb team, then ISP / BB consultant, then citizen 
 
     * "end goal connect your mission"
 
-    * "dynamic dashboard"
+    * "dynamic dashboard": should we look into quicksight?
 
-    * "what services will it use"
+    * "what services will it use": S3, next is do we have a spark question or a duck db question
 
-    * "how do the technical elements fits together" 
+    * "how do the technical elements fits together":
+
+    I think our data warehouse is good we want to leverage a data lake to select more valuable data to move to teh data warehouse/product phase   
 
     * "what skill resources do you have in house"
 
-    * "what yoiu plan to acquire the most"
+    * "what you plan to acquire the most"
+
+    - organizing asset in data lake and build an infrastructure to query it 
+    - expose it to partner / first end user
+    - open it to more partners
 
     * Maybe we can use some AI ML on checking FCC data aginst location (presence or not) and MLAB on quality of services
 
@@ -219,11 +225,12 @@ you can provide any one of them)
 ## Project Information
 
 1. Which AWS IMAGINE Grant category are you applying for? [select one]
-  a) Momentum to Modernize award <-- **The one I think we should apply**
+  a) Momentum to Modernize award <-- **The one I think we should apply, was my first tought but maybe we should go for the other one**
   b) Go Further, Faster award
   c) Pathfinder – Generative AI award
 
 2. What is your project and how does it relate to your organization’s mission? [200 - 350 words]
+
 
 
 ~~3. (For Pathfinder applicants only) How does generative AI fit into your overall project design? How
@@ -271,6 +278,16 @@ your organization? [200 - 350 words]
 1. Describe your project’s technical design at a high level. What does it do and how? [200 - 350
 words]
 
+The goals are to builds an analytics data lake that centralise broadband data to support broadband expension, grant applications and research on broadband equity and development. 
+
+We are curently using a data warehouse solution that work great once we have clear understanding of what our partners need but the rapid change in the broadband landscape make that approach to slow to innovate and serve our communities. 
+We need intermediate places and process that allow us to catalog our assets, then work on non structured data and provide quick insights for important feedback loops with partners and stackholders. Then we need to build the infrastucture to ease the query of such data: do we have spark question or duck DB question (scope neded here prob: R package use of AWS solution?). 
+
+Idea on machine learning (FCC data is declarative data and need to be confronted either on local knowledge and/or other data source : census, MLAB ?: anomaly detection?) come after can we use multiple source of data to get more close to reallity on the ground and build better bb infrastructure?
+
+Question on being publics on that. 
+
+
 2. What type(s) of workload(s) will your project include? [Select all that apply] (Hint: Learn more
 about types of workloads in our latest publication on how nonprofits leverage the cloud today)
   a) Digital content management (e.g. hosting and scaling websites)
@@ -303,6 +320,7 @@ needed? [200 - 350 words]
 4. To successfully complete your project, would you need support from a technology and/or
 implementation partner? (Hint: An AWS Partner is an external expert who leverages AWS to
 build solutions and services for customers. See a list of AWS Partners)
+
 a) Yes, and I already work with a partner/ plan to work with a specific partner.
 i. [If selected] Please list partner:
 b) Yes, I do not have a partner identified but would like a recommendation.
