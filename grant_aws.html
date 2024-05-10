@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.554">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>CORI/RISI Mapping &amp; Data Analysis (MDA) - Grant</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed slimcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">CORI/RISI Mapping &amp; Data Analysis (MDA)</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./profile/about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Grant</li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Capabilities &amp; Knowledge</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Broadband-Consulting-Tech-Requirements.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Broadband Consulting Tech Requirement</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./CORI-Ontology.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CORI/RISI Ontology</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Infrastructure</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ansible.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ansible in the coriverse</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./CORI-Data-API.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CORI Data API</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Data-Security.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Security</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./PostgreSQL-RDS-Managment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PostgreSQL-RDS-Managment</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./R-DBI-GDAL-PG-SF.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R DBI Geospatial Notes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Repository-Classification.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Repository-Classification</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Metadata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">What is Metadata?</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Team Onboarding</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./onboarding_team_db.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Database Onboarding</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./QGIS.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Connecting QGIS to CORI RDS DB</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./The-coriverse-suite-of-packages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Core proprietary packages</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./MDA-Style-Guide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Naming Conventions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./G-Drive-Practice.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Google Drive Practice</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Git-Workflows.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Git!</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./help_I_have_a_data_team.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Help I Have Data Team</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Suggested-Code-Snippets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Suggested Code Snippets</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Spatial-Data-for-Mapping-and-Analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spatial Data for Mapping and Analysis</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#aws-imagine" id="toc-aws-imagine" class="nav-link active" data-scroll-target="#aws-imagine">AWS Imagine</a>
+  <ul class="collapse">
+  <li><a href="#rules" id="toc-rules" class="nav-link" data-scroll-target="#rules">Rules:</a>
+  <ul class="collapse">
+  <li><a href="#importants-dates" id="toc-importants-dates" class="nav-link" data-scroll-target="#importants-dates">Importants dates</a></li>
+  </ul></li>
+  <li><a href="#good-to-know-resources" id="toc-good-to-know-resources" class="nav-link" data-scroll-target="#good-to-know-resources">Good to know / Resources</a></li>
+  <li><a href="#retro-planning-for-the-mda" id="toc-retro-planning-for-the-mda" class="nav-link" data-scroll-target="#retro-planning-for-the-mda">Retro-Planning for the MDA</a></li>
+  <li><a href="#first-brainstorm" id="toc-first-brainstorm" class="nav-link" data-scroll-target="#first-brainstorm">first brainstorm:</a></li>
+  </ul></li>
+  <li><a href="#outline-of-the-grant-application" id="toc-outline-of-the-grant-application" class="nav-link" data-scroll-target="#outline-of-the-grant-application">Outline of the grant application</a>
+  <ul class="collapse">
+  <li><a href="#organizational-information" id="toc-organizational-information" class="nav-link" data-scroll-target="#organizational-information">Organizational Information</a></li>
+  <li><a href="#project-information" id="toc-project-information" class="nav-link" data-scroll-target="#project-information">Project Information</a></li>
+  <li><a href="#technical-design" id="toc-technical-design" class="nav-link" data-scroll-target="#technical-design">Technical Design</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/ruralinnovation/wiki/edit/main/grant_aws.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/ruralinnovation/wiki/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Grant</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="aws-imagine" class="level1 page-columns page-full">
+<h1>AWS Imagine</h1>
+<p>3 categories:</p>
+<pre><code>- Momentum to Modernize, 
+
+- Go Further, Faster, 
+
+- Pathfinder – Generative AI </code></pre>
+<section id="rules" class="level2">
+<h2 class="anchored" data-anchor-id="rules">Rules:</h2>
+<ul>
+<li><p>We can submit only submit one application (one categories)</p></li>
+<li><p>Round one: open to everyone, round two on invitation</p></li>
+<li><p>Proposal w/o any personal info</p></li>
+<li><p>US nonprofit with active 501</p></li>
+</ul>
+<section id="importants-dates" class="level3">
+<h3 class="anchored" data-anchor-id="importants-dates">Importants dates</h3>
+<ul>
+<li><p>portal will open on May 3, 2024</p></li>
+<li><p>Dead line for round one: <strong>June 3 2024</strong></p></li>
+<li><p>Notification for round 2 July 17 2024</p></li>
+</ul>
+</section>
+</section>
+<section id="good-to-know-resources" class="level2">
+<h2 class="anchored" data-anchor-id="good-to-know-resources">Good to know / Resources</h2>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=AfApI2auGXw">Tutorial Video</a></p></li>
+<li><p>My takes on it (1.5 speed video):</p>
+<ul>
+<li><p>Importance of holistics approach ie: provide tech + support</p></li>
+<li><p>“Momentum to modernize”: We are really looking for organization that view these types of project as fundational steps” (setting up the fundation to unlock futur doors)</p></li>
+<li><p>“To go further faster award”: “Thing big”, “highly innovative program”, “DevOps”</p></li>
+<li><p>“Always lead the mission with technology as a core strategic enablement”</p></li>
+<li><p>“Senior leader who is the project champion”</p></li>
+<li><p>“convey urgency and importance of your project”</p></li>
+<li><p>“work backward from the end user”</p></li>
+<li><p>“end goal connect your mission”</p></li>
+<li><p>“dynamic dashboard”</p></li>
+<li><p>“what services will it use”</p></li>
+<li><p>“how do the technical elements fits together”</p></li>
+<li><p>“what skill resources do you have in house”</p></li>
+<li><p>“what yoiu plan to acquire the most”</p></li>
+<li><p>Maybe we can use some AI ML on checking FCC data aginst location (presence or not) and MLAB on quality of services</p></li>
+<li><p>“articulate why each piece of the imagine grant is useful not only cash”</p></li>
+<li><p>research long term (maybe more for phase 2)</p></li>
+<li><p>automate the ingestion delivery</p></li>
+<li><p>technical diagram: AWS architecture diagrams</p></li>
+</ul></li>
+<li><p>We can contact the AWS Nonprofits team (<a href="https://aws.amazon.com/government-education/contact/">form</a>), and should, we need to prepare an <strong>high level summary before</strong></p></li>
+</ul>
+</section>
+<section id="retro-planning-for-the-mda" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="retro-planning-for-the-mda">Retro-Planning for the MDA</h2>
+<ul>
+<li><p>Decide on an what we want to do: Dead line May 16</p></li>
+<li><p>Write high level summary and get feedback from AWS Team May 17<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p></li>
+</ul>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;p11 of AWS Imagine 2024</p></div></div><ul>
+<li><p>Write the grant with feedback from AWS</p></li>
+<li><p>MDA proposition should be done May 24</p></li>
+<li><p>Giving us buffer we (Robin?/Mike?) want to submit May 30</p></li>
+</ul>
+</section>
+<section id="first-brainstorm" class="level2">
+<h2 class="anchored" data-anchor-id="first-brainstorm">first brainstorm:</h2>
+<p>At CORI we are helping rural communities and their leaders understand the rural divide and reduce it. This is a critical moment for broadband funding and infrastructure expansion that will have major impacts on communities across the nation. Our broadband team contributes to it and our research team provides insights on how this affects communities.</p>
+<p>Both rely on fresh, actionable and easy to share data. To do that our mapping and data team have been ingested, processed FCC data and shared those results either with web apps or with in-house analytics. Sadly our manual processes do not allow us: - to keep up with the volume and frequencies of FCC releases - to add different source of data and combine them - get the granularity that expert on the ground needs - keep memory over time, trends, to drive thought leadership - expand our audience</p>
+<p>In its ever evolving landscape, being able to efficiently capture and store data with the help of AWS infrastructure will create valuable resources for our partner and communities. Both the “Momentum to Modernize” and “Go Further, Faster” grants could potentially help us and provide new opportunities to become a hub and source of truth/expertise on broadband data.</p>
+</section>
+</section>
+<section id="outline-of-the-grant-application" class="level1">
+<h1>Outline of the grant application</h1>
+<p>(just a copy of AWS pdf / checked if that match also the application portal)</p>
+<section id="organizational-information" class="level2">
+<h2 class="anchored" data-anchor-id="organizational-information">Organizational Information</h2>
+<ol type="1">
+<li><p>Full, Registered Organization Name</p></li>
+<li><p>Tax ID</p></li>
+<li><p>Website URL</p></li>
+<li><p>Organization Full Address</p></li>
+</ol>
+<ul>
+<li><p>Street,</p></li>
+<li><p>City,</p></li>
+<li><p>State,</p></li>
+<li><p>Zip Code</p></li>
+</ul>
+<ol start="5" type="1">
+<li>Annual Organizational Revenue (most recent fiscal year’s, in USD) [Select one]</li>
+</ol>
+<ol type="a">
+<li>Less than $50,000</li>
+<li>$50,000 - $999,999</li>
+<li>$1,000,000 - $4,999,999</li>
+<li>$5,000,000 - $9,999,999</li>
+<li>$10,000,000 - $99,999,999</li>
+<li>$100,000,000 or more</li>
+<li>Don’t know/ Not sure</li>
+</ol>
+<ol start="6" type="1">
+<li>Annual IT Budget (most recent fiscal year’s expenses in USD)</li>
+</ol>
+<ol type="a">
+<li>Less than $10,000</li>
+<li>$10,000 - $50,000</li>
+<li>$50,000 - $150,000</li>
+<li>$150,000 - $500,000</li>
+<li>$500,000 or more</li>
+</ol>
+<ol start="7" type="1">
+<li>Proposal Contact</li>
+</ol>
+<ul>
+<li><p>First and Last Name,</p></li>
+<li><p>Email Address,</p></li>
+<li><p>Phone Number</p></li>
+</ul>
+<p><del>8. Project Lead (First and Last Name, Email Address, Phone Number)</del> Not in the portal</p>
+<ol start="9" type="1">
+<li>Role in Organization</li>
+</ol>
+<ol type="a">
+<li>President or CEO</li>
+<li>Other C-Level of executive management</li>
+<li>Vice president or equivalent</li>
+<li>Board of Directors</li>
+<li>Director or equivalent</li>
+<li>Manager or equivalent</li>
+<li>Generalist, staff, associate, or equivalent</li>
+<li>Other</li>
+</ol>
+<ol start="10" type="1">
+<li>Functional Area in Organization</li>
+</ol>
+<ol type="a">
+<li>Leadership or overall management</li>
+<li>Program management</li>
+<li>Event management</li>
+<li>Fundraising/ Development</li>
+<li>Community outreach</li>
+<li>Technology</li>
+<li>Human resources</li>
+<li>Marketing</li>
+<li>Finance</li>
+<li>Administration</li>
+<li>Other</li>
+</ol>
+<ol start="11" type="1">
+<li>Primary Mission Area</li>
+</ol>
+<ol type="a">
+<li>Arts, Culture, and Humanities</li>
+<li>Credit Union</li>
+<li>Education</li>
+<li>Environment and Animals</li>
+<li>Health</li>
+<li>Human Services</li>
+<li>International, Foreign Affairs</li>
+<li>Public, Societal Benefit</li>
+<li>Religion Related</li>
+<li>Science, Technology &amp; Social Science</li>
+<li>Youth Development</li>
+<li>Mutual/Membership Benefit</li>
+<li>Public Utilities</li>
+<li>Unknown, Unclassified</li>
+</ol>
+<ol start="12" type="1">
+<li>Does your organization have an AWS account? [Yes/No]</li>
+</ol>
+<ol type="a">
+<li>If selected “Yes,” please provide your account ID (if your organization has multiple IDs, you can provide any one of them)</li>
+</ol>
+<ol start="13" type="1">
+<li>Have you applied for the IMAGINE Grant before? [Yes/No]</li>
+</ol>
+<p>-&gt; it will need to confirmed</p>
+</section>
+<section id="project-information" class="level2">
+<h2 class="anchored" data-anchor-id="project-information">Project Information</h2>
+<ol type="1">
+<li>Which AWS IMAGINE Grant category are you applying for? [select one]</li>
+</ol>
+<ol type="a">
+<li>Momentum to Modernize award &lt;– <strong>The one I think we should apply</strong></li>
+<li>Go Further, Faster award</li>
+<li>Pathfinder – Generative AI award</li>
+</ol>
+<ol start="2" type="1">
+<li>What is your project and how does it relate to your organization’s mission? [200 - 350 words]</li>
+</ol>
+<p><del>3. (For Pathfinder applicants only) How does generative AI fit into your overall project design? How will it strategically enhance your mission achievement? [100 - 250 words]</del></p>
+<p><del>4. (For Pathfinder applicants only) How is your organization using data to make decisions today? [100 - 250 words]</del></p>
+<ol start="5" type="1">
+<li><p>What are the intended outcomes of your project? What new capabilities would it unlock for your organization? [200 - 350 words]</p></li>
+<li><p>What is driving the need for this specific project? Why now? [200 - 350 words]</p></li>
+<li><p>At what stage is your project currently? [Select one]</p></li>
+</ol>
+<ol type="a">
+<li>Concept</li>
+<li>Planning</li>
+<li>Under development</li>
+<li>Currently running</li>
+</ol>
+<ol start="8" type="1">
+<li>What most closely aligns with what this project will enable your organization to do? [Select one]</li>
+</ol>
+<ol type="a">
+<li>Migrate legacy IT systems, applications, and data centers to the cloud.</li>
+<li><strong>Increase productivity with modernized tools, applications, and databases.</strong> &lt;- this one</li>
+<li>Increase cost efficiency with optimized IT infrastructure.</li>
+<li>Enable business continuity with archive, backup, and disaster recovery.</li>
+<li><strong>Increase resilience, scaling, and availability of existing workloads and databases.</strong> &lt;- this one</li>
+<li>Increase security and governance of data/ ensure security compliance. (e.g.&nbsp;HIPAA, SOC)</li>
+<li><strong>Inform better decision making by aggregating disparate data sources and applying analytics (e.g., visualization, AI/ML).</strong> &lt;- this one</li>
+<li>Enable accurate forecasting based on past data with predictive analysis using machine learning.</li>
+<li>Better understand and engage members/donors/beneficiaries by creating a 360 view with constituent data.</li>
+<li><strong>Enhance digital content delivery for donors, members, beneficiaries, or other stakeholders (e.g., website, video, mobile app)</strong> &lt;- maybe</li>
+<li>Enable multichannel services for constituents and automate simple, clerical tasks for employees (e.g.&nbsp;chatbots, contact centers, GenAI-powered)</li>
+<li>Personalize and streamline communications for more effective donor/member/constituent engagement and fundraising.</li>
+<li>I don’t know how AWS fits into my project at this time, but I am interested in learning more.</li>
+<li>Other</li>
+</ol>
+</section>
+<section id="technical-design" class="level2">
+<h2 class="anchored" data-anchor-id="technical-design">Technical Design</h2>
+<ol type="1">
+<li><p>Describe your project’s technical design at a high level. What does it do and how? [200 - 350 words]</p></li>
+<li><p>What type(s) of workload(s) will your project include? [Select all that apply] (Hint: Learn more about types of workloads in our latest publication on how nonprofits leverage the cloud today)</p></li>
+</ol>
+<ol type="a">
+<li>Digital content management (e.g.&nbsp;hosting and scaling websites)</li>
+<li>Digital content delivery (e.g.&nbsp;virtual events, virtual learning platform)</li>
+<li>Net-new application development (e.g.&nbsp;web app, mobile app, SaaS platform)</li>
+<li>Application integration (e.g.&nbsp;serverless, microservices, distributed systems)</li>
+<li>DevOps pipeline (e.g.&nbsp;CI/CD)</li>
+<li>Container orchestration and management</li>
+<li>Managed security services</li>
+<li>Content storage and backup (e.g.&nbsp;disaster recovery)</li>
+<li>Migration and optimization (e.g.&nbsp;systems, data, application)</li>
+<li>Virtual desktop</li>
+<li>Data lake</li>
+<li>Data warehouse</li>
+<li>Data analytics and visualization</li>
+<li>Managed AI/ML services (e.g.&nbsp;intelligent document processing, image recognition)</li>
+<li>AI/ML for research</li>
+<li>AI/ML for predictive modeling</li>
+<li>Generative AI</li>
+<li>Customer experience (e.g.&nbsp;call/contact center, virtual assistant)</li>
+<li>Internet of things (IoT)</li>
+<li>Blockchain</li>
+<li>Other. Please specify:</li>
+<li>None of the above</li>
+</ol>
+<ol start="3" type="1">
+<li><p>Describe the resources and technical skills you may need to complete the project successfully. Do you have these resources in-house? If no, what will be your plan to acquire the skills needed? [200 - 350 words]</p></li>
+<li><p>To successfully complete your project, would you need support from a technology and/or implementation partner? (Hint: An AWS Partner is an external expert who leverages AWS to build solutions and services for customers. See a list of AWS Partners)</p></li>
+</ol>
+<ol type="a">
+<li>Yes, and I already work with a partner/ plan to work with a specific partner.</li>
+</ol>
+<ol type="i">
+<li>[If selected] Please list partner:</li>
+</ol>
+<ol start="2" type="a">
+<li>Yes, I do not have a partner identified but would like a recommendation.</li>
+<li>No, I do not plan to work with a partner/ we plan to do the work in-house</li>
+<li>Other. Please explain:</li>
+</ol>
+<ol start="5" type="1">
+<li>Is your organization’s IT infrastructure currently: [Select one]</li>
+</ol>
+<ol type="a">
+<li>On-premises</li>
+<li>On AWS</li>
+<li>With another provider</li>
+<li>Hybrid</li>
+</ol>
+<ol start="6" type="1">
+<li>Is the IT infrastructure for the project you are proposing for this grant opportunity currently: [Select one]</li>
+</ol>
+<ol type="a">
+<li>On-premises</li>
+<li>On AWS</li>
+<li>Net-new to your organization</li>
+<li>With another provider</li>
+<li>Hybrid</li>
+</ol>
+<ol start="7" type="1">
+<li>If you were to not receive funding or be awarded the full amount of funding for either award, would your organization still be able to implement this project?</li>
+</ol>
+<ol type="a">
+<li>Yes</li>
+<li>No</li>
+</ol>
+
+
+</section>
+</section>
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/ruralinnovation\.github\.io\/wiki\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ruralinnovation/wiki/edit/main/grant_aws.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/ruralinnovation/wiki/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
