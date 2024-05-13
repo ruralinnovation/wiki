@@ -122,9 +122,11 @@ Sadly our manual processes do not allow us:
 - keep memory over time, trends, to drive thought leadership
 - expand our audience
 
-In its ever evolving landscape, being able to efficiently capture and store data with the help of AWS infrastructure will create valuable resources for our partner and communities.
+In its ever evolving landscape, being able to efficiently capture and store data with the help of AWS infrastructure will create valuable resources for our partner and communities. 
+
 Both the "Momentum to Modernize" and "Go Further, Faster" grants could potentially help us and provide new opportunities to become a hub and source of truth/expertise on broadband data.
 
+The maturity, expertise and "urgency" to works with broadband data make it an important "first target" in our oganization data stratgey and we are excited to learn from it and expand from it to other area CORI (venture capital and tech talent in rural area). 
 
 
 # Outline of the grant application
@@ -278,21 +280,24 @@ your organization? [200 - 350 words]
 
 1. Describe your project’s technical design at a high level. What does it do and how? [200 - 350
 words]
-
-The goals are to builds an analytics data lake that centralise broadband data to support broadband expension, grant applications and research on broadband equity and development. 
-
-The goals are to build an analytics data lake that centralizes broadband data to support broadband expansion, grant applications and research on broadband equity and development.
+The goals are to build an analytics data lakehouse that centralizes broadband data to support broadband expansion, grant applications and research on broadband equity and development.
 
 We are currently using a data warehouse solution that works great once we have a clear understanding of what our partners need but the rapid change in the broadband landscape makes that approach too slow to innovate and serve our communities in the necessary timeframe.
 
 We need intermediate places and processes that allow us to catalog our assets, then work on non structured data and provide quick insights for important feedback loops with partners and stakeholders. The size of broadband data makes it in the beginning of the realm of big data and typical in memory solutions are reaching their limits. 
 
-I think right now we are good with the AWS lambda function but we need a way to build intermediaries tools/workflow to allow us to get feedback from partners and build on top of it for better and more products. IE this data lake needs an efficient way to query, do quick and shareable visualization then it will be awesome if it integrates well on our "production" pipeline.
-Then we need to build the infrastructure to ease the query of such data: do we have a spark question or duckDB/parquet question (scope needed here prob: R package verus use of AWS solution?).
+We can identify three key challenges in our implementation. The first is that the data lake house will need to have integration for both power users (integration with R)  and integration with regular users (BI tools). The second is that even if we start building it for internal users we would like it to scale for external users allowing us to serve the broadband community and rural places  at the heart of our organization. The third is, while opening our infrastructure, we will need to improve our data governance strategy referencing data lineage and catalog. 
+
+
+— 
+
+I think right now we are good with the AWS lambda function but we need a way to build intermediary tools/workflow on top of Lambda functions (expand) in alignment with data user/stakeholder needs. IE this data lake needs an efficient way to query, do quick and shareable visualizations and integrate well with our "production" pipeline.
+
+Then we need to build the infrastructure to ease the query of such data: do we have a spark question or duckDB/parquet question (scope needed here prob: R package versus use of AWS solution?).
 
 Idea on machine learning: FCC data is declarative data and needs to be confronted either on local knowledge and/or other data sources:: census data, MLAB ?: anomaly detection/outlier detection?. It comes after the fact that we can use multiple sources of data to get closer to reality on the ground and build better bb infrastructure?
 
-Question on being public/managing permission on that (cognito)
+Question on being public/managing permission on that (cognito).
 
 
 
@@ -308,11 +313,11 @@ about types of workloads in our latest publication on how nonprofits leverage th
   h) Content storage and backup (e.g. disaster recovery)
   i) Migration and optimization (e.g. systems, data, application)
   j) Virtual desktop
-  k) Data lake
+  k) **Data lake**
   l) Data warehouse
-  m) Data analytics and visualization
+  m) **Data analytics and visualization**
   n) Managed AI/ML services (e.g. intelligent document processing, image recognition)
-  o) AI/ML for research
+  o) **AI/ML for research**
   p) AI/ML for predictive modeling
   q) Generative AI
   r) Customer experience (e.g. call/contact center, virtual assistant)
@@ -324,6 +329,15 @@ about types of workloads in our latest publication on how nonprofits leverage th
 3. Describe the resources and technical skills you may need to complete the project successfully.
 Do you have these resources in-house? If no, what will be your plan to acquire the skills
 needed? [200 - 350 words]
+
+CORI’s Mapping and Data Analytics (MDA) team consists of seasoned software engineers, data scientists, website developers, and geospatial analysts. 
+They are familiar with AWS services to deploy web applications, RDS instances and AWS lambda using either the SDK or the AWS GUI.
+Training will be needed on moving away from using the GUI to implement solution using R (the common language in the team) for managing s3 (list assets, write/read, manage permissions). We are also planning  on using new services like AWS Service Catalog and connecting both our RDS instances to Quicksigh. 
+
+The MDA team has plan and budgeded X amount of hours of personnal development that they want to apply to AWS training. On a same time we already have a partnership with Merging Future and our 2024 budget include  hours of consulting with them to be our sparing partners in our cloud endeavors. Building on these newly developped expertise the team want to disseminate the use of AWS services in our organizations and bring more people outside of the MDA to use tools that allow more data driven decisions.  
+
+AWS credit provided by the AWS Imagine grant will go a long way to helps us support the cost of prototyping, testing multiple solutions and bring new coworkers to use it.  
+
 
 4. To successfully complete your project, would you need support from a technology and/or
 implementation partner? (Hint: An AWS Partner is an external expert who leverages AWS to
