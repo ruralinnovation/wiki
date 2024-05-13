@@ -128,11 +128,7 @@ In its ever evolving landscape, being able to efficiently capture and store data
 
 Both the "Momentum to Modernize" and "Go Further, Faster" grants could potentially help us and provide new opportunities to become a hub and source of truth/expertise on broadband data.
 
-<<<<<<< HEAD
-The maturity, expertise and "urgency" to works with broadband data make it an important "first target" in our oganization data strategy and we are excited to learn from it and expand from it to other area CORI (venture capital and tech talent in rural area). 
-=======
 The maturity, expertise and "urgency" to works with broadband data make it an important "first target" in our oganization data stratgey and we are excited to learn from it and expand from it to other area CORI (venture capital and tech talent in rural area). 
->>>>>>> 35921925c1c108137d19460cd32c088dc3e159f2
 
 
 # Outline of the grant application
@@ -286,13 +282,20 @@ your organization? [200 - 350 words]
 
 1. Describe your project’s technical design at a high level. What does it do and how? [200 - 350
 words]
+
 The goals are to build an analytics data lakehouse that centralizes broadband data to support broadband expansion, grant applications and research on broadband equity and development.
 
-We are currently using a data warehouse solution that works great once we have a clear understanding of what our partners need but the rapid change in the broadband landscape makes that approach too slow to innovate and serve our communities in the necessary timeframe.
+We are currently using a data warehouse solution based on RDS database cluster that works great once we have a clear understanding of what our partners need but the rapid change in the broadband landscape makes that approach too slow to innovate and serve our communities in the necessary timeframe.
 
 We need intermediate places and processes that allow us to catalog our assets, then work on non structured data and provide quick insights for important feedback loops with partners and stakeholders. The size of broadband data makes it in the beginning of the realm of big data and typical in memory solutions are reaching their limits. 
 
-We can identify three key challenges in our implementation. The first is that the data lake house will need to have integration for both power users (integration with R)  and integration with regular users (BI tools). The second is that even if we start building it for internal users we would like it to scale for external users allowing us to serve the broadband community and rural places  at the heart of our organization. The third is, while opening our infrastructure, we will need to improve our data governance strategy referencing data lineage and catalog. 
+We can identify three key challenges in our implementation. 
+
+The first is that the data lake house will need to have integration for both power users (integration with R)  and integration with regular users (BI tools). The processing need to be adaptable to the rapidly changing needs of ech group of users. The main tool allowing us that path will be AWS Lambda and each lambda function will be the product of structued feedback cycle betwwen the developpers and users.
+
+The second is that even if we start building it for internal users we would like it to scale for external users allowing us to serve the broadband community and rural places at the heart of our organization. We can utalize AWS Cognito to manage and control access at the applications level. 
+
+ The third is, while opening our infrastructure, we will need to improve our data governance strategy referencing data lineage and catalog. 
 
 
 — 
