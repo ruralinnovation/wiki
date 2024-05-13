@@ -128,7 +128,11 @@ In its ever evolving landscape, being able to efficiently capture and store data
 
 Both the "Momentum to Modernize" and "Go Further, Faster" grants could potentially help us and provide new opportunities to become a hub and source of truth/expertise on broadband data.
 
+<<<<<<< HEAD
 The maturity, expertise and "urgency" to works with broadband data make it an important "first target" in our oganization data strategy and we are excited to learn from it and expand from it to other area CORI (venture capital and tech talent in rural area). 
+=======
+The maturity, expertise and "urgency" to works with broadband data make it an important "first target" in our oganization data stratgey and we are excited to learn from it and expand from it to other area CORI (venture capital and tech talent in rural area). 
+>>>>>>> 35921925c1c108137d19460cd32c088dc3e159f2
 
 
 # Outline of the grant application
