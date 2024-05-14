@@ -117,18 +117,37 @@ Our broadband team contributes to it and our research team provides insights on 
 
 Both rely on fresh, actionable and easy to share data.
 To do that our mapping and data team have been ingested, processed FCC data and shared those results either with web apps or with in-house analytics.
-Sadly our manual processes do not allow us:
-- to keep up with the volume and frequencies of FCC releases
-- to add different sources (MLab, Ookla) of data and combine them 
-- get the granularity that expert on the ground needs
-- keep memory over time, trends, to drive thought leadership
-- expand our audience
+
+Our the existing challenges inherent in our current process and workflow:
+
+1. Does not allow us to keep up with the volume and frequencies of FCC releases
+2. Limits our ability to add large datasets from different sources (MLab, Ookla) and combine them
+3. Limits our ability to catalog all of our data
+4. Difficult to explore the varying levels of granularity that experts on the ground needs
+5. Limited ability to include preceding versions of data in order to analyze trends and to extract insights over time that can drive thought leadership
+6. Publish an exhaustive catalog of our data products to a wider audience
+7. Overcoming challenges 1 - 5 are foundational steps if we want to leverage AI in production
+
+The first step in our organization's data strategy will be to build an analytics data lakehouse that centralizes broadband data to support broadband expansion, grant applications and research on broadband equity and development.
+
+We can identify four key challenges in our implementation.
+
+The first challenge is that the data lakehouse and its interfaces will need to be accessible to two primary groups of users. The first are data analysts and researchers who are comfortable with programmatic environments and tools (Python/R), while the second is consultants and domain experts who will explore and present the insights derived from the data in higher-level business analytics environments (QuickSight/Power BI/Tableau).
+
+The second challenge is that after we build it for internal users it will need to scale for external users allowing us to directly serve the broadband community and rural places at the heart of our organization. We can utilize AWS Cognito to manage and control access at the applications level.
+
+The third challenge is, while opening our infrastructure, we will need to improve our data governance strategy referencing data lineage and catalog.
+
+The fourth challenge is that, while we have been progressively using services on the AWS platform to perform day-to-day work, our in-house data team is small and has limited experience in the implementation of a large scale data analysis platform that will serve all relevant stake holders.
+
+The methods that we make available for processing, indexing and querying the data need to be adaptable to the rapidly changing needs of each group of users. In order to evolve a more readily adaptable data environment, we envision an expansion to our workflow that a data science and machine learning workspace, such as SageMaker, in which analytical models can be designed, trained and tested before they are deployed in production. This “sandbox” environment will support a structured feedback cycle between the developers and our two groups of end users. Once validated, these models will be deployed to a CDK-managed catalog of AWS Lambda functions, called  the CORI Data API,  for use in all business and data pipeline activities across the org. As a necessary part of this integration, we intend to integrate these Lambda functions with a managed metadata schema that will include information about the data that we are storing in AWS S3. This would unlock access to our entire data lakehouse for analytical and query purposes, beyond the limited set of select schemas and tables currently stored in our RDS database cluster. 
+
 
 In its ever evolving landscape, being able to efficiently capture and store data with the help of AWS infrastructure will create valuable resources for our partner and communities. 
 
 Both the "Momentum to Modernize" and "Go Further, Faster" grants could potentially help us and provide new opportunities to become a hub and source of truth/expertise on broadband data.
 
-The maturity, expertise and "urgency" to works with broadband data make it an important "first target" in our oganization data stratgey and we are excited to learn from it and expand from it to other area CORI (venture capital and tech talent in rural area). 
+The maturity, expertise and "urgency" to works with broadband data make it an important "first target" in our oganization data stratgey and we are excited to learn from it and expand from it to other area in CORI (venture capital and tech talent in rural area). 
 
 
 # Outline of the grant application
@@ -225,7 +244,7 @@ you can provide any one of them)
 
 13. Have you applied for the IMAGINE Grant before? [Yes/No]
 
--> it will need to confirmed 
+Yes
 
 ## Project Information
 
@@ -235,7 +254,6 @@ you can provide any one of them)
   c) Pathfinder – Generative AI award
 
 2. What is your project and how does it relate to your organization’s mission? [200 - 350 words]
-
 
 
 ~~3. (For Pathfinder applicants only) How does generative AI fit into your overall project design? How
@@ -265,8 +283,7 @@ your organization? [200 - 350 words]
   d) Enable business continuity with archive, backup, and disaster recovery.
   e) **Increase resilience, scaling, and availability of existing workloads and databases.** <- this one
   f) Increase security and governance of data/ ensure security compliance. (e.g. HIPAA, SOC)
-  g) **Inform better decision making by aggregating disparate data sources and applying
-  analytics (e.g., visualization, AI/ML).** <- this one
+  g) **Inform better decision making by aggregating disparate data sources and applying analytics (e.g., visualization, AI/ML).** <- this one
   h) Enable accurate forecasting based on past data with predictive analysis using machine learning.
   i) Better understand and engage members/donors/beneficiaries by creating a 360 view
   with constituent data.
@@ -287,13 +304,13 @@ The goals are to build an analytics data lakehouse that centralizes broadband da
 
 We are currently using a data warehouse solution based on RDS database cluster that works great once we have a clear understanding of what our partners need but the rapid change in the broadband landscape makes that approach too slow to innovate and serve our communities in the necessary timeframe.
 
-We need intermediate places and processes that allow us to catalog our assets, then work on non structured data and provide quick insights for important feedback loops with partners and stakeholders. The size of broadband data makes it in the beginning of the realm of big data and typical in memory solutions are reaching their limits. 
+We need intermediate places and processes that allow us to catalog our assets, then work on non-structured data and provide quick insights for important feedback loops with partners and stakeholders. The size of broadband data makes it in the beginning of the realm of big data and typical in memory solutions are reaching their limits. 
 
 We can identify three key challenges in our implementation. 
 
-The first is that the data lake house will need to have integration for both power users (integration with R)  and integration with regular users (BI tools). The processing need to be adaptable to the rapidly changing needs of ech group of users. The main tool allowing us that path will be AWS Lambda and each lambda function will be the product of structued feedback cycle betwwen the developpers and users.
+The first is that the data lakehouse will need to have integration for both power users (integration with R) and integration with regular users (BI tools). The processing need to be adaptable to the rapidly changing needs of each group of users. The main tool allowing us that path will be AWS Lambda and each lambda function will be the product of structured feedback cycle between the developpers and users.
 
-The second is that even if we start building it for internal users we would like it to scale for external users allowing us to serve the broadband community and rural places at the heart of our organization. We can utalize AWS Cognito to manage and control access at the applications level. 
+The second is that after we build it for internal users it will need to scale for external users allowing us to serve the broadband community and rural places at the heart of our organization. We can utalize AWS Cognito to manage and control access at the applications level. 
 
  The third is, while opening our infrastructure, we will need to improve our data governance strategy referencing data lineage and catalog. 
 
@@ -310,7 +327,7 @@ Question on being public/managing permission on that (cognito).
 
 
 
-2. What type(s) of workload(s) will your project include? [Select all that apply] (Hint: Learn more
+1. What type(s) of workload(s) will your project include? [Select all that apply] (Hint: Learn more
 about types of workloads in our latest publication on how nonprofits leverage the cloud today)
   a) Digital content management (e.g. hosting and scaling websites)
   b) Digital content delivery (e.g. virtual events, virtual learning platform)
@@ -335,7 +352,7 @@ about types of workloads in our latest publication on how nonprofits leverage th
   u) Other. Please specify:
   v) None of the above
 
-3. Describe the resources and technical skills you may need to complete the project successfully.
+1. Describe the resources and technical skills you may need to complete the project successfully.
 Do you have these resources in-house? If no, what will be your plan to acquire the skills
 needed? [200 - 350 words]
 
