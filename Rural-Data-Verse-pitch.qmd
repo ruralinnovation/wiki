@@ -1,0 +1,57 @@
+---
+title: "Rural Data Verse"
+output: html_notebook
+execute:
+    echo: true
+    output: true
+    message: false
+    warning: false
+format:
+    html:
+        code-fold: true
+---
+
+## Maintain and publish a library of references to data sources about the state of rural (based on augmentation of our internal metadata)
+[Link to BOE]
+
+In pursuing our mission to help build tech economies across rural America, we regularly procure data from a broad spectrum of agencies, organizations and institutions that we use to model and represent the state of tech ecosystems in rural places. Internally we employ analysis of this data is such diverse ways as:
+
+>  - disseminating actionable knowledge to rural leaders who are working to advance tech economy development in their local regions
+>  - deciding on where to make direct investments in early-stage rural technology startups through our seed fund(s)
+>  - helping our Rural Innovation Network members develop their local tech workforce through inclusive training programs that identify and support workers of all experiences
+>  - working with communities to identify local assets, opportunities, gaps, and challenges
+>  - assisting rural places in getting high-speed fiber internet connected to the last mile
+>  - using research, data and storytelling to shift the national narrative about who lives in rural America and what is possible in rural America
+
+<!--
+Tech-based economic development
+
+We work with communities to identify local assets, opportunities, gaps, and challenges that factor into building tech economy strategies that support their future efforts.
+A community of practice
+
+We launched the Rural Innovation Network as a community of rural leaders working to advance tech economy development in small towns across the country.
+Research, data, and storytelling
+
+We use research, data and storytelling to shift the national narrative about who lives in rural America and what is possible in rural America.
+Rural startup investment
+
+We make direct investments in early-stage rural technology startups through our seed fund, the CORI Innovation Fund (CIF).
+Tech workforce development
+
+We help our Rural Innovation Network members develop their local tech workforce through inclusive training programs that identify and support workers of all experiences.
+Broadband advocacy
+
+We advocate for rural places to get connected to the last mile, knowing fiber internet is the lifeblood of the tech economy, online learning, telehealth, and innovation.
+-->
+
+In order to power these activities, the Center on Rural Innovation may be the first organization to gather this unique collection of data that is particularly relevant to research and analysis on rural into a single repository or warehouse. More importantly, our organization has gathered domain knowledge and understanding that connects seemingly distant or disparate points across these data sets in the form of experienced professionals who use this data to derive the insights and perspectives that inform  their work.
+
+Current metadata contents:
+
+  - `pipeline_diagnostics`:
+  - `product_metadata`:
+  - `source_metadata`:
+  - `table_metadata`:
+  - `field_metadata`:
+  - `acs_metadata`:
+
