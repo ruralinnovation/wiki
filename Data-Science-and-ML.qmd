@@ -1,0 +1,20 @@
+---
+title: "Data Science and Machine Learning"
+output: html_notebook
+execute:
+    echo: true
+    output: true
+    message: false
+    warning: false
+format:
+    html:
+        code-fold: true
+---
+
+Conventional data analysis has been a core function of the MDA team since it's inception in 2018. Occasionally, this has included "modelling" activity and building models using well-known methods (such as 2SFCA or  [two-step floating catchment area](https://en.wikipedia.org/wiki/Two-step_floating_catchment_area_method)).
+
+We have reached a point where the business demands of the organization are presenting novel challenges in understanding vast inputs of data of unknown quality (e.g. FCC's [Broadband Data Collection](https://broadbandmap.fcc.gov/data-download/nationwide-data) or M-Lab's [archival speed test data](https://www.measurementlab.net/data/docs/archival-data/)). To produce deeper insights into both the underlying quality of the data and the real-world resource mapping that the data is intended to represent, we need to incorporate more advanced modelling methods and techniques, ideally on a platform that also allows us to expand upon the work of thousands of data scientists and researchers that has been encoded into large repositories of pre-trained predictive models, such as the [Hugging Face Hub](https://huggingface.co/docs/hub/index).
+
+To this end and in order to further utilize the platform tools that we are already leveraging in our day-to-day work,  we are exploring the use of [AWS SageMaker](https://docs.aws.amazon.com/sagemaker/latest/dg/frameworks.html) as a shared Data Science and Machine Learning workspace in which analytical models can be designed, trained and tested. Additionally, the CORI Data API, which is a CDK-managed catalog of AWS Lambda functions can be used to deploy these models in production for use in all business and data pipeline activities across the org. We also intend to integrate these Lambda function with a refinement of our metadata schema that will include information about data that we are storing in AWS S3, which would unlock access to our entire data warehouse for analytical and query purposes, beyond the limited set of select schemas and tables stored in our database.
+
+I have imported a Jupyter Python notebook from the [amazon-sagemaker-examples](https://github.com/aws/amazon-sagemaker-examples/blob/main/introduction_to_amazon_algorithms/jumpstart_text_classification/Amazon_JumpStart_HuggingFace_Text_Classification.ipynb) repository to this wiki as a Quarto markdown (in draft form) file called [Amazon_JumpStart_HuggingFace](Amazon_JumpStart_HuggingFace.qmd). Based on an Amazon [tutorial](https://aws.amazon.com/blogs/machine-learning/build-a-hugging-face-text-classification-model-in-amazon-sagemaker-jumpstart/) introducing the JumpStart module in SageMaker, this is a simple test of our ability to import a [predictive model](https://huggingface.co/distilbert/distilbert-base-uncased-finetuned-sst-2-english) from Hugging Face, deploy it to an isolated network domain within AWS SageMaker and test predictions on a small input dataset. It works locally, but we may need to make changes to the configuration of our existing  workflow for this wiki in order for the SageMaker sdk (Python) code to run in the Github actions environment. The main purpose of that document is to demonstrate that we can in fact utilize SageMaker as part of our data analytics and exploration workflows.

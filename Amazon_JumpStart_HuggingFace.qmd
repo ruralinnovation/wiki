@@ -1,0 +1,218 @@
+---
+title: "Intro to SageMake Hugging Face"
+author: "Amazon"
+draft: true
+format:
+   html:
+      code-fold: true
+---
+
+# Introduction to SageMaker HuggingFace - Text Classification
+
+This notebook is an example of using SageMaker's JumpStart API (in Python) and most of the content is copied from [amazon-sagemaker-examples](https://github.com/aws/amazon-sagemaker-examples/blob/main/introduction_to_amazon_algorithms/jumpstart_text_classification/Amazon_JumpStart_HuggingFace_Text_Classification.ipynb).
+
+Welcome to [Amazon SageMaker Built-in Algorithms](https://sagemaker.readthedocs.io/en/stable/algorithms/index.html)! You can use SageMaker Built-in algorithms to solve many Machine Learning tasks through [SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/overview.html). You can also use these algorithms through one-click in SageMaker Studio via [JumpStart](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-jumpstart.html).
+
+In this demo notebook, we demonstrate how to use the JumpStart API for Text Classification. Text Classification refers to classifying an input sentence to one of the class labels of the training dataset.  We demonstrate the following text classification tasks here:
+
+* How to run inference on any [Text Classification](https://huggingface.co/models?pipeline_tag=text-classification&sort=downloads) model available on HugginFace.
+* How to fine-tune any pre-trained [Fill-Mask](https://huggingface.co/models?pipeline_tag=fill-mask&sort=downloads) or [Text Classification](https://huggingface.co/models?pipeline_tag=text-classification&sort=downloads) model available in HuggingFace to a custom dataset, and then run inference on the fine-tuned model.
+* How to run the batch inference
+
+Note: This notebook was tested on ml.t3.medium instance in Amazon SageMaker Studio with Python 3 (Data Science) kernel and in Amazon SageMaker Notebook instance with conda_python3 kernel.
+
+
+1. [Set Up](#1.-Set-Up)
+2. [Select a Text-Classification Model](#2.-Select-a-Text-Classification-Model)
+3. [Run inference on the pre-trained model](#3.-Run-Inference-on-the-pre-trained-model)
+   * [Deploy an Endpoint](#3.1.-Retrieve-Artifacts-&-Deploy-an-Endpoint)
+   * [Example input sentences for inference](#3.2.-Example-input-sentences-for-inference)
+   * [Query endpoint and parse response](#3.3.-Query-endpoint-and-parse-response)
+   * [Clean up the endpoint](#3.4.-Clean-up-the-endpoint)
+4. [Finetune the pre-trained model on a custom dataset](#4.-Fine-Tune-the-pre-trained-model-on-a-custom-dataset)
+   * [Selecting A Model](#4.1.-Selecting-A-Model)
+   * [Set Training parameters](#4.2.-Set-Training-parameters)
+   * [Train with Automatic Model Tuning](#4.3.-Train-with-Automatic-Model-Tuning-([HPO]))
+   * [Start Training](#4.4.-Start-Training)
+   * [Extract Training performance metrics](#4.5.-Extract-Training-performance-metrics)
+   * [Deploy & run Inference on the fine-tuned model](#4.6.-Deploy-&-run-Inference-on-the-fine-tuned-model)
+   * [Incrementally train the fine-tuned model](#4.7.-Incrementally-train-the-fine-tuned-model)
+5. [Run Batch Transform](#5.-Running-Batch-Inference)
+   * [Prepare data for Batch Transform](#5.1.-Prepare-data-for-Batch-Transform)
+   * [Deploy Model for Batch Transform Job](#5.2.-Deploy-Model-for-Batch-Transform-Job)
+   * [Compare Predictions With the Ground Truth
+     ](#5.3.-Compare-Predictions-With-the-Ground-Truth)
+
+
+## 1. Set Up
+
+
+To train and host on Amazon Sagemaker, we need to setup and authenticate the use of AWS services. Here, we use the execution role associated with the current notebook instance as the AWS account role with SageMaker access. It has necessary permissions, including access to your data in S3.
+
+
+::: {.callout-caution collapse="true"}
+## Missing iam:GetRole permissions
+
+The following code snippet to initialize an AWS/SageMaker session may produce this error message:
+```
+Couldn't call 'get_role' to get Role ARN from role name [aws_account_name] to get Role path.
+```
+
+This means that the AWS account and/or role being used to run the session is missing the permission "iam:GetRole", as explained in this [stack overflow article](https://stackoverflow.com/questions/68607118/aws-sagemaker-iam-permission-to-call-get-role). To fix this, go into the AWS console and add the following inline policy to the account/role.
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": "iam:GetRole",
+            "Resource": "arn:aws:iam::312512371189:role/*"
+        }
+    ]
+}
+```
+:::
+
+
+```{python}
+#| warning: false
+import sagemaker, boto3, json
+from sagemaker.session import Session
+
+# sagemaker_session = Session()
+# aws_role = sagemaker_session.get_caller_identity_arn()
+# ... changed with help from:
+#     https://github.com/aws-solutions-library-samples/guidance-for-training-an-aws-deepracer-model-using-amazon-sagemaker/issues/47
+iam = boto3.client('iam')
+aws_role = iam.get_role(RoleName='mda_sage_maker')['Role']['Arn']
+aws_region = boto3.Session().region_name
+sess = sagemaker.Session()
+print(f'Running session with role: {aws_role}')
+```
+
+
+## 2. Select a Text Classification Model
+
+You can continue with the default model, or can choose a different model from the dropdown generated upon running the next cell. A complete list of JumpStart fine-tuned models can also be accessed at [JumpStart Fine-Tuned Models](https://sagemaker.readthedocs.io/en/stable/doc_utils/pretrainedmodels.html#).
+
+
+```{python}
+import IPython
+from IPython.core.display_functions import display
+from ipywidgets import Dropdown
+from sagemaker.jumpstart.notebook_utils import list_jumpstart_models
+from sagemaker.jumpstart.filters import And
+
+model_id = "huggingface-tc-bert-base-cased"
+
+# Retrieves all Text Classification models available by SageMaker Built-In Algorithms.
+filter_value = And("task == tc", "framework == huggingface")
+tc_models = list_jumpstart_models(filter=filter_value)
+# display the model-ids in a dropdown, for user to select a model.
+dropdown = Dropdown(
+    value=model_id,
+    options=tc_models,
+    description="Sagemaker Pre-Trained Text Classification Models:",
+    style={"description_width": "initial"},
+    layout={"width": "max-content"},
+)
+display(IPython.display.Markdown("## Select a pre-trained model from the dropdown below"))
+display(dropdown)
+```
+
+
+### Using Models not Present in the Dropdown
+
+If you want to choose any other model which is not present in the dropdown and is available at HugginFace [Text-Classification](https://huggingface.co/models?pipeline_tag=text-classification&sort=downloads) please choose huggingface-tc-models in the dropdown and pass the model_id in the HF_MODEL_ID variable. Inference on the models listed in the dropdown menu can be run in [network isolation](https://docs.aws.amazon.com/sagemaker/latest/dg/mkt-algo-model-internet-free.html) under VPC settings. However, when running inference on a model specified through HF_MODEL_ID, VPC settings with network isolation will not work.
+
+```{python}
+# model_version="*" fetches the latest version of the model.
+infer_model_id, infer_model_version = dropdown.value, "*"
+
+hub = {}
+HF_MODEL_ID = "distilbert-base-uncased-finetuned-sst-2-english"  # Pass any other HF_MODEL_ID from - https://huggingface.co/models?pipeline_tag=text-classification&sort=downloads
+if infer_model_id == "huggingface-tc-models":
+    hub["HF_MODEL_ID"] = HF_MODEL_ID
+    hub["HF_TASK"] = "text-classification"
+```
+
+
+## 3. Run Inference on the pre-trained model
+
+Using SageMaker, we can perform inference on the fine-tuned model. For this example, that means on an input sentence, predicting the class label from one of the 2 classes of the [SST2](https://nlp.stanford.edu/sentiment/index.html) dataset. Otherwise predicting the class label on any of the choosen model from the HugginFace [Text-Classification](https://huggingface.co/models?pipeline_tag=text-classification&sort=downloads)
+
+
+### 3.1. Deploy an Endpoint
+
+```{python}
+from sagemaker.jumpstart.model import JumpStartModel
+
+my_model = JumpStartModel(
+    model_id=infer_model_id,
+    env=hub,
+    enable_network_isolation=False if infer_model_id == "huggingface-tc-models" else True,
+    region=aws_region,
+    role=aws_role,
+)
+model_predictor = my_model.deploy()
+```
+
+
+### 3.2. Example input sentences for inference
+
+These examples are taken from SST2 dataset downloaded from [TensorFlow](https://www.tensorflow.org/datasets/catalog/glue#gluesst2). [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). [Dataset Homepage](https://nlp.stanford.edu/sentiment/index.html).
+
+```{python}
+text1 = "astonishing ... ( frames ) profound ethical and philosophical questions in the form of dazzling pop entertainment"
+text2 = "simply stupid , irrelevant and deeply , truly , bottomlessly cynical "
+```
+
+
+### 3.3. Query endpoint and parse response
+
+Input to the endpoint is a single sentence. Response from the endpoint is a dictionary containing the predicted class label, and a list of class label probabilities.
+
+```{python}
+newline, bold, unbold = "\n", "\033[1m", "\033[0m"
+
+
+def query_endpoint(encoded_text):
+    response = model_predictor.predict(
+        encoded_text, {"ContentType": "application/x-text", "Accept": "application/json;verbose"}
+    )
+    return response
+
+
+def parse_response(query_response):
+    model_predictions = query_response
+    probabilities, labels, predicted_label = (
+        model_predictions["probabilities"],
+        model_predictions["labels"],
+        model_predictions["predicted_label"],
+    )
+    return probabilities, labels, predicted_label
+
+
+for text in [text1, text2]:
+    query_response = query_endpoint(text.encode("utf-8"))
+    probabilities, labels, predicted_label = parse_response(query_response)
+    print(
+        f'Inference:{newline}'
+        f'Input text: "{text}"{newline}'
+        f'Model prediction: {probabilities}{newline}'
+        f'Labels: {labels}{newline}'
+        f'Predicted Label: {bold}{predicted_label}{unbold}{newline}'
+    )
+
+```
+
+
+### 3.4. Clean up the endpoint
+
+```{python}
+# Delete the SageMaker endpoint and the attached resources
+model_predictor.delete_model()
+model_predictor.delete_endpoint()
+```
+
