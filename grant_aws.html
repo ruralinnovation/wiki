@@ -395,10 +395,27 @@ ul.task-list li input[type="checkbox"] {
 <section id="first-brainstorm" class="level2">
 <h2 class="anchored" data-anchor-id="first-brainstorm">first brainstorm:</h2>
 <p>At CORI we are helping rural communities and their leaders understand the rural divide and reduce it. This is a critical moment for broadband funding and infrastructure expansion that will have major impacts on communities across the nation. Our broadband team contributes to it and our research team provides insights on how this affects communities.</p>
-<p>Both rely on fresh, actionable and easy to share data. To do that our mapping and data team have been ingested, processed FCC data and shared those results either with web apps or with in-house analytics. Sadly our manual processes do not allow us: - to keep up with the volume and frequencies of FCC releases - to add different sources (MLab, Ookla) of data and combine them - get the granularity that expert on the ground needs - keep memory over time, trends, to drive thought leadership - expand our audience</p>
+<p>Both rely on fresh, actionable and easy to share data. To do that our mapping and data team have been ingested, processed FCC data and shared those results either with web apps or with in-house analytics.</p>
+<p>Our the existing challenges inherent in our current process and workflow:</p>
+<ol type="1">
+<li>Does not allow us to keep up with the volume and frequencies of FCC releases</li>
+<li>Limits our ability to add large datasets from different sources (MLab, Ookla) and combine them</li>
+<li>Limits our ability to catalog all of our data</li>
+<li>Difficult to explore the varying levels of granularity that experts on the ground needs</li>
+<li>Limited ability to include preceding versions of data in order to analyze trends and to extract insights over time that can drive thought leadership</li>
+<li>Publish an exhaustive catalog of our data products to a wider audience</li>
+<li>Overcoming challenges 1 - 5 are foundational steps if we want to leverage AI in production</li>
+</ol>
+<p>The first step in our organization’s data strategy will be to build an analytics data lakehouse that centralizes broadband data to support broadband expansion, grant applications and research on broadband equity and development.</p>
+<p>We can identify four key challenges in our implementation.</p>
+<p>The first challenge is that the data lakehouse and its interfaces will need to be accessible to two primary groups of users. The first are data analysts and researchers who are comfortable with programmatic environments and tools (Python/R), while the second is consultants and domain experts who will explore and present the insights derived from the data in higher-level business analytics environments (QuickSight/Power BI/Tableau).</p>
+<p>The second challenge is that after we build it for internal users it will need to scale for external users allowing us to directly serve the broadband community and rural places at the heart of our organization. We can utilize AWS Cognito to manage and control access at the applications level.</p>
+<p>The third challenge is, while opening our infrastructure, we will need to improve our data governance strategy referencing data lineage and catalog.</p>
+<p>The fourth challenge is that, while we have been progressively using services on the AWS platform to perform day-to-day work, our in-house data team is small and has limited experience in the implementation of a large scale data analysis platform that will serve all relevant stake holders.</p>
+<p>The methods that we make available for processing, indexing and querying the data need to be adaptable to the rapidly changing needs of each group of users. In order to evolve a more readily adaptable data environment, we envision an expansion to our workflow that a data science and machine learning workspace, such as SageMaker, in which analytical models can be designed, trained and tested before they are deployed in production. This “sandbox” environment will support a structured feedback cycle between the developers and our two groups of end users. Once validated, these models will be deployed to a CDK-managed catalog of AWS Lambda functions, called the CORI Data API, for use in all business and data pipeline activities across the org. As a necessary part of this integration, we intend to integrate these Lambda functions with a managed metadata schema that will include information about the data that we are storing in AWS S3. This would unlock access to our entire data lakehouse for analytical and query purposes, beyond the limited set of select schemas and tables currently stored in our RDS database cluster.</p>
 <p>In its ever evolving landscape, being able to efficiently capture and store data with the help of AWS infrastructure will create valuable resources for our partner and communities.</p>
 <p>Both the “Momentum to Modernize” and “Go Further, Faster” grants could potentially help us and provide new opportunities to become a hub and source of truth/expertise on broadband data.</p>
-<p>The maturity, expertise and “urgency” to works with broadband data make it an important “first target” in our oganization data stratgey and we are excited to learn from it and expand from it to other area CORI (venture capital and tech talent in rural area).</p>
+<p>The maturity, expertise and “urgency” to works with broadband data make it an important “first target” in our oganization data stratgey and we are excited to learn from it and expand from it to other area in CORI (venture capital and tech talent in rural area).</p>
 </section>
 </section>
 <section id="outline-of-the-grant-application" class="level1">
@@ -506,7 +523,7 @@ ul.task-list li input[type="checkbox"] {
 <ol start="13" type="1">
 <li>Have you applied for the IMAGINE Grant before? [Yes/No]</li>
 </ol>
-<p>-&gt; it will need to confirmed</p>
+<p>Yes</p>
 </section>
 <section id="project-information" class="level2">
 <h2 class="anchored" data-anchor-id="project-information">Project Information</h2>
@@ -561,17 +578,17 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 <p>The goals are to build an analytics data lakehouse that centralizes broadband data to support broadband expansion, grant applications and research on broadband equity and development.</p>
 <p>We are currently using a data warehouse solution based on RDS database cluster that works great once we have a clear understanding of what our partners need but the rapid change in the broadband landscape makes that approach too slow to innovate and serve our communities in the necessary timeframe.</p>
-<p>We need intermediate places and processes that allow us to catalog our assets, then work on non structured data and provide quick insights for important feedback loops with partners and stakeholders. The size of broadband data makes it in the beginning of the realm of big data and typical in memory solutions are reaching their limits.</p>
+<p>We need intermediate places and processes that allow us to catalog our assets, then work on non-structured data and provide quick insights for important feedback loops with partners and stakeholders. The size of broadband data makes it in the beginning of the realm of big data and typical in memory solutions are reaching their limits.</p>
 <p>We can identify three key challenges in our implementation.</p>
-<p>The first is that the data lake house will need to have integration for both power users (integration with R) and integration with regular users (BI tools). The processing need to be adaptable to the rapidly changing needs of ech group of users. The main tool allowing us that path will be AWS Lambda and each lambda function will be the product of structued feedback cycle betwwen the developpers and users.</p>
-<p>The second is that even if we start building it for internal users we would like it to scale for external users allowing us to serve the broadband community and rural places at the heart of our organization. We can utalize AWS Cognito to manage and control access at the applications level.</p>
+<p>The first is that the data lakehouse will need to have integration for both power users (integration with R) and integration with regular users (BI tools). The processing need to be adaptable to the rapidly changing needs of each group of users. The main tool allowing us that path will be AWS Lambda and each lambda function will be the product of structured feedback cycle between the developpers and users.</p>
+<p>The second is that after we build it for internal users it will need to scale for external users allowing us to serve the broadband community and rural places at the heart of our organization. We can utalize AWS Cognito to manage and control access at the applications level.</p>
 <p>The third is, while opening our infrastructure, we will need to improve our data governance strategy referencing data lineage and catalog.</p>
 <p>—</p>
 <p>I think right now we are good with the AWS lambda function but we need a way to build intermediary tools/workflow on top of Lambda functions (expand) in alignment with data user/stakeholder needs. IE this data lake needs an efficient way to query, do quick and shareable visualizations and integrate well with our “production” pipeline.</p>
 <p>Then we need to build the infrastructure to ease the query of such data: do we have a spark question or duckDB/parquet question (scope needed here prob: R package versus use of AWS solution?).</p>
 <p>Idea on machine learning: FCC data is declarative data and needs to be confronted either on local knowledge and/or other data sources:: census data, MLAB ?: anomaly detection/outlier detection?. It comes after the fact that we can use multiple sources of data to get closer to reality on the ground and build better bb infrastructure?</p>
 <p>Question on being public/managing permission on that (cognito).</p>
-<ol start="2" type="1">
+<ol type="1">
 <li>What type(s) of workload(s) will your project include? [Select all that apply] (Hint: Learn more about types of workloads in our latest publication on how nonprofits leverage the cloud today)</li>
 </ol>
 <ol type="a">
@@ -598,7 +615,7 @@ ul.task-list li input[type="checkbox"] {
 <li>Other. Please specify:</li>
 <li>None of the above</li>
 </ol>
-<ol start="3" type="1">
+<ol type="1">
 <li>Describe the resources and technical skills you may need to complete the project successfully. Do you have these resources in-house? If no, what will be your plan to acquire the skills needed? [200 - 350 words]</li>
 </ol>
 <p>CORI’s Mapping and Data Analytics (MDA) team consists of seasoned software engineers, data scientists, website developers, and geospatial analysts. They are familiar with AWS services to deploy web applications, RDS instances and AWS lambda using either the SDK or the AWS GUI. Training will be needed on moving away from using the GUI to implement solution using R (the common language in the team) for managing s3 (list assets, write/read, manage permissions). We are also planning on using new services like AWS Service Catalog and connecting both our RDS instances to Quicksigh.</p>
