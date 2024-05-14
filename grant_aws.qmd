@@ -32,7 +32,7 @@ citation-location: margin
 
 - US nonprofit with active 501 
 
-### Importants dates
+### Important dates
 
 - portal will open on May 3, 2024
 
@@ -44,6 +44,13 @@ citation-location: margin
 ## Good to know / Resources
 
 - [Tutorial Video](https://www.youtube.com/watch?v=AfApI2auGXw)
+  <img width="3456" height="2106" src="img/AWS IMAGINE Grant Application Tutorial - Grant Categories.png" />
+  - Award package includes:
+      - Unrestricted cash funding
+      - AWS computing credits
+      - Access to AWS technical specialists
+      - Access to cloud training
+      - Opportunities for marketing promotions by AWS
 
 - My takes on it (1.5 speed video):
     * Importance of holistics approach ie: provide tech + support 
@@ -228,6 +235,8 @@ you can provide any one of them)
 -> it will need to confirmed 
 
 ## Project Information
+
+<img width="3456" height="2106" src="img/AWS IMAGINE Grant Application Tutorial - Grant Categories.png" />
 
 1. Which AWS IMAGINE Grant category are you applying for? [select one]
   a) Momentum to Modernize award <-- **The one I think we should apply, was my first tought but maybe we should go for the other one**
