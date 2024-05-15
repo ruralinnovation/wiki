@@ -46,10 +46,24 @@ Intersting reading on pros and cos: https://github.com/cloudyr/aws.s3/issues/433
 
 - [aws.s3](https://github.com/cloudyr/aws.s3) seems the good call right now: 
 
-  Stuff to test:
-    - [ ] credentials 
+## concepts that will need to be explain and or abstracted 
 
-    - [ ] read 
+- a bucket can have multiple objects, you can get a bucket (what are you getting? raw/type of object) or a specific object
+
+- you can also open a connection to a bucket for some stream 
+
+a bucket can have directory and files 
+
+## using aws.s3
+
+Just build on top of rest API with curl
+
+Best resource find: https://cloud.r-project.org/web/packages/aws.s3/aws.s3.pdf 
+
+  Stuff to test:
+    - [x] credentials 
+
+    - [x] read (a bit more complicated see specify the function.) 
 
     - [ ] write 
 
@@ -76,15 +90,32 @@ get_acl("cori-crowe")
 raw_mess <- get_object(object = "june23/state_abbr=WY/technology=10/data_0.parquet", 
           "fcc-tests-s3-parquet")
 
+get_bucket(bucket = "proj-bead")
+
+sf_object <- s3read_using(FUN = sf::st_read,
+                          object = "processed_data/clean_ilecs.gpkg",
+                          bucket = "proj-bead") 
 ```
 
-## concepts that will need to be explain and or abstracted 
+## using paws
 
-- a bucket can have multiple objects, you can get a bucket (what are you getting? raw/type of object) or a specific object
+Credentials is similar than aws.s3 but build on top of SDK
 
-- you can also open a connection to a bucket for some stream 
+https://www.paws-r-sdk.com/examples/s3/
 
-a bucket can have directory and files 
+```r
+s3 <- paws::s3()
+
+s3$list_buckets() # return a list prob because that what match a json more
+
+bucket_name <- paste0("paws-example-", "oli-test")
+
+s3$create_bucket(
+  Bucket = bucket_name
+)
+
+```
+
 
 ## arrow / duckDB
 
