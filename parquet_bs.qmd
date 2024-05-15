@@ -34,13 +34,57 @@ citation-location: margin
 
 - [ ] back end: arrow vs duckdb vs polars? 
 
-### R option to interact with S3 
+# R option to interact with S3 
+
+Intersting reading on pros and cos: https://github.com/cloudyr/aws.s3/issues/433
 
 - [Pins](https://pins.rstudio.com/index.html): can write parquet / arrow etc, dev. by the Posit team, I have not a clear view of their dependencies ..
 
 - [arrow's FileSystem classes](https://github.com/apache/arrow/blob/main/r/man/FileSystem.Rd) or better `help("FileSystem", package = "arrow")`
 
 - [paws](https://www.paws-r-sdk.com/) package for the full suite of AWS services, wrapper of SDK. For s3 see [here](https://www.paws-r-sdk.com/examples/s3/).
+
+- [aws.s3](https://github.com/cloudyr/aws.s3) seems the good call right now: 
+
+  Stuff to test:
+    - [ ] credentials 
+
+    - [ ] read 
+
+    - [ ] write 
+
+    - [ ] delete 
+
+    - [ ] permissions  
+
+ useful functions test: 
+ 
+```r
+library("aws.s3")
+bucket_exists("fcctilestest")`
+
+get_bucket_policy("fcctilestest") # I am unclear on that  
+
+get_bucket_policy("cori-crowe")
+
+get_bucket(bucket = "fcctilestest") # very useful
+
+get_bucket(bucket = "fcc-tests-s3-parquet") # very usefull 
+
+get_acl("cori-crowe")
+
+raw_mess <- get_object(object = "june23/state_abbr=WY/technology=10/data_0.parquet", 
+          "fcc-tests-s3-parquet")
+
+```
+
+## concepts that will need to be explain and or abstracted 
+
+- a bucket can have multiple objects, you can get a bucket (what are you getting? raw/type of object) or a specific object
+
+- you can also open a connection to a bucket for some stream 
+
+a bucket can have directory and files 
 
 ## arrow / duckDB
 
