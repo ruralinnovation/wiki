@@ -34,11 +34,11 @@ citation-location: margin
 
 ### Important dates
 
-- portal will open on May 3, 2024
+- Portal will open on May 3, 2024
 
-- Dead line for round one: **June 3 2024**
+- Deadline for round 1: **June 3 2024**
 
-- Notification for round 2 July 17 2024
+- Notification for round 2: July 17 2024
 
 
 ## Good to know / Resources
@@ -105,17 +105,21 @@ first goal do we need some kind of bb data hub?
 
 ## Retro-Planning for the MDA
 
-- Decide on an what we want to do: Dead line May 16
+- Decide on what we want to do: EOD May 17
 
-- Write high level summary and get feedback from AWS Team May 17[^aws_ref] 
+- Write high level summary and get feedback from AWS Team: May 17[^aws_ref]
 
 [^aws_ref]: p11 of AWS Imagine 2024
 
-- Write the grant with feedback from AWS 
+- Write the grant with feedback from AWS: (May 20 - 23)
 
-- MDA proposition should be done May 24
+- MDA proposition should be done: May 23
 
-- Giving us buffer we (Robin?/Mike?) want to submit May 30
+- Leadership review (May 23): Leigh Anne / Matt
+
+- Operations review (May 24): Robin? / Mike?
+
+- Submit grant: May 30
 
 ## first brainstorm: 
 
