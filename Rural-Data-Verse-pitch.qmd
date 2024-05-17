@@ -1,0 +1,59 @@
+---
+title: "Rural Data Verse"
+output: html_notebook
+execute:
+    echo: true
+    output: true
+    message: false
+    warning: false
+format:
+    html:
+        code-fold: true
+---
+
+## Maintain and publish a library of references to data sources about the state of rural (based on augmentation of our internal metadata)
+[Link to BOE]
+
+In pursuing our mission to help build tech economies across rural America, we regularly procure data from a broad spectrum of agencies, organizations and institutions that we use to model and represent the state of tech ecosystems in rural places. Internally we employ analysis of this data is such diverse ways as:
+
+>  - disseminating actionable knowledge to rural leaders who are working to advance tech economy development in their local regions
+>  - deciding on where to make direct investments in early-stage rural technology startups through our seed fund(s)
+>  - helping our Rural Innovation Network members develop their local tech workforce through inclusive training programs that identify and support workers of all experiences
+>  - working with communities to identify local assets, opportunities, gaps, and challenges
+>  - assisting rural places in getting high-speed fiber internet connected to the last mile
+>  - using research, data and storytelling to shift the national narrative about who lives in rural America and what is possible in rural America
+
+<!--
+Tech-based economic development
+
+We work with communities to identify local assets, opportunities, gaps, and challenges that factor into building tech economy strategies that support their future efforts.
+A community of practice
+
+We launched the Rural Innovation Network as a community of rural leaders working to advance tech economy development in small towns across the country.
+Research, data, and storytelling
+
+We use research, data and storytelling to shift the national narrative about who lives in rural America and what is possible in rural America.
+Rural startup investment
+
+We make direct investments in early-stage rural technology startups through our seed fund, the CORI Innovation Fund (CIF).
+Tech workforce development
+
+We help our Rural Innovation Network members develop their local tech workforce through inclusive training programs that identify and support workers of all experiences.
+Broadband advocacy
+
+We advocate for rural places to get connected to the last mile, knowing fiber internet is the lifeblood of the tech economy, online learning, telehealth, and innovation.
+-->
+
+In order to power these activities, the Center on Rural Innovation may be the first organization to assemble a comprehensive data library that is particularly relevant to research and analysis on rural economic activity across a wide range of sectors. More importantly, our organization has gathered domain knowledge and understanding that connects seemingly distant or disparate points across these data sets in the form of experienced professionals who use this data to derive the insights and perspectives that inform their work. We are therefore in a unique position to maintain and present a curated list of these data sources, bolstering our position as outstanding thought leaders in the space of rural economic development.
+
+The underlying engine for this list or data catalog will be the contents of the metadata schema which is maintained by the MDA team in the course of our regular ingestion of the source data that we use for each project. Currently, a portion of this same metadata content is used to power the <a href="https://ruralinnovation.shinyapps.io/cori_explorer/" target="_blank">CORI Explorer</a> (Shiny) app which is intended to give internal users both technical documentation (codebook) of the data available and source code snippets that could be used to access that data. In contrast, the Rural Data Verse portal will give external users a non-technical introduction to the contents and purpose of this same source data. In order to use our metadata in this way, it will need to be initially overhauled with more complete textual descriptions about each data source, including information about its subject domain, currency (date of release), origin (homepage), licensing, method of collection/reporting/sampling/etc., and categorical tags (and possibly links to the projects/products that are utilizing that data), which we perpetually maintain as new sources are added. The implementation of the actual portal could be as simple as a Quarto website that is deployed and published by Github actions each time a change is made to the source code repository for the site (such as committing/updating a version controlled dump of the metadata schema to a flat file).
+
+Current metadata contents:
+
+  - `pipeline_diagnostics`:
+  - `product_metadata`:
+  - `source_metadata`:
+  - `table_metadata`:
+  - `field_metadata`:
+  - `acs_metadata`:
+
