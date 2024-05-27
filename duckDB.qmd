@@ -12,6 +12,16 @@ reference-location: margin
 citation-location: margin
 ---
 
+## Parquet / Arrow / DuckDB
+
+- **Parquet** is a open source columnar file format storage designed for fast I/O
+
+- **Arrow** is standardization of an in-memory representation of the data: it allows "zero copy" (use of pointer at low level), is an OLAP (Online Analytical Process, can be run in R) implementing deferred or lazy materilalization (optimize query us)
+
+- **DuckDB** is an implementation (engine) of an OLAP DB
+
+Great explanations from Wes McKinney [here](https://stackoverflow.com/questions/56472727/difference-between-apache-parquet-and-arrow)
+
 ## Arrow / duckDB
 
 - Maturity on OS: seems fine on MacOS and linux 
