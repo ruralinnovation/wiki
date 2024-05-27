@@ -1,0 +1,85 @@
+---
+title: "Arrow / duckDB"
+execute:
+  echo: true
+  output: true
+  message: false
+  warning: false
+format:
+  html:
+    code-fold: true
+reference-location: margin
+citation-location: margin
+---
+
+## Arrow / duckDB
+
+- Maturity on OS: seems fine on MacOS and linux 
+
+- Maturity in R: well supported but currently multiple implemetations 
+
+- Status on spatial operations: We have a spec for [v1](https://geoparquet.org/releases/v1.0.0/) but a [lot have not been implenmted](https://guide.cloudnativegeo.org/geoparquet/).   
+
+- PG -> parquet: Possible with DuckDB, [ADBC](https://arrow.apache.org/docs/format/ADBC.html) is [promising](http://r-dbi.org/blog/dbi-4-3/) 
+
+- appending parquet: No or very hard 
+
+
+
+### How to partition a file:
+
+Arrow support:
+
+- "hive style", a key value system: `"year=2019/month=1/file.parquet"` 
+
+- "Directory": `"2019/01/file.parquet"`
+
+Hadley Wickham suggest:
+
+> As a rough guide, arrow suggests that you avoid files smaller than 20MB and larger than 2GB and avoid partitions that produce more than 10,000 files. [^r4ds_partition]
+
+[^r4ds_partition]: [https://r4ds.hadley.nz/arrow.html#partitioning](https://r4ds.hadley.nz/arrow.html#partitioning)
+
+::: {.callout-note}
+What could be a good partition scheme for FCC data?
+:::
+
+
+## Workflow "mind map"
+
+
+```{mermaid}
+flowchart LR
+dplyr --> arrow
+arrow --> filesystem["`**Filesystem**
+    multiple csv
+    parquet
+    more ..`"]
+
+arrow <-->|?| duckDB
+
+dplyr --> dbplyr
+dplyr --> DBI
+dbplyr --> DBI 
+DBI --> duckDB
+duckDB --> filesystem["`**Filesystem**
+    multiple csv
+    parquet
+    more ..`"]
+```
+
+
+
+## Resources
+
+- https://www.crunchydata.com/blog/parquet-and-postgres-in-the-data-lake
+
+- https://mastodon.cloud/@milvus/112395302626488455
+
+- https://grantmcdermott.com/duckdb-polars/
+
+- https://duckdb.org/docs/
+
+- https://r4ds.hadley.nz/arrow.html
+
+- on Arrow posts from Danielle: https://blog.djnavarro.net/posts/2022-12-26_strange-year/#writing-about-apache-arrow (usually awesome) 

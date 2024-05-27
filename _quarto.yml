@@ -2,7 +2,7 @@ project:
   type: website
 
 website:
-  title: "CORI/RISI Mapping & Data Analysis (MDA)"
+  title: "CORI/RISI Mapping & Data Analytics (MDA)"
   repo-url: https://github.com/ruralinnovation/wiki
   repo-actions: [edit, issue]
   navbar:
@@ -54,6 +54,9 @@ website:
           - help_I_have_a_data_team.md
           - Suggested-Code-Snippets.md
           - Spatial-Data-for-Mapping-and-Analysis.md
+      - secltion: "Arrow DuckDB"
+        contents:
+          - duckDB.qmd
 
 format:
   html:
