@@ -18,13 +18,11 @@ citation-location: margin
 
 - Maturity in R: well supported but currently multiple implemetations 
 
-- Status on spatial operations: We have a spec for [v1](https://geoparquet.org/releases/v1.0.0/) but a [lot have not been implenmted](https://guide.cloudnativegeo.org/geoparquet/).   
+- Status on spatial operations: We have a spec for [v1](https://geoparquet.org/releases/v1.0.0/) but a [lot have not been implemented](https://guide.cloudnativegeo.org/geoparquet/).   
 
-- PG -> parquet: Possible with DuckDB, [ADBC](https://arrow.apache.org/docs/format/ADBC.html) is [promising](http://r-dbi.org/blog/dbi-4-3/) 
+- PG -> parquet: Possible with DuckDB, [ADBC](https://arrow.apache.org/docs/format/ADBC.html) is [promising](http://r-dbi.org/blog/dbi-4-3/) and the PG community is also [experimenting](https://www.crunchydata.com/blog/parquet-and-postgres-in-the-data-lake).  
 
 - appending parquet: No or very hard 
-
-
 
 ### How to partition a file:
 
@@ -43,6 +41,111 @@ Hadley Wickham suggest:
 ::: {.callout-note}
 What could be a good partition scheme for FCC data?
 :::
+
+
+### From CSVs to parquet using DuckDB
+
+It is following the similar pattern than `COPY` from PG:
+
+1. Open a connection (in case you run oout of memory it is good to add a temp directory to write.)
+
+2. Then we execute a `COPY` statement using `FROM` the CSV reader (using a function `read_csv()`) `TO` a new file.
+
+3. Finaly: disconnect
+
+You may have noticed that some globing options are available[^glob_duckdb] : `~/data_swamp/fcc_dec_22/*.csv` 
+
+[^glob_duckdb]: [https://duckdb.org/docs/data/multiple_files/overview.html](https://duckdb.org/docs/data/multiple_files/overview.html)
+
+```{R}
+#| label: Convert CSVs to parquet, FCC example 
+#| eval: false
+con <- dbConnect(duckdb(),  dbdir = "dec22.canard")
+
+start <- Sys.time()
+
+dbExecute(con, "COPY 
+  (SELECT frn, 
+          location_id, 
+          technology, 
+          max_advertised_download_speed,
+          max_advertised_upload_speed,
+          business_residential_code,
+          state_usps as state_abbr,
+          block_geoid,
+          low_latency 
+  FROM read_csv('~/data_swamp/fcc_dec_22/*.csv', 
+          delim=',', quote='\"', new_line='\\n', skip=0, header=true))
+  TO 'dec22' (FORMAT 'parquet', PARTITION_BY(state_abbr, technology))")
+
+end <- Sys.time()
+
+end - start
+
+DBI::dbDisconnect(con)
+```
+
+### From PG to parquet using DuckDB
+
+The workflow is similar:
+
+1. Connect to DuckDb
+
+2. Installing in load Postgres extension[^PG_duckDB]
+
+[^PG_duckDB]: (https://duckdb.org/docs/extensions/postgres)[https://duckdb.org/docs/extensions/postgres]
+
+3. The extension will `ATTACH` to our PG instance (Using in this case credential from a single line `~/.pgpass`) using a connection string (URI is also an option). The connection is aliased "DB" and for this case it is `READ_ONLY`
+
+4. Optional: an example on how to inspect `information_schema.tables`, DuckDB is using a [similar implementation](https://duckdb.org/docs/sql/information_schema) than PG
+
+5. Use of `COPY` from a `SELECT` statement with "catalog.schema.table" TO a file 
+
+6. Disconnect, closing the DuckDB connection seems to DETACH the one on PG. 
+
+```{R}
+#| label: Convert PG to parquet, FCC example 
+#| eval: false
+con <- dbConnect(duckdb())
+  
+dbExecute(con, "INSTALL postgres")
+dbExecute(con, "LOAD postgres")
+
+pgpass <- readLines("~/.pgpass")
+
+cred <- unlist(strsplit(pgpass, ":"))
+
+attach_string <- sprintf(
+  "ATTACH 'dbname=%s user=%s password=%s host=%s' AS db (TYPE POSTGRES, READ_ONLY)",
+  cred[3],
+  cred[4],
+  cred[5],
+  cred[1]
+)
+
+dbExecute(con, attach_string)
+
+dbGetQuery(con, "select * from information_schema.tables where table_schema = 'staging'")
+
+# dbListTables(con) will works but not that usefull
+
+start <- Sys.time()
+dbExecute(con, "COPY 
+  (SELECT frn, 
+          location_id, 
+          technology, 
+          max_advertised_download_speed,
+          max_advertised_upload_speed,
+          business_residential_code,
+          state_abbr,
+          block_geoid,
+          low_latency FROM db.staging.june23)
+  TO 'june23' (FORMAT 'parquet', PARTITION_BY(state_abbr, technology))")
+
+end <- Sys.time()
+
+DBI::dbDisconnect(con)
+```
 
 
 ## Workflow "mind map"
@@ -71,8 +174,6 @@ duckDB --> filesystem["`**Filesystem**
 
 
 ## Resources
-
-- https://www.crunchydata.com/blog/parquet-and-postgres-in-the-data-lake
 
 - https://mastodon.cloud/@milvus/112395302626488455
 
