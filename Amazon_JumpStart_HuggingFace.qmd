@@ -1,7 +1,6 @@
 ---
 title: "Intro to SageMake Hugging Face"
 author: "Amazon"
-draft: true
 format:
    html:
       code-fold: true
@@ -9,7 +8,9 @@ format:
 
 # Introduction to SageMaker HuggingFace - Text Classification
 
-This notebook is an example of using SageMaker's JumpStart API (in Python) and most of the content is copied from [amazon-sagemaker-examples](https://github.com/aws/amazon-sagemaker-examples/blob/main/introduction_to_amazon_algorithms/jumpstart_text_classification/Amazon_JumpStart_HuggingFace_Text_Classification.ipynb).
+This notebook's CI test result for us-west-2 is as follows. CI test results in other regions can be found at the end of the notebook.
+
+![This us-west-2 badge failed to load. Check your device's internet connectivity, otherwise the service is currently unavailable](https://prod.us-west-2.tcx-beacon.docs.aws.dev/sagemaker-nb/us-west-2/introduction_to_amazon_algorithms|jumpstart_text_classification|Amazon_JumpStart_HuggingFace_Text_Classification.ipynb)
 
 Welcome to [Amazon SageMaker Built-in Algorithms](https://sagemaker.readthedocs.io/en/stable/algorithms/index.html)! You can use SageMaker Built-in algorithms to solve many Machine Learning tasks through [SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable/overview.html). You can also use these algorithms through one-click in SageMaker Studio via [JumpStart](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-jumpstart.html).
 
@@ -53,12 +54,12 @@ To train and host on Amazon Sagemaker, we need to setup and authenticate the use
 ::: {.callout-caution collapse="true"}
 ## Missing iam:GetRole permissions
 
-The following code snippet to initialize an AWS/SageMaker session may produce this error message:
+The following code snippet may produce this error message:
 ```
 Couldn't call 'get_role' to get Role ARN from role name [aws_account_name] to get Role path.
 ```
 
-This means that the AWS account and/or role being used to run the session is missing the permission "iam:GetRole", as explained in this [stack overflow article](https://stackoverflow.com/questions/68607118/aws-sagemaker-iam-permission-to-call-get-role). To fix this, go into the AWS console and add the following inline policy to the account/role.
+This means that the AWS role being used to run the session is missing the permission "iam:GetRole", as explained in this [stack overflow article](https://stackoverflow.com/questions/68607118/aws-sagemaker-iam-permission-to-call-get-role). To fix this, go into the AWS console and add the following inline policy to the role.
 ```
 {
     "Version": "2012-10-17",
@@ -76,6 +77,7 @@ This means that the AWS account and/or role being used to run the session is mis
 
 
 ```{python}
+#| eval: false
 #| warning: false
 import sagemaker, boto3, json
 from sagemaker.session import Session
@@ -98,6 +100,7 @@ You can continue with the default model, or can choose a different model from th
 
 
 ```{python}
+#| eval: false
 import IPython
 from IPython.core.display_functions import display
 from ipywidgets import Dropdown
@@ -127,6 +130,7 @@ display(dropdown)
 If you want to choose any other model which is not present in the dropdown and is available at HugginFace [Text-Classification](https://huggingface.co/models?pipeline_tag=text-classification&sort=downloads) please choose huggingface-tc-models in the dropdown and pass the model_id in the HF_MODEL_ID variable. Inference on the models listed in the dropdown menu can be run in [network isolation](https://docs.aws.amazon.com/sagemaker/latest/dg/mkt-algo-model-internet-free.html) under VPC settings. However, when running inference on a model specified through HF_MODEL_ID, VPC settings with network isolation will not work.
 
 ```{python}
+#| eval: false
 # model_version="*" fetches the latest version of the model.
 infer_model_id, infer_model_version = dropdown.value, "*"
 
@@ -146,6 +150,7 @@ Using SageMaker, we can perform inference on the fine-tuned model. For this exam
 ### 3.1. Deploy an Endpoint
 
 ```{python}
+#| eval: false
 from sagemaker.jumpstart.model import JumpStartModel
 
 my_model = JumpStartModel(
@@ -164,6 +169,7 @@ model_predictor = my_model.deploy()
 These examples are taken from SST2 dataset downloaded from [TensorFlow](https://www.tensorflow.org/datasets/catalog/glue#gluesst2). [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). [Dataset Homepage](https://nlp.stanford.edu/sentiment/index.html).
 
 ```{python}
+#| eval: false
 text1 = "astonishing ... ( frames ) profound ethical and philosophical questions in the form of dazzling pop entertainment"
 text2 = "simply stupid , irrelevant and deeply , truly , bottomlessly cynical "
 ```
@@ -174,36 +180,37 @@ text2 = "simply stupid , irrelevant and deeply , truly , bottomlessly cynical "
 Input to the endpoint is a single sentence. Response from the endpoint is a dictionary containing the predicted class label, and a list of class label probabilities.
 
 ```{python}
-newline, bold, unbold = "\n", "\033[1m", "\033[0m"
-
-
-def query_endpoint(encoded_text):
-    response = model_predictor.predict(
-        encoded_text, {"ContentType": "application/x-text", "Accept": "application/json;verbose"}
-    )
-    return response
-
-
-def parse_response(query_response):
-    model_predictions = query_response
-    probabilities, labels, predicted_label = (
-        model_predictions["probabilities"],
-        model_predictions["labels"],
-        model_predictions["predicted_label"],
-    )
-    return probabilities, labels, predicted_label
-
-
-for text in [text1, text2]:
-    query_response = query_endpoint(text.encode("utf-8"))
-    probabilities, labels, predicted_label = parse_response(query_response)
-    print(
-        f'Inference:{newline}'
-        f'Input text: "{text}"{newline}'
-        f'Model prediction: {probabilities}{newline}'
-        f'Labels: {labels}{newline}'
-        f'Predicted Label: {bold}{predicted_label}{unbold}{newline}'
-    )
+#| eval: false
+# newline, bold, unbold = "\n", "\033[1m", "\033[0m"
+#
+#
+# def query_endpoint(encoded_text):
+#     response = model_predictor.predict(
+#         encoded_text, {"ContentType": "application/x-text", "Accept": "application/json;verbose"}
+#     )
+#     return response
+#
+#
+# def parse_response(query_response):
+#     model_predictions = query_response
+#     probabilities, labels, predicted_label = (
+#         model_predictions["probabilities"],
+#         model_predictions["labels"],
+#         model_predictions["predicted_label"],
+#     )
+#     return probabilities, labels, predicted_label
+#
+#
+# for text in [text1, text2]:
+#     query_response = query_endpoint(text.encode("utf-8"))
+#     probabilities, labels, predicted_label = parse_response(query_response)
+#     print(
+#         f"Inference:{newline}"
+#         f"Input text: '{text}'{newline}"
+#         f"Model prediction: {probabilities}{newline}"
+#         f"Labels: {labels}{newline}"
+#         f"Predicted Label: {bold}{predicted_label}{unbold}{newline}"
+#     )
 
 ```
 
@@ -211,6 +218,7 @@ for text in [text1, text2]:
 ### 3.4. Clean up the endpoint
 
 ```{python}
+#| eval: false
 # Delete the SageMaker endpoint and the attached resources
 model_predictor.delete_model()
 model_predictor.delete_endpoint()
