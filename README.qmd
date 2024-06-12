@@ -198,7 +198,7 @@ pkgbuild::clean_dll(); pkgbuild::compile_dll(); devtools::document(); devtools::
 
 ### Using AWS S3 for data storage
 
-Within our workflows, you may need access to AWS S3 for both data storage and retrieval which means you will need to set your AWS credentials within the R runtime environment.  The `cori.db::set_aws_credentials` function can be used to do this. The following example is of using DuckDB to pull data from both a public and a private S3 bucket (i.e., repository/store), the latter requiring credentials (redacted as "###") for an AWS IAM user account that has read access to the bucket:
+Within our workflows, you may need access to AWS S3 for both data storage and retrieval which means you will need to set your AWS credentials within the R runtime environment.  The `cori.db::set_aws_credentials` function can be used to do this. The following example is of using DuckDB to pull data from both a public and a private S3 bucket (i.e., repository/store), the latter requiring credentials (redacted as "###") for an AWS IAM user account that has read access to the bucket (to learn more about DuckDB see [Arrow & DuckDB](duckDB.qmd)):
 
 ```{r}
 #| eval: false
