@@ -32,62 +32,70 @@ citation-location: margin
 
 - US nonprofit with active 501 
 
-### Importants dates
+### Important dates
 
-- portal will open on May 3, 2024
+- Portal will open on May 3, 2024
 
-- Dead line for round one: **June 3 2024**
+- Deadline for round 1: **June 3 2024**
 
-- Notification for round 2 July 17 2024
+- Notification for round 2: July 17 2024
 
 
 ## Good to know / Resources
 
-- [Tutorial Video](https://www.youtube.com/watch?v=AfApI2auGXw)
+- [Tutorial Video](https://www.youtube.com/watch?v=AfApI2auGXw)<br />
+  <a href="https://www.youtube.com/watch?v=AfApI2auGXw" target="_blank"><img alt="Tutorial Video" width="1728" height="1053" src="img/AWS IMAGINE Grant Application Tutorial - Award packages.png" style="width:100%;height:100%" /></a>
+  - Award package includes:
+      - Unrestricted cash funding
+      - AWS computing credits
+      - Access to AWS technical specialists
+      - Access to cloud training
+      - Opportunities for marketing promotions by AWS
 
 - My takes on it (1.5 speed video):
-    * Importance of holistics approach ie: provide tech + support 
 
-    * "Momentum to modernize": We are really looking for organization that view these types of project as fundational steps" (setting up the fundation to unlock futur doors)
+  * Importance of holistics approach ie: provide tech + support
 
-    * "To go further faster award": "Thing big", "highly innovative program", "DevOps"
+  * "Momentum to modernize": We are really looking for organization that view these types of project as fundational steps" (setting up the fundation to unlock futur doors)
 
-    * "Always lead the mission with technology as a core strategic enablement"
+  * "To go further faster award": "Thing big", "highly innovative program", "DevOps"
 
-    * "Senior leader who is the project champion"
+  * "Always lead the mission with technology as a core strategic enablement"
 
-    * "convey urgency and importance of your project"
+  * "Senior leader who is the project champion"
 
-    * "work backward from the end user": we are lacking here, I think first end user is us, them bb team, then ISP / BB consultant, then citizen 
+  * "convey urgency and importance of your project"
 
-    * "end goal connect your mission"
+  * "work backward from the end user": we are lacking here, I think first end user is us, them bb team, then ISP / BB consultant, then citizen
 
-    * "dynamic dashboard": should we look into quicksight?
+  * "end goal connect your mission"
 
-    * "what services will it use": S3, next is do we have a spark question or a duck db question
+  * "dynamic dashboard": should we look into quicksight?
 
-    * "how do the technical elements fits together":
+  * "what services will it use": S3, next is do we have a spark question or a duck db question
 
-    I think our data warehouse is good we want to leverage a data lake to select more valuable data to move to teh data warehouse/product phase   
+  * "how do the technical elements fits together":
+
+    I think our data warehouse is good we want to leverage a data lake to select more valuable data to move to teh data warehouse/product phase
 
     * "what skill resources do you have in house"
 
     * "what you plan to acquire the most"
 
-    - organizing assets in data lake (S3) and build an infrastructure to query it 
+    - organizing assets in data lake (S3) and build an infrastructure to query it
     - core data: broadband data (Open Data Lakehouse?)
     - expose it to partner / first end user
     - open it to more partners
 
     * Maybe we can use some AI ML on checking FCC data against location (presence or not) and MLAB on quality of services
 
-    * "articulate why each piece of the imagine grant is useful not only cash"  
+    * "articulate why each piece of the imagine grant is useful not only cash"
 
     * research long term (maybe more for phase 2)
 
     * automate the ingestion delivery
 
-    * technical diagram: AWS architecture diagrams 
+    * technical diagram: AWS architecture diagrams
 
 
 - We can contact the AWS Nonprofits team ([form](https://aws.amazon.com/government-education/contact/)), and should, we need to prepare an **high level summary before**  
@@ -97,17 +105,21 @@ first goal do we need some kind of bb data hub?
 
 ## Retro-Planning for the MDA
 
-- Decide on an what we want to do: Dead line May 16
+- Decide on what we want to do: EOD May 17
 
-- Write high level summary and get feedback from AWS Team May 17[^aws_ref] 
+- Write high level summary and get feedback from AWS Team: May 17[^aws_ref]
 
 [^aws_ref]: p11 of AWS Imagine 2024
 
-- Write the grant with feedback from AWS 
+- Write the grant with feedback from AWS: (May 20 - 23)
 
-- MDA proposition should be done May 24
+- MDA proposition should be done: May 23
 
-- Giving us buffer we (Robin?/Mike?) want to submit May 30
+- Leadership review (May 23): Leigh Anne / Matt
+
+- Operations review (May 24): Robin? / Mike?
+
+- Submit grant: May 30
 
 ## first brainstorm: 
 

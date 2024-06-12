@@ -196,9 +196,61 @@ Once you have all the dependencies installed, to build and install this package 
 pkgbuild::clean_dll(); pkgbuild::compile_dll(); devtools::document(); devtools::check(); devtools::install();
 ```
 
-# Storing Data in S3
+### Using AWS S3 for data storage
 
-You will need access to the s3 storage. 
+Within our workflows, you may need access to AWS S3 for both data storage and retrieval which means you will need to set your AWS credentials within the R runtime environment.  The `cori.db::set_aws_credentials` function can be used to do this. The following example is of using DuckDB to pull data from both a public and a private S3 bucket (i.e., repository/store), the latter requiring credentials (redacted as "###") for an AWS IAM user account that has read access to the bucket (to learn more about DuckDB see [Arrow & DuckDB](duckDB.qmd)):
+
+```{r}
+#| eval: false
+
+library(DBI)
+library(cori.db)
+library(duckdb)
+
+Sys.getenv("AWS_ACCESS_KEY_ID")
+Sys.getenv("AWS_SECRET_ACCESS_KEY")
+
+# DuckDB example:
+con <- DBI::dbConnect(duckdb::duckdb(), dbdir = "data/erc_sample.duckdb")
+duckdb::dbSendQuery(con, "INSTALL json;")
+duckdb::dbSendQuery(con, "LOAD json;")
+duckdb::dbSendQuery(con, "INSTALL httpfs;")
+duckdb::dbSendQuery(con, "LOAD httpfs;")
+duckdb::dbSendQuery(con, "INSTALL aws;")
+duckdb::dbSendQuery(con, "LOAD aws;")
+
+
+# Select data from public S3 bucket to local data.frame
+erc_sample <- DBI::dbGetQuery(con, "SELECT * FROM read_json_auto('s3://erc-public/test/erc_sample.json')")
+nrow(erc_sample)
+# [1] 316815
+
+# Select data from *non-public S3 bucket to local data.frame *without S3 credentials
+usa_spending <- DBI::dbGetQuery(con, "SELECT * FROM read_csv('s3://usaspending-data/usaspending_api_pull.csv')")
+# Error:
+#   HTTP Error: HTTP GET error on 'https://usaspending-data.s3.amazonaws.com/usaspending_api_pull.csv' (HTTP 403)
+
+# Initilialize S3 credentials (this only needs to be done once for a given project)
+cori.db::set_aws_credentials(keyID = "###", accesKey = "###")
+
+# Configure duckdb connection with current credentials
+duckdb::dbSendQuery(con, "CREATE OR REPLACE SECRET s3_secret (
+    TYPE S3,
+    PROVIDER CREDENTIAL_CHAIN,
+    CHAIN 'env;config'
+);")
+
+# Select data from *non-public S3 bucket to local data.frame
+usa_spending <- DBI::dbGetQuery(con, "SELECT * FROM read_csv('s3://usaspending-data/usaspending_api_pull.csv')")
+nrow(usa_spending)
+# [1] 1129824
+
+DBI::dbDisconnect(con)
+
+
+```
+
+These are the steps for creating a new (private) S3 bucket:
 
 1. To create a new `bucket` use the `create bucket` orange button. 
 
@@ -214,3 +266,4 @@ You will need access to the s3 storage.
 2. Inside the bucket use the upload button top open a new web page were you can drag and drop the file you need to upload 
 
 3. Do not forget to click the upload button at the bottom of this page (it will open a new page with the status of the upload).
+
