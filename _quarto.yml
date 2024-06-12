@@ -39,6 +39,7 @@ website:
           ##              - Support-Sessions.md
           ##              - Working-with-the-GraphQL-Schemas.md
           - Data-Security.qmd
+          - duckDB.qmd
           - PostgreSQL-RDS-Managment.md
           - R-DBI-GDAL-PG-SF.qmd
           - Repository-Classification.md

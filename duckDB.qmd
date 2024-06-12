@@ -1,0 +1,196 @@
+---
+title: "Arrow / duckDB"
+execute:
+  echo: true
+  output: true
+  message: false
+  warning: false
+format:
+  html:
+    code-fold: true
+reference-location: margin
+citation-location: margin
+---
+
+## Parquet / Arrow / DuckDB
+
+- **Parquet** is a open source columnar file format storage designed for fast I/O
+
+- **Arrow** is standardization of an in-memory representation of the data: it allows "zero copy" (use of pointer at low level), is an OLAP (Online Analytical Process, can be run in R) implementing deferred or lazy materilalization (optimize query us)
+
+- **DuckDB** is an implementation (engine) of an OLAP DB
+
+Great explanations from Wes McKinney [here](https://stackoverflow.com/questions/56472727/difference-between-apache-parquet-and-arrow)
+
+## Arrow / duckDB
+
+- Maturity on OS: seems fine on MacOS and linux 
+
+- Maturity in R: well supported but currently multiple implemetations 
+
+- Status on spatial operations: We have a spec for [v1](https://geoparquet.org/releases/v1.0.0/) but a [lot have not been implemented](https://guide.cloudnativegeo.org/geoparquet/).   
+
+- PG -> parquet: Possible with DuckDB, [ADBC](https://arrow.apache.org/docs/format/ADBC.html) is [promising](http://r-dbi.org/blog/dbi-4-3/) and the PG community is also [experimenting](https://www.crunchydata.com/blog/parquet-and-postgres-in-the-data-lake).  
+
+- appending parquet: No or very hard 
+
+### How to partition a file:
+
+Arrow support:
+
+- "hive style", a key value system: `"year=2019/month=1/file.parquet"` 
+
+- "Directory": `"2019/01/file.parquet"`
+
+Hadley Wickham suggest:
+
+> As a rough guide, arrow suggests that you avoid files smaller than 20MB and larger than 2GB and avoid partitions that produce more than 10,000 files. [^r4ds_partition]
+
+[^r4ds_partition]: [https://r4ds.hadley.nz/arrow.html#partitioning](https://r4ds.hadley.nz/arrow.html#partitioning)
+
+::: {.callout-note}
+What could be a good partition scheme for FCC data?
+:::
+
+
+### From CSVs to parquet using DuckDB
+
+It is following the similar pattern than `COPY` from PG:
+
+1. Open a connection (in case you run oout of memory it is good to add a temp directory to write.)
+
+2. Then we execute a `COPY` statement using `FROM` the CSV reader (using a function `read_csv()`) `TO` a new file.
+
+3. Finaly: disconnect
+
+You may have noticed that some globing options are available[^glob_duckdb] : `~/data_swamp/fcc_dec_22/*.csv` 
+
+[^glob_duckdb]: [https://duckdb.org/docs/data/multiple_files/overview.html](https://duckdb.org/docs/data/multiple_files/overview.html)
+
+```{R}
+#| label: Convert CSVs to parquet, FCC example 
+#| eval: false
+con <- dbConnect(duckdb(),  dbdir = "dec22.canard")
+
+start <- Sys.time()
+
+dbExecute(con, "COPY 
+  (SELECT frn, 
+          location_id, 
+          technology, 
+          max_advertised_download_speed,
+          max_advertised_upload_speed,
+          business_residential_code,
+          state_usps as state_abbr,
+          block_geoid,
+          low_latency 
+  FROM read_csv('~/data_swamp/fcc_dec_22/*.csv', 
+          delim=',', quote='\"', new_line='\\n', skip=0, header=true))
+  TO 'dec22' (FORMAT 'parquet', PARTITION_BY(state_abbr, technology))")
+
+end <- Sys.time()
+
+end - start
+
+DBI::dbDisconnect(con)
+```
+
+### From PG to parquet using DuckDB
+
+The workflow is similar:
+
+1. Connect to DuckDb
+
+2. Installing in load Postgres extension[^PG_duckDB]
+
+[^PG_duckDB]: (https://duckdb.org/docs/extensions/postgres)[https://duckdb.org/docs/extensions/postgres]
+
+3. The extension will `ATTACH` to our PG instance (Using in this case credential from a single line `~/.pgpass`) using a connection string (URI is also an option). The connection is aliased "DB" and for this case it is `READ_ONLY`
+
+4. Optional: an example on how to inspect `information_schema.tables`, DuckDB is using a [similar implementation](https://duckdb.org/docs/sql/information_schema) than PG
+
+5. Use of `COPY` from a `SELECT` statement with "catalog.schema.table" TO a file 
+
+6. Disconnect, closing the DuckDB connection seems to DETACH the one on PG. 
+
+```{R}
+#| label: Convert PG to parquet, FCC example 
+#| eval: false
+con <- dbConnect(duckdb())
+  
+dbExecute(con, "INSTALL postgres")
+dbExecute(con, "LOAD postgres")
+
+pgpass <- readLines("~/.pgpass")
+
+cred <- unlist(strsplit(pgpass, ":"))
+
+attach_string <- sprintf(
+  "ATTACH 'dbname=%s user=%s password=%s host=%s' AS db (TYPE POSTGRES, READ_ONLY)",
+  cred[3],
+  cred[4],
+  cred[5],
+  cred[1]
+)
+
+dbExecute(con, attach_string)
+
+dbGetQuery(con, "select * from information_schema.tables where table_schema = 'staging'")
+
+# dbListTables(con) will works but not that usefull
+
+start <- Sys.time()
+dbExecute(con, "COPY 
+  (SELECT frn, 
+          location_id, 
+          technology, 
+          max_advertised_download_speed,
+          max_advertised_upload_speed,
+          business_residential_code,
+          state_abbr,
+          block_geoid,
+          low_latency FROM db.staging.june23)
+  TO 'june23' (FORMAT 'parquet', PARTITION_BY(state_abbr, technology))")
+
+end <- Sys.time()
+
+DBI::dbDisconnect(con)
+```
+
+
+## Workflow "mind map"
+
+
+```{mermaid}
+flowchart LR
+dplyr --> arrow
+arrow --> filesystem["`**Filesystem**
+    multiple csv
+    parquet
+    more ..`"]
+
+arrow <-->|?| duckDB
+
+dplyr --> dbplyr
+dplyr --> DBI
+dbplyr --> DBI 
+DBI --> duckDB
+duckDB --> filesystem["`**Filesystem**
+    multiple csv
+    parquet
+    more ..`"]
+```
+
+
+
+## Resources
+
+- https://mastodon.cloud/@milvus/112395302626488455
+
+- https://grantmcdermott.com/duckdb-polars/
+
+- https://duckdb.org/docs/
+
+- https://r4ds.hadley.nz/arrow.html
+
+- on Arrow posts from Danielle: https://blog.djnavarro.net/posts/2022-12-26_strange-year/#writing-about-apache-arrow (usually awesome) 
