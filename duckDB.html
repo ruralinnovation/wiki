@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Mapping &amp; Data Analytics @ CORI/RISI - BEAD Changelog</title>
+<title>Mapping &amp; Data Analytics @ CORI/RISI - Arrow &amp; DuckDB</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -66,12 +100,15 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed">
+<body class="nav-sidebar docked nav-fixed slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -107,7 +144,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">BEAD Changelog</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Ansible.html">Infrastructure</a></li><li class="breadcrumb-item"><a href="./duckDB.html">Arrow &amp; DuckDB</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -179,7 +216,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./duckDB.html" class="sidebar-item-text sidebar-link">
+  <a href="./duckDB.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Arrow &amp; DuckDB</span></a>
   </div>
 </li>
@@ -284,17 +321,24 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#updates-for-version-3" id="toc-updates-for-version-3" class="nav-link active" data-scroll-target="#updates-for-version-3">2024-04-23 Updates for version 3</a></li>
-  <li><a href="#updates-for-version-2" id="toc-updates-for-version-2" class="nav-link" data-scroll-target="#updates-for-version-2">2024-03-27 Updates for version 2</a></li>
+  <li><a href="#arrow-duckdb-parquet" id="toc-arrow-duckdb-parquet" class="nav-link active" data-scroll-target="#arrow-duckdb-parquet">Arrow / DuckDB / Parquet</a></li>
+  <li><a href="#arrow-duckdb-development" id="toc-arrow-duckdb-development" class="nav-link" data-scroll-target="#arrow-duckdb-development">Arrow / DuckDB development</a>
+  <ul class="collapse">
+  <li><a href="#how-to-partition-a-file" id="toc-how-to-partition-a-file" class="nav-link" data-scroll-target="#how-to-partition-a-file">How to partition a file:</a></li>
+  <li><a href="#from-csvs-to-parquet-using-duckdb" id="toc-from-csvs-to-parquet-using-duckdb" class="nav-link" data-scroll-target="#from-csvs-to-parquet-using-duckdb">From CSVs to parquet using DuckDB</a></li>
+  <li><a href="#from-pg-to-parquet-using-duckdb" id="toc-from-pg-to-parquet-using-duckdb" class="nav-link" data-scroll-target="#from-pg-to-parquet-using-duckdb">From PG to parquet using DuckDB</a></li>
+  </ul></li>
+  <li><a href="#workflow-mind-map" id="toc-workflow-mind-map" class="nav-link" data-scroll-target="#workflow-mind-map">Workflow “mind map”</a></li>
+  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/ruralinnovation/wiki/edit/main/BEAD-Changelog.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/ruralinnovation/wiki/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/ruralinnovation/wiki/edit/main/duckDB.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/ruralinnovation/wiki/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Ansible.html">Infrastructure</a></li><li class="breadcrumb-item"><a href="./duckDB.html">Arrow &amp; DuckDB</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">BEAD Changelog</h1>
+<h1 class="title">Arrow &amp; DuckDB</h1>
 </div>
 
 
@@ -311,38 +355,210 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="updates-for-version-3" class="level2">
-<h2 class="anchored" data-anchor-id="updates-for-version-3">2024-04-23 Updates for version 3</h2>
+<section id="arrow-duckdb-parquet" class="level2">
+<h2 class="anchored" data-anchor-id="arrow-duckdb-parquet">Arrow / DuckDB / Parquet</h2>
 <ul>
-<li>Add county-level broadband stats (FCC) to the <a href="https://broadband-county-summary.ruralinnovation.us/">Broadband County Summary</a> companion app</li>
-<li>Add button to download broadband summary data for area selected on map</li>
-<li>Add button to share URL for area selected on map</li>
-<li>Federal funding data is now sourced from <a href="https://fundingmap.fcc.gov/data-download/funding-data">https://fundingmap.fcc.gov/data-download/funding-data</a>.<br> The funding programs currently tracked on the rural broadband map include:
-<ul>
-<li>Broadband Infrastructure Program</li>
-<li>Capital Projects Fund</li>
-<li>Connect America Fund Phase II</li>
-<li>COMMUNITY CONNECT GRANT PROGRAM</li>
-<li>Enhanced Alternative Connect America Cost Model</li>
-<li>RDOF data (originally from https://www.fcc.gov/auction/904)</li>
-<li>RURAL ECONNECTIVITY PROGRAM</li>
-<li>State and Local Fiscal Recovery Fund</li>
-<li>TELEPHONE LOAN PROGRAM</li>
-<li>Tribal Broadband Connectivity Program NOFO 1</li>
-</ul></li>
+<li><p><strong>Arrow</strong> is standardization of an in-memory representation of the data: it allows “zero copy” (use of pointer at low level), is an OLAP (Online Analytical Process, can be run in R) implementing deferred or lazy materilalization (optimize query us)</p></li>
+<li><p><strong>DuckDB</strong> is an implementation (engine) of an OLAP DB</p></li>
+<li><p><strong>Parquet</strong> is a open source columnar file format storage designed for fast I/O</p></li>
 </ul>
+<p>Great explanations from Wes McKinney <a href="https://stackoverflow.com/questions/56472727/difference-between-apache-parquet-and-arrow">here</a></p>
 </section>
-<section id="updates-for-version-2" class="level2">
-<h2 class="anchored" data-anchor-id="updates-for-version-2">2024-03-27 Updates for version 2</h2>
+<section id="arrow-duckdb-development" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="arrow-duckdb-development">Arrow / DuckDB development</h2>
 <ul>
-<li>Create and deploy a <a href="https://broadband-county-summary.ruralinnovation.us/">Broadband County Summary</a> companion app</li>
-<li>Move county-level ACS statistics the companion app</li>
-<li>Improve data fetching from CORI Data API (CDA) endpoints.</li>
-<li>Simplify display of summary stats for Census blocks, ISP technology, and Award info in the Detailed Info section</li>
+<li><p>Maturity on OS: seems fine on MacOS and linux</p></li>
+<li><p>Maturity in R: well supported but currently multiple implemetations</p></li>
+<li><p>Status on spatial operations: We have a spec for <a href="https://geoparquet.org/releases/v1.0.0/">v1</a> but a <a href="https://guide.cloudnativegeo.org/geoparquet/">lot have not been implemented</a>.</p></li>
+<li><p>PG -&gt; parquet: Possible with DuckDB, <a href="https://arrow.apache.org/docs/format/ADBC.html">ADBC</a> is <a href="http://r-dbi.org/blog/dbi-4-3/">promising</a> and the PG community is also <a href="https://www.crunchydata.com/blog/parquet-and-postgres-in-the-data-lake">experimenting</a>.</p></li>
+<li><p>appending parquet: No or very hard</p></li>
+</ul>
+<section id="how-to-partition-a-file" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="how-to-partition-a-file">How to partition a file:</h3>
+<p>Arrow support:</p>
+<ul>
+<li><p>“hive style”, a key value system: <code>"year=2019/month=1/file.parquet"</code></p></li>
+<li><p>“Directory”: <code>"2019/01/file.parquet"</code></p></li>
+</ul>
+<p>Hadley Wickham suggest:</p>
+<div class="page-columns page-full"><blockquote class="blockquote">
+<p>As a rough guide, arrow suggests that you avoid files smaller than 20MB and larger than 2GB and avoid partitions that produce more than 10,000 files. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+</blockquote><div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;<a href="https://r4ds.hadley.nz/arrow.html#partitioning">https://r4ds.hadley.nz/arrow.html#partitioning</a></p></div></div></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What could be a good partition scheme for FCC data?</p>
+</div>
+</div>
+</section>
+<section id="from-csvs-to-parquet-using-duckdb" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="from-csvs-to-parquet-using-duckdb">From CSVs to parquet using DuckDB</h3>
+<p>It is following the similar pattern than <code>COPY</code> from PG:</p>
+<ol type="1">
+<li><p>Open a connection (in case you run oout of memory it is good to add a temp directory to write.)</p></li>
+<li><p>Then we execute a <code>COPY</code> statement using <code>FROM</code> the CSV reader (using a function <code>read_csv()</code>) <code>TO</code> a new file.</p></li>
+<li><p>Finaly: disconnect</p></li>
+</ol>
+<p>You may have noticed that some globing options are available<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> : <code>~/data_swamp/fcc_dec_22/*.csv</code></p>
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;<a href="https://duckdb.org/docs/data/multiple_files/overview.html">https://duckdb.org/docs/data/multiple_files/overview.html</a></p></div></div><div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(<span class="fu">duckdb</span>(),  <span class="at">dbdir =</span> <span class="st">"dec22.canard"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>start <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">dbExecute</span>(con, <span class="st">"COPY </span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="st">  (SELECT frn, </span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="st">          location_id, </span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="st">          technology, </span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="st">          max_advertised_download_speed,</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="st">          max_advertised_upload_speed,</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="st">          business_residential_code,</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="st">          state_usps as state_abbr,</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="st">          block_geoid,</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="st">          low_latency </span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="st">  FROM read_csv('~/data_swamp/fcc_dec_22/*.csv', </span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="st">          delim=',', quote='</span><span class="sc">\"</span><span class="st">', new_line='</span><span class="sc">\\</span><span class="st">n', skip=0, header=true))</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="st">  TO 'dec22' (FORMAT 'parquet', PARTITION_BY(state_abbr, technology))"</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>end <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>end <span class="sc">-</span> start</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>DBI<span class="sc">::</span><span class="fu">dbDisconnect</span>(con)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="from-pg-to-parquet-using-duckdb" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="from-pg-to-parquet-using-duckdb">From PG to parquet using DuckDB</h3>
+<p>The workflow is similar:</p>
+<ol type="1">
+<li><p>Connect to DuckDb</p></li>
+<li><p>Installing in load Postgres extension<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p></li>
+</ol>
+<div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;(https://duckdb.org/docs/extensions/postgres)[https://duckdb.org/docs/extensions/postgres]</p></div></div><ol start="3" type="1">
+<li><p>The extension will <code>ATTACH</code> to our PG instance (Using in this case credential from a single line <code>~/.pgpass</code>) using a connection string (URI is also an option). The connection is aliased “DB” and for this case it is <code>READ_ONLY</code></p></li>
+<li><p>Optional: an example on how to inspect <code>information_schema.tables</code>, DuckDB is using a <a href="https://duckdb.org/docs/sql/information_schema">similar implementation</a> than PG</p></li>
+<li><p>Use of <code>COPY</code> from a <code>SELECT</code> statement with “catalog.schema.table” TO a file</p></li>
+<li><p>Disconnect, closing the DuckDB connection seems to DETACH the one on PG.</p></li>
+</ol>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(<span class="fu">duckdb</span>())</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dbExecute</span>(con, <span class="st">"INSTALL postgres"</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dbExecute</span>(con, <span class="st">"LOAD postgres"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>pgpass <span class="ot">&lt;-</span> <span class="fu">readLines</span>(<span class="st">"~/.pgpass"</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>cred <span class="ot">&lt;-</span> <span class="fu">unlist</span>(<span class="fu">strsplit</span>(pgpass, <span class="st">":"</span>))</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>attach_string <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">"ATTACH 'dbname=%s user=%s password=%s host=%s' AS db (TYPE POSTGRES, READ_ONLY)"</span>,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  cred[<span class="dv">3</span>],</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  cred[<span class="dv">4</span>],</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  cred[<span class="dv">5</span>],</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  cred[<span class="dv">1</span>]</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="fu">dbExecute</span>(con, attach_string)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(con, <span class="st">"select * from information_schema.tables where table_schema = 'staging'"</span>)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co"># dbListTables(con) will works but not that usefull</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>start <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="fu">dbExecute</span>(con, <span class="st">"COPY </span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="st">  (SELECT frn, </span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="st">          location_id, </span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="st">          technology, </span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="st">          max_advertised_download_speed,</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="st">          max_advertised_upload_speed,</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="st">          business_residential_code,</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="st">          state_abbr,</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="st">          block_geoid,</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="st">          low_latency FROM db.staging.june23)</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="st">  TO 'june23' (FORMAT 'parquet', PARTITION_BY(state_abbr, technology))"</span>)</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>end <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>DBI<span class="sc">::</span><span class="fu">dbDisconnect</span>(con)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+</section>
+<section id="workflow-mind-map" class="level2">
+<h2 class="anchored" data-anchor-id="workflow-mind-map">Workflow “mind map”</h2>
+<div class="cell" data-layout-align="default">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>flowchart LR</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>dplyr --&gt; arrow</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>arrow --&gt; filesystem["`**Filesystem**</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    multiple csv</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    parquet</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    more ..`"]</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>arrow &lt;--&gt;|?| duckDB</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>dplyr --&gt; dbplyr</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>dplyr --&gt; DBI</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>dbplyr --&gt; DBI </span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>DBI --&gt; duckDB</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>duckDB --&gt; filesystem["`**Filesystem**</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    multiple csv</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    parquet</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    more ..`"]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+dplyr --&gt; arrow
+arrow --&gt; filesystem["`**Filesystem**
+    multiple csv
+    parquet
+    more ..`"]
+
+arrow &lt;--&gt;|?| duckDB
+
+dplyr --&gt; dbplyr
+dplyr --&gt; DBI
+dbplyr --&gt; DBI 
+DBI --&gt; duckDB
+duckDB --&gt; filesystem["`**Filesystem**
+    multiple csv
+    parquet
+    more ..`"]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="resources" class="level2">
+<h2 class="anchored" data-anchor-id="resources">Resources</h2>
+<ul>
+<li><p>https://mastodon.cloud/<span class="citation" data-cites="milvus/112395302626488455">@milvus/112395302626488455</span></p></li>
+<li><p>https://grantmcdermott.com/duckdb-polars/</p></li>
+<li><p>https://duckdb.org/docs/</p></li>
+<li><p>https://r4ds.hadley.nz/arrow.html</p></li>
+<li><p>on Arrow posts from Danielle: https://blog.djnavarro.net/posts/2022-12-26_strange-year/#writing-about-apache-arrow (usually awesome)</p></li>
 </ul>
 
 
 </section>
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -759,4 +975,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ruralinnovation/wiki/edit/main/BEAD-Changelog.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/ruralinnovation/wiki/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ruralinnovation/wiki/edit/main/duckDB.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/ruralinnovation/wiki/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

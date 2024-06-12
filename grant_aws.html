@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.554">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>CORI/RISI Mapping &amp; Data Analytics (MDA) - Grant</title>
+<title>Mapping &amp; Data Analytics @ CORI/RISI - Grant</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -79,7 +79,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">CORI/RISI Mapping &amp; Data Analytics (MDA)</span>
+    <span class="navbar-title">Mapping &amp; Data Analytics @ CORI/RISI</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -175,6 +175,12 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="./Data-Security.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data Security</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./duckDB.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Arrow &amp; DuckDB</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -282,7 +288,7 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#rules" id="toc-rules" class="nav-link" data-scroll-target="#rules">Rules:</a>
   <ul class="collapse">
-  <li><a href="#importants-dates" id="toc-importants-dates" class="nav-link" data-scroll-target="#importants-dates">Importants dates</a></li>
+  <li><a href="#important-dates" id="toc-important-dates" class="nav-link" data-scroll-target="#important-dates">Important dates</a></li>
   </ul></li>
   <li><a href="#good-to-know-resources" id="toc-good-to-know-resources" class="nav-link" data-scroll-target="#good-to-know-resources">Good to know / Resources</a></li>
   <li><a href="#retro-planning-for-the-mda" id="toc-retro-planning-for-the-mda" class="nav-link" data-scroll-target="#retro-planning-for-the-mda">Retro-Planning for the MDA</a></li>
@@ -335,19 +341,29 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Proposal w/o any personal info</p></li>
 <li><p>US nonprofit with active 501</p></li>
 </ul>
-<section id="importants-dates" class="level3">
-<h3 class="anchored" data-anchor-id="importants-dates">Importants dates</h3>
+<section id="important-dates" class="level3">
+<h3 class="anchored" data-anchor-id="important-dates">Important dates</h3>
 <ul>
-<li><p>portal will open on May 3, 2024</p></li>
-<li><p>Dead line for round one: <strong>June 3 2024</strong></p></li>
-<li><p>Notification for round 2 July 17 2024</p></li>
+<li><p>Portal will open on May 3, 2024</p></li>
+<li><p>Deadline for round 1: <strong>June 3 2024</strong></p></li>
+<li><p>Notification for round 2: July 17 2024</p></li>
 </ul>
 </section>
 </section>
 <section id="good-to-know-resources" class="level2">
 <h2 class="anchored" data-anchor-id="good-to-know-resources">Good to know / Resources</h2>
 <ul>
-<li><p><a href="https://www.youtube.com/watch?v=AfApI2auGXw">Tutorial Video</a></p></li>
+<li><p><a href="https://www.youtube.com/watch?v=AfApI2auGXw">Tutorial Video</a><br> <a href="https://www.youtube.com/watch?v=AfApI2auGXw" target="_blank"><img alt="Tutorial Video" width="1728" height="1053" src="img/AWS IMAGINE Grant Application Tutorial - Award packages.png" style="width:100%;height:100%"></a></p>
+<ul>
+<li>Award package includes:
+<ul>
+<li>Unrestricted cash funding</li>
+<li>AWS computing credits</li>
+<li>Access to AWS technical specialists</li>
+<li>Access to cloud training</li>
+<li>Opportunities for marketing promotions by AWS</li>
+</ul></li>
+</ul></li>
 <li><p>My takes on it (1.5 speed video):</p>
 <ul>
 <li><p>Importance of holistics approach ie: provide tech + support</p></li>
@@ -360,8 +376,7 @@ ul.task-list li input[type="checkbox"] {
 <li><p>“end goal connect your mission”</p></li>
 <li><p>“dynamic dashboard”: should we look into quicksight?</p></li>
 <li><p>“what services will it use”: S3, next is do we have a spark question or a duck db question</p></li>
-<li><p>“how do the technical elements fits together”:</p></li>
-</ul>
+<li><p>“how do the technical elements fits together”:</p>
 <p>I think our data warehouse is good we want to leverage a data lake to select more valuable data to move to teh data warehouse/product phase</p>
 <ul>
 <li><p>“what skill resources do you have in house”</p></li>
@@ -376,6 +391,7 @@ ul.task-list li input[type="checkbox"] {
 <li><p>automate the ingestion delivery</p></li>
 <li><p>technical diagram: AWS architecture diagrams</p></li>
 </ul></li>
+</ul></li>
 <li><p>We can contact the AWS Nonprofits team (<a href="https://aws.amazon.com/government-education/contact/">form</a>), and should, we need to prepare an <strong>high level summary before</strong></p></li>
 </ul>
 <p>first goal do we need some kind of bb data hub?</p>
@@ -383,13 +399,15 @@ ul.task-list li input[type="checkbox"] {
 <section id="retro-planning-for-the-mda" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="retro-planning-for-the-mda">Retro-Planning for the MDA</h2>
 <ul>
-<li><p>Decide on an what we want to do: Dead line May 16</p></li>
-<li><p>Write high level summary and get feedback from AWS Team May 17<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p></li>
+<li><p>Decide on what we want to do: EOD May 17</p></li>
+<li><p>Write high level summary and get feedback from AWS Team: May 17<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p></li>
 </ul>
 <div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;p11 of AWS Imagine 2024</p></div></div><ul>
-<li><p>Write the grant with feedback from AWS</p></li>
-<li><p>MDA proposition should be done May 24</p></li>
-<li><p>Giving us buffer we (Robin?/Mike?) want to submit May 30</p></li>
+<li><p>Write the grant with feedback from AWS: (May 20 - 23)</p></li>
+<li><p>MDA proposition should be done: May 23</p></li>
+<li><p>Leadership review (May 23): Leigh Anne / Matt</p></li>
+<li><p>Operations review (May 24): Robin? / Mike?</p></li>
+<li><p>Submit grant: May 30</p></li>
 </ul>
 </section>
 <section id="first-brainstorm" class="level2">
