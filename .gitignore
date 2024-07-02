@@ -7,5 +7,4 @@ node_modules/
 
 R/
 _targets.R
-data.csv
-targets.qmd
+data.*
