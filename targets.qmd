@@ -1,0 +1,291 @@
+---
+title: "targets"
+execute:
+  echo: true
+  output: true
+  message: false
+  warning: false
+---
+
+## TL;DR
+
+These are go-to `targets` command/functions:
+
+```
+targets::tar_make()         # Build all targets (i.e., run everything)
+targets::tar_manifest()     # Print out the current target list
+targets::tar_source()       # Load all R scripts (from the 'R' subdirectory by default;
+                            #    change with (files = "[...dir...]")
+targets::tar_read(...)      # Print out content of target (specified by name)
+targets::tar_viznetwork()   # Visualize target graph (DAG)
+```
+
+## A walkthrough to get started {#walkthrough}
+
+The following `targets` walkthrough was copied verbatim from: https://books.ropensci.org/targets/walkthrough.html
+
+```{r, message = FALSE, warning = FALSE, echo = FALSE, eval = TRUE}
+knitr::opts_knit$set(root.dir = fs::dir_create(tempfile()))
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>", eval = TRUE)
+options(crayon.enabled = FALSE)
+
+
+library(fs)
+library(ggplot2)
+library(readr)
+library(targets)
+library(tidyverse)
+library(withr)
+```
+```{r, include = FALSE, eval = TRUE}
+dir_create("R")
+write_csv(airquality, "data.csv")
+withr::with_dir("R", {
+  tar_script({
+    get_data <- function(file) {
+      read_csv(file, col_types = cols()) %>%
+        filter(!is.na(Ozone))
+    }
+    fit_model <- function(data) {
+      lm(Ozone ~ Temp, data) %>%
+        coefficients()
+    }
+    plot_model <- function(model, data) {
+      ggplot(data) +
+        geom_point(aes(x = Temp, y = Ozone)) +
+        geom_abline(intercept = model[1], slope = model[2])
+    }
+  })
+  file_move("_targets.R", "functions.R")
+})
+tar_script({
+  library(targets)
+  source("R/functions.R")
+  options(crayon.enabled = FALSE)
+  options(tidyverse.quiet = TRUE)
+  tar_option_set(packages = c("readr", "dplyr", "ggplot2"))
+  list(
+    tar_target(file, "data.csv", format = "file"),
+    tar_target(data, get_data(file)),
+    tar_target(model, fit_model(data)),
+    tar_target(plot, plot_model(model, data))
+  )
+})
+```
+>
+> This chapter walks through a short example of a [`targets`](https://github.com/ropensci/targets)-powered data analysis project. The source code is available at <https://github.com/wlandau/targets-four-minutes>, and you can visit <https://rstudio.cloud/project/3946303> to try out the code in a web browser (no download or installation required). The [documentation website](https://docs.ropensci.org/targets/index.html#examples) links to other examples. The contents of the chapter are also explained in a four-minute video tutorial:
+>
+<center>
+<iframe src="https://player.vimeo.com/video/700982360?h=38c890bd4f" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+</center>
+
+> ## About this example
+>
+> The goal of this short analysis is to assess the relationship among ozone and temperature in base R’s `airquality` dataset. We track a data file, prepare a dataset, fit a model, and plot the model against the data.
+>
+> ## File structure
+>
+> The file structure of the project looks like this.
+>
+```{r, eval = FALSE}
+├── _targets.R
+├── data.csv
+├── R/
+│   ├── functions.R
+```
+>
+> `data.csv` contains the data we want to analyze.
+>
+```
+Ozone,Solar.R,Wind,Temp,Month,Day
+36,118,8.0,72,5,2
+12,149,12.6,74,5,3
+...
+```
+>
+> `R/functions.R` contains our custom user-defined functions. (See the [functions chapter](#functions) for a discussion of function-oriented workflows.)
+>
+```{r, eval = FALSE}
+# R/functions.R
+get_data <- function(file) {
+  read_csv(file, col_types = cols()) %>%
+    filter(!is.na(Ozone))
+}
+
+fit_model <- function(data) {
+  lm(Ozone ~ Temp, data) %>%
+    coefficients()
+}
+
+plot_model <- function(model, data) {
+  ggplot(data) +
+    geom_point(aes(x = Temp, y = Ozone)) +
+    geom_abline(intercept = model[1], slope = model[2])
+}
+```
+>
+> ## Target script file
+>
+> Whereas files `data.csv` and `functions.R` are typical user-defined components of a [project-oriented workflow](https://rstats.wtf/projects), the target script file `_targets.R` file is special. Every [`targets`](https://github.com/ropensci/targets) workflow needs a [target script file](https://docs.ropensci.org/targets/reference/tar_script.html) to configure and define the pipeline.^[By default, the target script is a file called `_targets.R` in the project's [root directory](https://martinctc.github.io/blog/rstudio-projects-and-working-directories-a-beginner%27s-guide/). However, you can set the target script file path to something other than `_targets.R`. You can either set the path persistently for your project using [`tar_config_set()`](https://docs.ropensci.org/targets/reference/tar_config_set.html), or you can set it temporarily for an individual function call using the `script` argument of [`tar_make()`](https://docs.ropensci.org/targets/reference/tar_make.html) and related functions.] The [`use_targets()`](https://docs.ropensci.org/targets/reference/use_targets.html) function in `targets` version >= 0.12.0 creates an initial target script with comments to help you fill it in. Ours looks like this:
+>
+```{r, eval = FALSE}
+# _targets.R file
+library(targets)
+source("R/functions.R")
+tar_option_set(packages = c("readr", "dplyr", "ggplot2"))
+list(
+  tar_target(file, "data.csv", format = "file"),
+  tar_target(data, get_data(file)),
+  tar_target(model, fit_model(data)),
+  tar_target(plot, plot_model(model, data))
+)
+```
+>
+> All target script files have these requirements.
+>
+> 1. Load the packages needed to define the pipeline, e.g. [`targets`](https://github.com/ropensci/targets) itself.^[target scripts created with `tar_script()` automatically insert a `library(targets)` line at the top by default.]
+> 2. Use `tar_option_set()` to declare the packages that the targets themselves need, as well as other settings such as the default [storage format](https://docs.ropensci.org/targets/reference/tar_target.html#storage-formats).
+> 3. Load your custom functions and small input objects into the R session: in our case, with `source("R/functions.R")`.
+> 4. Write the pipeline at the bottom of `_targets.R`. A pipeline is a list of target objects, which you can create with `tar_target()`. Each target is a step of the analysis. It looks and feels like a variable in R, but during `tar_make()`, it will reproducibly store a value in `_targets/objects/`.
+>
+> :::{.callout-tip}
+> ## Start small
+>
+> Even if you plan to create a large-scale heavy-duty pipeline with hundreds of time-consuming targets, it is best to start small. First create a version of the pipeline with a small number of quick-to-run targets, follow the sections below to inspect and test it, and then scale up to the full-sized pipeline after you are sure everything is working.
+> :::
+>
+> ## Inspect the pipeline
+>
+> Before you run the pipeline for real, it is best to check for obvious errors. [`tar_manifest()`](https://docs.ropensci.org/targets/reference/tar_manifest.html) lists verbose information about each target.
+>
+```{r, eval = TRUE}
+tar_manifest(fields = all_of("command"))
+```
+>
+> [`tar_visnetwork()`](https://docs.ropensci.org/targets/reference/tar_visnetwork.html) displays the dependency graph of the pipeline, showing a natural left-to-right flow of work. It is good practice to make sure the graph has the correct nodes connected with the correct edges. Read more about dependencies and the graph in the [dependencies section](https://books.ropensci.org/targets/targets.html#dependencies) of a [later chapter](#targets).
+>
+```{r, eval = TRUE}
+tar_visnetwork()
+```
+>
+> ## Run the pipeline
+>
+> `tar_make()` runs the pipeline. It creates a reproducible new external R process which then reads the target script and runs the correct targets in the correct order.^[In `targets` version 0.3.1.9000 and above, you can set the path of the local data store to something other than `_targets/`. A project-level `_targets.yaml` file keeps track of the path. Functions [`tar_config_set()`](https://docs.ropensci.org/targets/reference/tar_config_set.html) and [`tar_config_get()`](https://docs.ropensci.org/targets/reference/tar_config_get.html) can help.]
+>
+```{r, eval = TRUE}
+tar_make()
+```
+>
+> The output of the pipeline is saved to the `_targets/` data store, and you can read the output with `tar_read()` (see also `tar_load()`).
+>
+```{r}
+tar_read(plot)
+```
+>
+> The next time you run `tar_make()`, `targets` skips everything that is already up to date, which saves a lot of time in large projects with long runtimes.
+>
+```{r, eval = TRUE}
+tar_make()
+```
+>
+> You can use `tar_visnetwork()` and `tar_outdated()` to check ahead of time which targets are up to date.
+>
+```{r, eval = TRUE}
+tar_visnetwork()
+```
+>
+```{r, eval = TRUE}
+tar_outdated()
+```
+>
+> ## Changes
+>
+> The `targets` package notices when you make changes to code and data, and those changes affect which targets rerun and which targets are skipped.^[Internally, special rules called "cues" decide whether a target reruns. The [`tar_cue()`](https://docs.ropensci.org/targets/reference/tar_cue.html) function lets you suppress some of these cues, and the [`tarchetypes`](https://docs.ropensci.org/tarchetypes/) package supports nuanced [cue factories](https://docs.ropensci.org/tarchetypes/reference/index.html#section-cues) and [target factories](https://docs.ropensci.org/tarchetypes/reference/index.html#section-targets-with-custom-invalidation-rules) to further customize target invalidation behavior. The [`tar_cue()`](https://docs.ropensci.org/targets/reference/tar_cue.html) function documentation [explains cues in detail](https://docs.ropensci.org/targets/reference/tar_cue.html#target-invalidation-rules), as well as [specifics on how `targets` detects changes to upstream dependencies](https://docs.ropensci.org/targets/reference/tar_cue.html#dependency-based-invalidation-and-user-defined-functions).]
+>
+> ### Change code
+>
+> If you change one of your functions, the targets that depend on it will no longer be up to date, and `tar_make()` will rebuild them. For example, let's increase the font size of the plot.
+>
+```{r, include = FALSE, eval = TRUE}
+withr::with_dir("R", {
+  tar_script({
+    get_data <- function(file) {
+      read_csv(file, col_types = cols()) %>%
+        filter(!is.na(Ozone))
+    }
+    fit_model <- function(data) {
+      lm(Ozone ~ Temp, data) %>%
+        coefficients()
+    }
+    plot_model <- function(model, data) {
+      ggplot(data) +
+        geom_point(aes(x = Temp, y = Ozone)) +
+        geom_abline(intercept = model[1], slope = model[2]) +
+        theme_gray(24)
+    }
+  })
+  file_move("_targets.R", "functions.R")
+})
+```
+>
+```{r, eval = FALSE}
+# Edit functions.R...
+plot_model <- function(model, data) {
+  ggplot(data) +
+    geom_point(aes(x = Temp, y = Ozone)) +
+    geom_abline(intercept = model[1], slope = model[2]) +
+    theme_gray(24) # Increased the font size.
+}
+```
+>
+> `targets` detects the change. `plot` is "outdated" (i.e. invalidated) and the others are still up to date.
+>
+```{r, eval = TRUE}
+tar_visnetwork()
+```
+>
+```{r, eval = TRUE}
+tar_outdated()
+```
+>
+> Thus, `tar_make()` reruns `plot` and nothing else.^[We would see similar behavior if we changed the R expressions in any `tar_target()` calls in the target script file.]
+>
+```{r, eval = TRUE}
+tar_make()
+```
+>
+> Sure enough, we have a new plot.
+>
+```{r}
+tar_read(plot)
+```
+>
+> ### Change data
+>
+> If we change the data file `data.csv`, `targets` notices the change. This is because `file` is a file target (i.e. with `format = "file"` in `tar_target()`), and the return value from last `tar_make()` identified `"data.csv"` as the file to be tracked for changes. Let's try it out. Below, let's use only the first 100 rows of the `airquality` dataset.
+>
+```{r, eval = TRUE}
+write_csv(head(airquality, n = 100), "data.csv")
+```
+>
+> Sure enough, `raw_data_file` and everything downstream is out of date, so all our targets are outdated.
+>
+```{r, eval = TRUE}
+tar_visnetwork()
+```
+>
+```{r, eval = TRUE}
+tar_outdated()
+```
+>
+```{r, eval = TRUE}
+tar_make()
+```
+>
+## Read metadata
+>
+> :::{.callout-tip}
+> ## Performance
+>
+> See the [performance chapter](#performance) for options, settings, and other choices to make the pipeline more efficient. This chapter also has guidance for [monitoring the progress of a running pipeline](https://books.ropensci.org/targets/performance.html#monitoring-the-pipeline).
+> :::

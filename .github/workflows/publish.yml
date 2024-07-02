@@ -31,15 +31,20 @@ jobs:
           cache-version: 2
           packages: |
             any::curl
-            any::palmerpenguins
-            any::rmarkdown
-            any::tidyverse
+            any::fs
+            any::ggplot2
             any::mapview
+            any::palmerpenguins
+            any::readr
+            any::rmarkdown
             any::renv
             any::sf
+            any::targets
+            any::tidyverse
+            any::withr
             any::yaml
 
-#      - name: Install R Dependencies
+#      - name: Install R dependencies with renv
 #        uses: r-lib/actions/setup-renv@v2
 #        with:
 #          cache-version: 1
@@ -59,4 +64,4 @@ jobs:
 
       - name: List outputs after render
         run: |
-          ls -l "${GITHUB_WORKSPACE}/"
+          ls -l "${GITHUB_WORKSPACE}/_site"
