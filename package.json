@@ -13,7 +13,7 @@
     "r"
   ],
   "devDependencies": {
-    "@mermaid-js/mermaid-cli": "^10.6.1"
+    "@mermaid-js/mermaid-cli": "^9.1.7"
   },
   "repository": {
     "type": "git",

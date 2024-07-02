@@ -44,6 +44,7 @@ website:
           - R-DBI-GDAL-PG-SF.qmd
           - Repository-Classification.md
           - Metadata.md
+          - targets.qmd
       - section: "Team Onboarding"
         contents:
           - onboarding_team_db.md
