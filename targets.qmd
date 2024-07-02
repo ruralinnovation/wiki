@@ -35,6 +35,7 @@ library(ggplot2)
 library(readr)
 library(targets)
 library(tidyverse)
+library(visNetwork)
 library(withr)
 ```
 ```{r, include = FALSE, eval = TRUE}
@@ -96,7 +97,7 @@ tar_script({
 >
 > `data.csv` contains the data we want to analyze.
 >
-```
+```{text}
 Ozone,Solar.R,Wind,Temp,Month,Day
 36,118,8.0,72,5,2
 12,149,12.6,74,5,3
