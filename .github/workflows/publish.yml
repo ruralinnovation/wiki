@@ -41,6 +41,7 @@ jobs:
             any::sf
             any::targets
             any::tidyverse
+            any::visNetwork
             any::withr
             any::yaml
 
