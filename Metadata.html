@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>metadata – Mapping &amp; Data Analytics @ CORI/RISI</title>
+<title>Metadata – Mapping &amp; Data Analytics @ CORI/RISI</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -141,7 +141,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./MDA-Data-Infrastructure-Overview.html">Infrastructure</a></li><li class="breadcrumb-item"><a href="./Metadata.html">How ?</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Ansible.html">Infrastructure</a></li><li class="breadcrumb-item"><a href="./Metadata.html">Metadata</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -195,12 +195,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./MDA-Data-Infrastructure-Overview.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Data Infrastructure Overview</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./Ansible.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Ansible in the coriverse</span></a>
   </div>
@@ -244,7 +238,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Metadata.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">How ?</span></a>
+ <span class="menu-text">Metadata</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -330,7 +324,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#how" id="toc-how" class="nav-link active" data-scroll-target="#how">How ?</a>
+  <li><a href="#todo-how" id="toc-todo-how" class="nav-link active" data-scroll-target="#todo-how">TODO: How ?</a>
   <ul class="collapse">
   <li><a href="#what-is-metadata" id="toc-what-is-metadata" class="nav-link" data-scroll-target="#what-is-metadata">What is Metadata?</a></li>
   <li><a href="#when-should-metadata-be-updated" id="toc-when-should-metadata-be-updated" class="nav-link" data-scroll-target="#when-should-metadata-be-updated">When should Metadata be updated?</a></li>
@@ -350,11 +344,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Ansible.html">Infrastructure</a></li><li class="breadcrumb-item"><a href="./Metadata.html">Metadata</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Metadata</h1>
+</div>
 
 
 
-<section id="how" class="level1">
-<h1>How ?</h1>
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="todo-how" class="level1">
+<h1>TODO: How ?</h1>
+<p>First steps…</p>
+<ul>
+<li><p>we should focus first on:</p>
+<ul>
+<li><p>tables in DB</p></li>
+<li><p>bucket in s3</p></li>
+</ul></li>
+<li><p>setup automation for that (write db)</p></li>
+<li><p>see what we do when pull metadata is writing to temp/disk</p></li>
+</ul>
 <section id="what-is-metadata" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-metadata">What is Metadata?</h2>
 <p>The MDA tracks a variety of metadata on high-traffic tables. Metadata is information <em>about</em> the data that we are sourcing and/or creating, which may include: * Where the data came from (source) * When the data was acquired -&gt; * What the table names mean * What the field names mean * Any information about how the data was created/generated/derived * and more…</p>
@@ -409,16 +429,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>update our tools in production: BEAD / CH</li>
 <li>cori.utils check</li>
 <li>side not unsure if dplyr::add_rows should be added here</li>
-</ul>
-<p>First steps:</p>
-<ul>
-<li><p>we should focus first on:</p>
-<ul>
-<li><p>tables in DB</p></li>
-<li><p>bucket in s3</p></li>
-</ul></li>
-<li><p>setup automation for that (write db)</p></li>
-<li><p>see what we do with pull data that is writing to temp/disk</p></li>
 </ul>
 
 

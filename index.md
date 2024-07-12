@@ -28,16 +28,21 @@ system or a *platform* for our work that maximizes our ability to
 sustain and improve our models, as well as the organization’s ability to
 intelligently utilize our models in pursuit of our mission.
 
-> Note: See [CORI/RISI Ontology](CORI-Ontology.qmd) to follow/contribute
-> to our refinement of the relevant terms of our analysis.
+> [!TIP]
+>
+> *Note: See [CORI/RISI Ontology](CORI-Ontology.qmd) to
+> follow/contribute to our refinement of the relevant terms of our
+> analysis.*
 
 <hr />
 
-*Note: DO NOT EDIT THIS README IN THE
-[`coriverse`](https://github.com/ruralinnovation/coriverse.git) REPO. It
-is derived from
-[`README.qmd`](https://github.com/ruralinnovation/wiki/edit/main/README.qmd)
-in the [`wiki`](https://github.com/ruralinnovation/wiki.git) repo.*
+> [!TIP]
+>
+> *Note: DO NOT EDIT THIS README IN THE
+> [`coriverse`](https://github.com/ruralinnovation/coriverse.git) REPO.
+> It is derived from
+> [`README.qmd`](https://github.com/ruralinnovation/wiki/edit/main/README.qmd)
+> in the [`wiki`](https://github.com/ruralinnovation/wiki.git) repo.*
 
 # Enter the coriverse!
 
