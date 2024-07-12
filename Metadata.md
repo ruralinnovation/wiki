@@ -1,6 +1,27 @@
-# How ? 
+---
+title: "Metadata"
+execute:
+  echo: true
+  output: true
+  message: false
+  warning: false
+reference-location: margin
+citation-location: margin
+---
 
+# TODO: How ?
 
+First steps...
+
+  - we should focus first on:
+
+    * tables in DB
+
+    * bucket in s3
+
+  - setup automation for that (write db)
+
+  - see what we do when pull metadata is writing to temp/disk
 
 
 ## What is Metadata?
@@ -91,15 +112,3 @@ present in 3 tables and save a 3 csv for them with select row
 - cori.utils check
 - side not unsure if dplyr::add_rows should be added here
 
-First steps: 
-
-- we should focus first on:
-
-  * tables in DB
-
-  * bucket in s3
-
-- setup automation for that (write db)
-
-- see what we do with pull data that is writing to temp/disk  
- 
