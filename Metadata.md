@@ -1,8 +1,13 @@
+# How ? 
+
+
+
+
 ## What is Metadata?
 
 The MDA tracks a variety of metadata on high-traffic tables. Metadata is information _about_ the data that we are sourcing and/or creating, which may include:
   * Where the data came from (source)
-  * When the data was acquired
+  * When the data was acquired -> 
   * What the table names mean
   * What the field names mean
   * Any information about how the data was created/generated/derived
@@ -85,3 +90,16 @@ present in 3 tables and save a 3 csv for them with select row
 -  update our tools in production: BEAD / CH 
 - cori.utils check
 - side not unsure if dplyr::add_rows should be added here
+
+First steps: 
+
+- we should focus first on:
+
+  * tables in DB
+
+  * bucket in s3
+
+- setup automation for that (write db)
+
+- see what we do with pull data that is writing to temp/disk  
+ 
