@@ -7,15 +7,27 @@ execute:
   warning: false
 ---
 
-<div style="background-color: #fff"><a href="" target="_blank" style="background-color: #fff">
-![](img/MDA%20Data%20Infrastructure.svg)
+## Current
+
+<div style="background-color: #fff">
+<a href="" target="_blank" style="background-color: #fff">
+![](img/MDA%20Data%20Flow%20-%20Current.drawio.svg)
 <!--
-<img src="MDA%20Data%20Infrastructure.svg" alt="mermaid-diagram" style="background-color: #fff" width="100%" />
+<img src="img/MDA%20Data%20Flow%20-%20Current.drawio.svg" alt="mermaid-diagram" style="background-color: #fff" width="100%" />
 -->
 </a>
 </div>
 <br/>
 
+
+## Future
+
+<div style="background-color: #fff">
+<a href="" target="_blank" style="background-color: #fff">
+![](img/MDA%20Data%20Flow%20-%20Future.drawio.svg)
 <!--
-![](MDA%20Data%20Flow.svg
+<img src="img/MDA%20Data%20Flow%20-%20Future.drawio.svg" alt="mermaid-diagram" style="background-color: #fff" width="100%" />
 -->
+</a>
+</div>
+<br/>
