@@ -10,8 +10,10 @@ format:
     toc: false
 ---
 
-
+::: {.callout-tip}
 _Note: DO NOT EDIT THIS README IN THE [`coriverse`](https://github.com/ruralinnovation/coriverse.git) REPO. It is derived from [`README.qmd`](https://github.com/ruralinnovation/wiki/edit/main/README.qmd) in the [`wiki`](https://github.com/ruralinnovation/wiki.git) repo._
+:::
+
 
 Enter the coriverse!
 ====================

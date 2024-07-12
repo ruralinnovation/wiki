@@ -11,11 +11,13 @@ citation-location: margin
 
 ## General Terms
 
-### The [American Community Survey (ACS)](https://www.census.gov/programs-surveys/acs/data.html)...
+### The [American Community Survey (ACS)](https://www.census.gov/programs-surveys/acs/data.html) ...
+
   - is an ongoing initiative within the United States Census Bureau
   - releases a variety of data tables every year covering a wide range of social, economic, housing, and demographic data
 
 ### A **Block** ...
+
   - is the smallest geographic area for which the Bureau of the Census collects and tabulates decennial census data
   - is the smallest statistical unit of analysis of a single Community's economic participation, social impact, and inventory of tech ecosystem resources (?)
   - is the smallest geospatial unit at which we can geographically place, filter or group Broadband Serviceable Location data
@@ -25,15 +27,15 @@ citation-location: margin
   - is a constituent component of one and only one [tract](#a-tract)
 
 ### A **Block Group** ...
+
   - is ...
 
-### A **Tract** ... 
+### A **Tract** ...
 
-  - Started being used in 1910 (NY city), **at first** should follow rivers and roads and contains around 400 peoples. 
+  - Started being used in 1910 (NY city), **at first** should follow rivers and roads and contains around 400 peoples.
+  - if divided between two new tracts and should follow this kind of pattern[^census_tract]
 
-  - if divided between two new tracts and should follow this kind of pattern[^census_tract]: Census Tract O3 (parent) is divided in Census Tract 03.01 (child 1) and Census Tract 03.02.
-
- [^census_tract]: https://www.youtube.com/watch?v=DOe4alPmjss 
+  [^census_tract]: Census Tract O3 (parent) is divided in Census Tract 03.01 (child 1) and Census Tract 03.02. https://www.youtube.com/watch?v=DOe4alPmjss
   
 ::: {.column-margin}
 Note Olivier 26-04-2024: still unclear how that translate in `geoid_tr` and how do they deal when we move from two "parents" to one "child" 
@@ -43,49 +45,62 @@ Note Olivier 26-04-2024: still unclear how that translate in `geoid_tr` and how 
   - is often arbitrary, except for coinciding with political lines, in [unincorporated areas](#an-unincorporated-area) of the United States
   - for some metrics, can be statistically described by the aggregation of statistics for each of its constituent blocks
 
+### A **Rural Tract** ...
+
+  - is ...
+
 ### An **Unincorporated Area** ...
+
   - is a region that is not governed by a local municipality, see also Census Designated Space (CDP)[^CDP]
 
- [^CDP]: https://www.census.gov/programs-surveys/bas/information/cdp.html
+  [^CDP]: https://www.census.gov/programs-surveys/bas/information/cdp.html
 
 ### A **County** ...
+
   - is ...
 
 ### A **Rural County** ...
+
   - is ...
 
 ### A **CUD** ...
+
   - is ...
 
-### ZIP code / ZCTA
+### A **ZIP ("Zone Improvment Plan") code / ZCTA**  ...
 
-ZIP ("Zone Improvment Plan") code were made to help deliver mails ("delivery routes"), they usually follow roads that were affected to a postman. At their smallest level they are tied to address (point). The Census Bureau is provisding a Zip Code Tabulation Area (ZCTA) that allow to link which is the dominant ZIP code in a census tabulation blocks[^zcta].
+  - is a designation for a mail delivery route, they usually follow roads that ware assigned to a postman.
+  - is, at the smallest level, tied to an address (point).
+  - can be linked to a census tabulation blocks by Zip Code Tabulation Areas (ZCTA) provided by the Census Bureau.[^zcta]
 
-[^zcta]: https://www.census.gov/programs-surveys/geography/guidance/geo-areas/zctas.html
+  [^zcta]: https://www.census.gov/programs-surveys/geography/guidance/geo-areas/zctas.html
 
 ### A **Broadband Serviceable Location** (BSL) ...
-
   - is “a business or residential location in the United States at which mass-market fixed broadband Internet access service is, or can be, installed.”[^bslsource]
 
-[^bslsource]: source:  https://help.bdc.fcc.gov/hc/en-us/articles/16842264428059-About-the-Fabric-What-a-Broadband-Serviceable-Location-BSL-Is-and-Is-Not 
+  [^bslsource]: source:  https://help.bdc.fcc.gov/hc/en-us/articles/16842264428059-About-the-Fabric-What-a-Broadband-Serviceable-Location-BSL-Is-and-Is-Not
 
   - is a location that can have access to multiple ISPs, each offering different services (technologies, upload, download speed).
   - can be split into residential and business locations but this distinction does not seem very effective in the [National Broadband Map](#the-national-broadband-map) dataset.
   - is not geographically represented with exact latitude and longitude, but only by [census block](#a-block) geoid and H3 index in the NBM dataset (MDA references this data as the National Broadband Map; officially the dataset is released as [BDC (Broadband Data Collection) Public Data](https://broadbandmap.fcc.gov/data-download/nationwide-data)).
 
 ### The [National Broadband Map](https://broadbandmap.fcc.gov/) ...
+
   - is an ongoing initiative within the Federal Communications Commission
   - provides information about the internet services available to individual locations across the country, along with new maps of mobile coverage, as reported by Internet Service Providers (ISPs) in the FCC’s ongoing Broadband Data Collection.
 
 ### An **Internet Service Provider (ISP)** ...
-  - is a FCC provider (with a provider ID)?
 
-  In the FCC Broadband Map they are defined by a `frn`, `provider_id` and `brand_name`. We are mostly working with the one who are providing "fixed" services. 
+  - is a FCC provider (with a provider ID)?[^ispid]
 
-### An **Eligibility Requirement**
+  [^ispid]:In the FCC Broadband Map they are defined by a `frn`, `provider_id` and `brand_name`. We are mostly working with the one who are providing "fixed" services.
+
+### An **Eligibility Requirement** ...
+
   - is ...
 
-### A **Geographic Eligibility Requirement**
+### A **Geographic Eligibility Requirement** ...
+
   - is ...
 
 ### A **Community** ...
@@ -103,11 +118,13 @@ ZIP ("Zone Improvment Plan") code were made to help deliver mails ("delivery rou
 ### A **Tech Startup** ...
   - is ...
 
-### A **Data Archive**
+### A **Data Archive** ...
+
   - is a remote store for one or more _immutable_ artifacts of source data or outputs of product data
   - is a system for storing, documenting, and indexing versions of data artifacts
 
-### A **Data Cache**
+### A **Data Cache** ...
+
   - is a remote store for one or more _mutable_ representations or views of a data product
 
 > ~~Rural ...~~
