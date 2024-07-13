@@ -1,4 +1,4 @@
-# PostgreSQL-RDS-Managment
+# PostgreSQL-RDS-Management
 
 What kind of data is "legacy" data? 
 what kind of data should be "versionned"? here we need stable structure

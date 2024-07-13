@@ -1,6 +1,6 @@
 # Ansible in the coriverse
 
-Ansible is an essential tool for managing our data infrastructure. Initially it was only employed to create new linux user accounts during MDA onboarding (see [legacy](https://github.com/ruralinnovation/ansible/tree/main/playbooks/legacy) playbooks), but ever since the great RDS Migration of 2023, [`ansible`](https://github.com/ruralinnovation/ansible/) is the main way that we provision, save and restore data in bulk to the various databases (see [PostgreSQL-RDS-Managment](PostgreSQL-RDS-Managment.md) section in the [wiki](https://ruralinnovation.github.io/wiki/)).
+Ansible is an essential tool for managing our data infrastructure. Initially it was only employed to create new linux user accounts during MDA onboarding (see [legacy](https://github.com/ruralinnovation/ansible/tree/main/playbooks/legacy) playbooks), but ever since the great RDS Migration of 2023, [`ansible`](https://github.com/ruralinnovation/ansible/) is the main way that we provision, save and restore data in bulk to the various databases (see [PostgreSQL-RDS-Management](PostgreSQL-RDS-Management.md) section in the [wiki](https://ruralinnovation.github.io/wiki/)).
 
 Ansible playbooks are used to manage users on the team's shared EC2 instance and databases instance within our RDS cluster.  
  
