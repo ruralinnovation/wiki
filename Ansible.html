@@ -219,7 +219,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./PostgreSQL-RDS-Management.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">PostgreSQL-RDS-Managment</span></a>
+ <span class="menu-text">PostgreSQL-RDS-Management</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -337,7 +337,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="ansible-in-the-coriverse" class="level1">
 <h1>Ansible in the coriverse</h1>
-<p>Ansible is an essential tool for managing our data infrastructure. Initially it was only employed to create new linux user accounts during MDA onboarding (see <a href="https://github.com/ruralinnovation/ansible/tree/main/playbooks/legacy">legacy</a> playbooks), but ever since the great RDS Migration of 2023, <a href="https://github.com/ruralinnovation/ansible/"><code>ansible</code></a> is the main way that we provision, save and restore data in bulk to the various databases (see <a href="PostgreSQL-RDS-Managment.md">PostgreSQL-RDS-Managment</a> section in the <a href="https://ruralinnovation.github.io/wiki/">wiki</a>).</p>
+<p>Ansible is an essential tool for managing our data infrastructure. Initially it was only employed to create new linux user accounts during MDA onboarding (see <a href="https://github.com/ruralinnovation/ansible/tree/main/playbooks/legacy">legacy</a> playbooks), but ever since the great RDS Migration of 2023, <a href="https://github.com/ruralinnovation/ansible/"><code>ansible</code></a> is the main way that we provision, save and restore data in bulk to the various databases (see <a href="./PostgreSQL-RDS-Management.html">PostgreSQL-RDS-Management</a> section in the <a href="https://ruralinnovation.github.io/wiki/">wiki</a>).</p>
 <p>Ansible playbooks are used to manage users on the team’s shared EC2 instance and databases instance within our RDS cluster.</p>
 <p><code>inventory/</code>: stores our ansible hosts (CORI/RISI R server) see 1) for shell env. variable.</p>
 <p><code>playbooks/</code>: contains various playbooks:</p>
