@@ -1,8 +1,867 @@
-<html xmlns="http://www.w3.org/1999/xhtml">    
-  <head>      
-    <title>Redirect to Example-React-Map-Container-with-REACT-MAP-GL-Package.html</title>      
-    <meta http-equiv="refresh" content="0;URL='Example-React-Map-Container-with-REACT-MAP-GL-Package.html'" />    
-  </head>    
-  <body> 
-  </body>  
-</html>     
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Mapping &amp; Data Analytics @ CORI/RISI -</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Mapping &amp; Data Analytics @ CORI/RISI</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./profile/about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Capabilities &amp; Knowledge</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Broadband-Consulting-Tech-Requirements.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Broadband Consulting Tech Requirement</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./CORI-Ontology.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CORI/RISI Ontology</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Infrastructure</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Ansible.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ansible in the coriverse</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./CORI-Data-API.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CORI Data API</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./MDA-Data-Infrastructure-Overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Infrastructure Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Data-Security.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Security</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./duckDB.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Arrow &amp; DuckDB</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./PostgreSQL-RDS-Management.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PostgreSQL-RDS-Managment</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./R-DBI-GDAL-PG-SF.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R DBI Geospatial Notes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Repository-Classification.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Repository-Classification</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Metadata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Metadata</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./targets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">targets</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Team Onboarding</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./onboarding_team_db.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Database Onboarding</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./QGIS.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Connecting QGIS to CORI RDS DB</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./The-coriverse-suite-of-packages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Core proprietary packages</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./MDA-Style-Guide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Naming Conventions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./G-Drive-Practice.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Google Drive Practice</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Git-Workflows.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Git!</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./help_I_have_a_data_team.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Help I Have Data Team</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Suggested-Code-Snippets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Suggested Code Snippets</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Spatial-Data-for-Mapping-and-Analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spatial Data for Mapping and Analysis</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#enter-the-coriverse" id="toc-enter-the-coriverse" class="nav-link active" data-scroll-target="#enter-the-coriverse">Enter the coriverse!</a>
+  <ul class="collapse">
+  <li><a href="#initial-setup" id="toc-initial-setup" class="nav-link" data-scroll-target="#initial-setup">Initial Setup</a>
+  <ul class="collapse">
+  <li><a href="#setup-for-development" id="toc-setup-for-development" class="nav-link" data-scroll-target="#setup-for-development">Setup for Development</a></li>
+  <li><a href="#why-r" id="toc-why-r" class="nav-link" data-scroll-target="#why-r">Why <code>R</code></a></li>
+  <li><a href="#install-r-on-mac-os-x" id="toc-install-r-on-mac-os-x" class="nav-link" data-scroll-target="#install-r-on-mac-os-x">Install <code>R</code> on Mac OS X</a></li>
+  <li><a href="#environment-variables" id="toc-environment-variables" class="nav-link" data-scroll-target="#environment-variables">Environment variables</a></li>
+  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#database-access-for-new-users" id="toc-database-access-for-new-users" class="nav-link" data-scroll-target="#database-access-for-new-users">Database Access For New Users</a></li>
+  <li><a href="#development-process-for-new-coriverse-functions" id="toc-development-process-for-new-coriverse-functions" class="nav-link" data-scroll-target="#development-process-for-new-coriverse-functions">Development Process for New <code>coriverse</code> Functions</a>
+  <ul class="collapse">
+  <li><a href="#setup-for-development-1" id="toc-setup-for-development-1" class="nav-link" data-scroll-target="#setup-for-development-1">Setup for Development</a>
+  <ul class="collapse">
+  <li><a href="#using-aws-s3-for-data-storage" id="toc-using-aws-s3-for-data-storage" class="nav-link" data-scroll-target="#using-aws-s3-for-data-storage">Using AWS S3 for data storage</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/ruralinnovation/wiki/edit/main/index.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/ruralinnovation/wiki/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<p>We are building a one-of-a-kind, data-driven platform that can provide the whole-systems, integrated model that is necessary to describe and explain the place that <strong>Rural</strong> inhabits within the broader social and economic fabric of the United States. The ultimate goal of those efforts is to energize and guide local ingenuity and leadership within rural communities as they confront the overwhelming organizational challenges involved in the development of an emerging <em>local</em> tech economy. This synthesis has the potential to substantially shift the cultural, intellectual and material/capital contributions of rural people living in rural places.</p>
+<p>As the Mapping and Data Analytics team, we are responsible for the foundational data and methodology that underlies any explanatory model that is produced or data product that is delivered and/or published by the <a href="https://ruralinnovation.us/">Center on Rural Innovation</a> and <a href="https://ruralinnovationstrategies.com/">Rural Innovation Strategies, Inc.</a>, respectively. Inherit in engaging with this responsibility is an ongoing need to map the knowledge that is generated and/or captured by our work to the basic terms of which that knowledge is composed. The collective and individual professional experience of the MDA team provides a wide breadth of analytical insights into the data that we use, but much of this value is implicit in the final output of our work product, rather than intentionally and continuously integrated into the system on which our work is occurring. As much as possible, we should aim to build a system or a <em>platform</em> for our work that maximizes our ability to sustain and improve our models, as well as the organization’s ability to intelligently utilize our models in pursuit of our mission.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><em>Note: See <a href="./CORI-Ontology.html">CORI/RISI Ontology</a> to follow/contribute to our refinement of the relevant terms of our analysis.</em></p>
+</div>
+</div>
+<hr>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><em>Note: DO NOT EDIT THIS README IN THE <a href="https://github.com/ruralinnovation/coriverse.git"><code>coriverse</code></a> REPO. It is derived from <a href="https://github.com/ruralinnovation/wiki/edit/main/README.qmd"><code>README.qmd</code></a> in the <a href="https://github.com/ruralinnovation/wiki.git"><code>wiki</code></a> repo.</em></p>
+</div>
+</div>
+<section id="enter-the-coriverse" class="level1">
+<h1>Enter the coriverse!</h1>
+<p><img src="https://img.shields.io/badge/lifecycle-stable-green.svg" class="img-fluid"></p>
+<p>The <a href="https://github.com/ruralinnovation/coriverse/"><code>coriverse</code></a> is an effort to develop a standard set of best practices for the MDA team, centralize important or useful functions into an easily accessible location, and manage package dependencies for our scripts.</p>
+<p>It’s also an <code>R</code> package!</p>
+<p>It will import:</p>
+<ul>
+<li><a href="https://github.com/ruralinnovation/cori.charts/"><code>cori.charts</code></a></li>
+<li><a href="https://github.com/ruralinnovation/cori.data/"><code>cori.data</code></a></li>
+<li><a href="https://github.com/ruralinnovation/cori.db/"><code>cori.db</code></a></li>
+<li><a href="https://github.com/ruralinnovation/cori.utils/"><code>cori.utils</code></a></li>
+</ul>
+<p>It will only attach:</p>
+<ul>
+<li><code>cori.db</code></li>
+<li><code>cori.utils</code></li>
+</ul>
+<section id="initial-setup" class="level2">
+<h2 class="anchored" data-anchor-id="initial-setup">Initial Setup</h2>
+<p>This package can be installed by using <code>devtools</code> or <code>remotes</code>.</p>
+<section id="setup-for-development" class="level3">
+<h3 class="anchored" data-anchor-id="setup-for-development">Setup for Development</h3>
+<p>Once you have all the dependencies installed, to build and install this package from the local project directory, run:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pkgbuild<span class="sc">::</span><span class="fu">clean_dll</span>(); pkgbuild<span class="sc">::</span><span class="fu">compile_dll</span>(); devtools<span class="sc">::</span><span class="fu">document</span>(); devtools<span class="sc">::</span><span class="fu">check</span>(); devtools<span class="sc">::</span><span class="fu">install</span>();</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="why-r" class="level3">
+<h3 class="anchored" data-anchor-id="why-r">Why <code>R</code></h3>
+<p><a href="https://www.r-project.org/"><code>R</code></a> is used for several reasons. The first one is probably historical: at the beginning the team had a lot of <code>R</code> users. Now <code>R</code> is used as our main “glue” language. It fills the gap between the data analysis requirements and the data engineering and software development requirements of our various projects.</p>
+<p>We do not have a full IT department and a lot of our solutions are “hand made” we cannot afford to spend times managing conda/venv setup. <code>R</code>, thanks to <a href="https://cran.r-project.org/">CRAN</a>, offers a good <a href="https://cran.r-project.org/web/packages/index.html">selection of packages</a> without a need for too much investment.</p>
+<p><code>R</code> also offers a mature geospatial data ecosystem, wrappers around API(s) for our data sources (e.g., US census data), literate programming experience with Rmarkdown and Quarto, great data visualizations packages (i.e., <code>ggplot2</code>, <code>shiny</code>), and is probably on top for statistical analysis and modeling.</p>
+<p><a href="https://posit.co/products/open-source/rstudio/">Rstudio</a> is a good and free IDE that can be run on a server or desktop, but <code>R</code> also integrates with <a href="https://code.visualstudio.com/download">VScode</a> or emacs.</p>
+<p>Finally, the strong focus on producing good documentation and a lively community make it a fun ecosystem to interact with!</p>
+</section>
+<section id="install-r-on-mac-os-x" class="level3">
+<h3 class="anchored" data-anchor-id="install-r-on-mac-os-x">Install <code>R</code> on Mac OS X</h3>
+<p>If you are installing the <code>R</code> language on your system for the first time, we recommend that you do <em>not</em> use the <code>homebrew</code> client to manage your installation. You should begin by ensuring that the command-line component for <a href="//apps.apple.com/us/app/xcode/id497799835?mt=12">Xcode</a> is available on your system and that GNU Fortran has been installed from this <a href="//cran.r-project.org/bin/macosx/tools/">source</a>:</p>
+<ul>
+<li><a href="//mac.r-project.org/tools/gfortran-12.2-universal.pkg">gfortran-12.2-universal.pkg</a></li>
+<li><a href="//download.developer.apple.com/Developer_Tools/Command_Line_Tools_for_Xcode_15.1/Command_Line_Tools_for_Xcode_15.1.dmg">Xcode</a></li>
+</ul>
+<p>Once these prerequisites are installed, head over to <a href="//cran.r-project.org/bin/macosx/">CRAN</a> and download the latest version of <code>R</code> for macOS 11 (and higher; <code>R</code> version <a href="//cran.r-project.org/bin/macosx/big-sur-arm64/base/R-4.3.2-arm64.pkg"><code>4.3.2</code></a> as of the last update to these instructions).</p>
+</section>
+<section id="environment-variables" class="level3">
+<h3 class="anchored" data-anchor-id="environment-variables">Environment variables</h3>
+<p>After installing <code>R</code>, you need to first set up local environment variables, either through your shell profile (preferably) or with an <code>.Renviron</code> file.</p>
+<p><code>~/.profile</code>:</p>
+<pre><code>export GITHUB_USER='&lt;your-github-user-name&gt;'
+export GITHUB_PAT='&lt;your-github-personal-authentication-token&gt;'</code></pre>
+<p><code>~/.Renviron</code>:</p>
+<pre><code>GITHUB_USER="&lt;your-github-user-name&gt;"   
+GITHUB_PAT="&lt;your-github-personal-authentication-token&gt;"</code></pre>
+</section>
+<section id="installation" class="level3">
+<h3 class="anchored" data-anchor-id="installation">Installation</h3>
+<p><code>coriverse</code> is an <code>R</code> metapackage, allowing us to conveniently install component <code>R</code> packages that address different pieces of the MDA workflow. To install, use the following steps:</p>
+<ol type="1">
+<li>Ensure you have :package: <code>remotes</code> 2.4.0 or greater installed (current version as of June 2021) and <code>usethis</code>. Use <code>install.packages('remotes'); install.packages('usethis')</code> to get the latest version.</li>
+<li>Create a GitHub token:</li>
+</ol>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>    <span class="do">## (optional, if not previously done) set your user name and email:</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># usethis::use_git_config(user.name = "YourName", user.email = "your@mail.com")</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="do">## create a personal access token for authentication:</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    usethis<span class="sc">::</span><span class="fu">create_github_token</span>() </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="do">## in case usethis version &lt; 2.0.0: usethis::browse_github_token() (or even better: update usethis!)</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="do">## 2023-01-25: it opens the default web browser at github PAT web page see 1.</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="do">## set personal access token:</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    credentials<span class="sc">::</span><span class="fu">set_github_pat</span>(<span class="st">"ghp_..."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="3" type="1">
+<li>Set an environment variable called <code>GITHUB_PAT</code> by running <code>Sys.setenv(GITHUB_PAT = 'MY_TOKEN_HERE')</code>, replacing MY_TOKEN_HERE with the valid GitHub personal access token you previously created. Instructions for creating a Personal Access Token are available in <a href="https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token">GitHub’s documentation</a>. Your PAT only needs <code>repo</code> permissions (the first section of options when creating a PAT).</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://user-images.githubusercontent.com/33400922/135469840-d7076fe8-4e89-49ea-aeab-0701d3d54d12.PNG" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">scope</figcaption>
+</figure>
+</div>
+<ol start="4" type="1">
+<li>Use the <code>install_github()</code> function to install the coriverse package(s), which will look for the environment variable GITHUB_PAT and will allow you to install packages from private repos. Call:</li>
+</ol>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>    remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">'ruralinnovation/coriverse'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><em>For instructions on programmatically connecting to the database using the coriverse, see <a href="https://github.com/ruralinnovation/cori.db/">cori.db</a></em></p>
+<hr>
+</section>
+</section>
+</section>
+<section id="database-access-for-new-users" class="level1">
+<h1>Database Access For New Users</h1>
+<p>See the <a href="./onboarding_team_db.html">Database Onboarding</a> section in the <a href="https://ruralinnovation.github.io/wiki/">wiki</a>.</p>
+<hr>
+</section>
+<section id="development-process-for-new-coriverse-functions" class="level1">
+<h1>Development Process for New <code>coriverse</code> Functions</h1>
+<ol type="1">
+<li>Create a branch of the appropriate <code>coriverse</code> package repo</li>
+<li>Write a function. All functions from external packages should reference the package with :: syntax (e.g.&nbsp;dplyr::filter())</li>
+<li>Save the function in the <code>R</code> folder of the appropriate coriverse package repo in your branch. The file name should match the function name.</li>
+<li>Insert a roxygen skeleton (CTRL + SHIFT + ALT + R in RStudio)</li>
+<li>Update the title, documentation of the parameters, and the return value. Add an <code>@import</code> tag for each package the function depends on. If the function uses only one or two functions from an external package, use an <code>@importFrom</code> tag for each function.</li>
+<li>If the packages the function depends on do not appear in the Imports field of the DESCRIPTION file, add the package name(s) there</li>
+<li>Run <code>devtools::document()</code></li>
+<li>Run <code>devtools::check()</code></li>
+<li>If the check passes with no errors, warnings, or notes, push to your branch. Otherwise, resolve errors, warnings, and notes.</li>
+<li>Open a pull request and contact another MDA team member for review.</li>
+</ol>
+<p>1-7 are parts of “The Whole Game”, the 1st chapter in the <em>Getting Started</em> section of <strong><a href="https://r-pkgs.org/">R Packages</a></strong> from Hadley Wickham and Jenny Bryan and can be visualized here:</p>
+<!--
+
+:::{.cell}
+
+:::{.cell-output-display}
+
+:::{}
+
+:::{}
+
+<pre class="mermaid mermaid-js">%%{init: {&#39;theme&#39;: &#39;forest&#39;}}%%
+%%flowchart
+%%    subgraph one[Initializing package]
+%%        direction LR
+%%        A(&quot;create_package()&quot;)--&gt;C(&quot;use_git()&quot;)
+%%        A--&gt;B(&quot;use_XX_licence()&quot;)
+%%        A--&gt; Z(&quot;use_testthat()&quot;)
+%%    end
+%%    subgraph two[Developping]
+%%        direction LR
+%%        D[create a function]--&gt;E(&quot;use_test()&quot;)
+%%        D--&gt;F(&quot;use_r()&quot;)
+%%        D--&gt;G(&quot;use_packge()&quot;)
+%%        F--&gt;H[&quot;Insert Roxygen skeleton&quot;]
+%%        H--&gt;I(&quot;document()&quot;)
+%%    end
+%%    subgraph git
+%%        staged --&gt; commit
+%%    end
+%%    one --&gt; two
+%%    two --&gt;|often| Y(&quot;check()&quot;)
+%%    two --&gt; X(&quot;install()&quot;)
+%%    one --&gt; git
+%%    two --&gt; git
+%%    git --&gt; Github
+%%    click A href &quot;https://usethis.r-lib.org/reference/create_package.html&quot;
+%%    click C href &quot;https://usethis.r-lib.org/reference/use_git.html&quot;
+%%    click B href &quot;https://usethis.r-lib.org/reference/licenses.html&quot;
+%%    click Z href &quot;https://r-pkgs.org/Whole-game.html#use_testthat&quot;
+%%    click E href &quot;https://usethis.r-lib.org/reference/use_r.html&quot;
+%%    click F href &quot;https://usethis.r-lib.org/reference/use_r.html&quot;
+%%    click G href &quot;https://usethis.r-lib.org/reference/use_package.html&quot;
+%%    click I href &quot;https://devtools.r-lib.org/reference/document.html&quot;
+%%    click Y href &quot;https://r-pkgs.org/Whole-game.html#check&quot;
+%%    click X href &quot;https://devtools.r-lib.org/reference/install.html&quot;
+</pre>
+:::
+:::
+:::
+:::
+
+-->
+<p><img src="img/whole-game.svg" class="img-fluid"></p>
+<!--
+<a href="https://r-pkgs.org/whole-game.html" target="_blank">
+<img src="whole-game.svg"
+     alt="mermaid-diagram"
+     align="left"
+     width="100%" />
+</a>
+_Visualizing "the Whole Game"_
+-->
+<hr>
+<section id="setup-for-development-1" class="level2">
+<h2 class="anchored" data-anchor-id="setup-for-development-1">Setup for Development</h2>
+<p>Once you have all the dependencies installed, to build and install this package from the local project directory, run:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>pkgbuild<span class="sc">::</span><span class="fu">clean_dll</span>(); pkgbuild<span class="sc">::</span><span class="fu">compile_dll</span>(); devtools<span class="sc">::</span><span class="fu">document</span>(); devtools<span class="sc">::</span><span class="fu">check</span>(); devtools<span class="sc">::</span><span class="fu">install</span>();</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="using-aws-s3-for-data-storage" class="level3">
+<h3 class="anchored" data-anchor-id="using-aws-s3-for-data-storage">Using AWS S3 for data storage</h3>
+<p>Within our workflows, you may need access to AWS S3 for both data storage and retrieval which means you will need to set your AWS credentials within the R runtime environment. The <code>cori.db::set_aws_credentials</code> function can be used to do this. The following example is of using DuckDB to pull data from both a public and a private S3 bucket (i.e., repository/store), the latter requiring credentials (redacted as “###”) for an AWS IAM user account that has read access to the bucket (to learn more about DuckDB see <a href="./duckDB.html">Arrow &amp; DuckDB</a>):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DBI)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cori.db)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(duckdb)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.getenv</span>(<span class="st">"AWS_ACCESS_KEY_ID"</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.getenv</span>(<span class="st">"AWS_SECRET_ACCESS_KEY"</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># DuckDB example:</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> DBI<span class="sc">::</span><span class="fu">dbConnect</span>(duckdb<span class="sc">::</span><span class="fu">duckdb</span>(), <span class="at">dbdir =</span> <span class="st">"data/erc_sample.duckdb"</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>duckdb<span class="sc">::</span><span class="fu">dbSendQuery</span>(con, <span class="st">"INSTALL json;"</span>)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>duckdb<span class="sc">::</span><span class="fu">dbSendQuery</span>(con, <span class="st">"LOAD json;"</span>)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>duckdb<span class="sc">::</span><span class="fu">dbSendQuery</span>(con, <span class="st">"INSTALL httpfs;"</span>)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>duckdb<span class="sc">::</span><span class="fu">dbSendQuery</span>(con, <span class="st">"LOAD httpfs;"</span>)</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>duckdb<span class="sc">::</span><span class="fu">dbSendQuery</span>(con, <span class="st">"INSTALL aws;"</span>)</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>duckdb<span class="sc">::</span><span class="fu">dbSendQuery</span>(con, <span class="st">"LOAD aws;"</span>)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Select data from public S3 bucket to local data.frame</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>erc_sample <span class="ot">&lt;-</span> DBI<span class="sc">::</span><span class="fu">dbGetQuery</span>(con, <span class="st">"SELECT * FROM read_json_auto('s3://erc-public/test/erc_sample.json')"</span>)</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(erc_sample)</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 316815</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Select data from *non-public S3 bucket to local data.frame *without S3 credentials</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>usa_spending <span class="ot">&lt;-</span> DBI<span class="sc">::</span><span class="fu">dbGetQuery</span>(con, <span class="st">"SELECT * FROM read_csv('s3://usaspending-data/usaspending_api_pull.csv')"</span>)</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Error:</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a><span class="co">#   HTTP Error: HTTP GET error on 'https://usaspending-data.s3.amazonaws.com/usaspending_api_pull.csv' (HTTP 403)</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Initilialize S3 credentials (this only needs to be done once for a given project)</span></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>cori.db<span class="sc">::</span><span class="fu">set_aws_credentials</span>(<span class="at">keyID =</span> <span class="st">"###"</span>, <span class="at">accesKey =</span> <span class="st">"###"</span>)</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Configure duckdb connection with current credentials</span></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>duckdb<span class="sc">::</span><span class="fu">dbSendQuery</span>(con, <span class="st">"CREATE OR REPLACE SECRET s3_secret (</span></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a><span class="st">    TYPE S3,</span></span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a><span class="st">    PROVIDER CREDENTIAL_CHAIN,</span></span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a><span class="st">    CHAIN 'env;config'</span></span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a><span class="st">);"</span>)</span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Select data from *non-public S3 bucket to local data.frame</span></span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>usa_spending <span class="ot">&lt;-</span> DBI<span class="sc">::</span><span class="fu">dbGetQuery</span>(con, <span class="st">"SELECT * FROM read_csv('s3://usaspending-data/usaspending_api_pull.csv')"</span>)</span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(usa_spending)</span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 1129824</span></span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>DBI<span class="sc">::</span><span class="fu">dbDisconnect</span>(con)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>These are the steps for creating a new (private) S3 bucket:</p>
+<ol type="1">
+<li>To create a new <code>bucket</code> use the <code>create bucket</code> orange button.</li>
+</ol>
+<p><strong>Naming convention of bucket:</strong></p>
+<ul>
+<li>for project do: <code>pro-&lt;NAME_OF_PROJECT&gt;</code>, example: <code>proj-rwjf</code><br>
+</li>
+<li>for data used in multiple project: <code>&lt;NAME_OF_PROJECT&gt;-data</code>, example: <code>puma-data</code></li>
+</ul>
+<p>(⚠️ no uppercase, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html">here</a>)</p>
+<p><em>We keep the default values and press <code>create bucket</code> at the bottom of the page (UX can change a bit over time).</em></p>
+<ol start="2" type="1">
+<li><p>Inside the bucket use the upload button top open a new web page were you can drag and drop the file you need to upload</p></li>
+<li><p>Do not forget to click the upload button at the bottom of this page (it will open a new page with the status of the upload).</p></li>
+</ol>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
