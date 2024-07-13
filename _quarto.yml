@@ -23,6 +23,7 @@ website:
         contents:
           - Ansible.md
           - CORI-Data-API.md
+          - MDA-Data-Infrastructure-Overview.qmd
 #          - section: "CORI Data API"
 #            contents:
 #              - CORI-Data-API.md
@@ -40,7 +41,7 @@ website:
 ##              - Working-with-the-GraphQL-Schemas.md
           - Data-Security.qmd
           - duckDB.qmd
-          - PostgreSQL-RDS-Managment.md
+          - PostgreSQL-RDS-Management.md
           - R-DBI-GDAL-PG-SF.qmd
           - Repository-Classification.md
           - Metadata.md
