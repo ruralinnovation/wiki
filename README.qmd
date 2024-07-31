@@ -109,6 +109,21 @@ GITHUB_PAT="<your-github-personal-authentication-token>"
 
 ![scope](https://user-images.githubusercontent.com/33400922/135469840-d7076fe8-4e89-49ea-aeab-0701d3d54d12.PNG)
 
+
+2024: In ubuntu (debian) the environmant variable specifying the users libpath (path for user installed library) was not loaded correctly. This was problemating for packages build by user (example with `install_github`) because they did not have access to `/usr/lib/R etc ...` (or need to sudo). 
+
+Either in `/etc/R/Renviron` or `/etc/R/Renviron.site` R_LIBS_USER need to be specified. We went with adding `~/R/x86_64-pc-linux-gnu-library/4.4` and then create the directory (if the directory is not created R will not create it). 
+
+```bash
+mkdir -p ~/R/x86_64-pc-linux-gnu-library/4.4
+```
+
+References about it: 
+
+- https://cran.r-project.org/bin/linux/ubuntu/fullREADME.html#maintenance-of-r-packages
+
+- https://stat.ethz.ch/R-manual/R-patched/library/base/html/Startup.html
+
 4.  Use the `install_github()` function to install the coriverse package(s), which will look for the environment variable GITHUB_PAT and will allow you to install packages from private repos. Call:
 
 ``` r
