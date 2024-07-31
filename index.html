@@ -454,10 +454,18 @@ GITHUB_PAT="&lt;your-github-personal-authentication-token&gt;"</code></pre>
 <figcaption class="figure-caption">scope</figcaption>
 </figure>
 </div>
+<p>2024: In ubuntu (debian) the environmant variable specifying the users libpath (path for user installed library) was not loaded correctly. This was problemating for packages build by user (example with <code>install_github</code>) because they did not have access to <code>/usr/lib/R etc ...</code> (or need to sudo).</p>
+<p>Either in <code>/etc/R/Renviron</code> or <code>/etc/R/Renviron.site</code> R_LIBS_USER need to be specified. We went with adding <code>~/R/x86_64-pc-linux-gnu-library/4.4</code> and then create the directory (if the directory is not created R will not create it).</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> ~/R/x86_64-pc-linux-gnu-library/4.4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>References about it:</p>
+<ul>
+<li><p>https://cran.r-project.org/bin/linux/ubuntu/fullREADME.html#maintenance-of-r-packages</p></li>
+<li><p>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Startup.html</p></li>
+</ul>
 <ol start="4" type="1">
 <li>Use the <code>install_github()</code> function to install the coriverse package(s), which will look for the environment variable GITHUB_PAT and will allow you to install packages from private repos. Call:</li>
 </ol>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>    remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">'ruralinnovation/coriverse'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>    remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">'ruralinnovation/coriverse'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><em>For instructions on programmatically connecting to the database using the coriverse, see <a href="https://github.com/ruralinnovation/cori.db/">cori.db</a></em></p>
 <hr>
 </section>
@@ -497,54 +505,54 @@ _Visualizing "the Whole Game"_
 <section id="setup-for-development-1" class="level2">
 <h2 class="anchored" data-anchor-id="setup-for-development-1">Setup for Development</h2>
 <p>Once you have all the dependencies installed, to build and install this package from the local project directory, run:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>pkgbuild<span class="sc">::</span><span class="fu">clean_dll</span>(); pkgbuild<span class="sc">::</span><span class="fu">compile_dll</span>(); devtools<span class="sc">::</span><span class="fu">document</span>(); devtools<span class="sc">::</span><span class="fu">check</span>(); devtools<span class="sc">::</span><span class="fu">install</span>();</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>pkgbuild<span class="sc">::</span><span class="fu">clean_dll</span>(); pkgbuild<span class="sc">::</span><span class="fu">compile_dll</span>(); devtools<span class="sc">::</span><span class="fu">document</span>(); devtools<span class="sc">::</span><span class="fu">check</span>(); devtools<span class="sc">::</span><span class="fu">install</span>();</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="using-aws-s3-for-data-storage" class="level3">
 <h3 class="anchored" data-anchor-id="using-aws-s3-for-data-storage">Using AWS S3 for data storage</h3>
 <p>Within our workflows, you may need access to AWS S3 for both data storage and retrieval which means you will need to set your AWS credentials within the R runtime environment. The <code>cori.db::set_aws_credentials</code> function can be used to do this. The following example is of using DuckDB to pull data from both a public and a private S3 bucket (i.e., repository/store), the latter requiring credentials (redacted as “###”) for an AWS IAM user account that has read access to the bucket (to learn more about DuckDB see <a href="./duckDB.html">Arrow &amp; DuckDB</a>):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DBI)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cori.db)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(duckdb)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.getenv</span>(<span class="st">"AWS_ACCESS_KEY_ID"</span>)</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.getenv</span>(<span class="st">"AWS_SECRET_ACCESS_KEY"</span>)</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># DuckDB example:</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> DBI<span class="sc">::</span><span class="fu">dbConnect</span>(duckdb<span class="sc">::</span><span class="fu">duckdb</span>(), <span class="at">dbdir =</span> <span class="st">"data/erc_sample.duckdb"</span>)</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>duckdb<span class="sc">::</span><span class="fu">dbSendQuery</span>(con, <span class="st">"INSTALL json;"</span>)</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>duckdb<span class="sc">::</span><span class="fu">dbSendQuery</span>(con, <span class="st">"LOAD json;"</span>)</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>duckdb<span class="sc">::</span><span class="fu">dbSendQuery</span>(con, <span class="st">"INSTALL httpfs;"</span>)</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>duckdb<span class="sc">::</span><span class="fu">dbSendQuery</span>(con, <span class="st">"LOAD httpfs;"</span>)</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>duckdb<span class="sc">::</span><span class="fu">dbSendQuery</span>(con, <span class="st">"INSTALL aws;"</span>)</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>duckdb<span class="sc">::</span><span class="fu">dbSendQuery</span>(con, <span class="st">"LOAD aws;"</span>)</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Select data from public S3 bucket to local data.frame</span></span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>erc_sample <span class="ot">&lt;-</span> DBI<span class="sc">::</span><span class="fu">dbGetQuery</span>(con, <span class="st">"SELECT * FROM read_json_auto('s3://erc-public/test/erc_sample.json')"</span>)</span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(erc_sample)</span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 316815</span></span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Select data from *non-public S3 bucket to local data.frame *without S3 credentials</span></span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>usa_spending <span class="ot">&lt;-</span> DBI<span class="sc">::</span><span class="fu">dbGetQuery</span>(con, <span class="st">"SELECT * FROM read_csv('s3://usaspending-data/usaspending_api_pull.csv')"</span>)</span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Error:</span></span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a><span class="co">#   HTTP Error: HTTP GET error on 'https://usaspending-data.s3.amazonaws.com/usaspending_api_pull.csv' (HTTP 403)</span></span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Initilialize S3 credentials (this only needs to be done once for a given project)</span></span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>cori.db<span class="sc">::</span><span class="fu">set_aws_credentials</span>(<span class="at">keyID =</span> <span class="st">"###"</span>, <span class="at">accesKey =</span> <span class="st">"###"</span>)</span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Configure duckdb connection with current credentials</span></span>
-<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>duckdb<span class="sc">::</span><span class="fu">dbSendQuery</span>(con, <span class="st">"CREATE OR REPLACE SECRET s3_secret (</span></span>
-<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a><span class="st">    TYPE S3,</span></span>
-<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a><span class="st">    PROVIDER CREDENTIAL_CHAIN,</span></span>
-<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a><span class="st">    CHAIN 'env;config'</span></span>
-<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a><span class="st">);"</span>)</span>
-<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Select data from *non-public S3 bucket to local data.frame</span></span>
-<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>usa_spending <span class="ot">&lt;-</span> DBI<span class="sc">::</span><span class="fu">dbGetQuery</span>(con, <span class="st">"SELECT * FROM read_csv('s3://usaspending-data/usaspending_api_pull.csv')"</span>)</span>
-<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(usa_spending)</span>
-<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 1129824</span></span>
-<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>DBI<span class="sc">::</span><span class="fu">dbDisconnect</span>(con)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DBI)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cori.db)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(duckdb)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.getenv</span>(<span class="st">"AWS_ACCESS_KEY_ID"</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.getenv</span>(<span class="st">"AWS_SECRET_ACCESS_KEY"</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co"># DuckDB example:</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> DBI<span class="sc">::</span><span class="fu">dbConnect</span>(duckdb<span class="sc">::</span><span class="fu">duckdb</span>(), <span class="at">dbdir =</span> <span class="st">"data/erc_sample.duckdb"</span>)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>duckdb<span class="sc">::</span><span class="fu">dbSendQuery</span>(con, <span class="st">"INSTALL json;"</span>)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>duckdb<span class="sc">::</span><span class="fu">dbSendQuery</span>(con, <span class="st">"LOAD json;"</span>)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>duckdb<span class="sc">::</span><span class="fu">dbSendQuery</span>(con, <span class="st">"INSTALL httpfs;"</span>)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>duckdb<span class="sc">::</span><span class="fu">dbSendQuery</span>(con, <span class="st">"LOAD httpfs;"</span>)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>duckdb<span class="sc">::</span><span class="fu">dbSendQuery</span>(con, <span class="st">"INSTALL aws;"</span>)</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>duckdb<span class="sc">::</span><span class="fu">dbSendQuery</span>(con, <span class="st">"LOAD aws;"</span>)</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Select data from public S3 bucket to local data.frame</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>erc_sample <span class="ot">&lt;-</span> DBI<span class="sc">::</span><span class="fu">dbGetQuery</span>(con, <span class="st">"SELECT * FROM read_json_auto('s3://erc-public/test/erc_sample.json')"</span>)</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(erc_sample)</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 316815</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Select data from *non-public S3 bucket to local data.frame *without S3 credentials</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>usa_spending <span class="ot">&lt;-</span> DBI<span class="sc">::</span><span class="fu">dbGetQuery</span>(con, <span class="st">"SELECT * FROM read_csv('s3://usaspending-data/usaspending_api_pull.csv')"</span>)</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Error:</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="co">#   HTTP Error: HTTP GET error on 'https://usaspending-data.s3.amazonaws.com/usaspending_api_pull.csv' (HTTP 403)</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Initilialize S3 credentials (this only needs to be done once for a given project)</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>cori.db<span class="sc">::</span><span class="fu">set_aws_credentials</span>(<span class="at">keyID =</span> <span class="st">"###"</span>, <span class="at">accesKey =</span> <span class="st">"###"</span>)</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Configure duckdb connection with current credentials</span></span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>duckdb<span class="sc">::</span><span class="fu">dbSendQuery</span>(con, <span class="st">"CREATE OR REPLACE SECRET s3_secret (</span></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a><span class="st">    TYPE S3,</span></span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a><span class="st">    PROVIDER CREDENTIAL_CHAIN,</span></span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a><span class="st">    CHAIN 'env;config'</span></span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a><span class="st">);"</span>)</span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Select data from *non-public S3 bucket to local data.frame</span></span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>usa_spending <span class="ot">&lt;-</span> DBI<span class="sc">::</span><span class="fu">dbGetQuery</span>(con, <span class="st">"SELECT * FROM read_csv('s3://usaspending-data/usaspending_api_pull.csv')"</span>)</span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(usa_spending)</span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 1129824</span></span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a>DBI<span class="sc">::</span><span class="fu">dbDisconnect</span>(con)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>These are the steps for creating a new (private) S3 bucket:</p>
 <ol type="1">
