@@ -1,4 +1,11 @@
-## Database Onboarding
+---
+title: "Database Onboarding"
+execute:
+    echo: true
+    output: true
+    message: false
+    warning: false
+---
 
 - Software requirement: [pgAdmin 4 > v7](https://www.pgadmin.org/download)
 
