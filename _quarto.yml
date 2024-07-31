@@ -60,8 +60,17 @@ website:
 
 format:
   html:
-    theme: minty 
-    css: styles.css
+    theme:
+      - minty
+      - src/custom.scss
+    css: assets/fonts.css
+    fontcolor: "#121E22"
+    linkcolor: "#00835D"
+    mainfont: "Bitter"
+    grid:
+      sidebar-width: 250px
+      body-width: 1100px
+      margin-width: 250px
     toc: true
 
 
