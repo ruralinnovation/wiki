@@ -25,7 +25,7 @@
     "mermaid": "mmdc",
     "preview": "quarto preview",
     "render:mermaid": "mmdc -i img/whole-game.mmd -o img/whole-game.svg",
-    "render:profile": "cd profile && quarto render about.qmd --to gfm --output README.md --output-dir .", 
+    "render:profile": "cd profile && quarto render about.qmd --to gfm --output README.md --output-dir . && rm ../index.html", 
     "test:mermaid": "mmdc -i img/input.mmd -o img/output.svg",
     "view:docs": "npm run build && python -m http.server -d _site 3000"
   }
