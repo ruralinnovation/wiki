@@ -26,39 +26,113 @@ Follow our work by reading
 target="_blank">our blog</a> and reviewing this list of projects that
 we’ve worked on over the past few years:
 
-|                                                                                                                                            |                                                                                                                                                                       |
-|--------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Broadband** <br> - <a href="https://rural-broadband-map.ruralinnovation.us/"                                                             
- class="external" target="_blank">Broadband Equity Access and Deployment                                                                     
- (BEAD) tool</a><br> - <a href="https://broadband-risk.ruralinnovation.us/" class="external"                                                 
- target="_blank">Climate Risk Mapping</a>                                                                                                    | **Rural Innovation Initiative**<br> - <a                                                                                                                              
-                                                                                                                                              href="https://docs.google.com/presentation/d/14Yl0l1cKy5ttvWTESwjAHzAuwfwhIDH-"                                                                                        
-                                                                                                                                              class="external" target="_blank">Tech Economy Diagnostic</a> (TED) <br> (i.e., community assessment → <a href="https://erc-tool.ruralinnovation.us/" class="external"  
-                                                                                                                                              target="_blank">ERC tool</a>)                                                                                                                                          |
-| **Research**<br> - <a                                                                                                                      
- href="https://ruralinnovation.us/resources/reports/the-rural-aperture-project/"                                                             
- class="external" target="_blank">Rural Aperture Project</a> (RWJF)<br> - <a href="https://ruralinnovation.us/blog/defining-rural-america/"  
- class="external" target="_blank">Defining rural America</a><br> - Who lives in rural America? <a                                            
- href="https://ruralinnovation.us/blog/who-lives-in-rural-america-part-i/"                                                                   
- class="external" target="_blank">Part 1</a> <a                                                                                              
- href="https://ruralinnovation.us/blog/who-lives-in-rural-america-part-2/"                                                                   
- class="external" target="_blank">Part 2</a><br> - <a                                                                                        
- href="https://ruralinnovation.us/blog/equity-economic-opportunity-rural-america/"                                                           
- class="external" target="_blank">The equity of economic opportunity in                                                                      
- rural America</a>                                                                                                                           | **Rural Innovation Network**<br> - <a                                                                                                                                 
-                                                                                                                                              href="https://ruralinnovation.us/resources/reports/report-rural-americas-tech-employment-landscape/"                                                                   
-                                                                                                                                              class="external" target="_blank">Ascendium reports and data viz</a><br> - <a href="https://erc-tool.ruralinnovation.us/" class="external"                              
-                                                                                                                                              target="_blank">Economic Development (ERC) tool</a>                                                                                                                    |
-| **Tech Entrepreneurship** <br> - <a                                                                                                        
- href="https://docs.google.com/document/d/1XcIts0l7weC1Kccw-hDSAQ1pj9FUyuaswAOZQP26UJM/edit#heading=h.ldyanhes5kq4"                          
- class="external" target="_blank">Feasibility studies</a>                                                                                    | **Additional work**<br> - Economic Development Administration (EDA) reports<br> - Economic impact analysis <br> - <a                                                  
-                                                                                                                                              href="https://drive.google.com/drive/folders/1hb6t9j9FDCxTCKikHqRKzuVPjUI3NCaQ"                                                                                        
-                                                                                                                                              class="external" target="_blank">Multistate Workforce Analysis</a> - <a                                                                                                
-                                                                                                                                              href="https://docs.google.com/document/d/1-ikRrZv-zxDaKkM9lScsY5BMSZvTV7Fn/edit"                                                                                       
-                                                                                                                                              class="external" target="_blank">example</a><br> - Tech Talent Tracker → <a href="https://erc-tool.ruralinnovation.us/" class="external"                               
-                                                                                                                                              target="_blank">ERC tool</a><br> - <a                                                                                                                                  
-                                                                                                                                              href="https://drive.google.com/file/d/115CbNaxueucskWevb3BmWqz0Oe4gfrX2"                                                                                               
-                                                                                                                                              class="external" target="_blank">Who Is Missing Analysis</a>                                                                                                           |
+<div>
+
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><div width="50.0%"
+data-layout-align="center">
+<p><strong>Broadband</strong> <br><br />
+- <a href="https://rural-broadband-map.ruralinnovation.us/"
+class="external" target="_blank">Broadband Equity Access and Deployment
+(BEAD) tool</a><br><br />
+- <a href="https://broadband-risk.ruralinnovation.us/" class="external"
+target="_blank">Climate Risk Mapping</a></p>
+</div></td>
+<td style="text-align: center;"><div width="50.0%"
+data-layout-align="center">
+<p><strong>Rural Innovation Initiative</strong><br><br />
+- <a
+href="https://docs.google.com/presentation/d/14Yl0l1cKy5ttvWTESwjAHzAuwfwhIDH-"
+class="external" target="_blank">Tech Economy Diagnostic</a> (TED) <br>
+(i.e., community assessment → <a
+href="https://erc-tool.ruralinnovation.us/" class="external"
+target="_blank">ERC tool</a>)</p>
+</div></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><div width="50.0%"
+data-layout-align="center">
+<p><strong>Research</strong><br><br />
+- <a
+href="https://ruralinnovation.us/resources/reports/the-rural-aperture-project/"
+class="external" target="_blank">Rural Aperture Project</a>
+(RWJF)<br><br />
+- <a href="https://ruralinnovation.us/blog/defining-rural-america/"
+class="external" target="_blank">Defining rural America</a><br><br />
+- Who lives in rural America? <a
+href="https://ruralinnovation.us/blog/who-lives-in-rural-america-part-i/"
+class="external" target="_blank">Part 1</a> <a
+href="https://ruralinnovation.us/blog/who-lives-in-rural-america-part-2/"
+class="external" target="_blank">Part 2</a><br><br />
+- <a
+href="https://ruralinnovation.us/blog/equity-economic-opportunity-rural-america/"
+class="external" target="_blank">The equity of economic opportunity in
+rural America</a></p>
+</div></td>
+<td style="text-align: center;"><div width="50.0%"
+data-layout-align="center">
+<p><strong>Rural Innovation Network</strong><br><br />
+- <a
+href="https://ruralinnovation.us/resources/reports/report-rural-americas-tech-employment-landscape/"
+class="external" target="_blank">Ascendium reports and data
+viz</a><br><br />
+- <a href="https://erc-tool.ruralinnovation.us/" class="external"
+target="_blank">Economic Development (ERC) tool</a></p>
+</div></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><div width="50.0%"
+data-layout-align="center">
+<p><strong>Tech Entrepreneurship</strong> <br><br />
+- <a
+href="https://docs.google.com/document/d/1XcIts0l7weC1Kccw-hDSAQ1pj9FUyuaswAOZQP26UJM/edit#heading=h.ldyanhes5kq4"
+class="external" target="_blank">Feasibility studies</a><br />
+- Tech Talent Tracker → <a href="https://erc-tool.ruralinnovation.us/"
+class="external" target="_blank">ERC tool</a><br></p>
+</div></td>
+<td style="text-align: center;"><div width="50.0%"
+data-layout-align="center">
+<p><strong>Additional work</strong><br><br />
+- Economic Development Administration (EDA) reports<br><br />
+- Economic impact analysis <br><br />
+- <a
+href="https://drive.google.com/drive/folders/1hb6t9j9FDCxTCKikHqRKzuVPjUI3NCaQ"
+class="external" target="_blank">Multistate Workforce Analysis</a> - <a
+href="https://docs.google.com/document/d/1-ikRrZv-zxDaKkM9lScsY5BMSZvTV7Fn/edit"
+class="external" target="_blank">example</a><br><br />
+- <a
+href="https://drive.google.com/file/d/115CbNaxueucskWevb3BmWqz0Oe4gfrX2"
+class="external" target="_blank">Who Is Missing Analysis</a></p>
+</div></td>
+</tr>
+</tbody>
+</table>
+
+</div>
 
 Learn more about the MDA approach to Knowledge here: [Research, mapping,
 and data
