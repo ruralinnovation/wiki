@@ -271,58 +271,72 @@ The Pipeline code is located in the `packages/infrastructure/src/stacks/Pipeline
 
 In order to be deployed this stack requires configuration parameters for connecting to Github as well as deploying the ApiStack.
 
-```Typescript
 
-interface PipelineStackProps {
-  /**
-   * GitHub source configuration
-   */
-  source: {
-    /**
-     * Case-sensitive GitHub repo name
-     *  i.e. mergingfutures/cori-data-api
-     */
-    repo: string;
-    /**
-     * Which branch to listen on
-     * When changes are committed, the pipeline will trigger
-     */
-    branch: string;
 
-    /**
-     * Personal access token for authentication
-     *  i.e. cdk.SecretValue.secretsManager('mergingfutures-pat')
-     */
-    authentication: SecretValue;
+       interface PipelineStackProps {
+         /**
+          * GitHub source configuration
+          */
+         source: {
+           /**
+            * Case-sensitive GitHub repo name
+            *  i.e. mergingfutures/cori-data-api
+            */
+           repo: string;
+           /**
+            * Which branch to listen on
+            * When changes are committed, the pipeline will trigger
+            */
+           branch: string;
 
-    /**
-     * How to trigger the pipeline.
-     *  Must have admin access on repo to use WEBHOOK.
-     *  Only read access is required for POLL
-     */
-    trigger?: GitHubTrigger;
-  };
+           /**
+            * Personal access token for authentication
+            *  i.e. cdk.SecretValue.secretsManager('mergingfutures-pat')
+            */
+           authentication: SecretValue;
 
-  /**
-   * Use this to re-use an existing S3 bucket.
-   */
-  artifactBucketName?: string;
+           /**
+            * How to trigger the pipeline.
+            *  Must have admin access on repo to use WEBHOOK.
+            *  Only read access is required for POLL
+            */
+           trigger?: GitHubTrigger;
+         };
 
-  /**
-   * Configures the api to be deployed by the pipeline
-   */
-  ApiConfig: ApiStackProps;
+         /**
+          * ~~Use this to re-use an existing S3 bucket.~~
+          *
+          * TODO: Does this need to be automatically configured?!
+          * ANSWER: YES!
+          *
+          * Apparently the "artifact" bucket is one that must be created/configured/managed by AWS because of some system tag that it adds to the bucket, which humans are not allowed to use...
+          * ```
+          * Unknown Error
+            * An unexpected error occurred.
+            * API response
+            * System tags cannot be added/updated by requester
+            * ```
+            * <img width="844" alt="image" src="https://github.com/user-attachments/assets/ab4732dd-ebca-44a7-9648-277500b0a263">
+            *
+          */
+         artifactBucketName?: string; // <= DO NOT SET VALUE!
 
-  /**
-   * Credentials for Integration Testing
-   */
-  integrationConfig: {
-    userName: string;
-    password: string;
-  };
-}
 
-```
+         /**
+          * Configures the api to be deployed by the pipeline
+          */
+         ApiConfig: ApiStackProps;
+
+         /**
+          * Credentials for Integration Testing
+          */
+         integrationConfig: {
+           userName: string;
+           password: string;
+         };
+       }
+
+
 
 ### Pipeline deployment
 
