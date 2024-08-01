@@ -46,27 +46,6 @@ target="_blank">Climate Risk Mapping</a></p>
 </div></td>
 <td style="text-align: center;"><div width="50.0%"
 data-layout-align="center">
-<p><strong>Rural Innovation Initiative</strong><br><br />
-- <a
-href="https://docs.google.com/presentation/d/14Yl0l1cKy5ttvWTESwjAHzAuwfwhIDH-"
-class="external" target="_blank">Tech Economy Diagnostic</a> (TED) <br>
-(i.e., community assessment → <a
-href="https://erc-tool.ruralinnovation.us/" class="external"
-target="_blank">ERC tool</a>)</p>
-</div></td>
-</tr>
-</tbody>
-</table>
-
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><div width="50.0%"
-data-layout-align="center">
 <p><strong>Research</strong><br><br />
 - <a
 href="https://ruralinnovation.us/resources/reports/the-rural-aperture-project/"
@@ -84,6 +63,17 @@ href="https://ruralinnovation.us/blog/equity-economic-opportunity-rural-america/
 class="external" target="_blank">The equity of economic opportunity in
 rural America</a></p>
 </div></td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="odd">
 <td style="text-align: center;"><div width="50.0%"
 data-layout-align="center">
 <p><strong>Rural Innovation Network</strong><br><br />
@@ -93,6 +83,13 @@ class="external" target="_blank">Ascendium reports and data
 viz</a><br><br />
 - <a href="https://erc-tool.ruralinnovation.us/" class="external"
 target="_blank">Economic Development (ERC) tool</a></p>
+</div></td>
+<td style="text-align: center;"><div width="50.0%"
+data-layout-align="center">
+<p><strong>Rural Innovation Initiative</strong><br><br />
+- Tech Economy Diagnostic (TED) <br> (i.e., community assessment → <a
+href="https://erc-tool.ruralinnovation.us/" class="external"
+target="_blank">ERC tool</a>)</p>
 </div></td>
 </tr>
 </tbody>

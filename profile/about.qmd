@@ -22,19 +22,19 @@ Follow our work by reading [our blog](https://ruralinnovation.github.io/blog/){.
   - [Broadband Equity Access and Deployment (BEAD) tool](https://rural-broadband-map.ruralinnovation.us/){.external target="_blank"}<br>    
   - [Climate Risk Mapping](https://broadband-risk.ruralinnovation.us/){.external target="_blank"} 
 
-**Rural Innovation Initiative**<br>    
-  - [Tech Economy Diagnostic](https://docs.google.com/presentation/d/14Yl0l1cKy5ttvWTESwjAHzAuwfwhIDH-){.external target="_blank"} (TED)  <br>
-   (i.e., community assessment → [ERC tool](https://erc-tool.ruralinnovation.us/){.external target="_blank"}) 
-
 **Research**<br>    
 - [Rural Aperture Project](https://ruralinnovation.us/resources/reports/the-rural-aperture-project/){.external target="_blank"} (RWJF)<br>    
-- [Defining rural America](https://ruralinnovation.us/blog/defining-rural-america/){.external target="_blank"}<br>    
-- Who lives in rural America? [Part 1](https://ruralinnovation.us/blog/who-lives-in-rural-america-part-i/){.external target="_blank"} [Part 2](https://ruralinnovation.us/blog/who-lives-in-rural-america-part-2/){.external target="_blank"}<br>    
-- [The equity of economic opportunity in rural America](https://ruralinnovation.us/blog/equity-economic-opportunity-rural-america/){.external target="_blank"}
+    - [Defining rural America](https://ruralinnovation.us/blog/defining-rural-america/){.external target="_blank"}<br>    
+    - Who lives in rural America? [Part 1](https://ruralinnovation.us/blog/who-lives-in-rural-america-part-i/){.external target="_blank"} [Part 2](https://ruralinnovation.us/blog/who-lives-in-rural-america-part-2/){.external target="_blank"}<br>    
+    - [The equity of economic opportunity in rural America](https://ruralinnovation.us/blog/equity-economic-opportunity-rural-america/){.external target="_blank"}
 
 **Rural Innovation Network**<br>    
   - [Ascendium reports and data viz](https://ruralinnovation.us/resources/reports/report-rural-americas-tech-employment-landscape/){.external target="_blank"}<br>    
   - [Economic Development (ERC) tool](https://erc-tool.ruralinnovation.us/){.external target="_blank"}
+
+**Rural Innovation Initiative**<br>    
+  - Tech Economy Diagnostic (TED)  <br>
+       (i.e., community assessment → [ERC tool](https://erc-tool.ruralinnovation.us/){.external target="_blank"}) 
 
 **Tech Entrepreneurship** <br>    
   - [Feasibility studies](https://docs.google.com/document/d/1XcIts0l7weC1Kccw-hDSAQ1pj9FUyuaswAOZQP26UJM/edit#heading=h.ldyanhes5kq4){.external target="_blank"}   
