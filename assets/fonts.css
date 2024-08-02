@@ -67,8 +67,6 @@ html, body {
 h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
   font-family: "TT Hoves", Montserrat, sans-serif;
-  /*color: #121E22;*/
-  color: #7a7a7a !important;
 }
 
 h1, h2, h6 {
@@ -107,14 +105,12 @@ p {
   font-family: "Bitter", serif;
   font-size: 1em;
   line-height: 1.7;
-  color: #121E22;
 }
 
 a {
   font-family: "Bitter", serif;
   font-size: 1em;
   line-height: 1.7;
-  color: #00835D;
   text-decoration: underline;
 }
 
