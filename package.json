@@ -23,7 +23,7 @@
     "build": "quarto render --output-dir _site",
     "clean": "rm -rf _site/*",
     "mermaid": "mmdc",
-    "preview": "quarto preview",
+    "preview": "npm run build && python -m http.server -d _site 3000",
     "render:mermaid": "mmdc -i img/whole-game.mmd -o img/whole-game.svg",
     "render:profile": "cd profile && quarto render about.qmd --to gfm --output README.md --output-dir . && rm ../index.html", 
     "test:mermaid": "mmdc -i img/input.mmd -o img/output.svg",
