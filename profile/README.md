@@ -4,9 +4,9 @@
 
 ------------------------------------------------------------------------
 
-The Center on Rural Innovation
-([CORI](https://ruralinnovation.us/)){.external target=“\_blank”} is a
-501(c)(3) nonprofit organization that partners with rural leaders across
+The <a href="https://ruralinnovation.us/" class="external"
+target="_blank">Center on Rural Innovation (CORI)</a> is a 501(c)(3)
+nonprofit organization that partners with rural leaders across
 industries, across sectors and across the country to build tech
 economies that support scalable entrepreneurship and lead to more tech
 jobs in rural America.
