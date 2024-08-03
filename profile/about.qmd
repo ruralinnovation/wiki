@@ -1,20 +1,23 @@
 ---
 title: ""
-image: images/Full-Logo_CORI_Black.svg
+image: assets/images/Full-Logo_CORI_Black.svg
 about:
   template: jolla
   links:
     - icon: github
       text: Github
       href: https://github.com/ruralinnovation/
+
 ---
 
-<a id="github-profile-logo" href="https://ruralinnovation.us/" target="_blank"><img src="images/Full-Logo_CORI_Cream.svg" alt="The Center on Rural Innovation" width="12%" align="left" /></a>
+<a id="github-profile-logo" href="https://ruralinnovation.us/" target="_blank"><img src="assets/images/Full-Logo_CORI_Cream.svg" alt="The Center on Rural Innovation" width="12%" align="left" /></a>
 <br />
 
-The Center on Rural Innovation ([CORI](https://ruralinnovation.us/)) is a 501(c)(3) nonprofit organization partnering with rural leaders across the country to build tech economies that support scalable entrepreneurship and lead to more tech jobs in rural America.
+***
 
-These repositories are maintained by the *Mapping and Data Analytics* (MDA) team at CORI/RISI. Our team provides data, analytics and visualizations to support rural participation in the digital economy through scalable entrepreneurship and tech job growth in rural America. We aim to provide a better understanding of the forces and trends affecting rural America as we help communities chart a path to opportunity and prosperity through the tech economy.
+The [Center on Rural Innovation (CORI](https://ruralinnovation.us/){.external target="_blank"}) is a 501(c)(3) nonprofit organization that partners with rural leaders across industries, across sectors and across the country to build tech economies that support scalable entrepreneurship and lead to more tech jobs in rural America.
+
+These repositories are maintained by the [*Mapping and Data Analytics* (MDA)](https://ruralinnovation.us/our-work/research_mapping/){.external target="_blank"} team at CORI/RISI. Our team provides data, analytics and visualizations to support rural participation in the digital economy through scalable entrepreneurship and tech job growth in rural America. We aim to provide a better understanding of the forces and trends affecting rural America as we help communities chart a path to opportunity and prosperity through the tech economy.
 
 We strive towards serving as the primary center of excellence advancing sustainable, economic opportunity and equity in rural America. We do this by providing expert spatial and statistical analysis, modernized visualization and tool development, credible technical subject matter expertise, and transparent documentation.
 
@@ -55,18 +58,4 @@ Follow our work by reading [our blog](https://ruralinnovation.github.io/blog/){.
 :::
 
 Learn more about the MDA approach to Knowledge here:
-[Research, mapping, and data analytics](https://ruralinnovation.us/our-work/research_mapping/)
-
-
-<!--
-
-🏗️ This page is under construction! 🏗️
-
-**Here are some ideas to get you started:**
-
-🙋‍ A short introduction - what is your organization all about?
-🌈 Contribution guidelines - how can the community get involved?
-👩‍💻 Useful resources - where can the community find your docs? Is there anything else the community should know?
-🍿 Fun facts - what does your team eat for breakfast?
-🧙 Remember, you can do mighty things with the power of [Markdown](https://docs.github.com/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
--->
+[Research, mapping, and data analytics](https://ruralinnovation.us/our-work/research_mapping/){.external target="_blank"}

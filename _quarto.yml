@@ -6,6 +6,7 @@ website:
   repo-url: https://github.com/ruralinnovation/wiki
   repo-actions: [edit, issue]
   navbar:
+    logo-href: https://ruralinnovation.us/our-work/research_mapping/
     left:
       - href: index.qmd
         text: MDA Team Wiki
@@ -72,3 +73,6 @@ format:
       sidebar-width: 250px
       body-width: 1100px
       margin-width: 250px
+
+resources:
+  - "assets/*"
