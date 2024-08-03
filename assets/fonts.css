@@ -61,26 +61,26 @@
 
 /* default */
 html, body {
-  font-family: "Bitter", serif;
+  font-family: "Montserrat", "Bitter", serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
-  font-family: "TT Hoves", Montserrat, sans-serif;
+  font-family: "Montserrat", "TT Hoves", sans-serif;
 }
 
 h1, h2, h6 {
-  font-family: "TT Hoves Bold", "TT Hoves", "Montserrat", sans-serif;
+  font-family: "Montserrat", "TT Hoves Bold", "TT Hoves", sans-serif;
   font-weight: 700;
 }
 
 h3 {
-  font-family: "Bitter", "Montserrat", serif;
+  font-family: "Montserrat", "TT Hoves Medium", "TT Hoves", "Bitter", serif;
   font-weight: 400;
 }
 
 h4, h5 {
-  font-family: "TT Hoves Medium", "TT Hoves", "Montserrat", sans-serif;
+  font-family: "Montserrat", "TT Hoves Medium", "TT Hoves", sans-serif;
   font-weight: 500;
 }
 
@@ -93,12 +93,12 @@ h6 { font-size: .76em; line-height: 1.35; }
 
 /* Larger than phablet */
 @media (min-width: 550px) {
-  h1 { font-size: 3.2em; }
+  h1 { font-size: 2.8em; }
   h2 { font-size: 2.3em; }
   h3 { font-size: 1.8em; }
   h4 { font-size: 1.5em; }
   h5 { font-size: 1.2em; }
-  h6 { font-size: .76em; }
+  h6 { font-size: 1.0em; }
 }
 
 p {
@@ -110,6 +110,7 @@ p {
 a {
   font-family: "Bitter", serif;
   font-size: 1em;
+  font-weight: normal;
   line-height: 1.7;
   text-decoration: underline;
 }
@@ -119,5 +120,7 @@ a:hover {
     cursor: pointer;
 }
 
-
-
+.nav-item a, .sidebar-item a {
+  font-family: "Montserrat", "TT Hoves", sans-serif;
+  font-weight: normal;
+}
