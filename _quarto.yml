@@ -2,13 +2,15 @@ project:
   type: website
 
 website:
-  title: "Mapping & Data Analytics @ CORI/RISI"
+  title: "MDA Team Wiki @cori-risi"
+  favicon: assets/favicon.ico
   repo-url: https://github.com/ruralinnovation/wiki
   repo-actions: [edit, issue]
   navbar:
+    logo-href: https://ruralinnovation.us/our-work/research_mapping/
     left:
       - href: index.qmd
-        text: Home
+        text: MDA Team Wiki
       - href: profile/about.qmd
         text: About
   sidebar:
@@ -60,6 +62,7 @@ website:
 
 format:
   html:
+    toc: true
     theme:
       - minty
       - src/custom.scss
@@ -71,7 +74,6 @@ format:
       sidebar-width: 250px
       body-width: 1100px
       margin-width: 250px
-    toc: true
 
-
-
+resources:
+  - "assets/*"
