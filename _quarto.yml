@@ -22,7 +22,7 @@ website:
       - section: "Infrastructure"
         contents:
           - Ansible.md
-          - CORI-Data-API.md
+          - CORI-Data-API.qmd
           - MDA-Data-Infrastructure-Overview.qmd
 #          - section: "CORI Data API"
 #            contents:
