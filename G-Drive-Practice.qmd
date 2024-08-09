@@ -7,7 +7,7 @@ execute:
   warning: false
 ---
 
-[MDA Shared Drive](https://drive.google.com/drive/folders/0AEeONsPzOd08Uk9PVA)
+[MDA Shared Drive](https://drive.google.com/drive/folders/0AEeONsPzOd08Uk9PVA){.external target="_blank"}
 
 The MDA Shared Drive is intended to complement github in terms of tracking projects, team activities and assets, and business development documentation.
 
