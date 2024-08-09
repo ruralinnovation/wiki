@@ -9,6 +9,39 @@ execute:
 
 [MDA Shared Drive](https://drive.google.com/drive/folders/0AEeONsPzOd08Uk9PVA)
 
-Drew recommends ...
+The MDA Shared Drive is intended to complement github in terms of tracking projects, team activities and assets, and business development documentation.
 
-... still looking for input here, Drew.
+Upfront - this is by no means perfect process or recommendation. We should consider our practices and this document subject to change.
+
+## Logical structure
+
+Root directory consists of high-level (HL) assets categories (e.g. Business Development). Within the high-level categories we will find two types of folders in the second-level. This logic can be considered recursive. 
+
+1. Detailed categories: Thematic sub-directory that falls under the HL directory Example: HL: Business Development --> Content marketing --> MDA blogs
+2. Year: Temporal sub-directory that captures relevant thematic information that exists within or a specific year. Usually organizes terminal directories. Example: HL:Projects --> 2024 --> [RuralLisc ACP Dynamic map](https://drive.google.com/drive/folders/1ZwUtf-Qa6IE89mNbghspL_M5nC63vtv-)
+
+## What is captured
+
+Below highlights assets captured in key directories. 
+
+### Proposals
+This captures relevant proposal work and general proposal specific team assets (e.g. Bios)
+
+Terminal folders, specific proposals that exist within XXXX year, should contain the following
+1. RPF, proposal, or a summary of a SOW
+2. Team specific budget
+3. Signed contract (agreement) if the proposal is converted into work
+
+### Projects
+
+This captures relevant project work and general project specific team assets (e.g. Bios)
+
+Terminal folders, specific project that exist within XXXX year, should contain the following
+1. Signed contract (agreement)
+2. SOW and/or adjuested SOW (along with any 
+3. Data inputs/sources if sourced from outside of code
+4. Products or assets developed. This should be an endpoint for some of our static assets. 
+5. Any relevant project notes. Example: If there's direction from project leads that's inconsistent with the documented SOW - get it in writing and store it in our drive. We may need to reference this artifact later on as part of our changing project deliveries. 
+
+
+
