@@ -7,7 +7,16 @@ execute:
   warning: false
 ---
 
-## 2024-04-23 Updates for version 3
+## Releases
+
+### 2024-08-25 Updates for version 4
+
+  - Update data with the release of FCC Broadband Data Collection data as-of December 31, 2023 (retrieved from the [FCC National Broadband Map](https://broadbandmap.fcc.gov/data-download/nationwide-data){.external target="_blank"})
+  - Add geocoder widget to mapping tool, allowing user to search and navigate by place names
+  - Add link to [Broadband Climate Risk tool](https://broadband-risk.ruralinnovation.us/){.external target="_blank"} for relevant county selection
+  - Set color thematic for mode that excludes DSL in counting "Served" locations to match normal mode, so that it's easier to visually detect variations when switching between modes
+
+### 2024-04-23 Updates for version 3
 
   - Add county-level broadband stats (FCC) to the [Broadband County Summary](https://broadband-county-summary.ruralinnovation.us/) companion app
   - Add button to download broadband summary data for area selected on map
@@ -25,12 +34,9 @@ execute:
       - TELEPHONE LOAN PROGRAM
       - Tribal Broadband Connectivity Program NOFO 1
 
-## 2024-03-27 Updates for version 2
+### 2024-03-27 Updates for version 2
 
   - Create and deploy a [Broadband County Summary](https://broadband-county-summary.ruralinnovation.us/) companion app
   - Move county-level ACS statistics the companion app
   - Improve data fetching from CORI Data API (CDA) endpoints.
   - Simplify display of summary stats for Census blocks, ISP technology, and Award info in the Detailed Info section
-
-
-
