@@ -19,6 +19,9 @@ website:
     contents:
       - section: "Capabilities & Knowledge"
         contents:
+          - section: "Applications"
+            contents:
+              - BEAD-Changelog.qmd
           - Broadband-Consulting-Tech-Requirements.qmd
           - CORI-Ontology.qmd
       - section: "Infrastructure"

@@ -70,13 +70,13 @@ import GeoJSON from '../geojson';
     resolve: async (
       _: any,
       { county, skipCache }: { county: string; skipCache: boolean | undefined },
-      { dataSources: { pythonApi }, redisClient }: any,
+      { dataSources: { restApi }, redisClient }: any,
       info: any
     ) => {
       return skipCache
-        ? await pythonApi.getItem(`bcat/auction_904_subsidy_awards/geojson?geoid_co=${county}`)
+        ? await restApi.getItem(`bcat/auction_904_subsidy_awards/geojson?geoid_co=${county}`)
         : await redisClient.checkCache(`auction_904_subsidy_awards-${county}`, async () => {
-            return await pythonApi.getItem(`bcat/auction_904_subsidy_awards/geojson?geoid_co=${county}`);
+            return await restApi.getItem(`bcat/auction_904_subsidy_awards/geojson?geoid_co=${county}`);
           });
     },
   }
@@ -105,10 +105,10 @@ The Apollo Server has a single Data Source (Python RestAPI) and the Redis Cache 
 You will see in the BCAT query above, the context argument is `destructured` ([more info](https://simonsmith.io/destructuring-objects-as-function-parameters-in-es6))  into:
 
 ```Typescript
-{ dataSources: { pythonApi }, redisClient }: any,
+{ dataSources: { restApi }, redisClient }: any,
 ```
 
-This will allow you to reference these adapters without writing something like  `context.dataSources.pythonApi`. It makes for cleaner code.
+This will allow you to reference these adapters without writing something like  `context.dataSources.restApi`. It makes for cleaner code.
 
 Passing these adapters in as arguments to your resolvers also allows you to decouple the schema from the server code (where these adapters are configured and instantiated).  
 
