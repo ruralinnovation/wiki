@@ -7,6 +7,8 @@ execute:
   warning: false
 ---
 
+<br />
+
 ## Releases
 
 ### 2024-08-25 Updates for version 4
@@ -15,6 +17,16 @@ execute:
   - Add geocoder widget to mapping tool, allowing user to search and navigate by place names
   - Add link to [Broadband Climate Risk tool](https://broadband-risk.ruralinnovation.us/){.external target="_blank"} for relevant county selection
   - Set color thematic for mode that excludes DSL in counting "Served" locations to match normal mode, so that it's easier to visually detect variations when switching between modes
+
+::: {layout-ncol=2 layout-valign="top" fig-align="center"}
+
+
+![Color thematic](img/color-thematic-1.png){.lightbox}\
+
+![Color thematic excluding DSL-only areas from "Served"](img/color-thematic-2.png){.lightbox}\
+
+
+:::
 
 ### 2024-04-23 Updates for version 3
 
