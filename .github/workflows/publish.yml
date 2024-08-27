@@ -18,8 +18,6 @@ jobs:
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
-        with:
-          version: '1.3.433'
 
       # From https://github.com/r-lib/actions/tree/v2-branch/setup-r
       - name: Setup R
