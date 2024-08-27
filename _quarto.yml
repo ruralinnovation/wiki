@@ -2,8 +2,7 @@ project:
   type: website
 
 website:
-  title: "MDA Team Wiki @cori-risi"
-  favicon: assets/favicon.ico
+  title: "MDA Team Wiki"
   repo-url: https://github.com/ruralinnovation/wiki
   repo-actions: [edit, issue]
   navbar:
@@ -50,6 +49,7 @@ website:
           - R-DBI-GDAL-PG-SF.qmd
           - Repository-Classification.md
           - Metadata.md
+          - Styles-and-Viz.qmd
           - targets.qmd
       - section: "Team Onboarding"
         contents:

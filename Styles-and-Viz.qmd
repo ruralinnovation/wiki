@@ -1,0 +1,16 @@
+---
+title: "Styles and Visulization"
+execute:
+  echo: true
+  output: true
+  message: false
+  warning: false
+---
+
+### [Accessibility](https://accessible-colors.com/){.external target="_blank"}
+
+### [Branding](assets/branding.pdf){.external target="_blank"} (PDF download)
+
+### [Style Guide](assets/style_guide.pdf){.external target="_blank"} (PDF download)
+
+### [CORI data visualization guide](https://ruralinnovation.github.io/cori.charts/){.external target="_blank"}
