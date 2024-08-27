@@ -43,7 +43,7 @@ projects:
 <tr class="odd">
 <td style="text-align: center;"><div width="50.0%"
 data-layout-align="center">
-<p><strong>Broadband :electric_plug: :satellite: :iphone: </strong><br /> - <a
+<p><strong>Broadband</strong><br /> - <a
 href="https://rural-broadband-map.ruralinnovation.us/" class="external"
 target="_blank">Broadband Equity Access and Deployment (BEAD)
 tool</a><br /> - <a href="https://broadband-risk.ruralinnovation.us/"
@@ -51,7 +51,7 @@ class="external" target="_blank">Climate Risk Mapping</a></p>
 </div></td>
 <td style="text-align: center;"><div width="50.0%"
 data-layout-align="center">
-<p><strong>Research :bar_chart: :books: </strong><br /> - <a
+<p><strong>Research</strong><br /> - <a
 href="https://ruralinnovation.us/resources/reports/the-rural-aperture-project/"
 class="external" target="_blank">Rural Aperture Project</a> (RWJF)<br />
 - <a href="https://ruralinnovation.us/blog/defining-rural-america/"
@@ -78,7 +78,7 @@ rural America</a></p>
 <tr class="odd">
 <td style="text-align: center;"><div width="50.0%"
 data-layout-align="center">
-<p><strong>Rural Innovation Network :house_with_garden: </strong><br /> - <a
+<p><strong>Rural Innovation Network</strong><br /> - <a
 href="https://ruralinnovation.us/resources/reports/report-rural-americas-tech-employment-landscape/"
 class="external" target="_blank">Ascendium reports and data
 viz</a><br /> - <a href="https://erc-tool.ruralinnovation.us/"
@@ -104,7 +104,7 @@ target="_blank">ERC tool</a>)</p>
 <tr class="odd">
 <td style="text-align: center;"><div width="50.0%"
 data-layout-align="center">
-<p><strong>Tech Entrepreneurship :chart_with_upwards_trend: </strong> <br /> - <a
+<p><strong>Tech Entrepreneurship</strong> <br /> - <a
 href="https://docs.google.com/document/d/1XcIts0l7weC1Kccw-hDSAQ1pj9FUyuaswAOZQP26UJM/edit#heading=h.ldyanhes5kq4"
 class="external" target="_blank">Feasibility studies</a><br /> - Tech
 Talent Tracker → <a href="https://erc-tool.ruralinnovation.us/"
@@ -113,7 +113,7 @@ class="external" target="_blank">ERC tool</a><br /></p>
 <td style="text-align: center;"><div width="50.0%"
 data-layout-align="center">
 <p><strong>Additional work</strong><br /> - Economic Development
-Administration (EDA) :dollar: reports<br /> - Economic impact analysis<br /> - <a
+Administration (EDA) reports<br /> - Economic impact analysis<br /> - <a
 href="https://drive.google.com/drive/folders/1hb6t9j9FDCxTCKikHqRKzuVPjUI3NCaQ"
 class="external" target="_blank">Multistate Workforce Analysis</a> - <a
 href="https://docs.google.com/document/d/1-ikRrZv-zxDaKkM9lScsY5BMSZvTV7Fn/edit"
