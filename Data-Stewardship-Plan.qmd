@@ -1,0 +1,91 @@
+---
+title: "Data Stewardship Plan"
+execute:
+  echo: true
+  output: true
+  message: false
+  warning: false
+---
+
+
+### Introduction
+
+This plan outlines the methods and practices for responsible data management that the Center on Rural Innovation (CORI) and its subcontractors use to ensure ethical collection, management, and utilization of data, with an emphasis on the rights and privacy of individuals, and in compliance with all relevant legal standards.
+
+We will...
+
+
+### Objectives
+
+  - CORI will ensure ethical data collection and management.
+
+  - CORI will protect individual rights and privacy.
+
+  - CORI will promote and develop data literacy among stakeholders.
+
+  - CORI will continue to implement a robust framework for data governance.
+
+
+### Data Collection
+
+#### Purpose Specification
+
+CORI will clearly and specifically define the purpose of collecting data for this project and ensure it aligns with the intended outcome and scope of the project, as well as the mission of the Center on Rural Innovation.
+
+#### Informed Consent
+
+CORI will obtain explicit consent from individuals before collecting their data, after providing clear information about how their data will be used.
+
+#### Minimal Data Collection
+
+CORI will limit data collection to what is necessary to achieve the previously defined purpose.
+
+
+### Data Management
+
+#### Data Classification
+
+CORI will classify and segregate all collected data based on the level of sensitivity its contents, in order to subsequently and continuously apply appropriate handling measures.
+
+#### Data Quality Assurance
+
+CORI will review and validate data for accuracy and completeness on a periodic basis.
+
+#### Data Access
+
+CORI will approach information security in two fundamental dimensions:
+
+  1. Environments in which data is stored and accessed.
+  2. Procedures for receiving, transmitting and disposing of data.
+
+CORI will control data access through user accounts, using standard methods for authentication, authorization and delegation of privileges on the relevant platform/service. All changes will be tracked back to a specific user within our organization. Database user access will also depend on whitelisting the user’s IP address for an additional layer of access control. 
+
+All members of the organization will work on laptops with a standard set of built-in security protocols, including antivirus software and password protected login. CORI will use SSH/SFTP to transfer data to/from laptops and secure virtual machines, when necessary. On completion of a project or when deemed necessary any time beforehand, protected and/or sensitive data is removed from all database instances, S3 buckets and laptops/workstation hard drives.
+
+
+### Data Utilization
+
+#### Ethical Use
+
+CORI will ensure that data is used ethically and in alignment with consent and avoid using data for purposes that were not disclosed during collection. CORI will only use this data for program operation and evaluation purposes. There are no other purposes for which the data will be made available.
+
+#### Data Sharing Protocols
+
+CORI will establish protocols for data sharing that prioritize privacy and security. CORI will use anonymization techniques where appropriate
+
+#### Training and Awareness
+
+CORI will conduct regular training sessions for staff on ethical data practices and privacy concerns as a prerequisite to granting data access.
+
+
+### Impact Mitigation Strategies
+
+#### Regular Audits
+
+CORI will conduct periodic audits of technology systems 
+
+#### Regular Reviews
+
+CORI will conduct regular reviews of the data stewardship plan to ensure continuous alignment with ethical standards and legal requirements.
+
+
