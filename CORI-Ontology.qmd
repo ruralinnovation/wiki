@@ -9,12 +9,37 @@ reference-location: margin
 citation-location: margin
 ---
 
-## General Terms
+# US Census
+
+The US census have multiple data survey and data product. 
+
+The main one are:
+
+- The decennial census
+
+- ACS five and one year
+
+- The Economic Census
+
+- Census of Governments
+
+## US census developper section: 
+
+The US census has resources for developpers: [https://www.census.gov/data/developers.html](https://www.census.gov/data/developers.html) 
+
+Decennial data only go back to [2000](https://www.census.gov/data/developers/data-sets/decennial-census.html) but historical data are also provided by [IPUMS NHGIS](https://www.nhgis.org/data-availability).  
+
+
+::: {.column-margin}
+IPUMS has an R package wrappintg their API: https://tech.popdata.org/ipumsr/index.html 
+:::
+
 
 ### The [American Community Survey (ACS)](https://www.census.gov/programs-surveys/acs/data.html) ...
 
   - is an ongoing initiative within the United States Census Bureau
   - releases a variety of data tables every year covering a wide range of social, economic, housing, and demographic data
+  - ACS has two types of data "profile" and "table" 
 
 ### A **Block** ...
 
@@ -75,6 +100,8 @@ Note Olivier 26-04-2024: still unclear how that translate in `geoid_tr` and how 
 
   [^zcta]: https://www.census.gov/programs-surveys/geography/guidance/geo-areas/zctas.html
 
+# Broadband related terminology
+
 ### A **Broadband Serviceable Location** (BSL) ...
   - is “a business or residential location in the United States at which mass-market fixed broadband Internet access service is, or can be, installed.”[^bslsource]
 
@@ -117,6 +144,9 @@ Note Olivier 26-04-2024: still unclear how that translate in `geoid_tr` and how 
 
 ### A **Tech Startup** ...
   - is ...
+
+
+# Data related terminology
 
 ### A **Data Archive** ...
 
