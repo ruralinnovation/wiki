@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.56">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -319,7 +319,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#general-terms" id="toc-general-terms" class="nav-link active" data-scroll-target="#general-terms">General Terms</a>
+  <li><a href="#us-census" id="toc-us-census" class="nav-link active" data-scroll-target="#us-census">US Census</a>
+  <ul class="collapse">
+  <li><a href="#us-census-developper-section" id="toc-us-census-developper-section" class="nav-link" data-scroll-target="#us-census-developper-section">US census developper section:</a>
   <ul class="collapse">
   <li><a href="#the-american-community-survey-acs" id="toc-the-american-community-survey-acs" class="nav-link" data-scroll-target="#the-american-community-survey-acs">The American Community Survey (ACS) …</a></li>
   <li><a href="#a-block" id="toc-a-block" class="nav-link" data-scroll-target="#a-block">A <strong>Block</strong> …</a></li>
@@ -331,6 +333,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#a-rural-county" id="toc-a-rural-county" class="nav-link" data-scroll-target="#a-rural-county">A <strong>Rural County</strong> …</a></li>
   <li><a href="#a-cud" id="toc-a-cud" class="nav-link" data-scroll-target="#a-cud">A <strong>CUD</strong> …</a></li>
   <li><a href="#a-zip-zone-improvement-plan-code-zcta" id="toc-a-zip-zone-improvement-plan-code-zcta" class="nav-link" data-scroll-target="#a-zip-zone-improvement-plan-code-zcta">A <strong>ZIP (“Zone Improvement Plan”) code / ZCTA</strong> …</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#broadband-related-terminology" id="toc-broadband-related-terminology" class="nav-link" data-scroll-target="#broadband-related-terminology">Broadband related terminology</a>
+  <ul class="collapse">
   <li><a href="#a-broadband-serviceable-location-bsl" id="toc-a-broadband-serviceable-location-bsl" class="nav-link" data-scroll-target="#a-broadband-serviceable-location-bsl">A <strong>Broadband Serviceable Location</strong> (BSL) …</a></li>
   <li><a href="#the-national-broadband-map" id="toc-the-national-broadband-map" class="nav-link" data-scroll-target="#the-national-broadband-map">The National Broadband Map …</a></li>
   <li><a href="#an-internet-service-provider-isp" id="toc-an-internet-service-provider-isp" class="nav-link" data-scroll-target="#an-internet-service-provider-isp">An <strong>Internet Service Provider (ISP)</strong> …</a></li>
@@ -341,6 +347,9 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#an-innovation-hub" id="toc-an-innovation-hub" class="nav-link" data-scroll-target="#an-innovation-hub">An <strong>Innovation Hub</strong> …</a></li>
   <li><a href="#a-startup" id="toc-a-startup" class="nav-link" data-scroll-target="#a-startup">A <strong>Startup</strong> …</a></li>
   <li><a href="#a-tech-startup" id="toc-a-tech-startup" class="nav-link" data-scroll-target="#a-tech-startup">A <strong>Tech Startup</strong> …</a></li>
+  </ul></li>
+  <li><a href="#data-related-terminology" id="toc-data-related-terminology" class="nav-link" data-scroll-target="#data-related-terminology">Data related terminology</a>
+  <ul class="collapse">
   <li><a href="#a-data-archive" id="toc-a-data-archive" class="nav-link" data-scroll-target="#a-data-archive">A <strong>Data Archive</strong> …</a></li>
   <li><a href="#a-data-cache" id="toc-a-data-cache" class="nav-link" data-scroll-target="#a-data-cache">A <strong>Data Cache</strong> …</a></li>
   </ul></li>
@@ -369,13 +378,29 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="general-terms" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="general-terms">General Terms</h2>
-<section id="the-american-community-survey-acs" class="level3">
+<section id="us-census" class="level1 page-columns page-full">
+<h1>US Census</h1>
+<p>The US census have multiple data survey and data product.</p>
+<p>The main one are:</p>
+<ul>
+<li><p>The decennial census</p></li>
+<li><p>ACS five and one year</p></li>
+<li><p>The Economic Census</p></li>
+<li><p>Census of Governments</p></li>
+</ul>
+<section id="us-census-developper-section" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="us-census-developper-section">US census developper section:</h2>
+<p>The US census has resources for developpers: <a href="https://www.census.gov/data/developers.html">https://www.census.gov/data/developers.html</a></p>
+<p>Decennial data only go back to <a href="https://www.census.gov/data/developers/data-sets/decennial-census.html">2000</a> but historical data are also provided by <a href="https://www.nhgis.org/data-availability">IPUMS NHGIS</a>.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>IPUMS has an R package wrappintg their API: https://tech.popdata.org/ipumsr/index.html</p>
+</div></div><section id="the-american-community-survey-acs" class="level3">
 <h3 class="anchored" data-anchor-id="the-american-community-survey-acs">The <a href="https://www.census.gov/programs-surveys/acs/data.html">American Community Survey (ACS)</a> …</h3>
 <ul>
 <li>is an ongoing initiative within the United States Census Bureau</li>
 <li>releases a variety of data tables every year covering a wide range of social, economic, housing, and demographic data</li>
+<li>ACS has two types of data “profile” and “table”</li>
 </ul>
 </section>
 <section id="a-block" class="level3">
@@ -449,6 +474,10 @@ ul.task-list li input[type="checkbox"] {
 <li>can be linked to a census tabulation blocks by Zip Code Tabulation Areas (ZCTA) provided by the Census Bureau.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></li>
 </ul>
 <div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;https://www.census.gov/programs-surveys/geography/guidance/geo-areas/zctas.html</p></div></div></section>
+</section>
+</section>
+<section id="broadband-related-terminology" class="level1 page-columns page-full">
+<h1>Broadband related terminology</h1>
 <section id="a-broadband-serviceable-location-bsl" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="a-broadband-serviceable-location-bsl">A <strong>Broadband Serviceable Location</strong> (BSL) …</h3>
 <ul>
@@ -515,6 +544,9 @@ ul.task-list li input[type="checkbox"] {
 <li>is …</li>
 </ul>
 </section>
+</section>
+<section id="data-related-terminology" class="level1">
+<h1>Data related terminology</h1>
 <section id="a-data-archive" class="level3">
 <h3 class="anchored" data-anchor-id="a-data-archive">A <strong>Data Archive</strong> …</h3>
 <ul>
