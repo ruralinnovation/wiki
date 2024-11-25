@@ -13,4 +13,4 @@ _Note: See [CORI/RISI Ontology](CORI-Ontology.qmd) to follow/contribute to our r
 
 <hr />
 
-{{< include README.qmd >}}
+{{< include README.Rmd >}}
