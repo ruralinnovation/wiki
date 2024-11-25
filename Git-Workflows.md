@@ -62,14 +62,14 @@ It is good practices to add important changes in a new branch and send it for a 
 
 - Create a PR with your commits (push it to remote repo) 
 - Verify it does not conflit to the `main` branch, and eventually solve those conflicts    
-- Get it reviewed by someone on the team - in GH / their local repository.
-- The "owner" of the repository should be the one to allow the merge to main (this is particulary important in everything that is using git as a deployement tool).    
+- Get it reviewed by someone on the team - in GH / their local repository.    
+- The "owner" of the repository should be the one to allow the merge to `main` (this is particulary important in everything that is using git as a deployement tool).    
    
 You can inside of GitHub ask for a Reviewers, assign someone (Assignees) to do the merge (a Pull Request, is a merge inside of GitHub). 
 
 Once approved the PR you should not keep track of it inside of GitHub (the branch will still be inside of your local repo) and you should delete it. Github allow you to automatically do it: it is in the `setting` of the repo nearly at the bottom:
 
-You can check your PR using this link [https://github.com/pulls/assigned](https://github.com/pulls/assigned) in teh same way you can look at your issues: [https://github.com/issues](https://github.com/issues).
+You can check your PR using this link [https://github.com/pulls/assigned](https://github.com/pulls/assigned) in the same way you can look at your issues: [https://github.com/issues](https://github.com/issues).
 
 ![Screenshot 2023-02-07 at 11 52 21 AM](https://user-images.githubusercontent.com/31417689/217310697-1a7134e3-c6e9-4f80-b5b3-fc30b684363d.png)
 
