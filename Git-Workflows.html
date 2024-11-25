@@ -292,7 +292,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./help_I_have_a_data_team.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Help I Have Data Team</span></a>
+ <span class="menu-text">Help, I Have Data!</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -323,9 +323,9 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#quick-definitions" id="toc-quick-definitions" class="nav-link" data-scroll-target="#quick-definitions">Quick definitions</a></li>
   <li><a href="#git-from-the-command-line-core-commands" id="toc-git-from-the-command-line-core-commands" class="nav-link" data-scroll-target="#git-from-the-command-line-core-commands">Git From the Command Line: Core commands</a></li>
-  <li><a href="#a-typical-gitgithub-set-up-workflow" id="toc-a-typical-gitgithub-set-up-workflow" class="nav-link" data-scroll-target="#a-typical-gitgithub-set-up-workflow">A typical git/github set up / workflow</a></li>
+  <li><a href="#a-typical-gitgithub-set-up-workflow" id="toc-a-typical-gitgithub-set-up-workflow" class="nav-link" data-scroll-target="#a-typical-gitgithub-set-up-workflow">A typical git/GitHub set up / workflow</a></li>
   <li><a href="#github-workflow" id="toc-github-workflow" class="nav-link" data-scroll-target="#github-workflow">GitHub Workflow:</a></li>
-  <li><a href="#ressources" id="toc-ressources" class="nav-link" data-scroll-target="#ressources">Ressources</a></li>
+  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/ruralinnovation/wiki/edit/main/Git-Workflows.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/ruralinnovation/wiki/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -341,9 +341,9 @@ ul.task-list li input[type="checkbox"] {
 <section id="quick-definitions" class="level2">
 <h2 class="anchored" data-anchor-id="quick-definitions">Quick definitions</h2>
 <p>Git is a Distributed Version Control System (yup non distributed exist). Being “distributed” allows you to own nearly all the files.</p>
-<p>GitHub started has an hosting plateform for remote repository of Git. Now it is a social media, a forge, a CI/CD plateform and more. Github is an “opinionated” version of Git.</p>
+<p>GitHub started has an hosting platform for remote repository of Git. Now it is a social media, a forge, a CI/CD platform and more. Github is an “opinionated” version of Git.</p>
 <p>Few big difference between git and other VCS worth noting: git track change at the line level and it just add stuff.</p>
-<p>Git works with a “tree” structure hence you can keep that analogy in mind. You are always working on a “branch” (by default just one branch: <code>main</code>/<code>master</code>, <code>trunck</code> is an other commun name).</p>
+<p>Git works with a “tree” structure hence you can keep that analogy in mind. You are always working on a “branch” (by default just one branch: <code>main</code>/<code>master</code>, <code>trunk</code> is another common name).</p>
 </section>
 <section id="git-from-the-command-line-core-commands" class="level2">
 <h2 class="anchored" data-anchor-id="git-from-the-command-line-core-commands">Git From the Command Line: Core commands</h2>
@@ -369,8 +369,8 @@ ul.task-list li input[type="checkbox"] {
 <p><code>git push</code>: Push local changes and files up to GitHub</p>
 </section>
 <section id="a-typical-gitgithub-set-up-workflow" class="level2">
-<h2 class="anchored" data-anchor-id="a-typical-gitgithub-set-up-workflow">A typical git/github set up / workflow</h2>
-<p>You will have a repository in one local computer(s) and one in GH. Sometimes I like having one in my GH space, one in CORI. The benefit is that I can mess up my GH space while not screwing the CORI’s one. The draw backs are that I need to be more careful how my git local is setup (ie what is define as my <code>remotes</code> and <code>upstream</code>).</p>
+<h2 class="anchored" data-anchor-id="a-typical-gitgithub-set-up-workflow">A typical git/GitHub set up / workflow</h2>
+<p>You will have a repository in one local computer(s) and one in GH. Sometimes you can have one remote repository in your GH space and one in CORI (this setup is more common when contributing to an open source repository). The benefit is that you can mess up your GH space while not screwing the CORI’s one (or other org repo). The draw backs are that you need to be more careful how your git is setup (ie what is define as your <code>remotes</code> and <code>upstream</code>).</p>
 <p>You can also use git without having a remote repository.</p>
 <p>The connection to git is done with SSH.</p>
 <p>In git a file can be not tracked (see <code>.gitignore</code>/<code>.gitkeep</code>), unmodified, modified, staged. If a file is tracked (you asked git to keep track of it with <code>git add [file]</code>) then this file can be modified or not. The first time you add a file it is modified because git knows nothing about it. Then you can “staged” it, if a file “modified” is “staged” it goes to unmodified (until modification were done on it). A commit is creating a new “node” in your tree of files that are “staged”.</p>
@@ -380,10 +380,15 @@ ul.task-list li input[type="checkbox"] {
 <p>It is good practices to add important changes in a new branch and send it for a PR (Pull Request):</p>
 <ul>
 <li>Create a PR with your commits (push it to remote repo)</li>
-<li>Get it reviewed by someone on the team - in GH / their local repository.</li>
+<li>Verify it does not conflict to the <code>main</code> branch, and eventually solve those conflicts<br>
+</li>
+<li>Get it reviewed by someone on the team - in GH / their local repository.<br>
+</li>
+<li>The “owner” of the repository should be the one to allow the merge to <code>main</code> (this is particular important in everything that is using git as a deployment tool).</li>
 </ul>
 <p>You can inside of GitHub ask for a Reviewers, assign someone (Assignees) to do the merge (a Pull Request, is a merge inside of GitHub).</p>
 <p>Once approved the PR you should not keep track of it inside of GitHub (the branch will still be inside of your local repo) and you should delete it. Github allow you to automatically do it: it is in the <code>setting</code> of the repo nearly at the bottom:</p>
+<p>You can check your PR using this link <a href="https://github.com/pulls/assigned">https://github.com/pulls/assigned</a> in the same way you can look at your issues: <a href="https://github.com/issues">https://github.com/issues</a>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://user-images.githubusercontent.com/31417689/217310697-1a7134e3-c6e9-4f80-b5b3-fc30b684363d.png" class="img-fluid figure-img"></p>
@@ -391,11 +396,11 @@ ul.task-list li input[type="checkbox"] {
 </figure>
 </div>
 </section>
-<section id="ressources" class="level2">
-<h2 class="anchored" data-anchor-id="ressources">Ressources</h2>
+<section id="resources" class="level2">
+<h2 class="anchored" data-anchor-id="resources">Resources</h2>
 <ul>
-<li>happy git with R : https://happygitwithr.com/</li>
-<li>git pro : https://git-scm.com/book/en/v2</li>
+<li>Happy git with R : https://happygitwithr.com/</li>
+<li>Git pro : https://git-scm.com/book/en/v2</li>
 <li>https://ohshitgit.com/ (NB most of it concerns git not github)</li>
 <li>A comics version: https://wizardzines.com/zines/oh-shit-git/ (a new zines should be available soon)</li>
 <li>MIT missing semester: https://missing.csail.mit.edu/2020/version-control/</li>
