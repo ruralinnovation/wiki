@@ -1,5 +1,5 @@
 ---
-title: ""
+title: "MDA Team Wiki"
 ---
 
 We are building a one-of-a-kind, data-driven platform that can provide the whole-systems, integrated model that is necessary to describe and explain the place that **Rural** inhabits within the broader social and economic fabric of the United States. The ultimate goal of those efforts is to energize and guide local ingenuity and leadership within rural communities as they confront the overwhelming organizational challenges involved in the development of an emerging _local_ tech economy. This synthesis has the potential to substantially shift the cultural, intellectual and material/capital contributions of rural people living in rural places.

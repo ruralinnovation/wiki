@@ -4,11 +4,11 @@
 
 Git is a Distributed Version Control System (yup non distributed exist). Being "distributed" allows you to own nearly all the files. 
 
-GitHub started has an hosting plateform for remote repository of Git. Now it is a social media, a forge, a CI/CD plateform and more. Github is an "opinionated" version of Git. 
+GitHub started has an hosting platform for remote repository of Git. Now it is a social media, a forge, a CI/CD platform and more. Github is an "opinionated" version of Git. 
 
 Few big difference between git and other VCS worth noting: git track change at the line level and it just add stuff. 
 
-Git works with a "tree" structure hence you can keep that analogy in mind. You are always working on a "branch"  (by default just one branch: `main`/`master`, `trunck` is an other commun name).  
+Git works with a "tree" structure hence you can keep that analogy in mind. You are always working on a "branch"  (by default just one branch: `main`/`master`, `trunk` is another common name).  
 
 ## Git From the Command Line: Core commands
 
@@ -42,9 +42,12 @@ Git works with a "tree" structure hence you can keep that analogy in mind. You a
 
 `git push`: Push local changes and files up to GitHub
 
-## A typical git/github set up / workflow
+## A typical git/GitHub set up / workflow
 
-You will have a repository in one local computer(s) and one in GH. Sometimes I like having one in my GH space, one in CORI. The benefit is that I can mess up my GH space while not screwing the CORI's one. The draw backs are that I need to be more careful how my git local is setup (ie what is define as my `remotes` and `upstream`). 
+You will have a repository in one local computer(s) and one in GH. 
+Sometimes you can have one remote repository in your GH space and one in CORI (this setup is more common when contributing to an open source repository). 
+The benefit is that you can mess up your GH space while not screwing the CORI's one (or other org repo). 
+The draw backs are that you need to be more careful how your git is setup (ie what is define as your `remotes` and `upstream`). 
 
 You can also use git without having a remote repository. 
 
@@ -58,19 +61,23 @@ In git a file can be not tracked (see `.gitignore`/`.gitkeep`), unmodified, modi
 It is good practices to add important changes in a new branch and send it for a PR (Pull Request): 
 
 - Create a PR with your commits (push it to remote repo) 
-- Get it reviewed by someone on the team - in GH / their local repository.
+- Verify it does not conflict to the `main` branch, and eventually solve those conflicts    
+- Get it reviewed by someone on the team - in GH / their local repository.    
+- The "owner" of the repository should be the one to allow the merge to `main` (this is particular important in everything that is using git as a deployment tool).    
    
 You can inside of GitHub ask for a Reviewers, assign someone (Assignees) to do the merge (a Pull Request, is a merge inside of GitHub). 
 
 Once approved the PR you should not keep track of it inside of GitHub (the branch will still be inside of your local repo) and you should delete it. Github allow you to automatically do it: it is in the `setting` of the repo nearly at the bottom:
 
+You can check your PR using this link [https://github.com/pulls/assigned](https://github.com/pulls/assigned) in the same way you can look at your issues: [https://github.com/issues](https://github.com/issues).
+
 ![Screenshot 2023-02-07 at 11 52 21 AM](https://user-images.githubusercontent.com/31417689/217310697-1a7134e3-c6e9-4f80-b5b3-fc30b684363d.png)
 
 
-## Ressources 
+## Resources 
 
-- happy git with R : https://happygitwithr.com/
-- git pro : https://git-scm.com/book/en/v2
+- Happy git with R : https://happygitwithr.com/
+- Git pro : https://git-scm.com/book/en/v2
 - https://ohshitgit.com/ (NB most of it concerns git not github)
 - A comics version: https://wizardzines.com/zines/oh-shit-git/ (a new zines should be available soon)
 - MIT missing semester: https://missing.csail.mit.edu/2020/version-control/

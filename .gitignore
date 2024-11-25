@@ -1,4 +1,5 @@
 .[A-Za-z]*
+*.bak
 
 /.quarto/
 _site/
@@ -8,3 +9,4 @@ node_modules/
 R/
 _targets.R
 data.*
+index.html
