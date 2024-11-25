@@ -9,6 +9,3 @@ As the Mapping and Data Analytics team, we are responsible for the foundational 
 ::: {.callout-tip}
 _Note: See [CORI/RISI Ontology](CORI-Ontology.qmd) to follow/contribute to our refinement of the relevant terms of our analysis._
 :::
-
-
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
