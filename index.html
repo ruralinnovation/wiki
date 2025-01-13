@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -35,10 +69,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-df28caa527741167537ca9adf765869a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -314,8 +348,29 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#enter-the-coriverse" id="toc-enter-the-coriverse" class="nav-link active" data-scroll-target="#enter-the-coriverse">Enter the coriverse!</a>
+  <ul class="collapse">
+  <li><a href="#initial-setup" id="toc-initial-setup" class="nav-link" data-scroll-target="#initial-setup">Initial Setup</a>
+  <ul class="collapse">
+  <li><a href="#why-r" id="toc-why-r" class="nav-link" data-scroll-target="#why-r">Why <code>R</code></a></li>
+  <li><a href="#install-r-on-mac-os-x" id="toc-install-r-on-mac-os-x" class="nav-link" data-scroll-target="#install-r-on-mac-os-x">Install <code>R</code> on Mac OS X</a></li>
+  <li><a href="#environment-variables" id="toc-environment-variables" class="nav-link" data-scroll-target="#environment-variables">Environment variables</a></li>
+  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a></li>
+  </ul></li>
+  <li><a href="#database-access-for-new-users" id="toc-database-access-for-new-users" class="nav-link" data-scroll-target="#database-access-for-new-users">Database Access For New Users</a></li>
+  <li><a href="#development-process-for-new-coriverse-functions" id="toc-development-process-for-new-coriverse-functions" class="nav-link" data-scroll-target="#development-process-for-new-coriverse-functions">Development Process for new <code>coriverse</code> Functions</a>
+  <ul class="collapse">
+  <li><a href="#setup-for-development" id="toc-setup-for-development" class="nav-link" data-scroll-target="#setup-for-development">Setup for Development</a></li>
+  <li><a href="#using-aws-s3-for-data-storage" id="toc-using-aws-s3-for-data-storage" class="nav-link" data-scroll-target="#using-aws-s3-for-data-storage">Using AWS S3 for data storage</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/ruralinnovation/wiki/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/ruralinnovation/wiki/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -341,6 +396,7 @@ ul.task-list li input[type="checkbox"] {
 
 <p>We are building a one-of-a-kind, data-driven platform that can provide the whole-systems, integrated model that is necessary to describe and explain the place that <strong>Rural</strong> inhabits within the broader social and economic fabric of the United States. The ultimate goal of those efforts is to energize and guide local ingenuity and leadership within rural communities as they confront the overwhelming organizational challenges involved in the development of an emerging <em>local</em> tech economy. This synthesis has the potential to substantially shift the cultural, intellectual and material/capital contributions of rural people living in rural places.</p>
 <p>As the Mapping and Data Analytics team, we are responsible for the foundational data and methodology that underlies any explanatory model that is produced or data product that is delivered and/or published by the <a href="https://ruralinnovation.us/">Center on Rural Innovation</a> and <a href="https://ruralinnovationstrategies.com/">Rural Innovation Strategies, Inc.</a>, respectively. Inherit in engaging with this responsibility is an ongoing need to map the knowledge that is generated and/or captured by our work to the basic terms of which that knowledge is composed. The collective and individual professional experience of the MDA team provides a wide breadth of analytical insights into the data that we use, but much of this value is implicit in the final output of our work product, rather than intentionally and continuously integrated into the system on which our work is occurring. As much as possible, we should aim to build a system or a <em>platform</em> for our work that maximizes our ability to sustain and improve our models, as well as the organization’s ability to intelligently utilize our models in pursuit of our mission.</p>
+<hr>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -351,11 +407,203 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><em>Note: See <a href="./CORI-Ontology.html">CORI/RISI Ontology</a> to follow/contribute to our refinement of the relevant terms of our analysis.</em></p>
+<p><em>Note: DO NOT EDIT THIS README IN THE <a href="https://github.com/ruralinnovation/coriverse.git"><code>coriverse</code></a> REPO. It is derived from <a href="https://github.com/ruralinnovation/wiki/edit/main/README.Rmd"><code>README.Rmd</code></a> in the <a href="https://github.com/ruralinnovation/wiki.git"><code>wiki</code></a> repo.</em></p>
 </div>
 </div>
+<section id="enter-the-coriverse" class="level1">
+<h1>Enter the coriverse!</h1>
+<p><img src="https://img.shields.io/badge/lifecycle-stable-green.svg" class="img-fluid"></p>
+<p>The <a href="https://github.com/ruralinnovation/coriverse/"><code>coriverse</code></a> is an effort to develop a standard set of best practices for the MDA team, centralize important or useful functions into an easily accessible location, and manage package dependencies for our scripts.</p>
+<p>It’s also an <code>R</code> package!</p>
+<p>It will import:</p>
+<ul>
+<li><a href="https://github.com/ruralinnovation/cori.charts/"><code>cori.charts</code></a></li>
+<li><a href="https://github.com/ruralinnovation/cori.data/"><code>cori.data</code></a></li>
+<li><a href="https://github.com/ruralinnovation/cori.db/"><code>cori.db</code></a></li>
+<li><a href="https://github.com/ruralinnovation/cori.utils/"><code>cori.utils</code></a></li>
+</ul>
+<p>It will only attach:</p>
+<ul>
+<li><code>cori.db</code></li>
+<li><code>cori.utils</code></li>
+</ul>
+<section id="initial-setup" class="level2">
+<h2 class="anchored" data-anchor-id="initial-setup">Initial Setup</h2>
+<p>This package can be installed by using <code>devtools</code> or <code>remotes</code>.</p>
+<section id="why-r" class="level3">
+<h3 class="anchored" data-anchor-id="why-r">Why <code>R</code></h3>
+<p><a href="https://www.r-project.org/"><code>R</code></a> is used for several reasons. The first one is probably historical: at the beginning the team had a lot of <code>R</code> users. Now <code>R</code> is used as our main “glue” language. It fills the gap between the data analysis requirements and the data engineering and software development requirements of our various projects.</p>
+<p>We do not have a full IT department and a lot of our solutions are “hand made” we cannot afford to spend times managing conda/venv setup. <code>R</code>, thanks to <a href="https://cran.r-project.org/">CRAN</a>, offers a good <a href="https://cran.r-project.org/web/packages/index.html">selection of packages</a> without a need for too much investment.</p>
+<p><code>R</code> also offers a mature geospatial data ecosystem, wrappers around API(s) for our data sources (e.g., US census data), literate programming experience with Rmarkdown and Quarto, great data visualizations packages (i.e., <code>ggplot2</code>, <code>shiny</code>), and is probably on top for statistical analysis and modeling.</p>
+<p><a href="https://posit.co/products/open-source/rstudio/">Rstudio</a> is a good and free IDE that can be run on a server or desktop, but <code>R</code> also integrates with <a href="https://code.visualstudio.com/download">VScode</a> or emacs.</p>
+<p>Finally, the strong focus on producing good documentation and a lively community make it a fun ecosystem to interact with!</p>
+</section>
+<section id="install-r-on-mac-os-x" class="level3">
+<h3 class="anchored" data-anchor-id="install-r-on-mac-os-x">Install <code>R</code> on Mac OS X</h3>
+<p>If you are installing the <code>R</code> language on your system for the first time, we recommend that you do <em>not</em> use the <code>homebrew</code> client to manage your installation. You should begin by ensuring that the command-line component for <a href="./apps.apple.com/us/app/xcode/id497799835?mt=12">Xcode</a> is available on your system and that GNU Fortran has been installed from this <a href="./cran.r-project.org/bin/macosx/tools/">source</a>:</p>
+<ul>
+<li><a href="./mac.r-project.org/tools/gfortran-12.2-universal.pkg">gfortran-12.2-universal.pkg</a></li>
+<li><a href="./download.developer.apple.com/Developer_Tools/Command_Line_Tools_for_Xcode_15.1/Command_Line_Tools_for_Xcode_15.1.dmg">Xcode</a></li>
+</ul>
+<p>Once these prerequisites are installed, head over to <a href="./cran.r-project.org/bin/macosx/">CRAN</a> and download the latest version of <code>R</code> for macOS 11 (and higher; <code>R</code> version <a href="./cran.r-project.org/bin/macosx/big-sur-arm64/base/R-4.3.2-arm64.pkg"><code>4.3.2</code></a> as of the last update to these instructions).</p>
+</section>
+<section id="environment-variables" class="level3">
+<h3 class="anchored" data-anchor-id="environment-variables">Environment variables</h3>
+<p>After installing <code>R</code>, you need to first set up local environment variables, either through your shell profile (preferably) or with an <code>.Renviron</code> file.</p>
+<p><code>~/.profile</code>:</p>
+<pre><code>export GITHUB_USER='&lt;your-github-user-name&gt;'
+export GITHUB_PAT='&lt;your-github-personal-authentication-token&gt;'</code></pre>
+<p><code>~/.Renviron</code>:</p>
+<pre><code>GITHUB_USER="&lt;your-github-user-name&gt;"
+GITHUB_PAT="&lt;your-github-personal-authentication-token&gt;"</code></pre>
+</section>
+<section id="installation" class="level3">
+<h3 class="anchored" data-anchor-id="installation">Installation</h3>
+<p><code>coriverse</code> is an <code>R</code> metapackage, allowing us to conveniently install component <code>R</code> packages that address different pieces of the MDA workflow. To install, use the following steps:</p>
+<ol type="1">
+<li>Ensure you have :package: <code>remotes</code> 2.4.0 or greater installed (current version as of June 2021) and <code>usethis</code>. Use <code>install.packages('remotes'); install.packages('usethis')</code> to get the latest version.</li>
+<li>Create a GitHub token:</li>
+</ol>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>    <span class="do">## (optional, if not previously done) set your user name and email:</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># usethis::use_git_config(user.name = "YourName", user.email = "your@mail.com")</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="do">## create a personal access token for authentication:</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    usethis<span class="sc">::</span><span class="fu">create_github_token</span>()</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="do">## in case usethis version &lt; 2.0.0: usethis::browse_github_token() (or even better: update usethis!)</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="do">## 2023-01-25: it opens the default web browser at github PAT web page see 1.</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="do">## set personal access token:</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    credentials<span class="sc">::</span><span class="fu">set_github_pat</span>(<span class="st">"ghp_..."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="3" type="1">
+<li>Set an environment variable called <code>GITHUB_PAT</code> by running <code>Sys.setenv(GITHUB_PAT = 'MY_TOKEN_HERE')</code>, replacing MY_TOKEN_HERE with the valid GitHub personal access token you previously created. Instructions for creating a Personal Access Token are available in <a href="https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token">GitHub’s documentation</a>. Your PAT only needs <code>repo</code> permissions (the first section of options when creating a PAT).</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://user-images.githubusercontent.com/33400922/135469840-d7076fe8-4e89-49ea-aeab-0701d3d54d12.PNG" class="img-fluid figure-img"></p>
+<figcaption>scope</figcaption>
+</figure>
+</div>
+<p>2024: In ubuntu (debian) the environmant variable specifying the users libpath (path for user installed library) was not loaded correctly. This was problemating for packages build by user (example with <code>install_github</code>) because they did not have access to <code>/usr/lib/R etc ...</code> (or need to sudo).</p>
+<p>Either in <code>/etc/R/Renviron</code> or <code>/etc/R/Renviron.site</code> R_LIBS_USER need to be specified. We went with adding <code>~/R/x86_64-pc-linux-gnu-library/4.4</code> and then create the directory (if the directory is not created R will not create it).</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> ~/R/x86_64-pc-linux-gnu-library/4.4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>References about it:</p>
+<ul>
+<li><p>https://cran.r-project.org/bin/linux/ubuntu/fullREADME.html#maintenance-of-r-packages</p></li>
+<li><p>https://stat.ethz.ch/R-manual/R-patched/library/base/html/Startup.html</p></li>
+</ul>
+<ol start="4" type="1">
+<li>Use the <code>install_github()</code> function to install the coriverse package(s), which will look for the environment variable GITHUB_PAT and will allow you to install packages from private repos. Call:</li>
+</ol>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>    remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">'ruralinnovation/coriverse'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><em>For instructions on programmatically connecting to the database using the coriverse, see <a href="https://github.com/ruralinnovation/cori.db/">cori.db</a></em></p>
+<hr>
+</section>
+</section>
+<section id="database-access-for-new-users" class="level2">
+<h2 class="anchored" data-anchor-id="database-access-for-new-users">Database Access For New Users</h2>
+<p>See the <a href="./onboarding_team_db.html">Database Onboarding</a> section in the <a href="https://ruralinnovation.github.io/wiki/">wiki</a>.</p>
+<hr>
+</section>
+<section id="development-process-for-new-coriverse-functions" class="level2">
+<h2 class="anchored" data-anchor-id="development-process-for-new-coriverse-functions">Development Process for new <code>coriverse</code> Functions</h2>
+<section id="setup-for-development" class="level3">
+<h3 class="anchored" data-anchor-id="setup-for-development">Setup for Development</h3>
+<p>Once you have all the dependencies installed, to build and install this package from the local project directory, run:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>pkgbuild<span class="sc">::</span><span class="fu">clean_dll</span>(); pkgbuild<span class="sc">::</span><span class="fu">compile_dll</span>(); devtools<span class="sc">::</span><span class="fu">document</span>(); devtools<span class="sc">::</span><span class="fu">check</span>(); devtools<span class="sc">::</span><span class="fu">install</span>();</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The following steps for adding a new function to <code>coriverse</code> (or any <code>R</code> package) are parts of “The Whole Game”, the 1st chapter in the <em>Getting Started</em> section of <a href="https://r-pkgs.org/"><strong>R Packages</strong></a> from Hadley Wickham and Jenny Bryan and can be visualized here:</p>
+<p><img src="img/whole-game.svg" class="img-fluid"></p>
+<!--
+<a href="https://r-pkgs.org/whole-game.html" target="_blank">
+<img src="whole-game.svg"
+     alt="mermaid-diagram"
+     align="left"
+     width="100%" />
+</a>
+_Visualizing "the Whole Game"_
+-->
+<ol type="1">
+<li>Create a branch of the appropriate <code>coriverse</code> package repo</li>
+<li>Write a function. All functions from external packages should reference the package with :: syntax (e.g.&nbsp;dplyr::filter())</li>
+<li>Save the function in the <code>R</code> folder of the appropriate coriverse package repo in your branch. The file name should match the function name.</li>
+<li>Insert a roxygen skeleton (CTRL + SHIFT + ALT + R in RStudio)</li>
+<li>Update the title, documentation of the parameters, and the return value. Add an <code>@import</code> tag for each package the function depends on. If the function uses only one or two functions from an external package, use an <code>@importFrom</code> tag for each function.</li>
+<li>If the packages the function depends on do not appear in the Imports field of the DESCRIPTION file, add the package name(s) there</li>
+<li>Run <code>devtools::document()</code></li>
+<li>Run <code>devtools::check()</code></li>
+<li>If the check passes with no errors, warnings, or notes, push to your branch. Otherwise, resolve errors, warnings, and notes.</li>
+<li>Open a pull request and contact another MDA team member for review.</li>
+</ol>
+<hr>
+</section>
+<section id="using-aws-s3-for-data-storage" class="level3">
+<h3 class="anchored" data-anchor-id="using-aws-s3-for-data-storage">Using AWS S3 for data storage</h3>
+<p>Within our workflows, you may need access to AWS S3 for both data storage and retrieval which means you will need to set your AWS credentials within the R runtime environment. The <code>cori.db::set_aws_credentials</code> function can be used to do this. The following example is of using DuckDB to pull data from both a public and a private S3 bucket (i.e., repository/store), the latter requiring credentials (redacted as “###”) for an AWS IAM user account that has read access to the bucket (to learn more about DuckDB see <a href="./duckDB.html">Arrow &amp; DuckDB</a>):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DBI)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cori.db)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(duckdb)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.getenv</span>(<span class="st">"AWS_ACCESS_KEY_ID"</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.getenv</span>(<span class="st">"AWS_SECRET_ACCESS_KEY"</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># DuckDB example:</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> DBI<span class="sc">::</span><span class="fu">dbConnect</span>(duckdb<span class="sc">::</span><span class="fu">duckdb</span>(), <span class="at">dbdir =</span> <span class="st">"data/erc_sample.duckdb"</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>duckdb<span class="sc">::</span><span class="fu">dbSendQuery</span>(con, <span class="st">"INSTALL json;"</span>)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>duckdb<span class="sc">::</span><span class="fu">dbSendQuery</span>(con, <span class="st">"LOAD json;"</span>)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>duckdb<span class="sc">::</span><span class="fu">dbSendQuery</span>(con, <span class="st">"INSTALL httpfs;"</span>)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>duckdb<span class="sc">::</span><span class="fu">dbSendQuery</span>(con, <span class="st">"LOAD httpfs;"</span>)</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>duckdb<span class="sc">::</span><span class="fu">dbSendQuery</span>(con, <span class="st">"INSTALL aws;"</span>)</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>duckdb<span class="sc">::</span><span class="fu">dbSendQuery</span>(con, <span class="st">"LOAD aws;"</span>)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Select data from public S3 bucket to local data.frame</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>erc_sample <span class="ot">&lt;-</span> DBI<span class="sc">::</span><span class="fu">dbGetQuery</span>(con, <span class="st">"SELECT * FROM read_json_auto('s3://erc-public/test/erc_sample.json')"</span>)</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(erc_sample)</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 316815</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Select data from *non-public S3 bucket to local data.frame *without S3 credentials</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>usa_spending <span class="ot">&lt;-</span> DBI<span class="sc">::</span><span class="fu">dbGetQuery</span>(con, <span class="st">"SELECT * FROM read_csv('s3://usaspending-data/usaspending_api_pull.csv')"</span>)</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Error:</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a><span class="co">#   HTTP Error: HTTP GET error on 'https://usaspending-data.s3.amazonaws.com/usaspending_api_pull.csv' (HTTP 403)</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Initilialize S3 credentials (this only needs to be done once for a given project)</span></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>cori.db<span class="sc">::</span><span class="fu">set_aws_credentials</span>(<span class="at">keyID =</span> <span class="st">"###"</span>, <span class="at">accesKey =</span> <span class="st">"###"</span>)</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Configure duckdb connection with current credentials</span></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>duckdb<span class="sc">::</span><span class="fu">dbSendQuery</span>(con, <span class="st">"CREATE OR REPLACE SECRET s3_secret (</span></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a><span class="st">    TYPE S3,</span></span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a><span class="st">    PROVIDER CREDENTIAL_CHAIN,</span></span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a><span class="st">    CHAIN 'env;config'</span></span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a><span class="st">);"</span>)</span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Select data from *non-public S3 bucket to local data.frame</span></span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>usa_spending <span class="ot">&lt;-</span> DBI<span class="sc">::</span><span class="fu">dbGetQuery</span>(con, <span class="st">"SELECT * FROM read_csv('s3://usaspending-data/usaspending_api_pull.csv')"</span>)</span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(usa_spending)</span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a><span class="co"># [1] 1129824</span></span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>DBI<span class="sc">::</span><span class="fu">dbDisconnect</span>(con)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>These are the steps for creating a new (private) S3 bucket:</p>
+<ol type="1">
+<li>To create a new <code>bucket</code> use the <code>create bucket</code> orange button.</li>
+</ol>
+<p><strong>Naming convention of bucket:</strong></p>
+<ul>
+<li>for project do: <code>pro-&lt;NAME_OF_PROJECT&gt;</code>, example: <code>proj-rwjf</code><br>
+</li>
+<li>for data used in multiple project: <code>&lt;NAME_OF_PROJECT&gt;-data</code>, example: <code>puma-data</code></li>
+</ul>
+<p>(⚠️ no uppercase, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html">here</a>)</p>
+<p><em>We keep the default values and press <code>create bucket</code> at the bottom of the page (UX can change a bit over time).</em></p>
+<ol start="2" type="1">
+<li><p>Inside the bucket use the upload button top open a new web page were you can drag and drop the file you need to upload</p></li>
+<li><p>Do not forget to click the upload button at the bottom of this page (it will open a new page with the status of the upload).</p></li>
+</ol>
 
 
+</section>
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -440,8 +688,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -552,7 +798,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
@@ -783,4 +1028,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/ruralinnovation/wiki/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/ruralinnovation/wiki/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ruralinnovation/wiki/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/ruralinnovation/wiki/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
