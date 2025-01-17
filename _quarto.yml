@@ -12,37 +12,28 @@ website:
         text: MDA Team Wiki
       - href: profile/about.qmd
         text: About
-  sidebar:
-    style: "docked"
-    search: true
-    contents:
-      - section: "Capabilities & Knowledge"
-        contents:
-          - section: "Applications"
-            contents:
-              - BEAD-Changelog.qmd
-          - Broadband-Consulting-Tech-Requirements.qmd
+#  sidebar:
+#    style: "docked"
+#    search: true
+#    contents:
+#      - section: "Capabilities & Knowledge"
+      - text: "Capabilities & Knowledge"
+#        contents:
+        menu:
+#          - section: "Applications"
+#            contents:
+#              - BEAD-Changelog.qmd
+          - Broadband.qmd
+          - Census.qmd
           - CORI-Ontology.qmd
-      - section: "Infrastructure"
-        contents:
+#          - Research.qmd (TODO)
+#      - section: "Infrastructure"
+      - text: "Infrastructure"
+#        contents:
+        menu:
           - Ansible.md
           - CORI-Data-API.qmd
           - MDA-Data-Infrastructure-Overview.qmd
-#          - section: "CORI Data API"
-#            contents:
-#              - CORI-Data-API.md
-##              - Adding-New-Endpoints-&-Services-to-the-Python-RESTApi.md
-##              - Apollo-Studio-Setup.md
-##              - Configuring-our-AWS-CLI-(CDK-and-SAM)-Credentials.md
-##              - Example-React-Map-Container-with-REACT-MAP-GL-Package.md
-##              - Migrating-from-CDK-V1-=--V2.md
-##              - Postman-Workspace-Setup-and-Configuration.md
-##              - R-and-Python-API-Usage.md
-##              - React,-AWS-Amplify-and-API-Usage.md
-##              - SAML-User-Pool-IdP-Authentication-Flow.md
-##              - Session-2-‐-2023‐10‐23.md
-##              - Support-Sessions.md
-##              - Working-with-the-GraphQL-Schemas.md
           - Data-Security.qmd
           - duckDB.qmd
           - PostgreSQL-RDS-Management.md
@@ -51,8 +42,10 @@ website:
           - Metadata.md
           - Styles-and-Viz.qmd
           - targets.qmd
-      - section: "Team Onboarding"
-        contents:
+#      - section: "Team Onboarding"
+      - text: "Team Onboarding"
+#        contents:
+        menu:
           - onboarding_team_db.md
           - QGIS.md
           - The-coriverse-suite-of-packages.md

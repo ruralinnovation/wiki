@@ -1,5 +1,5 @@
 ---
-title: "CORI Data API Changelog"
+title: "
 ---
 
 ### 2025/01/15

@@ -1,7 +1,7 @@
 CORI Data API
 =============
 
-# Overview
+## Overview
 
 The [`cori-data-api`](https://github.com/ruralinnovation/cori-data-api/) repository (as distinct from the `cori.data.api` package) houses all the code to:
 
@@ -9,7 +9,13 @@ The [`cori-data-api`](https://github.com/ruralinnovation/cori-data-api/) reposit
 2. Create a GraphQL Api with Typescript Lambdas connecting to the Python RestAPI (as a DataSource).
 3. Create a CICD Pipeline that connects to this Github repository, is triggered on commits/PRs to specific branches, and re-builds and re-deploys the two updated APIs.
 
-# Architecture
+
+## Changelog
+
+{{< include CORI-Data-API-Changelog.qmd >}}
+
+
+## Architecture
 
 ![image](https://user-images.githubusercontent.com/47429329/179373858-d5ec71ac-03b3-40c6-b39c-591f795675d4.png)
 
@@ -17,7 +23,8 @@ The [`cori-data-api`](https://github.com/ruralinnovation/cori-data-api/) reposit
 
 ![image](https://user-images.githubusercontent.com/47429329/179631056-13152301-0818-4357-a6a9-a49dc0786137.png)
 
-# External Dependencies
+
+## External Dependencies
 
 This project has two external dependencies:
 
@@ -26,9 +33,10 @@ This project has two external dependencies:
 
 > You can safely customize and update these services in their respective interfaces.  All other updates to this project should be handled IN CODE and deployed through the CICD Pipeline by committing to a specific branch.
 
-# Environment Setup
 
-## Requirements
+## Environment Setup
+
+### Requirements
 
 - NodeJS 16.x+ - [Installing NodeJS](https://nodejs.org/en/download/)
 - npm 8.x+ - (needed for NPM Workspaces) - (should be installed as part of NodeJS installation)
@@ -37,25 +45,25 @@ This project has two external dependencies:
 - AWS CDK V2 - [Installing AWS CDK V2](https://docs.aws.amazon.com/cdk/api/v2/)
 - Python 3.9+ - [Installing Python](https://www.python.org/downloads/)
 
-### NodeJS 16.x+ and NPM 8.x+
+#### NodeJS 16.x+ and NPM 8.x+
 
 > This project uses NPM Workspaces to managing multiple packages from your local file system from within a singular top-level, root package. NPM workspaces requires NPM version 8+. This should be installed as part of the installation of NodeJS 16.x+
 
 [Installing NodeJS](https://nodejs.org/en/download/)
 
-### AWS CLI
+#### AWS CLI
 
 The AWS Command Line Interface (AWS CLI) is an open source tool that enables you to interact with AWS services using commands in your command-line shell. With minimal configuration, the AWS CLI enables you to start running commands that implement functionality equivalent to that provided by the browser-based AWS Management Console from the command prompt in your terminal program:
 
 [Installing AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 
-### AWS SAM CLI
+#### AWS SAM CLI
 
 AWS SAM provides you with a command line tool, the AWS SAM CLI, that makes it easy for you to create and manage serverless applications. You need to install and configure a few things in order to use the AWS SAM CLI.
 
 [Installing SAM CLI](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html)
 
-### AWS CDK V2
+#### AWS CDK V2
 
 The AWS CDK lets you build reliable, scalable, cost-effective applications in the cloud with the considerable expressive power of a programming language. This approach yields many benefits, including:
 
@@ -77,17 +85,17 @@ The AWS CDK lets you build reliable, scalable, cost-effective applications in th
 
 [Installing AWS CDK V2](https://docs.aws.amazon.com/cdk/api/v2/)
 
-### Python 3.9+
+#### Python 3.9+
 
 [Installing Python](https://www.python.org/downloads/)
 
-### Additional Suggested Environment Setup
+#### Additional Suggested Environment Setup
 
 - A Node Version Manager [Installing NVM](https://github.com/nvm-sh/nvm) or [Installing n](https://github.com/tj/n)
 
-## Installation and Development
+### Installation and Development
 
-### Getting started
+#### Getting started
 
 1. Clone the repo
 
@@ -113,7 +121,7 @@ At this point, you should be able to build the api and run the test suite:
     $ npm run test
 
 
-## Working with NPM Workspaces
+### Working with NPM Workspaces
 
 > We suggest reading through the NPM Workspaces documentation before attempting to install any new packages or work with this repository.
 
@@ -121,11 +129,12 @@ At this point, you should be able to build the api and run the test suite:
 
 Workspaces allows you to organize your code in a mono-repo with multiple packages (projects). There is a shared dependency tree to reduce build time and redundant packages.
 
-# Project Structure
 
-### Directory Structure
+## Project Structure
 
-#### Overview
+#### Directory Structure
+
+##### Overview
 
 - `.github` - Configuration for Github Actions
 - `.vscode` - VSCode Configuration for local debugging
@@ -145,17 +154,18 @@ python-lambdas
 
 > For more information please [READ THE DOCS](https://docs.npmjs.com/cli/v8/using-npm/workspaces)
 
-# Database Integration
+
+## Database Integration
 
 The main data source for the APIs is a PostgreSQL RDS hosted in AWS. The Python RestAPI is the only integration point to the database. All endpoints provisioned in the Python RestAPI are served by Python lambdas that house the database queries, and transformations.
 
 The Python lambdas are located in the same VPC as the PostgreSQL RDS database. These lambdas have no connection to the public internet to protect the database. In addition, the RestAPI is a READ_ONLY API, which allows us to create a READ_ONLY database user/role for the lambdas to use for database access, which limits security risks.
 
-## Prerequisites
+### Prerequisites
 
-### User/Role Setup
+#### User/Role Setup
 
-#### Create a READ_ONLY user
+##### Create a READ_ONLY user
 
 1. Log in to database as admin with psql
 2. Create read only role and new user with:
@@ -178,7 +188,7 @@ GRANT read_only_access TO read_only_user;
 
 3. Keep note of password for next step
 
-#### Save database credentials in AWS Parameter Store
+##### Save database credentials in AWS Parameter Store
 
 1. Log into AWS Console
 2. Go to Systems Manager/Parameter Store
@@ -189,7 +199,7 @@ GRANT read_only_access TO read_only_user;
 
 <img width="1431" alt="image" src="https://user-images.githubusercontent.com/47429329/178010527-e8cdc728-e8d2-4666-9fe4-d1ec982277f7.png">
 
-## Update Api Configuration File
+### Update Api Configuration File
 
 The `ApiStackProps` has an `databaseConfig` attribute with the following schema:
 
@@ -212,21 +222,23 @@ The `dbuser` attribute value should be `read_only_user` if that is how you confi
 
 The `paramaterName` attribute value should be the name of the password parameter you stores in AWS Parameter Store in the previous step. (e.g. `/cori/api/password`)
 
-# Redis Cache Integration
+
+## Redis Cache Integration
 
 todo
 
-## Prerequisites
+### Prerequisites
 
-### User/Role Setup
-
-todo
-
-## Update Api Configuration
+#### User/Role Setup
 
 todo
 
-# Local Development and Testing
+### Update Api Configuration
+
+todo
+
+
+## Local Development and Testing
 
 You can test your python business logic with the local development server. In order to bypass the use of the Lambda Layers (which don't play nice with local servers), there is a lambda dedicated to local testing located in the `python-lambdas/local` directory.
 
@@ -234,7 +246,7 @@ The `index.py` file houses the lambda handler that is triggered by all local api
 
 The local server url is `http://localhost:2000/local/`
 
-## Starting the Local Server
+### Starting the Local Server
 
 ```bash
 
@@ -242,22 +254,22 @@ npm run start
 
 ```
 
-# CICD Pipeline
+## CICD Pipeline
 
 The CICD pipeline has been deployed in your AWS Account and re-builds/re-deploys will be triggered by PRs to the `dev` and `main` branches in your github repository.
 
 [CDK Pipelines](https://aws.amazon.com/blogs/developer/cdk-pipelines-continuous-delivery-for-aws-cdk-applications/)
 [CDK Pipelines Workshops](https://cdkworkshop.com/50-java/70-advanced-topics/100-pipelines.html)
 
-## CICD Setup
+### CICD Setup
 
-### Github Setup
+#### Github Setup
 
 1. Create a new user in Github for CICD
 2. Create a Personal Access Token for this user
 3. Store the Personal Access Token in AWS Secrets Manager with the name `github-token`
 
-## Pipeline Infrastructure
+### Pipeline Infrastructure
 
 The Pipeline is configured using CDK Pipeline construct.
 
@@ -265,7 +277,7 @@ The Pipeline is configured using CDK Pipeline construct.
 
 [CDK Pipelines Module](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.pipelines-readme.html)
 
-### Pipeline code
+#### Pipeline code
 
 The Pipeline code is located in the `packages/infrastructure/src/stacks/PipelineStack.ts` file.
 
@@ -338,7 +350,7 @@ In order to be deployed this stack requires configuration parameters for connect
 
 
 
-### Pipeline deployment
+#### Pipeline deployment
 
 Each pipeline is associated with a branch and an environment.
 
@@ -348,7 +360,7 @@ Each pipeline is associated with a branch and an environment.
 2. Ensure the branch code is pushed to the remote repo
 3. Create a entry for the branch in `config/configs`
 
-#### Bootstrapping
+##### Bootstrapping
 
 1. In the main pipeline account
 
@@ -362,7 +374,7 @@ Each pipeline is associated with a branch and an environment.
    npm run bootstrap:pipeline -- aws://{ACCOUNT-NUMBER}/{REGION} --trust {PIPELINE-ACCOUNT-NUMBER} [--profile {PROFILE}]
    ```
 
-#### Deploy the Pipeline
+##### Deploy the Pipeline
 
 Each pipeline is associated with a branch and an environment.
 
@@ -377,11 +389,11 @@ Each pipeline is associated with a branch and an environment.
 
 Once deployed, the pipeline will trigger on new commits to the associated branch.
 
-# Python Microservices
+## Python Microservices
 
 The Python Microservices are located in the `python-lambdas` directory.
 
-## Directory Structure
+### Directory Structure
 
 ```text
 
@@ -392,7 +404,7 @@ The Python Microservices are located in the `python-lambdas` directory.
 
 ```
 
-## Python Dependency Layer
+### Python Dependency Layer
 
 Lambda layers provide a convenient way to package libraries and other dependencies that you can use with your Lambda functions. Using layers reduces the size of uploaded deployment archives and makes it faster to deploy your code.
 
@@ -412,19 +424,19 @@ The dependencies for the Python Microservices are packaged and zipped in the `pa
 
 This zipped filed is then deployed as a lambda layer dependency for all python lambdas. This will cut down on container start time by sharing these resources across many lambdas.
 
-### Included Packages
+#### Included Packages
 
 1. psycopg = "^3.0.14"
 2. psycopg-binary = "^3.0.14"
 3. aws-lambda-powertools = "^1.26.0"
 
-#### Psycopg & Psycopg-Binary
+##### Psycopg & Psycopg-Binary
 
 Psycopg is the most popular PostgreSQL adapter for the Python programming language. Its core is a complete implementation of the Python DB API 2.0 specifications. Several extensions allow access to many of the features offered by PostgreSQL.
 
 [Documentation](https://www.psycopg.org/)
 
-#### AWS Python Lambda Powertools
+##### AWS Python Lambda Powertools
 
 We leverage AWS Lambda Powertools library, which is a suite of utilities for AWS Lambda functions to ease adopting best practices such as tracing, structured logging, custom metrics, idempotency, batching, and more.
 
@@ -434,26 +446,26 @@ In our experience it has a developer friendly (Flask-like) Api. It makes it very
 
 For more information [READ THE DOCS](https://awslabs.github.io/aws-lambda-powertools-python/latest/)
 
-### Adding New Dependencies to the Layer
+#### Adding New Dependencies to the Layer
 
 ```bash
-# Change into the Python Microservices directory
+## Change into the Python Microservices directory
 cd packages/python-lambdas
 
-# Activate the Python environment
+## Activate the Python environment
 source .env/bin/activate
 
-# Add new packages
+## Add new packages
 pip install package1, package2
 
-# Copy Packages directory into the Dist directory
+## Copy Packages directory into the Dist directory
 cp -r ./.env/lib/python3.8/site-packages ./dist/python
 
-# Zip up the dist directory packages
+## Zip up the dist directory packages
 ...
 ```
 
-## Creating New Services
+### Creating New Services
 
 1. Copy/paste scaffolding directory
 2. Rename service directory and the name in the `pyproject.toml` file
@@ -465,7 +477,7 @@ cp -r ./.env/lib/python3.8/site-packages ./dist/python
 8. Check Integration Tests Step in `CodePipeline` interface.
 9. [OPTIONAL]: Once the new endpoints are deployed you can add new integration tests and run them locally.  You cannot use the integration tests on new endpoints until they are available.
 
-# Api Stack & Supporting Constructs
+## Api Stack & Supporting Constructs
 
 The Core ApiStack is composed of:
 
@@ -477,7 +489,7 @@ The Core ApiStack is composed of:
 
 Constructs are located in the `packages/infrastructure/src/constructs`
 
-## Core ApiStack
+### Core ApiStack
 
 The Root Stack for the entire API project is the `ApiStack`.
 
@@ -569,9 +581,9 @@ export interface ApiStackProps extends StackProps {
 
 ```
 
-## Custom Constructs
+### Custom Constructs
 
-### Networking Construct
+#### Networking Construct
 
 The **Networking Construct** is responsible for creating a new `Security Group` for all of the Python Lambdas, and enabling communication between this new Lambda Security Group and the existing Database Security Group. This construct accepts the `DatabaseConfig` in order to instantiate the required resources.
 
@@ -580,17 +592,17 @@ The **Networking Construct** is responsible for creating a new `Security Group` 
 > The only EGRESS communication allowed from these lambdas is to the PostgreSQL Database and this is opened from the link between the two security groups.  
 > This eliminates any security risks from the public internet.
 
-#### AWS CDK V2 Constructs Used
+##### AWS CDK V2 Constructs Used
 
 1. [VPC Construct](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_ec2.Vpc.html)
 2. [Security Group Construct](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_ec2.SecurityGroup.html)
 
-#### More Information
+##### More Information
 
 1. [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html)
 2. [Security Groups](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html)
 
-### Authentication (Cognito) Construct
+#### Authentication (Cognito) Construct
 
 The **Authentication (Cognito) Construct** is responsible for one of two things:
 
@@ -602,19 +614,19 @@ The **Authentication (Cognito) Construct** is responsible for one of two things:
 
 > This construct is then passed into the ApiGateways in both servers (PythonDataServer & ApolloServer) for attaching CognitoAuthorizers as access controls.
 
-#### AWS CDK V2 Constructs Used
+##### AWS CDK V2 Constructs Used
 
 1. [UserPool Construct](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_cognito.UserPool.html)
 2. [CfnUserPoolDomain Construct](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_cognito.CfnUserPoolDomain.html)
 3. [UserPoolClient Construct](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_cognito.UserPoolClient.html)
 
-#### More Information
+##### More Information
 
 1. [Cognito User Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html)
 2. [User Pool Domains](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-assign-domain.html)
 3. [User Pool App Clients](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html)
 
-### Python Data Server Construct
+#### Python Data Server Construct
 
 The **Python Data Server Construct** is responsible for:
 
@@ -623,7 +635,7 @@ The **Python Data Server Construct** is responsible for:
 3. Deploy new Python Microservices.
 4. Create Endpoints on the `ApiGateway` to trigger new Microservices.
 
-#### Custom CDK V2 Constructs Used
+##### Custom CDK V2 Constructs Used
 
 1. [ApiGw Construct](https://github.com/mergingfutures/cori-data-api/blob/dev/packages/infrastructure/src/constructs/api/ApiGw.ts)
 
@@ -635,14 +647,14 @@ Create a new Python Lambda (microservice) with an associated Log Group
 
 > [IMPORTANT]:  Keep in mind that you create logic for your microservices in the `python-lambdas/` directory.  The Python Lambda Construct builds/packages the code from your service directory and deploys it to AWS Lambda.
 
-#### AWS CDK V2 Constructs Used
+##### AWS CDK V2 Constructs Used
 
 1. [RestApi](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_apigateway.RestApi.html)
 2. [CognitoUserPoolsAuthorizer](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_apigateway.CognitoUserPoolsAuthorizer.html).
 3. [PythonFunction](https://docs.aws.amazon.com/cdk/api/v2/docs/@aws-cdk_aws-lambda-python-alpha.PythonFunction.html).
 4. [LogGroup](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_logs.LogGroup.html).
 
-#### More Information
+##### More Information
 
 
 1. [Working With Rest Apis](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-rest-api.html)
@@ -650,7 +662,7 @@ Create a new Python Lambda (microservice) with an associated Log Group
 3. [Building lambda functions with python](https://docs.aws.amazon.com/lambda/latest/dg/lambda-python.html)
 4. [What is Amazon CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html)
 
-### Apollo (GraphQL) Server Construct
+#### Apollo (GraphQL) Server Construct
 
 The Apollo GraphQL Server Construct is responsible for:
 
@@ -658,20 +670,20 @@ The Apollo GraphQL Server Construct is responsible for:
 3. Deploy a single NodeJS Lambda function to respond to GraphQL requests.
 4. Create Endpoint on the `ApiGateway` to trigger lambda.
 
-#### Custom CDK V2 Constructs Used
+##### Custom CDK V2 Constructs Used
 
 1. [ApiGw Construct](https://github.com/mergingfutures/cori-data-api/blob/dev/packages/infrastructure/src/constructs/api/ApiGw.ts)
 
 Creates Api Gateway with Cognito Authorization.  Has supporting methods for adding new endpoints with lambda triggers.
 
-#### AWS CDK V2 Constructs Used
+##### AWS CDK V2 Constructs Used
 
 1. [RestApi](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_apigateway.RestApi.html)
 2. [CognitoUserPoolsAuthorizer](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_apigateway.CognitoUserPoolsAuthorizer.html).
 3. [NodejsFunction](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_lambda_nodejs.NodejsFunction.html).
 4. [LogGroup](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_logs.LogGroup.html).
 
-#### More Information
+##### More Information
 
 1. [Working With Rest Apis](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-rest-api.html)
 2. [Control access to a REST API using Amazon Cognito user pools as authorizer](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html)
@@ -679,7 +691,7 @@ Creates Api Gateway with Cognito Authorization.  Has supporting methods for addi
 4. [Building lambda functions with Node.js](https://docs.aws.amazon.com/lambda/latest/dg/lambda-nodejs.html)
 4. [What is Amazon CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html)
 
-### Hosting (CloudFront) Construct
+#### Hosting (CloudFront) Construct
 
 The `Hosting Construct` is responsible for:
 
@@ -688,12 +700,12 @@ The `Hosting Construct` is responsible for:
 3. Create origin on `/graphql` path for Apollo Server.
 4. Create bucket for access logs.
 
-#### AWS CDK V2 Constructs Used
+##### AWS CDK V2 Constructs Used
 
 1. [CloudFrontWebDistribution](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_cloudfront.CloudFrontWebDistribution.html)
 2. [Bucket](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_s3.Bucket.html)
 
-#### More Information
+##### More Information
 
 1. [What is Amazon Cloudfront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html)
 2. [Overview of distributions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-overview.html)
@@ -702,7 +714,7 @@ The `Hosting Construct` is responsible for:
 5. [CloudFront logging](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/logging.html)
 
 
-### Resources
+#### Resources
 
 [CDK Day 2020 - Building Real-time Back Ends on AWS with AppSync and CDK](https://www.youtube.com/watch?v=--HTK0Y44ew)
 
