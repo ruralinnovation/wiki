@@ -1,7 +1,9 @@
-CORI Data API
-=============
+---
+title: "CORI Data API"
+---
 
-## Overview
+
+### Overview
 
 The [`cori-data-api`](https://github.com/ruralinnovation/cori-data-api/) repository (as distinct from the `cori.data.api` package) houses all the code to:
 
@@ -10,12 +12,12 @@ The [`cori-data-api`](https://github.com/ruralinnovation/cori-data-api/) reposit
 3. Create a CICD Pipeline that connects to this Github repository, is triggered on commits/PRs to specific branches, and re-builds and re-deploys the two updated APIs.
 
 
-## Changelog
+### Changelog
 
 {{< include CORI-Data-API-Changelog.qmd >}}
 
 
-## Architecture
+### Architecture
 
 ![image](https://user-images.githubusercontent.com/47429329/179373858-d5ec71ac-03b3-40c6-b39c-591f795675d4.png)
 
@@ -24,7 +26,7 @@ The [`cori-data-api`](https://github.com/ruralinnovation/cori-data-api/) reposit
 ![image](https://user-images.githubusercontent.com/47429329/179631056-13152301-0818-4357-a6a9-a49dc0786137.png)
 
 
-## External Dependencies
+### External Dependencies
 
 This project has two external dependencies:
 
@@ -34,9 +36,9 @@ This project has two external dependencies:
 > You can safely customize and update these services in their respective interfaces.  All other updates to this project should be handled IN CODE and deployed through the CICD Pipeline by committing to a specific branch.
 
 
-## Environment Setup
+### Environment Setup
 
-### Requirements
+#### Requirements
 
 - NodeJS 16.x+ - [Installing NodeJS](https://nodejs.org/en/download/)
 - npm 8.x+ - (needed for NPM Workspaces) - (should be installed as part of NodeJS installation)
@@ -130,7 +132,7 @@ At this point, you should be able to build the api and run the test suite:
 Workspaces allows you to organize your code in a mono-repo with multiple packages (projects). There is a shared dependency tree to reduce build time and redundant packages.
 
 
-## Project Structure
+### Project Structure
 
 #### Directory Structure
 
@@ -155,7 +157,7 @@ python-lambdas
 > For more information please [READ THE DOCS](https://docs.npmjs.com/cli/v8/using-npm/workspaces)
 
 
-## Database Integration
+### Database Integration
 
 The main data source for the APIs is a PostgreSQL RDS hosted in AWS. The Python RestAPI is the only integration point to the database. All endpoints provisioned in the Python RestAPI are served by Python lambdas that house the database queries, and transformations.
 
@@ -223,7 +225,7 @@ The `dbuser` attribute value should be `read_only_user` if that is how you confi
 The `paramaterName` attribute value should be the name of the password parameter you stores in AWS Parameter Store in the previous step. (e.g. `/cori/api/password`)
 
 
-## Redis Cache Integration
+### Redis Cache Integration
 
 todo
 
@@ -238,7 +240,7 @@ todo
 todo
 
 
-## Local Development and Testing
+### Local Development and Testing
 
 You can test your python business logic with the local development server. In order to bypass the use of the Lambda Layers (which don't play nice with local servers), there is a lambda dedicated to local testing located in the `python-lambdas/local` directory.
 
@@ -254,7 +256,7 @@ npm run start
 
 ```
 
-## CICD Pipeline
+### CICD Pipeline
 
 The CICD pipeline has been deployed in your AWS Account and re-builds/re-deploys will be triggered by PRs to the `dev` and `main` branches in your github repository.
 
@@ -389,7 +391,7 @@ Each pipeline is associated with a branch and an environment.
 
 Once deployed, the pipeline will trigger on new commits to the associated branch.
 
-## Python Microservices
+### Python Microservices
 
 The Python Microservices are located in the `python-lambdas` directory.
 
@@ -449,19 +451,19 @@ For more information [READ THE DOCS](https://awslabs.github.io/aws-lambda-powert
 #### Adding New Dependencies to the Layer
 
 ```bash
-## Change into the Python Microservices directory
+### Change into the Python Microservices directory
 cd packages/python-lambdas
 
-## Activate the Python environment
+### Activate the Python environment
 source .env/bin/activate
 
-## Add new packages
+### Add new packages
 pip install package1, package2
 
-## Copy Packages directory into the Dist directory
+### Copy Packages directory into the Dist directory
 cp -r ./.env/lib/python3.8/site-packages ./dist/python
 
-## Zip up the dist directory packages
+### Zip up the dist directory packages
 ...
 ```
 
@@ -477,7 +479,7 @@ cp -r ./.env/lib/python3.8/site-packages ./dist/python
 8. Check Integration Tests Step in `CodePipeline` interface.
 9. [OPTIONAL]: Once the new endpoints are deployed you can add new integration tests and run them locally.  You cannot use the integration tests on new endpoints until they are available.
 
-## Api Stack & Supporting Constructs
+### Api Stack & Supporting Constructs
 
 The Core ApiStack is composed of:
 
