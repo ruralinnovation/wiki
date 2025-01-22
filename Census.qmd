@@ -1,0 +1,38 @@
+---
+title: "Census data"
+execute:
+  echo: true
+  output: true
+  message: false
+  warning: false
+reference-location: margin
+citation-location: margin
+---
+
+
+### US Census
+
+The US census have multiple data survey and data product.
+
+The main one are:
+
+- The decennial census
+
+- ACS five and one year
+
+- The Economic Census
+
+- Census of Governments
+
+#### US census developer section:
+
+The US census has resources for developpers: [https://www.census.gov/data/developers.html](https://www.census.gov/data/developers.html)
+
+Decennial data only go back to [2000](https://www.census.gov/data/developers/data-sets/decennial-census.html) but historical data are also provided by [IPUMS NHGIS](https://www.nhgis.org/data-availability).
+
+
+::: {.column-margin}
+IPUMS has an R package wrapping their API: https://tech.popdata.org/ipumsr/index.html
+:::
+
+

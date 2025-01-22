@@ -1,11 +1,44 @@
 ---
-title: "Broadband Consulting Tech Requirement"
+title: "Broadband data"
 execute:
   echo: true
   output: true
   message: false
   warning: false
 ---
+
+
+### The available data
+
+The following explanation of the data sourced from the FCC is extracted from CORI's [FCC report](https://ruralinnovation.github.io/proj-fcc-report/){.external target="_blank"}, a work-in-progress exploratory data analysis produced by [Olivier Leroy](https://github.com/defuneste){.external target="_blank"}. Please visit the report for a deeper analysis of various aspects of this data.
+
+We rely on two key datasets from the Federal Communications Commission (FCC):
+
+1) **National Broadband Map** ([NBM](https://broadbandmap.fcc.gov/home){.external target="_blank"}):
+- Provides granular information on broadband service availability at specific locations, including details about service providers, technology types, and advertised speeds.
+
+2) **Broadband Funding Map** ([BFM](https://fundingmap.fcc.gov/home){.external target="_blank"}):
+- Offers insights into federally funded broadband infrastructure projects, detailing program boundaries and project-level information.
+
+Both datasets are publicly available under permissive licensing, making them invaluable tools for analyzing broadband coverage and funding opportunities. Licensing information can be found [here](https://broadbandmap.fcc.gov/about){.external target="_blank"} and [here](https://fundingmap.fcc.gov/about){.external target="_blank"}, respectively.[^license_and_attribution]
+
+[^license_and_attribution]: <em>License and Attribution language from the FCC<em>:
+<br />
+<br /> Broadband availability data from the BDC, and data from the U.S. Census Bureau that are presented on this site, are offered free and not subject to copyright restriction. Data and content created by government employees within the scope of their employment are not subject to domestic copyright protection under 17 U.S.C. § 105. See, e.g., [U.S. Government Works](https://www.usa.gov/government-copyright).
+<br />
+<br /> While not required, when using in your own work content, data, documentation, code, and related materials from fcc.gov or broadbandmap.fcc.gov, we ask that you provide proper attribution of the data. Examples include:
+<br />
+<br />     Source data: FCC Broadband Funding Map
+<br />     Map layer based on FCC BFM
+<br />
+<br /> CostQuest Associates, Inc. and its third-party licensors, as applicable, own all right, title, and interest, including all intellectual property rights, in and to the data for locations reflected in the Fabric (including the Location ID, latitude and longitude, address, unit count, and building type code for each location in the Fabric). CostQuest is granted certain rights to Fabric correction submissions for the purpose of correcting or otherwise modifying BDC Fabric data. Broadband service providers, governmental entities, and other third parties are able to license Fabric data, including any changes to Fabric data that have been made as a result of challenges, at no cost for purposes of their participation in the FCC's Broadband Data Collection.
+
+
+#### Data updates
+
+We are documenting the workflow for ingesting and deploy updates from subsequent FCC data releases here: [FCC data updates flow](https://docs.google.com/document/d/1nERUkRjk6ngwBsVpWeMTkuctJUhI1ZiROoL6xUtCQE0/edit?tab=t.0#heading=h.49g6wb3j4cy){.external target="_blank"}
+
+### Broadband Consulting Tech Requirement
 
 _Note: These are key takeaways from discussions with the Broadband team about the process and scope of their day-to-day work..._
 

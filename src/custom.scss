@@ -64,7 +64,7 @@ header#quarto-header {
         }
       }
     }
-}
+  }
 
   * a:visited {
     color: #FFF !important;
@@ -81,6 +81,15 @@ header#quarto-header {
   * a .navbar-title {
     //font-family: $font-family-sans-serif;
     font-weight: bold;
+  }
+
+  * a.dropdown-item {
+    color: #16343e  !important;
+    font-variant: small-caps;
+
+    &:visited {
+      color: #16343e  !important;
+    }
   }
 
 }
@@ -106,7 +115,7 @@ div#listing-listing {
 
 div#quarto-content {
   margin: 0;
-  padding: 0;
+  padding: 80px 0;
   width: 100vw;
   background-color:  #FFF;
 
