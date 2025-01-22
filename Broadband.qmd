@@ -34,6 +34,10 @@ Both datasets are publicly available under permissive licensing, making them inv
 <br /> CostQuest Associates, Inc. and its third-party licensors, as applicable, own all right, title, and interest, including all intellectual property rights, in and to the data for locations reflected in the Fabric (including the Location ID, latitude and longitude, address, unit count, and building type code for each location in the Fabric). CostQuest is granted certain rights to Fabric correction submissions for the purpose of correcting or otherwise modifying BDC Fabric data. Broadband service providers, governmental entities, and other third parties are able to license Fabric data, including any changes to Fabric data that have been made as a result of challenges, at no cost for purposes of their participation in the FCC's Broadband Data Collection.
 
 
+#### Data updates
+
+We are documenting the workflow for ingesting and deploy updates from subsequent FCC data releases here: [FCC data updates flow](https://docs.google.com/document/d/1nERUkRjk6ngwBsVpWeMTkuctJUhI1ZiROoL6xUtCQE0/edit?tab=t.0#heading=h.49g6wb3j4cy){.external target="_blank"}
+
 ### Broadband Consulting Tech Requirement
 
 _Note: These are key takeaways from discussions with the Broadband team about the process and scope of their day-to-day work..._
