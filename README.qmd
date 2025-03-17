@@ -24,7 +24,7 @@ It will only attach:
 
 ## Initial Setup
 
-This package can be installed by using `devtools` or `remotes`.
+This package can be installed by using `devtools` or `remotes`, but a prerequisite for any of the work we do in `R` is a version control utility called [git](). Please make sure that the git command-line utility is installed on your system before proceeding.
 
 ### Why `R`
 
@@ -42,10 +42,10 @@ Finally, the strong focus on producing good documentation and a lively community
 
 If you are installing the `R` language on your system for the first time, we recommend that you do *not* use the `homebrew` client to manage your installation. You should begin by ensuring that the command-line component for [Xcode](//apps.apple.com/us/app/xcode/id497799835?mt=12) is available on your system and that GNU Fortran has been installed from this [source](//cran.r-project.org/bin/macosx/tools/):
 
--   [gfortran-12.2-universal.pkg](//mac.r-project.org/tools/gfortran-12.2-universal.pkg)
--   [Xcode](//download.developer.apple.com/Developer_Tools/Command_Line_Tools_for_Xcode_15.1/Command_Line_Tools_for_Xcode_15.1.dmg)
+-   [gfortran-12.2-universal.pkg](https://mac.r-project.org/tools/gfortran-12.2-universal.pkg){.external target="_blank"}
+-   [Xcode](https://download.developer.apple.com/Developer_Tools/Command_Line_Tools_for_Xcode_15.1/Command_Line_Tools_for_Xcode_15.1.dmg){.external target="_blank"}
 
-Once these prerequisites are installed, head over to [CRAN](//cran.r-project.org/bin/macosx/) and download the latest version of `R` for macOS 11 (and higher; `R` version [`4.3.2`](//cran.r-project.org/bin/macosx/big-sur-arm64/base/R-4.3.2-arm64.pkg) as of the last update to these instructions).
+Once these prerequisites are installed, head over to [CRAN](//cran.r-project.org/bin/macosx/) and download the latest version of `R` for macOS 11 (and higher; `R` version [`4.4.2`](https:////cran.r-project.org/bin/macosx/big-sur-arm64/base){.external target="_blank"} as of the last update to these instructions).
 
 ### Environment variables
 
@@ -82,7 +82,10 @@ GITHUB_PAT="<your-github-personal-authentication-token>"
     ## 2023-01-25: it opens the default web browser at github PAT web page see 1.
 
     ## set personal access token:
-    credentials::set_github_pat("ghp_...")
+    # credentials::set_github_pat("ghp_...")
+    # ... the preferred way to do this is by editing your .Renvion file directly:
+     usethis::edit_r_environ()
+
 ```
 
 3.  Set an environment variable called `GITHUB_PAT` by running `Sys.setenv(GITHUB_PAT = 'MY_TOKEN_HERE')`, replacing MY_TOKEN_HERE with the valid GitHub personal access token you previously created. Instructions for creating a Personal Access Token are available in [GitHub's documentation](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token). Your PAT only needs `repo` permissions (the first section of options when creating a PAT).
