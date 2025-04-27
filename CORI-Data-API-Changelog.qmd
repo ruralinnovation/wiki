@@ -1,0 +1,17 @@
+---
+title: "CORI Data API Changelog"
+---
+
+#### 2025/01/15
+  - Improve API response on connection errors
+      - Make corresponding improvements in Frontend UI Library ([cori.data.api](https://ruralinnovation.github.io/cori.data.api/docs/functions/ApiContextProvider.html){.external target="_blank"})
+  - Update Rural Broadband App ([bead](https://cori-data-api.ruralinnovation.us/#tag/BEAD-broadband-service-info){.external target="_blank"}) endpoint data with:
+      - FCC Broadband Data Collection (NBM & BFM) - June, 2024
+      - ACS 5-year Estimate - 2023
+  - Update Broadband Climate Risk Mitigation (ch) endpoint data with the release of FCC Broadband Data Collection data as-of June, 2024
+      - FCC Broadband Data Collection (NBM & BFM) - June, 2024
+  - [Document data flow and process steps](https://docs.google.com/document/d/1nERUkRjk6ngwBsVpWeMTkuctJUhI1ZiROoL6xUtCQE0/edit?tab=t.0#heading=h.49g6wb3j4cy){.external target="_blank"}
+
+#### 2024/08/13
+  - Convert ERCS3TestObject to S3Test
+  - Deploy data from release of FCC Broadband Data Collection data as-of December, 2023
