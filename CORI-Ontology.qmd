@@ -11,7 +11,7 @@ citation-location: margin
 
 # US Census
 
-The US census have multiple data survey and data product. 
+The US census have multiple data survey and data product.
 
 The main one are:
 
@@ -23,15 +23,15 @@ The main one are:
 
 - Census of Governments
 
-## US census developper section: 
+## US census developper section:
 
-The US census has resources for developpers: [https://www.census.gov/data/developers.html](https://www.census.gov/data/developers.html) 
+The US census has resources for developpers: [https://www.census.gov/data/developers.html](https://www.census.gov/data/developers.html)
 
-Decennial data only go back to [2000](https://www.census.gov/data/developers/data-sets/decennial-census.html) but historical data are also provided by [IPUMS NHGIS](https://www.nhgis.org/data-availability).  
+Decennial data only go back to [2000](https://www.census.gov/data/developers/data-sets/decennial-census.html) but historical data are also provided by [IPUMS NHGIS](https://www.nhgis.org/data-availability).
 
 
 ::: {.column-margin}
-IPUMS has an R package wrappintg their API: https://tech.popdata.org/ipumsr/index.html 
+IPUMS has an R package wrappintg their API: https://tech.popdata.org/ipumsr/index.html
 :::
 
 
@@ -39,7 +39,7 @@ IPUMS has an R package wrappintg their API: https://tech.popdata.org/ipumsr/inde
 
   - is an ongoing initiative within the United States Census Bureau
   - releases a variety of data tables every year covering a wide range of social, economic, housing, and demographic data
-  - ACS has two types of data "profile" and "table" 
+  - ACS has two types of data "profile" and "table"
 
 ### A **Block** ...
 
@@ -61,9 +61,9 @@ IPUMS has an R package wrappintg their API: https://tech.popdata.org/ipumsr/inde
   - if divided between two new tracts and should follow this kind of pattern[^census_tract]
 
   [^census_tract]: Census Tract O3 (parent) is divided in Census Tract 03.01 (child 1) and Census Tract 03.02. https://www.youtube.com/watch?v=DOe4alPmjss
-  
+
 ::: {.column-margin}
-Note Olivier 26-04-2024: still unclear how that translate in `geoid_tr` and how do they deal when we move from two "parents" to one "child" 
+Note Olivier 26-04-2024: still unclear how that translate in `geoid_tr` and how do they deal when we move from two "parents" to one "child"
 :::
 
   - is a union of the set of blocks and/or block groups that are located within a specified geographical boundary (unsure about that do they start from block and build tract or tract and divide in block)
@@ -103,7 +103,7 @@ Note Olivier 26-04-2024: still unclear how that translate in `geoid_tr` and how 
 # Broadband related terminology
 
 ### A **Broadband Serviceable Location** (BSL) ...
-  - is “a business or residential location in the United States at which mass-market fixed broadband Internet access service is, or can be, installed.”[^bslsource]
+  - is "a business or residential location in the United States at which mass-market fixed broadband Internet access service is, or can be, installed."[^bslsource]
 
   [^bslsource]: source:  https://help.bdc.fcc.gov/hc/en-us/articles/16842264428059-About-the-Fabric-What-a-Broadband-Serviceable-Location-BSL-Is-and-Is-Not
 
@@ -114,7 +114,7 @@ Note Olivier 26-04-2024: still unclear how that translate in `geoid_tr` and how 
 ### The [National Broadband Map](https://broadbandmap.fcc.gov/) ...
 
   - is an ongoing initiative within the Federal Communications Commission
-  - provides information about the internet services available to individual locations across the country, along with new maps of mobile coverage, as reported by Internet Service Providers (ISPs) in the FCC’s ongoing Broadband Data Collection.
+  - provides information about the internet services available to individual locations across the country, along with new maps of mobile coverage, as reported by Internet Service Providers (ISPs) in the FCC's ongoing Broadband Data Collection.
 
 ### An **Internet Service Provider (ISP)** ...
 
@@ -160,3 +160,721 @@ Note Olivier 26-04-2024: still unclear how that translate in `geoid_tr` and how 
 > ~~Rural ...~~
 > "Rural" is an adjective for the purpose of this list; it should be applied to other terms (i.e. A Rural County ...)
 
+# Rural Classification Systems
+
+### A **Core-Based Statistical Area (CBSA)** ...
+
+  - is an OMB-designated geographic entity associated with at least one urban core with a population of at least 10,000, plus adjacent territory with a high degree of social and economic integration
+  - includes Metropolitan Statistical Areas (population ≥ 50,000) and Micropolitan Statistical Areas (population 10,000-49,999)
+  - is the official federal standard for rural-urban classification used by federal agencies since 2020
+  - is updated every 10 years following decennial census (most recent: 2020 CBSA delineations)
+  - can be used to classify [counties](#a-county) as metro (M1), micro (M2), or non-core/rural
+
+::: {.column-margin}
+CBSA definitions: https://www.census.gov/programs-surveys/metro-micro.html
+:::
+
+### A **Metropolitan Statistical Area (Metro)** ...
+
+  - is a [CBSA](#a-core-based-statistical-area-cbsa) with an urbanized area of 50,000 or more population
+  - contains at least one county with an urban core and adjacent counties with strong commuting ties
+  - is designated with LSAD code "M1" in Census geography files
+  - represents the most urbanized classification in the CBSA system
+  - is often used as the baseline for defining "non-rural" or "urban" in federal programs
+
+### A **Micropolitan Statistical Area (Micro)** ...
+
+  - is a [CBSA](#a-core-based-statistical-area-cbsa) with an urban cluster of 10,000 to 49,999 population
+  - represents small city/town economic centers with regional influence
+  - is designated with LSAD code "M2" in Census geography files
+  - is sometimes grouped with rural areas in analysis, sometimes with metropolitan areas depending on context
+  - has stronger economic ties to its urban core than surrounding non-core rural areas
+
+### **Rural-Urban Commuting Area (RUCA) Codes** ...
+
+  - are tract-level classifications developed by USDA Economic Research Service and WWAMI Rural Health Research Center[^ruca]
+  - use census tract population density, urbanization, and commuting patterns to classify areas on a 1-10 scale
+  - classify tracts as rural when RUCA code ≥ 4
+  - are most recently available based on 2010 census data (14+ years old as of 2024)
+  - provide more granular rural-urban distinctions than county-level classifications
+
+  [^ruca]: https://www.ers.usda.gov/data-products/rural-urban-commuting-area-codes/
+
+### **National Center for Health Statistics (NCHS) Urban-Rural Classification** ...
+
+  - is a county-level classification scheme developed by the CDC National Center for Health Statistics[^nchs]
+  - creates six categories ranging from large central metro (code 1) to non-core/rural (code 6)
+  - is specifically designed for health statistics analysis and disparity measurement
+  - is updated for each decennial census (1990, 2000, 2010, 2020)
+  - classifies counties as rural when NCHS code is 5 or 6
+
+  [^nchs]: https://www.cdc.gov/nchs/data_access/urban_rural.htm
+
+### **Rural-Urban Continuum Codes (RUCC)** ...
+
+  - are county-level classifications developed by USDA Economic Research Service[^rucc]
+  - distinguish metro counties by size (1-3) and non-metro counties by degree of urbanization and adjacency to metro areas (4-9)
+  - classify counties as rural when RUCC code ≥ 4
+  - provide 50+ years of historical data (available 1974-2023)
+  - are widely used for policy analysis and program eligibility determination
+
+  [^rucc]: https://www.ers.usda.gov/data-products/rural-urban-continuum-codes/
+
+### **Urban Influence Codes (UIC)** ...
+
+  - are county-level classifications developed by USDA Economic Research Service[^uic]
+  - measure economic and social integration with metro areas using commuting data and adjacency
+  - classify counties on a 1-12 scale based on metro adjacency and size of largest city
+  - classify counties as rural when UIC code > 6 (WARNING: 2013 edition uses > 7 threshold)
+  - emphasize the influence of larger cities on surrounding rural areas
+
+  [^uic]: https://www.ers.usda.gov/data-products/urban-influence-codes/
+
+::: {.column-margin}
+CRITICAL: UIC 2013 has different thresholds - code 7 is urban in 2013 but rural in other years
+:::
+
+### **CORI Rural Definition** ...
+
+  - is a tract-level hybrid classification system developed by the Center on Rural Innovation[^cori_rural]
+  - combines 2020 [RUCA](#rural-urban-commuting-area-ruca-codes) codes with 2020 [CBSA](#a-core-based-statistical-area-cbsa) metropolitan status
+  - classifies tracts as rural when they meet ANY of these criteria: (1) RUCA code ≥ 4, OR (2) located in micro or non-core county
+  - is CORI's recommended modern standard for tract-level rural classification
+  - provides more nuanced rural identification than CBSA alone by capturing rural tracts within metropolitan counties
+
+  [^cori_rural]: Available in ruraldefinitions R package: https://github.com/ruralinnovation/ruraldefinitions
+
+### A **Non-Metro County** ...
+
+  - is a [county](#a-county) that is not part of a [Metropolitan Statistical Area](#a-metropolitan-statistical-area-metro)
+  - includes both [Micropolitan](#a-micropolitan-statistical-area-micro) counties and non-core counties
+  - is the simplest binary rural-urban classification based on [CBSA](#a-core-based-statistical-area-cbsa) designations
+  - represents approximately 2,000 of the 3,200 U.S. counties
+  - is often used synonymously with "rural county" in federal policy and research
+
+### A **Metro-Adjacent County** ...
+
+  - is a non-metro [county](#a-county) that shares a border with at least one [metropolitan](#a-metropolitan-statistical-area-metro) county
+  - experiences economic and social influence from nearby metropolitan areas through commuting and service access
+  - is distinguished from non-adjacent rural counties in [RUCC](#rural-urban-continuum-codes-rucc) and [UIC](#urban-influence-codes-uic) classifications
+  - typically has better economic outcomes than more remote rural counties
+  - represents an intermediate category between urban and deeply rural
+
+# Economic Development Metrics
+
+### **Employment-to-Population Ratio** ...
+
+  - is the percentage of the total population that is employed
+  - is calculated as (total employment / total population) × 100
+  - is used as a labor force participation metric in economic capacity analysis
+  - differs from unemployment rate by including individuals not actively seeking work
+  - is sourced from [BEA](#the-bureau-of-economic-analysis-bea) regional economic accounts or [ACS](#the-american-community-survey-acs)
+
+### **Real GDP per Worker** ...
+
+  - is a productivity measure calculated as inflation-adjusted Gross Domestic Product divided by total employment
+  - is expressed in chained dollars (typically 2017 base year) to account for inflation
+  - measures economic output per worker in a geography
+  - is sourced from [BEA](#the-bureau-of-economic-analysis-bea) regional accounts (CAGDP1 table)
+  - is used to compare productivity across counties and identify high-value economic activity
+
+### **Average Compensation per Job** ...
+
+  - is the mean employee compensation including wages, salaries, and benefits
+  - is calculated from [BEA](#the-bureau-of-economic-analysis-bea) CAINC6N table (Compensation of employees by industry)
+  - includes both direct wages and employer-provided benefits (health insurance, retirement contributions)
+  - is distinct from median household income by focusing on per-job rather than per-household measures
+  - is used to assess job quality and compare wage levels across regions
+
+### **Establishment Growth Rate** ...
+
+  - is the percentage change in the count of business establishments over a specified period
+  - is calculated as ((establishments_end - establishments_start) / establishments_start) × 100
+  - is sourced from Census [Business Dynamics Statistics](#business-dynamics-statistics-bds)
+  - is used to measure entrepreneurial activity and business formation trends
+  - can be segmented by firm age, size, and industry sector
+
+### **Business Application** ...
+
+  - is an application for an Employer Identification Number (EIN) filed with the IRS
+  - serves as an early indicator of new business formation before a business begins operations
+  - is tracked by Census [Business Formation Statistics](#business-formation-statistics-bfs) at county level
+  - excludes applications for tax liens, estates, trusts, and certain agricultural/public administration sectors
+  - is counted annually and used to measure entrepreneurial intent and startup pipeline strength
+
+### **Proprietor Employment** ...
+
+  - is the count of self-employed individuals and business owners in a geography
+  - includes both unincorporated self-employed individuals and partners in partnerships
+  - is sourced from [BEA](#the-bureau-of-economic-analysis-bea) CAEMP25N table (Total full-time and part-time employment)
+  - is used as a proxy for entrepreneurship and small business activity
+  - can be expressed as a percentage of total employment (proprietor employment rate)
+
+### **Tech Employment** ...
+
+  - is employment in computer and mathematical occupations as defined by [SOC](#standard-occupational-classification-soc) codes
+  - is measured as a percentage of total employment (tech employment share)
+  - includes software developers, data scientists, computer systems analysts, and mathematicians
+  - is sourced from [ACS](#the-american-community-survey-acs) occupation tables (C24010)
+  - is used to assess digital economy workforce capacity and tech ecosystem strength
+
+### **Tradable Services Employment** ...
+
+  - is employment in service sectors that can be exported or consumed remotely
+  - includes information, finance, professional/scientific/technical services sectors
+  - is measured as a share of total employment
+  - is sourced from [BEA](#the-bureau-of-economic-analysis-bea) employment by industry data
+  - represents economic base activities that bring external revenue into a region
+
+### **Remote Work Prevalence** ...
+
+  - is the percentage of workers who work primarily from home
+  - is calculated from [ACS](#the-american-community-survey-acs) commuting data (B08006 - means of transportation to work)
+  - has increased significantly since 2020 due to COVID-19 pandemic
+  - is used to assess digital economy participation and broadband dependency
+  - is a key indicator of tech-enabled economic activity in rural areas
+
+### **Broadband Adoption Rate** ...
+
+  - is the percentage of households with any type of broadband internet subscription
+  - includes cable, fiber, DSL, satellite, and mobile broadband subscriptions
+  - is sourced from [ACS](#the-american-community-survey-acs) computer and internet tables (B28002)
+  - differs from broadband availability (infrastructure) by measuring actual household subscription
+  - is used to assess digital divide and readiness for remote work and online services
+
+### **Fiber Coverage** ...
+
+  - is the percentage of [Broadband Serviceable Locations](#a-broadband-serviceable-location-bsl) with fiber-optic broadband available
+  - represents the highest-speed broadband technology available to households
+  - is sourced from [FCC National Broadband Map](#the-national-broadband-map)
+  - is measured at county, state, and national aggregation levels
+  - is considered the gold standard for broadband infrastructure quality
+
+### **Gini Index** ...
+
+  - is a measure of income inequality ranging from 0 (perfect equality) to 1 (maximum inequality)
+  - is calculated from household income distributions in [ACS](#the-american-community-survey-acs) table B19083
+  - values closer to 0 indicate more equitable income distribution
+  - is used to assess economic equity and income concentration
+  - can be compared across geographies and over time to track inequality trends
+
+### **Location Quotient (LQ)** ...
+
+  - is a ratio comparing a region's share of a particular industry to the national share of that industry
+  - is calculated as: (regional industry employment / regional total employment) / (national industry employment / national total employment)
+  - values > 1 indicate regional specialization or concentration in that industry
+  - values < 1 indicate under-representation of that industry
+  - is used to identify regional economic strengths and cluster industries
+
+# Venture Capital & Entrepreneurship
+
+### **Venture Capital (VC)** ...
+
+  - is private equity financing provided to startup companies and small businesses with high growth potential
+  - is tracked through [SEC Form D](#sec-form-d) filings and commercial databases like [Crunchbase](#crunchbase)
+  - is measured by total funding amount, number of funding rounds, or number of VC-backed companies
+  - is highly concentrated in metropolitan areas, creating rural-urban capital access disparities
+  - can be normalized per capita or per establishment for geographic comparison
+
+### **SEC Form D** ...
+
+  - is a regulatory filing required when companies raise capital through private securities offerings[^formd]
+  - includes issuer information (company name, location, incorporation date), offering details (amount raised, security type), and related persons
+  - is publicly available from the U.S. Securities and Exchange Commission
+  - covers 2010-present for longitudinal analysis
+  - is used to track venture capital activity, private investment flows, and startup financing at county level
+
+  [^formd]: https://www.sec.gov/data-research/sec-markets-data/form-d-data-sets
+
+### **Crunchbase** ...
+
+  - is a commercial database of companies, investments, acquisitions, and key personnel[^crunchbase]
+  - includes self-reported company profiles and investor-reported portfolio updates
+  - covers companies founded since 2015 in technology-related industries
+  - has a 1,000-company export limit per query, requiring multiple filtered downloads for large states
+  - is used to supplement [Form D](#sec-form-d) data for comprehensive VC activity tracking
+
+  [^crunchbase]: https://www.crunchbase.com
+
+### **Funding Round** ...
+
+  - is a discrete event in which a company raises capital from investors
+  - is categorized by stage: Seed, Early Stage Venture, Late Stage Venture, Private Equity
+  - is measured by funding amount and date
+  - can occur multiple times for a single company as it grows
+  - is tracked in both [Crunchbase](#crunchbase) and [Form D](#sec-form-d) data
+
+### **Startup** ...
+
+  - is a young, scalable company in the [Form D](#sec-form-d) database that meets criteria: founded ≥ 2018 AND total capital raised > $0
+  - is distinct from all new businesses by emphasizing growth potential and capital raise
+  - is more prevalent in metro areas with venture capital access
+  - can be categorized as tech startup when in computer/tech industries
+  - is used to measure entrepreneurial ecosystem vitality and innovation pipeline
+
+### **Venture Density** ...
+
+  - is the count of venture capital firms or VC-backed companies per capita or per square mile
+  - is sourced from GoDaddy Venture Forward data[^ventureforward]
+  - measures concentration of entrepreneurial capital and startup activity
+  - is used to compare entrepreneurial ecosystem strength across geographies
+  - shows significant rural-urban disparities with metros having 10-100x higher density
+
+  [^ventureforward]: https://www.godaddy.com/ventureforward/
+
+### **Young Firm Employment** ...
+
+  - is employment in businesses aged 2-5 years old
+  - is sourced from Census [Business Dynamics Statistics](#business-dynamics-statistics-bds)
+  - captures the job creation contribution of early-stage, post-startup companies
+  - indicates regional capacity to scale new businesses beyond the startup phase
+  - is used to assess entrepreneurial ecosystem maturity and growth
+
+### **Patent Count** ...
+
+  - is the number of utility patents assigned to entities (individuals, companies, institutions) in a geography
+  - is sourced from USPTO PatentsView database[^patentsview]
+  - is used as a proxy for innovation activity and inventive capacity
+  - is highly concentrated in metro areas with research institutions and technology companies
+  - can be normalized per capita or per establishment for regional comparison
+
+  [^patentsview]: https://patentsview.org
+
+### **Entrepreneurship Index** ...
+
+  - is a composite score combining multiple indicators of entrepreneurial ecosystem strength
+  - typically includes metrics such as: business formation rate, [venture density](#venture-density), [young firm employment](#young-firm-employment), [patent counts](#patent-count), self-employment rate
+  - is calculated using [Principal Component Analysis](#principal-component-analysis-pca) or weighted aggregation methods
+  - is often presented as percentiles or deciles for accessibility
+  - is used to compare counties and identify high-potential entrepreneurial communities
+
+# Quality of Life & Amenity Metrics
+
+### **Quality of Life (QoL)** ...
+
+  - is a measure of the perceived satisfaction and well-being derived from surrounding conditions in a geographic location
+  - is calculated using hedonic pricing methodology that extracts residuals from housing price regressions[^qol_method]
+  - is measured at [county](#a-county) level using census housing and demographic data
+  - can be expressed as base QoL (simple price~income model) or detailed QoL (controlling for housing characteristics, demographics, amenities)
+  - represents location-specific factors affecting housing values independent of income
+
+  [^qol_method]: Based on Carruthers & Mulligan (2006) hedonic pricing framework
+
+### **Hedonic Pricing** ...
+
+  - is an economic method that decomposes the price of a good into the values of its constituent characteristics
+  - is applied to housing markets to isolate the implicit value of location amenities
+  - uses regression models: ln(housing price) ~ ln(income) + housing controls + demographic controls + amenity controls
+  - produces residuals that represent location-specific quality of life effects
+  - is the theoretical foundation for [QoL](#quality-of-life-qol) measurement
+
+### **Natural Amenities Scale** ...
+
+  - is a county-level index of physical and environmental features that enhance location appeal[^natamen]
+  - includes six dimensions: temperature (weather amenity), elevation/topography, water resources (lakes, coastal access), forest coverage, parks/recreation areas
+  - is scored on a 1-8 scale (1=lowest amenities, 8=highest amenities)
+  - is developed and maintained by USDA Economic Research Service
+  - explains 39-43% of housing price variation and 20-23% of wage variation in hedonic models
+
+  [^natamen]: https://www.ers.usda.gov/data-products/natural-amenities-scale/
+
+### **Housing Unit Age** ...
+
+  - is the time since construction of residential structures
+  - is measured in cohorts: 10-year old, 20-year old, 30-year old, 40-year old, older than 45 years
+  - is sourced from [ACS](#the-american-community-survey-acs) housing tables (DP04 - year built)
+  - is used as a control variable in [QoL](#quality-of-life-qol) models (newer stock typically valued higher)
+  - can indicate housing market dynamics and investment patterns
+
+### **Cost-Burdened Households** ...
+
+  - are households spending 30% or more of income on housing costs (rent or mortgage)
+  - are measured separately for renters and owners
+  - are sourced from [ACS](#the-american-community-survey-acs) housing cost burden tables (B25106)
+  - indicate housing affordability challenges and economic stress
+  - are tracked in the [Rural Economic Development Tool](#rural-economic-development-tool-erc) as equity indicators
+
+### **Vacancy Rate** ...
+
+  - is the proportion of housing units that are unoccupied
+  - is calculated as (vacant housing units / total housing units) × 100
+  - is sourced from [ACS](#the-american-community-survey-acs) housing tables
+  - indicates housing market tightness (low vacancy = tight market) or decline (high vacancy = shrinking demand)
+  - is used as a control variable in [QoL](#quality-of-life-qol) detailed models
+
+# Data Sources & Authorities
+
+### The **Bureau of Economic Analysis (BEA)** ...
+
+  - is an agency within the U.S. Department of Commerce that produces economic statistics[^bea]
+  - provides county, state, and national economic data through regional accounts
+  - publishes tables including CAEMP25N (employment by industry), CAINC1 (personal income), CAINC6N (compensation), CAGDP1 (GDP by county)
+  - is the authoritative source for GDP, personal income, and employment statistics
+  - releases data annually with typical 6-12 month lag
+
+  [^bea]: https://www.bea.gov
+
+### **Business Dynamics Statistics (BDS)** ...
+
+  - is a Census Bureau data product tracking business establishment and employment dynamics[^bds]
+  - provides annual data on establishment counts, firm counts, job creation, job destruction by county, metro, state
+  - covers 1978-present with 2-year publication lag (e.g., 2022 data published September 2024)
+  - handles county boundary changes by redistributing all historical data to current boundaries
+  - is the authoritative source for longitudinal business formation and exit analysis
+
+  [^bds]: https://www.census.gov/data/datasets/time-series/econ/bds/bds-datasets.html
+
+### **Business Formation Statistics (BFS)** ...
+
+  - is a Census Bureau data product tracking business applications (EIN filings)[^bfs]
+  - provides monthly and annual counts of business applications at county, state, and national levels
+  - covers 2005-present with 6-month publication lag
+  - excludes applications for tax liens, estates, trusts, and certain industries
+  - is used as a leading indicator of entrepreneurial activity before businesses begin operations
+
+  [^bfs]: https://www.census.gov/econ/bfs/data.html
+
+### **Federal Housing Finance Agency (FHFA) House Price Index** ...
+
+  - is a quarterly and annual measure of housing price changes at national, state, metro, and county levels[^fhfa]
+  - is based on repeat sales of single-family homes with mortgages purchased or securitized by Fannie Mae or Freddie Mac
+  - covers 1980-present with minimal lag
+  - is normalized to 100 in baseline year (1990, 2000, or current depending on index variant)
+  - is used to adjust [QoL](#quality-of-life-qol) estimates for housing price volatility over time
+
+  [^fhfa]: https://www.fhfa.gov/data/hpi
+
+### **PatentsView** ...
+
+  - is a USPTO-sponsored platform providing patent data with enhanced assignee disambiguation and location coding[^patentsview_data]
+  - includes utility patents (not design patents or trademarks) with assignee location at time of patent grant
+  - covers 1976-present with regular updates
+  - provides county-level geographic coding through inventor and assignee addresses
+  - is used to measure innovation activity and inventive capacity
+
+  [^patentsview_data]: https://patentsview.org
+
+### **IPUMS NHGIS** ...
+
+  - is the National Historical Geographic Information System maintained by IPUMS (Integrated Public Use Microdata Series)[^nhgis]
+  - provides harmonized census data from 1790-present with consistent geographic boundaries
+  - includes decennial census tables with county, tract, and block group data
+  - requires API key for programmatic access (ipumsr R package)
+  - is used for historical demographic and housing analysis (pre-2010 data)
+
+  [^nhgis]: https://www.nhgis.org
+
+# Methodologies & Technical Concepts
+
+### **Tidy Data Format** ...
+
+  - is a standardized data structure where each row represents a single observation and each column represents a variable
+  - is the canonical format used across CORI data pipelines: (geoid, year, variable, value, agg_var)
+  - enables consistent data integration from heterogeneous sources
+  - follows principles from Hadley Wickham's tidy data framework
+  - is stored in database tables with `_tidy` suffix (e.g., acs_tidy, bea_tidy, bds_tidy)
+
+### **Square-Up** ...
+
+  - is a data operation that creates a complete matrix of geoid × year × variable combinations
+  - ensures every geographic unit is represented for every year regardless of data availability
+  - uses outer joins and cross-product operations to fill the data grid
+  - is applied in data assembly pipelines before visualization
+  - handles missing data explicitly with NA values rather than omitting rows
+
+### **Aggregation Method** ...
+
+  - is a specification for how county-level data should be combined to state or regional levels
+  - includes three primary methods: sum (for counts), weighted (for rates/percentages using population weights), mean (for indices)
+  - is stored in metadata alongside metrics to ensure correct aggregation
+  - is critical for maintaining statistical validity when moving between geographic scales
+  - is documented in the `agg_var` field of [tidy format](#tidy-data-format) tables
+
+### **Principal Component Analysis (PCA)** ...
+
+  - is a dimensionality reduction technique that combines multiple correlated variables into uncorrelated components
+  - is used to create composite indices like [Entrepreneurship Index](#entrepreneurship-index) from multiple indicators
+  - identifies the linear combination of variables that explain the most variance
+  - can use robust methods (Hubert's method) to reduce sensitivity to outliers
+  - produces component scores that can be transformed to percentiles or deciles for accessibility
+
+### **Panel Data** ...
+
+  - is a dataset structure combining cross-sectional and time-series dimensions (geography × year)
+  - enables analysis of both geographic variation and temporal trends
+  - is the primary structure for longitudinal economic analysis
+  - can use fixed effects models to control for unobserved time-invariant characteristics
+  - is stored in long format (one row per geography-year-variable observation) or wide format (year as columns)
+
+### **Fixed Effects Regression** ...
+
+  - is a panel data regression technique that controls for unobserved heterogeneity across geographic units
+  - removes time-invariant confounders by including entity-specific intercepts
+  - is used in [Broadband Connectivity Report](#beyond-connectivity-report) to estimate broadband adoption effects on employment and establishment growth
+  - requires panel data with multiple time periods per geographic unit
+  - produces unbiased estimates of within-unit changes over time
+
+### **Residual** ...
+
+  - is the difference between an observed value and the value predicted by a statistical model
+  - is calculated as: residual = observed - predicted
+  - is used in [hedonic pricing](#hedonic-pricing) to extract location-specific [QoL](#quality-of-life-qol) effects
+  - can reveal patterns not captured by model covariates
+  - is the basis for [Quality of Life](#quality-of-life-qol) measurement
+
+### **Targets Pipeline** ...
+
+  - is a make-like pipeline tool for R that manages dependencies between analysis steps[^targets]
+  - tracks which computations are out of date and need to be re-run
+  - caches results to avoid redundant computation
+  - is used in [data.quality.of.life](#quality-of-life-qol) repository for reproducible QoL calculation
+  - integrates with AWS S3 for persistent storage of intermediate results
+
+  [^targets]: https://docs.ropensci.org/targets/
+
+### **Interpolation** ...
+
+  - is a method for estimating values between known data points
+  - is used to fill gaps between census years (e.g., estimating 1985 QoL from 1980 and 1990 observations)
+  - typically uses linear interpolation (zoo::na.approx in R) for temporal gaps
+  - can be weighted by external indicators (e.g., [HPI](#federal-housing-finance-agency-fhfa-house-price-index) volatility) for improved estimates
+  - is applied in [QoL](#quality-of-life-qol) time-series to create annual estimates from decennial snapshots
+
+# CORI Tools & Applications
+
+### **Rural Economic Development Tool (ERC)** ...
+
+  - is CORI's flagship economic data visualization tool for exploring county-level economic indicators[^erc_tool]
+  - integrates 12 data sources (ACS, BEA, BDS, BFS, BPS, FCC, Form D, PatentsView, Pitchbook, FHFA, BLS, QoL)
+  - provides 31 primary metrics across 5 categories: Workforce, Entrepreneurship, Infrastructure, Demographics, Quality of Life
+  - uses JSON files deployed to AWS S3 for frontend data delivery
+  - is publicly accessible and used by economic developers, researchers, and policymakers
+
+  [^erc_tool]: https://rural-economic-development-dashboard.ruralinnovation.us/
+
+### The **Targets Pipeline** ...
+
+  - see [Targets Pipeline](#targets-pipeline) above
+
+### A **Codebook** ...
+
+  - is a metadata file that documents variable names, labels, data types, sources, and measurement units
+  - includes three primary types in CORI workflows: Metrics Codebook (chart specifications), Variables Codebook (variable definitions), Key Stats Codebook (summary statistic specifications)
+  - is typically stored as Google Sheets or CSV files for collaborative editing
+  - is joined with assembled data to add human-readable labels and formatting specifications
+  - is the single source of truth for how metrics should be displayed and interpreted
+
+### A **GEOID** ...
+
+  - is a geographic identifier (Federal Information Processing Standard code) uniquely identifying a census geography
+  - uses hierarchical structure: 2-digit state FIPS + 3-digit county FIPS = 5-digit county GEOID
+  - can extend to tract (11 digits) or block (15 digits) level
+  - is the standard key for joining geographic data across datasets
+  - is stored as character/string (not numeric) to preserve leading zeros
+
+### **proj_erc Schema** ...
+
+  - is the PostgreSQL database schema containing tables for the [Rural Economic Development Tool](#rural-economic-development-tool-erc)
+  - includes source tables (acs_tidy, bea_tidy, bds_tidy, etc.) and assembled table (erc_data_tidy)
+  - uses standardized [tidy format](#tidy-data-format) across all source tables
+  - is the staging area for data before JSON export to S3
+  - supports over 3,100 counties × 6-14 years × 31 metrics = ~1.5 million observations
+
+# Rural Innovation Network
+
+### **Rural Innovation Network (RIN)** ...
+
+  - is CORI's membership network of rural communities committed to expanding tech-based economic opportunity[^rin]
+  - includes communities paying annual dues for access to CORI programs, tools, and expertise
+  - is the target audience for [Rural Insights Hub](#rural-insights-hub) pilot deployment
+  - provides collective learning opportunities and peer connections
+  - is a revenue model supporting CORI's organizational sustainability
+
+  [^rin]: https://ruralinnovation.us/rural-innovation-network/
+
+### **Rural Innovation Initiative (RII)** ...
+
+  - is an EDA-funded program targeting rural economic development through tech ecosystem building
+  - tracks applicant and participant status by cohort (2019-present)
+  - is used as a filtering criterion in economic development analysis to identify communities engaged in tech-focused growth strategies
+  - provides technical assistance and capacity building to rural communities
+  - is distinct from but related to [Rural Innovation Network](#rural-innovation-network-rin) (RII is government-funded program, RIN is membership network)
+
+### **Build to Scale (B2S)** ...
+
+  - is an EDA grant program recognizing and supporting innovation ecosystems through Capital Challenge and Venture Challenge awards[^b2s]
+  - tracks awardee locations (2014-present) at place and county levels
+  - is used to identify successful rural entrepreneurial ecosystems
+  - includes multiple award categories with different funding amounts and purposes
+  - is analyzed in [who-wins-b2s](#build-to-scale-winners-analysis) repository to understand rural "winning" community characteristics
+
+  [^b2s]: https://www.eda.gov/funding/programs/build-to-scale
+
+### **Tech-Based Ecosystem** ...
+
+  - is the coalescence of tech jobs (computer and math occupations), tech entrepreneurs, high-tech businesses, higher education institutions, and capital (venture or community capital)
+  - drives innovation, job growth, and economic resilience
+  - is CORI's conceptual framework for rural economic development
+  - requires multiple interconnected components to function: talent, capital, infrastructure, entrepreneurial culture
+  - is the theoretical foundation for CORI's programmatic work
+
+### **Digital Economy Ecosystem Report (DEER)** ...
+
+  - was CORI's original customized community assessment product before tool automation
+  - combined data from multiple federal sources into visual stories presented to community leaders
+  - was time-intensive and built one-at-a-time for each community
+  - evolved into Digital Economy Diagnostic (DED) Shiny app, then [Rural Economic Development Tool](#rural-economic-development-tool-erc)
+  - serves as the knowledge base for interpreting economic data in rural contexts
+
+### **Economic Recovery Corps (ERC)** ...
+
+  - is an IEDC-hosted program with CORI as partner, placing fellows in rural communities[^erc_program]
+  - provides fellows access to CORI's [Rural Economic Development Tool](#rural-economic-development-tool-erc) for generating presentations, reports, and grant applications
+  - supports rural economic recovery and development post-COVID-19
+  - is a use case demonstrating the value of data tools for resource-constrained communities
+  - contributes to word-of-mouth adoption and tool refinement through fellow feedback
+
+  [^erc_program]: https://www.iedconline.org/pages/erc_preview/
+
+### **Rural Insights Hub** ...
+
+  - is CORI's planned agentic AI system for conversational economic data exploration
+  - uses [AWS Bedrock](#aws-bedrock) infrastructure with LangChain-style orchestration
+  - provides natural language interface for querying CORI's curated datasets and institutional knowledge
+  - enables users to "pin" insights and generate branded reports/presentations
+  - will be piloted with [Rural Innovation Network](#rural-innovation-network-rin) communities before broader release
+
+# Technical Infrastructure
+
+### **AWS Bedrock** ...
+
+  - is Amazon Web Services' managed service for building generative AI applications[^bedrock]
+  - provides access to foundation models (Claude, etc.) through a unified API
+  - includes built-in guardrails and knowledge base features for grounding responses in curated data
+  - is the planned infrastructure for [Rural Insights Hub](#rural-insights-hub) agentic AI
+  - supports structured outputs and conversational interfaces
+
+  [^bedrock]: https://aws.amazon.com/bedrock/
+
+### **PostgreSQL RDS** ...
+
+  - is Amazon Relational Database Service running PostgreSQL database engine
+  - hosts CORI's data schemas (proj_erc, venture_capital, proj_qol, etc.)
+  - supports multi-instance pattern: api-prod, api-dev, data-prod, data for different use cases
+  - uses role-based access control for security
+  - is accessed via cori.db R package for database connections
+
+### **AWS S3** ...
+
+  - is Amazon Simple Storage Service used for object storage
+  - stores JSON data files for frontend tools (data/s3/ directories)
+  - provides low-cost, highly available storage for static assets
+  - uses bucket organization with prefixes for staging: dev/, test/, prod/
+  - is the delivery mechanism for [Rural Economic Development Tool](#rural-economic-development-tool-erc) and [1050 Forward Data Engine](#1050-forward)
+
+### A **Vector Database** ...
+
+  - is a database optimized for storing and querying high-dimensional vector embeddings
+  - is planned using AWS OpenSearch for [Rural Insights Hub](#rural-insights-hub) knowledge base
+  - enables semantic search over CORI reports, blog articles, DEER assessments, and research findings
+  - converts text into embeddings (vector representations) for similarity search
+  - supports Retrieval-Augmented Generation (RAG) patterns for grounding LLM responses
+
+### **Agentic Logic** ...
+
+  - is a structured, reasoning-based approach where AI agents plan, retrieve, analyze, and synthesize data on behalf of the user
+  - differs from simple chatbots by decomposing goals into steps and executing multi-step workflows
+  - is the architectural pattern for [Rural Insights Hub](#rural-insights-hub)
+  - includes specialized agents for different tasks: data retrieval, analysis, report generation
+  - uses orchestration layers to coordinate agent interactions
+
+### **coriverse** ...
+
+  - is CORI's internal R package ecosystem providing utility functions for data operations[^coriverse]
+  - includes functions for database connections, data transformation, geographic operations
+  - ensures consistent coding patterns across projects
+  - is a dependency for most CORI R-based analysis repositories
+  - is maintained on CORI's GitHub organization
+
+  [^coriverse]: https://github.com/ruralinnovation/coriverse
+
+### **cori.db** ...
+
+  - is CORI's R package for database connectivity and schema management
+  - provides `connect_to_db(schema_name)` function for PostgreSQL connections
+  - handles authentication and connection pooling
+  - is used across all projects requiring database access
+  - simplifies multi-schema database architecture
+
+# Research & Analysis Concepts
+
+### **Distress Indicator** ...
+
+  - is a binary flag identifying economically distressed counties based on unemployment and income thresholds
+  - uses criteria: county is distressed if unemployment rate > national rate + 1% OR per capita personal income < 80% of national PCPI
+  - is calculated from Stats America data (24-month unemployment rates, PCPI)
+  - is used to target economic development programs and assess policy intervention need
+  - can be combined with rural classification to identify rural distress specifically
+
+### **Propensity Score Matching** ...
+
+  - is a statistical technique for creating comparable control groups in observational studies
+  - matches treated units (e.g., [B2S](#build-to-scale-b2s) award recipients) with similar untreated units based on pre-treatment characteristics
+  - reduces selection bias in program evaluation
+  - is used in [who-wins-b2s](#build-to-scale-winners-analysis) to compare B2S winners with similar non-recipient communities
+  - enables causal inference in non-experimental settings
+
+
+### **Rurality Analysis** ...
+
+  - is comparative analysis examining differences between rural and urban/metro areas across economic, demographic, and infrastructure dimensions
+  - uses one of seven [rural classification systems](#rural-classification-systems) depending on research question and geographic scale
+  - can stratify analysis by rurality (separate models for rural vs. non-rural) or include rurality as a control variable
+  - is CORI's core analytical focus across all projects
+  - often reveals disparities in capital access, infrastructure, economic opportunity
+
+### **Standard Occupational Classification (SOC)** ...
+
+  - is a federal statistical standard for classifying workers into occupational categories[^soc]
+  - uses hierarchical 2-6 digit codes (e.g., 15-0000 = Computer and Mathematical Occupations)
+  - is used in [ACS](#the-american-community-survey-acs) occupation tables and Lightcast job data
+  - enables consistent occupation coding across data sources
+  - is the basis for identifying [tech employment](#tech-employment) and tech-adjacent occupations
+
+  [^soc]: https://www.bls.gov/soc/
+
+### **NAICS Code** ...
+
+  - is the North American Industry Classification System code for categorizing business establishments[^naics]
+  - uses hierarchical 2-6 digit codes (e.g., 5112 = Software Publishers)
+  - is used in [BDS](#business-dynamics-statistics-bds), [BEA](#the-bureau-of-economic-analysis-bea), and [Form D](#sec-form-d) for industry classification
+  - enables industry-specific analysis and [location quotient](#location-quotient-lq) calculations
+  - is distinct from [SOC](#standard-occupational-classification-soc) which classifies occupations not industries
+
+  [^naics]: https://www.census.gov/naics/
+
+# Additional Geographic Concepts
+
+### **Place** ...
+
+  - is a census-designated concentration of population identified by name (city, town, village)
+  - can be incorporated (legally established) or unincorporated (census-designated place)
+  - is smaller than [county](#a-county) but can span county boundaries
+  - is used in [B2S](#build-to-scale-b2s) awards tracking and feasibility studies
+  - is identified by 7-digit GEOID (2-digit state + 5-digit place code)
+
+### **Drive-Time Accessibility** ...
+
+  - is a measure of how many resources (e.g., higher education institutions) are reachable within specified travel time thresholds
+  - typically uses 30, 45, 60, 90-minute drive-time buffers
+  - is calculated using road network data and assumes average travel speeds
+  - is used to assess access to educational assets, healthcare, and other services
+  - is more accurate than straight-line distance for rural areas with limited road networks
+
+### **Census Designated Place (CDP)** ...
+
+  - is a concentration of population identified by name for statistical purposes
+  - has no legal boundaries or government
+  - is used to provide data for unincorporated communities
+  - is updated each decennial census based on local input
+  - is a type of [Place](#place) but specifically for unincorporated areas
